@@ -1,0 +1,13 @@
+body{
+    background-image: url(../Images/pexels-craig-adderley-1467564.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    
+}
+  
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+  

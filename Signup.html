@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/signup.css">
+</head>
+<body >
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+    
+  </style>
+  <header>
+    <!-- nar bar -->
+    <nav class="navbar navbar-expand-lg navbar-light  bg-light col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="Images/unibooks copy.png" alt="" width="50" height="50" class="d-inline-block ">
+                UniBooks
+              </a>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  My Profile
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Assigments</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+  </header>
+    
+        <div class="container mt-5 w-50 form-control">
+          <div class="">
+              <div class="card-body">
+                  <div class="card-title text-center">
+                      <h1>Create a UniBook account </h1>
+                  </div>
+                  <div class="first">
+                      <label for=""></label>
+                      <input type="firstname" class="form-control" placeholder="first name">
+                      <small class="text-danger ">Your names will appear on your certificate as supplied</small>
+                  </div>
+                  <div class="last">
+                      <label for=""></label>
+                      <input type="lastname" class="form-control" placeholder="last name">
+                      
+                  </div> 
+                  <div class="first">
+                      <label for=""></label>
+                      <input type="tel" class="form-control" placeholder="phone eg.08079730127">
+                      
+                  </div>
+                  <div class="level">
+                      <label for=""></label>
+                      <input type="text" class="form-control" placeholder="Current Level">
+                      
+                  </div>
+                  <div class="faculty">
+                      <label for=""></label>
+                      <input type="text" class="form-control" placeholder="faculty">
+                      
+                  </div>
+                  <div class="Department">
+                      <label for=""></label>
+                      <input type="tel" class="form-control" placeholder="Department">
+                      
+                  </div>
+                  <div class="course">
+                      <label for=""></label>
+                      <input type="tel" class="form-control" placeholder="Course of Study">
+
+                  <div class="School mt-3"> 
+                      <select class="form-select form-select-md" aria-label=".form-select-mg example">
+                      <option selected> Select Your School of Study</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                      <option value="3"></option>
+                    </select>
+                  </div>
+                  <div class="gender mt-4">Gender
+                      <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Male
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                      <label class="form-check-label" for="flexRadioDefault2">
+                          Female
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                      <label class="form-check-label" for="flexRadioDefault2">
+                          Non-binary
+                      </label>
+                    </div>
+                  </div>
+                  
+                
+                  <div class="email">
+                      <label for=""></label>
+                      <input type="email" class="form-control" placeholder="valid email">
+                  </div>
+                  <div class="password">
+                      <label class="mt-3" for="">Create Password: 8 characters minimum</label>
+                      <input type="password" class="form-control" placeholder="create a password ">
+                  </div>
+                  <div class="confirm">
+                      <label for=""></label>
+                      <input type="password" class="form-control" placeholder="confirm password">
+                  </div>
+                  <div class="mt-4">
+                      <label for="">Date of birth</label>
+                      <input type="date" class="form-control" placeholder="">
+                  </div>
+                  <div class="School/University">
+                      <label for=""></label>
+                      <input type="address" class="form-control" placeholder="Address">
+                  </div>
+                  <div class="referral">
+                      <label for=""></label>
+                      <input type="referral" class="form-control" placeholder="How did you hear about us?">
+                  </div>
+                <div class="mt-5"> 
+                    <a class="btn btn-danger btn-lg w-100" href="#">Submit</a></div>
+                  <smalL class="text-center">By contiuning you confirm that you agree to the terms of use and confirm that you have read the <a href="#">privacy policy</a> </smalL>
+              </div>
+              </div>
+          </div>
+      </div>
+
+
+    </div>
+    <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
+    <script src="CSS/bootstrap.bundle.min.js"></script>
+</body>
+              <!-- footer -->
+
+    
+
+    <div class="container-fluid bg-light ">
+      <footer class="py-3 my-4 ">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">&copy; 2022 Testech, Ltd</p>
+      </footer>
+</html>

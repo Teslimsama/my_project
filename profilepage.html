@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="assets/css/nucleo-icons.css">
     <link href="dashboard.css" rel="stylesheet">
 </head>
-<body>
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+<body class="g-sidenav-show bg-gray-200">
+  <div class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
@@ -74,7 +74,7 @@
         <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
       </div>
     </div>
-  </aside>
+  </div>
   <div class="main-content position-relative max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -545,7 +545,7 @@
         </div>
         <div class="float-end mt-4">
           <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="material-icons">clear</i>
+            <i class="material-icons">X</i>
           </button>
         </div>
         <!-- End Toggle Button -->
@@ -607,6 +607,19 @@
       </div>
     </div>
   </div>
+     
+
+  <div class="container-fluid bg-light ">
+    <footer class="py-3 my-4 ">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      </ul>
+      <p class="text-center text-muted">&copy; 2022 Testech, Ltd</p>
+    </footer>
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap.min.js"></script>
@@ -625,7 +638,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
-</body>
+
       <!-- <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script> -->
       <!-- <script src="CSS/bootstrap.bundle.min.js"></script><script src="dashboard.js"></script> -->
 </body>

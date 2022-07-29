@@ -8,7 +8,7 @@
     <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" >
 </head>
 <body>
-    <style>
+     <style>
         .container {
           position: relative;
           width: 50%;
@@ -78,6 +78,64 @@
           <div class="middl">
             <div class="text"><button class=" btn btn-danger">P</button></div>
           </div>
+        </div> 
+        <style>
+
+          *{
+            box-sizing: border-box;
+            margin: 0%;
+            padding: 0%;
+          }
+          .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .container:hover{
+            cursor: pointer;
+          }
+          .container img{
+            filter: grayscale();
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 6px solid whitesmoke;
+            box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+            transition: filter 0.4s ease-in-out;
+          }
+          .title{
+            font-family: helvetica,cursive;
+            font-size: 3rem;
+            color: whitesmoke;
+            position: relative;
+          }
+          .title::after{
+            position: absolute;
+            content: "";
+            width: 0%;
+            height: 4px;
+            background-color: whitesmoke;
+            left: 50%;
+            bottom: -10px;
+            transition: all 0.4s ease-in-out;
+
+          }
+          .container:hover .title::after{
+            width: 100%;
+            left: 0;
+          }
+          body{
+            background: darkslateblue;
+            height: 100vh;
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+          }
+        </style>
+        <div class="container">
+          <img src="assets/css/pexels-artem-beliaikin-1153976.jpg" alt="">
+          <div class="title">boys</div>
         </div>
 </body>
 </html>

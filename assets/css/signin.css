@@ -51,4 +51,34 @@ body {
   .blur{
     border-radius: 10px;
   }
+  .navbar{
+    background-color: aqua;
+  }
+  
+  .container:hover{
+    cursor: pointer;
+  }
+ 
+  .title{
+    font-family: helvetica,cursive;
+    font-size: 3rem;
+    color: whitesmoke;
+    position: relative;
+  }
+  .title::after{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 4px;
+    background-color: darkslategrey;
+    left: 50%;
+    bottom: -10px;
+    transition: all 0.4s ease-in-out;
+
+  }
+  .container:hover .title::after{
+    width: 100%;
+    left: 0;
+  }
+  
   

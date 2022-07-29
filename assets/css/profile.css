@@ -1,28 +1,5 @@
-.card {
-    transition: 0.3s;
-  }
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
-  }
-  .name {
-    padding: 2px 16px;
-  }
-  img{
-    border-radius: 5px 5px 0 0;
-  }
-  .pic {
-    width: 10em;
-  }
-  .doe{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }  
-    /* perview & download shadow */
-.butt {
-    transition: 0.3s;
-  }
-  .butt:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
-  }
+body{
+    background-image: url(../../Images/pexels-craig-adderley-2566121.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

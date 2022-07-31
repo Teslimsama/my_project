@@ -8,7 +8,7 @@
     <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" >
 </head>
 <body>
-     <style>
+     <!-- <style>
         .container {
           position: relative;
           width: 50%;
@@ -136,6 +136,33 @@
         <div class="container">
           <img src="assets/css/pexels-artem-beliaikin-1153976.jpg" alt="">
           <div class="title">boys</div>
-        </div>
-</body>
+         </div> -->
+
+         <!-- <a href="images/bruce-mars.jpg" class="btn btn-success " role="button" download="picture" target="_blank">download</a>
+         <button type="submit" onclick="window.open('images/bruce-mars.jpg')">download!</button>
+         <input type="hidden"> -->
+d
+         <script>
+          //  function download(fileurl,filename) {
+          //    var a = document.createElement("a");
+          //    a.setAttribute("download",filename);
+          //    a.click;
+          //  }
+          //  download("images/bruce-mars.jpg","bruce_mars.jpg");
+
+        //
+
+              const textData ="images/bruce-mars.jpg";
+              const a = document.createElement('a');
+              const myBlob = new Blob([textData],{type: "image/jpeg"});
+              const url = window.URL.createObjectURL(myBlob);
+              a.href = url;
+              a.download = 'bruce-mars.jpeg';
+              //a.style.display = "none";
+              document.body.append(a);
+              a.click();
+              a.remove();
+              window.URL.revokeObjectURL(url);
+ </script>
+</body> 
 </html>

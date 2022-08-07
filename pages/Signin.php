@@ -1,10 +1,30 @@
+<?php
+$password = $_POST['password'];
+$email = $_POST['email'];
+
+//validate password strength
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$number = preg_match('@[0-9]@', $password);
+$specialChar = preg_match('@[^/w]@', $password);
+
+if (!$uppercase || !$lowercase || !$number || !$specialChar ||  strlen($password) < 8 ) {
+    echo  'Password must be atleast 8 charcters in length and should include atleast one uppercase letter , one number, and one special charcters '; 
+}else {
+  echo 'Strong Password' ;
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign in</title>
+    <title>Sign In || Unibooks</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/signin.css">
     <link rel="stylesheet" href="../assets/css/material-dashboard.css">
@@ -63,16 +83,16 @@
         <div class="form-signin bg-light rounded">
             
           
-       <form action="" method="post">
-        <a href="./Images/unibooks copy.png"> <img class="me-3 " src="Images/unibooks copy.png" alt="" width="200" height="150"></a>
+       <form action="" method="POST">
+        <a href="../Images/unibooks copy.png"> <img class="me-3 " src="../Images/unibooks copy.png" alt="" width="200" height="150"></a>
          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
      
          <div class="form-floating">
-           <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+           <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
            <label for="floatingInput">Email address</label>
          </div>
          <div class="form-floating pass mt-3">
-           <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+           <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
            <!-- <span onclick="togglePass()"><i class="fa fa-eye-slash"></i></span> -->
            <label for="floatingPassword">Password</label>
          </div>

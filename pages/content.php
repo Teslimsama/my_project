@@ -29,7 +29,7 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="about_us.html" target="_blank">
-        <img src="Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
+        <img src="../Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold text-white">Unibooks</span>
       </a>
     </div>
@@ -157,28 +157,28 @@
          
             
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
@@ -186,959 +186,959 @@
             </div>
             
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
+              <img class="" src="../Images/pexels-joão-jesus-1080213.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
                 <h4>bolaji teslim</h4>
                 <p>Aspriping Web Developer</p>

@@ -1,3 +1,8 @@
+<?php
+include('config/alert.message.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +22,8 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 bg-dark shadow position-absolute my-3 py-2 start-0 end-0 mx-4 ">
           <div class="container-fluid ps-2 pe-0">
-            <a href=".,/Images/unibooks copy.png"> <img class="me-3 " src="../Images/unibooks copy.png" alt="" width="50"></a>
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./about_us.html" target="_blank">
+            <a href="../Images/unibooks copy.png"> <img class="me-3 " src="../Images/unibooks copy.png" alt="" width="50"></a>
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./about_us.php" target="_blank">
              <h4> Unibooks</h4>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,19 +36,19 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./content.html">
+                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./content.php">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                     Dashboard
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./profilepage.html">
+                  <a class="nav-link me-2 title" href="./profilepage.php">
                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
                     Profile
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./Signin.html">
+                  <a class="nav-link me-2 title" href="./Signin.php">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Login
                   </a>
@@ -66,43 +71,45 @@
                   <div class="card-title text-center">
                       <h1>Create a Unibook account </h1>
                   </div>
-                <form action="" method="post">
+                  <?php echo ErrorMessage(); echo SuccessMessage();?>
+
+                <form action="app/signup.app.php" method="POST">
                   <div class="first">
                     <label for=""></label>
-                    <input type="firstname" class="form-control" placeholder="first name">
+                    <input type="firstname" class="form-control" name="firstname" placeholder="first name">
                     <small class="text-danger ">Your names will appear on your certificate as supplied</small>
                 </div>
                 <div class="last ">
                     <label for=""></label>
-                    <input type="lastname" class="form-control" placeholder="last name">
+                    <input type="lastname" class="form-control" name="lastname" placeholder="last name">
                     
                 </div> 
                 <div class="first">
                     <label for=""></label>
-                    <input type="tel" class="form-control" placeholder="phone eg.08079730127">
+                    <input type="tel" class="form-control" name="phone" placeholder="phone eg.08079730127"  required>
                     
                 </div>
                 <div class="level">
                     <label for=""></label>
-                    <input type="text" class="form-control" placeholder="Current Level">
+                    <input type="text" class="form-control" name="levell" placeholder="Current Level" required>
                     
                 </div>
                 <div class="faculty">
                     <label for=""></label>
-                    <input type="text" class="form-control" placeholder="faculty">
+                    <input type="text" class="form-control" name="faculty" placeholder="faculty" required>
                     
                 </div>
                 <div class="Department">
                     <label for=""></label>
-                    <input type="tel" class="form-control" placeholder="Department">
+                    <input type="tel" class="form-control" name="dept" placeholder="Department" required>
                     
                 </div>
                 <div class="course">
                     <label for=""></label>
-                    <input type="tel" class="form-control" placeholder="Course of Study">
+                    <input type="tel" class="form-control" name="course" placeholder="Course of Study" required>
 
                 <div class="School mt-3"> 
-                    <select class="form-select form-select-md" aria-label=".form-select-mg example">
+                    <select class="form-select form-select-md" name="school" aria-label=".form-select-mg example">
                     <option selected> Select Your School of Study</option>
                     <option value="1">Ahmedu Bello University</option>
                     <option value="2">FUTMINNA</option>
@@ -125,26 +132,26 @@
                 </div>
                 <div class="email">
                     <label for=""></label>
-                    <input type="email" class="form-control" placeholder="valid email" required>
+                    <input type="email" class="form-control" name="email" placeholder="valid email" required>
                 </div>
                 <div class="password">
                     <label class="mt-3" for="">Create Password: 8 characters minimum</label>
-                    <input type="password" class="form-control" placeholder="create a password" required>
+                    <input type="password" class="form-control" name="password" placeholder="create a password" required>
                 </div>
                 <div class="confirm">
                     <label for=""></label>
-                    <input type="password" class="form-control" placeholder="confirm password" required>
+                    <input type="password" class="form-control" name="conpassword" placeholder="confirm password" required>
                 </div>
                 <div class="mt-4">
                     <label for="">Date of birth</label>
-                    <input type="date" class="form-control" placeholder="">
+                    <input type="date" class="form-control" name="dob" placeholder="" required>
                 </div>
                 <div class="referral">
                     <label for=""></label>
-                    <input type="referral" class="form-control" placeholder="How did you hear about us?">
+                    <input type="referral" class="form-control" name="refer" placeholder="How did you hear about us?" required>
                 </div>
               <div class="mt-5"> 
-                 <button class="btn btn-dark w-100" type="submit"> Submit</div></button>
+                 <button class="btn btn-dark w-100" name="signup" type="submit"> Sign Up</div></button>
                 <small class="text-center">By contiuning you confirm that you agree to the terms of use and confirm that you have read the <a href="#">privacy policy</a> </small>
             </div>
                 </form>

@@ -1,5 +1,5 @@
 <?php
-
+include('config/alert.message.php');
 ?>
 
 
@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4 ">
           <div class="container-fluid ps-2 pe-0">
             <a href="../Images/unibooks copy.png"> <img class="me-3 " src="../Images/unibooks copy.png" alt="" width="50"></a>
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./about_us.html" target="_blank">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./about_us.php" target="_blank">
              <h4> Unibooks</h4>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,19 +38,19 @@
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./content.html">
+                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./content.php">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                     Dashboard
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./profilepage.html">
+                  <a class="nav-link me-2 title" href="./profilepage.php">
                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
                     Profile
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./Signup.html">
+                  <a class="nav-link me-2 title" href="./Signup.php">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Sign Up
                   </a>
@@ -70,7 +70,7 @@
         <div class="form-signin bg-light rounded">
             
           
-       <form action="" method="POST">
+       <form action="app/signin.app.php" method="POST">
         <a href="../Images/unibooks copy.png"> <img class="me-3 " src="../Images/unibooks copy.png" alt="" width="200" height="150"></a>
          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
      
@@ -93,7 +93,7 @@
          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
          <p class="mt-4 text-sm text-center">
           Don't have an account?
-          <a href="./Signup.html" class="text-primary text-gradient font-weight-bold">Sign up</a>
+          <a href="./Signup.php" class="text-primary text-gradient font-weight-bold">Sign up</a>
          
           <p class="text-center text-light mt-3">&copy; 
           <script>

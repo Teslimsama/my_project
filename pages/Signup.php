@@ -75,37 +75,44 @@ include('config/alert.message.php');
 
                 <form action="app/signup.app.php" method="POST">
                   <div class="first">
-                    <label for=""></label>
+                    <label for="">Firstname</label>
                     <input type="firstname" class="form-control" name="firstname" placeholder="first name">
                     <small class="text-danger ">Your names will appear on your certificate as supplied</small>
                 </div>
                 <div class="last ">
-                    <label for=""></label>
+                    <label for="">Lastname</label>
                     <input type="lastname" class="form-control" name="lastname" placeholder="last name">
                     
                 </div> 
-                <div class="first">
-                    <label for=""></label>
+
+                <div class="user">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                </div>
+
+                <div class="phone">
+                    <label for="">Phone number</label>
                     <input type="tel" class="form-control" name="phone" placeholder="phone eg.08079730127"  required>
                     
                 </div>
                 <div class="level">
-                    <label for=""></label>
+                    <label for="">Level</label>
                     <input type="text" class="form-control" name="levell" placeholder="Current Level" required>
                     
                 </div>
                 <div class="faculty">
-                    <label for=""></label>
+                    <label for="">Faculty</label>
                     <input type="text" class="form-control" name="faculty" placeholder="faculty" required>
                     
                 </div>
                 <div class="Department">
-                    <label for=""></label>
+                    <label for="">Department</label>
                     <input type="tel" class="form-control" name="dept" placeholder="Department" required>
                     
                 </div>
                 <div class="course">
-                    <label for=""></label>
+                    <label for="">Course of Study</label>
                     <input type="tel" class="form-control" name="course" placeholder="Course of Study" required>
 
                 <div class="School mt-3"> 
@@ -131,16 +138,18 @@ include('config/alert.message.php');
                   </div>
                 </div>
                 <div class="email">
-                    <label for=""></label>
+                    <label for="">Email</label>
                     <input type="email" class="form-control" name="email" placeholder="valid email" required>
                 </div>
                 <div class="password">
-                    <label class="mt-3" for="">Create Password: 8 characters minimum</label>
-                    <input type="password" class="form-control" name="password" placeholder="create a password" required>
+                  <label class="mt-3" for="">Create Password</label>
+                  <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>" name="password" placeholder="create a password" required> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
                 </div>
                 <div class="confirm">
-                    <label for=""></label>
-                    <input type="password" class="form-control" name="conpassword" placeholder="confirm password" required>
+                    <label for="">Confirm Your Password</label>
+                    <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>" name="conpassword" placeholder="confirm password" required>
+                    <span class="invalid-feedback"><?php  ?></span>
+
                 </div>
                 <div class="mt-4">
                     <label for="">Date of birth</label>

@@ -2,20 +2,6 @@
 include('../config/alert.message.php');
 require_once('../config/database.php');
 
-if (!isset($_POST['signup'])) {
-    header('Location:../Signup');
-
-}elseif (strlen($_POST['firstname']) < 2 || strlen($_POST['lastname']) < 2) {
-    //checks if first name or last name is less than 2 chars
-    $_SESSION['error'] = 'Please enter a valid name';
-    header('Location:../Signup');
-}elseif (!($_POST['password'] === $_POST['conpassword'])) {
-    $_SESSION['error'] = 'Please enter a valid password';
-    header('Location:../Signup');
-}
-//continue with a chain of elseif to check is both passwords match 
-
-//AUTHENTIFICATION
 
 //COLLECT DATA FROM FORM
 $first_name = $_POST['firstname'];
@@ -23,15 +9,6 @@ $last_name = $_POST['lastname'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 
-//check if email exists
-$sql_check_email = "SELECT * FROM users WHERE email='$email';";
-$sql_check_email_result = mysqli_query($db_connect,$sql_check_email);
-if(mysqli_num_rows($sql_check_email_result) >= 1){
-    $_SESSION['error'] = 'User already exist. Please login to your account';
-    header('Location:../Signin');
-}
-
-$password = password_hash($_POST['password'],PASSWORD_DEFAULT); //encrypt password
 $level = $_POST['levell'];
 $dept = $_POST['dept'];
 $course = $_POST['course'];
@@ -51,13 +28,99 @@ $timestamp = $now->getTimestamp();
 $sql = "INSERT INTO unibooker (firstname,lastname,phone,level,faculty,department,course,school,gender,password,dob,reference,email,timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
 $stmt = mysqli_stmt_init($db_connect);
-mysqli_stmt_prepare($stmt,$sql);
-mysqli_stmt_bind_param($stmt,'sssssssssssssi',$first_name,$last_name,$phone,$level,$faculty,$dept,$course,$school,$gender,$password,$dob,$referral,$email,$timestamp);
 
-if(mysqli_stmt_execute($stmt)){
-    $_SESSION['success'] = 'Your registration was successful';
-    header('Location:../content');
-}else{
-    $_SESSION['error'] = 'Error while registering';
-    header('Location:../Signup');
+
+
+
+ 
+// Define variables and initialize with empty values
+
+$username_err = $password_err = $confirm_password_err = "";
+ 
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    // Validate username
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter a username.";
+    } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
+        $username_err = "Username can only contain letters, numbers, and underscores.";
+    } else{
+        // Prepare a select statement
+        $sql = "SELECT * FROM unibooker WHERE username = ?";
+        
+        if($stmt = mysqli_prepare($db_connect, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            
+            // Set parameters
+            $param_username = trim($_POST["username"]);
+            
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                /* store result */
+                mysqli_stmt_store_result($stmt);
+                
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    $username_err = "This username is already taken.";
+                } else{
+                    $username = trim($_POST["username"]);
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+    }
+    
+    // Validate password
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter a password.";     
+    } elseif(strlen(trim($_POST["password"])) < 6){
+        $password_err = "Password must have atleast 6 characters.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+    
+    // Validate confirm password
+    if(empty(trim($_POST["conpassword"]))){
+        $confirm_password_err = "Please confirm password.";     
+    } else{
+        $confirm_password = trim($_POST["conpassword"]);
+        if(empty($password_err) && ($password != $confirm_password)){
+            $confirm_password_err = "Password did not match.";
+        }
+    }
+    
+    // Check input errors before inserting in database
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+        
+        // Prepare an insert statement
+        $sql = "INSERT INTO unibooker (firstname,lastname,phone,level,faculty,department,course,school,gender,password,dob,reference,email,username,timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+         
+        if($stmt = mysqli_prepare($db_connect, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt,'ssssssssssssssi',$first_name,$last_name,$phone,$level,$faculty,$dept,$course,$school,$gender,$password,$dob,$referral,$email,$username,$timestamp);
+            
+            // Set parameters
+            $param_username = $username;
+            $password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                // Redirect to login page
+                header("location: ../Signin");
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+    }
+    
+    // Close connection
+    mysqli_close($db_connect);
 }

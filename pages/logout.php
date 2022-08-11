@@ -1,9 +1,14 @@
 <?php
+// Initialize the session
 session_start();
-unset($_SESSION['id']);
-unset($_SESSION['id']);
-
+ 
+// Unset all of the session variables
+$_SESSION = array();
+ 
+// Destroy the session.
 session_destroy();
-
-header('Location:Signin');
-die;
+ 
+// Redirect to login page
+header("location: Signin");
+exit;
+?>

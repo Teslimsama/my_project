@@ -73,7 +73,7 @@ include('config/alert.message.php');
                   </div>
                   <?php echo ErrorMessage(); echo SuccessMessage();?>
 
-                <form action="app/signup.app.php" method="POST">
+                <form action="app/signup.app.php " method="POST">
                   <div class="first">
                     <label for="">Firstname</label>
                     <input type="firstname" class="form-control" name="firstname" placeholder="first name">

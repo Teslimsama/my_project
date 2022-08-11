@@ -75,11 +75,14 @@ include('config/alert.message.php');
          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
      
          <div class="form-floating">
-           <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+           <input type="email" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["email"]; } ?> id="floatingInput" name="email" placeholder="Email">
+           <span class="invalid-feedback"><?php echo $username_err; ?></span>
+
            <label for="floatingInput">Email address</label>
          </div>
          <div class="form-floating pass mt-3">
-           <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+           <input type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="floatingPassword" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" placeholder="Password">
+           <span class="invalid-feedback"><?php echo $password_err; ?></span>
            <!-- <span onclick="togglePass()"><i class="fa fa-eye-slash"></i></span> -->
            <label for="floatingPassword">Password</label>
          </div>
@@ -87,10 +90,10 @@ include('config/alert.message.php');
          <div class="checkbox mb-3">
           <div class="form-check form-switch d-flex align-items-center mb-3">
             <input class="form-check-input" type="checkbox" id="rememberMe" checked>
-            <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
+            <label class="form-check-label mb-0 ms-3" name="remember">Remember me</label>
           </div>
          </div>
-         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+         <button class="w-100 btn btn-lg btn-primary" name="login" type="submit">Sign in</button>
          <p class="mt-4 text-sm text-center">
           Don't have an account?
           <a href="./Signup.php" class="text-primary text-gradient font-weight-bold">Sign up</a>

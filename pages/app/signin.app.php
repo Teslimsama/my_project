@@ -1,45 +1,105 @@
 <?php
 include('../config/alert.message.php');
-require_once('../config/db.connect.php');
+require_once('../config/database.php');
 
-if (!isset($_POST['login'])) {
-  header('Location:../Signin');
-}
-
-$password = $_POST['password'];
 $email = $_POST['email'];
-//query db to check if user has an account
-$sql = "SELECT * FROM users WHERE email=?;";
-$stmt = mysqli_stmt_init($db_connect);
-mysqli_stmt_prepare($stmt,$sql);
-mysqli_stmt_bind_param($stmt,'s',$email);
-mysqli_stmt_execute($stmt);
+$password = $_POST['password'];
+// Initialize the session
+session_start();
+ 
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: ../content");
+    exit;
+}
+ 
+// Define variables and initialize with empty values
 
-
-
-
-$result = mysqli_stmt_get_result($stmt);
-if ($rows = mysqli_fetch_assoc($result)){
-    if(password_verify($password,$rows['password'])){
-        $_SESSION['id'] = $rows['id'];
-        $_SESSION['first_name'] = $rows['firstname'];
-        $_SESSION['last_name'] = $rows['lastname'];
-        $_SESSION['email'] = $rows['email'];
-        $_SESSION['acctype'] = $rows['acctype'];
-        
-        if($rows['acctype'] == 'patient'){
-            header('Location:../care/patientsarea');
-        }
-        elseif($rows['acctype'] == 'doctor' || $rows['acctype'] == 'nurse' || $rows['acctype'] == 'radiologist' || $rows['acctype'] == 'pharmacist' || $rows['acctype'] == 'cmd'){
-            header('Location:../office/dashboard');
-        }
-       
-    }else{
-        $_SESSION['error'] = 'Incorrect user password';
-        header('Location:../login');
+$username_err = $password_err = $login_err = "";
+ 
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+    // Check if username is empty
+    if(empty(trim($_POST["email"]))){
+        $username_err = "Please enter username.";
+    } else{
+        $username = trim($_POST["email"]);
     }
-}else{
-    $_SESSION['error'] = 'Incorrect user email';
-    header('Location:../login');
+    
+    // Check if password is empty
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+    
+    // Validate credentials
+    if(empty($username_err) && empty($password_err)){
+        // Prepare a select statement
+        $sql = "SELECT id, email, password FROM unibooker WHERE email = ?";
+        
+        if($stmt = mysqli_prepare($db_connect, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
+            
+            // Set parameters
+            $param_username = $username;
+            
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                // Store result
+                mysqli_stmt_store_result($stmt);
+                
+                // Check if username exists, if yes then verify password
+                if(mysqli_stmt_num_rows($stmt) == 1){                    
+                    // Bind result variables
+                    mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
+                    if(mysqli_stmt_fetch($stmt)){
+                        if(password_verify($password, $hashed_password)){
+                            // Password is correct, so start a new session
+                            session_start();
+                            
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["email"] = $email;                            
+                            
+                            // Redirect user to welcome page
+                            header("location: ../content");
+                        } else{
+                            // Password is not valid, display a generic error message
+                            $login_err = "Invalid username or password.";
+                        }
+                    }
+                } else{
+                    // Username doesn't exist, display a generic error message
+                    $login_err = "Invalid username or password.";
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            mysqli_stmt_close($stmt);
+        }
+    }
+    
+    // Close connection
+    mysqli_close($db_connect);
 }
 
+
+
+if(!empty($_POST["remember"])) {
+	setcookie ("username",$_POST["username"],time()+ 3600);
+	setcookie ("password",$_POST["password"],time()+ 3600);
+	echo "Cookies Set Successfuly";
+} else {
+	setcookie("username","");
+	setcookie("password","");
+	echo "Cookies Not Set";
+}
+
+
+?>

@@ -30,7 +30,7 @@
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="about_us.html" target="_blank">
+      <a class="navbar-brand m-0" href="about_us.php" target="_blank">
         <img src="../Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold text-white">Unibooks</span>
       </a>
@@ -39,7 +39,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white " href="./content.html">
+          <a class="nav-link text-white " href="./content.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads.html">
+          <a class="nav-link text-white " href="./downloads.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">download</i>
             </div>
@@ -55,7 +55,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./payments.html">
+          <a class="nav-link text-white " href="./payments.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -64,7 +64,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white " href="./notifications.html">
+          <a class="nav-link text-white " href="./notifications.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
@@ -72,7 +72,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./profilepage.html">
+          <a class="nav-link text-white " href="./profilepage.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
@@ -80,7 +80,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./Signin.html">
+          <a class="nav-link text-white " href="./Signin.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">login</i>
             </div>
@@ -88,7 +88,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./Signup.html">
+          <a class="nav-link text-white " href="./Signup.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
@@ -99,7 +99,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./assignments.html">
+          <a class="nav-link text-white " href="./assignments.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
@@ -134,7 +134,7 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="./Signin.html" class="nav-link text-body font-weight-bold px-0">
+              <a href="./Signin.php" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>

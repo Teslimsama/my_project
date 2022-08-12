@@ -151,8 +151,8 @@
             <div class="pic card bg-gradient-light mt-3">
               <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="container name ">
-                <h4>bolaji teslim</h4>
-                <p>Aspriping Web Developer</p>
+                <a href="#"><p>Aspriping Web Developer</p></a>
+                <a id="download" class="btn btn-dark" href="app/download_link.app.php?file=person.jpg">Download</a>
               </div>
             </div>
             <div class="pic card bg-gradient-light mt-3">

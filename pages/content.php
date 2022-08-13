@@ -20,9 +20,9 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   
   <!-- Our project just needs Font Awesome Solid + Brands -->
-  <script defer src="../assests/fontawesome/js/brands.js"></script>
-  <script defer src="../assets/fontawesome/js/solid.js"></script>
-  <script defer src="../assests/fontawesome/js/fontawesome.js"></script>
+  <script defer src="../assests/fontawesome/svgs/brands"></script>
+  <script defer src="../assets/fontawesome/svgs/solid"></script>
+  <script defer src="../assests/fontawesome/svgs/regular"></script>
 
 
 
@@ -162,10 +162,10 @@
             <div class="pic card bg-gradient-light mt-3">
               <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-arrow-down"><img src="../images/arrow-down-solid.svg" alt=""></i></a>
+               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-arrow-down"></i></a>
               </div>
              <a href="#"> <div class="container name ">
-                <p>Aspriping Web Developer</p></a>
+                <h6>Aspriping Web Developer</h6></a>
                 
                 
                 

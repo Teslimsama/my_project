@@ -8,161 +8,71 @@
     <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" >
 </head>
 <body>
-     <!-- <style>
-        .container {
-          position: relative;
-          width: 50%;
-        }
-        
-        .image {
-          opacity: 1;
-          display: block;
-          width: 100%;
-          height: auto;
-          transition: .5s ease;
-          backface-visibility: hidden;
-        }
-        
-        .middle {
-          transition: .5s ease;
-          opacity: 0;
-          position: absolute;
-          top: 610px;
-          left: 550px;
-          transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          text-align: center;
-        }
-        .middl{
-          transition: .5s ease;
-          opacity: 0;
-          position: absolute;
-          top: 610px;
-          left: 50px;
-          transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          text-align: center;
-        }
-        
-        .container:hover .image {
-          opacity: 0.3;
-        }
-        
-        .container:hover .middle {
-          opacity: 1;
-        }
-        .btn{
-            border-radius: 2000em;
-        }
-        .text {
-          /* background-color: #04AA6D; */
-          
-          color: white;
-          font-size: 60px;
-          padding: 16px 32px;
-        }
-        </style>
-        </head>
-        <body>
-        
-        <h2>Opacity with Box</h2>
-        <p>Hover over the image to see the effect.</p>
-        
-        <div class="con">
-          <div class="container">
-            <img src="Images/bruce-mars.jpg" alt="Avatar" class="image" style="width:100%">
-            <div class="middle">
-              <div class="text"><button class=" btn btn-danger">X</button></div>
-            </div> 
-          </div>
-          <div class="middl">
-            <div class="text"><button class=" btn btn-danger">P</button></div>
-          </div>
-        </div> 
-        <style>
-
-          *{
-            box-sizing: border-box;
-            margin: 0%;
-            padding: 0%;
-          }
-          .container{
+  <h2>Video Player</h2>
+  <p>Hover over to play the video</p>
+  <div class="container">
+    <div href="#" class="like-button" title="Like Button">
+      <i class="fa fa-heart fa-1x"></i>
+    </div>
+    <img src="C:\xampp\htdocs\my_project\Images\pexels-pixabay-415829.jpg" alt="Beautiful Image" class="image">
+  <div class="overlay">
+    <button href="#" class="play-icon" title="Video Play">
+     <i class="fa fa-play"></i>
+   </button>
+  </div>
+  </div>
+  <style>
+      body {
             display: flex;
             flex-direction: column;
-            align-items: center;
-          }
-          .container:hover{
-            cursor: pointer;
-          }
-          .container img{
-            filter: grayscale();
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 6px solid whitesmoke;
-            box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.5);
-            margin-bottom: 1rem;
-            transition: filter 0.4s ease-in-out;
-          }
-          .title{
-            font-family: helvetica,cursive;
-            font-size: 3rem;
-            color: whitesmoke;
-            position: relative;
-          }
-          .title::after{
-            position: absolute;
-            content: "";
-            width: 0%;
-            height: 4px;
-            background-color: whitesmoke;
-            left: 50%;
-            bottom: -10px;
-            transition: all 0.4s ease-in-out;
-
-          }
-          .container:hover .title::after{
-            width: 100%;
-            left: 0;
-          }
-          body{
-            background: darkslateblue;
-            height: 100vh;
-            /* display: flex;
             justify-content: center;
-            align-items: center; */
-          }
-        </style>
-        <div class="container">
-          <img src="assets/css/pexels-artem-beliaikin-1153976.jpg" alt="">
-          <div class="title">boys</div>
-         </div> -->
+            align-items: center;
+        }
 
-         <!-- <a href="images/bruce-mars.jpg" class="btn btn-success " role="button" download="picture" target="_blank">download</a>
-         <button type="submit" onclick="window.open('images/bruce-mars.jpg')">download!</button>
-         <input type="hidden"> -->
-d
-         <script>
-          //  function download(fileurl,filename) {
-          //    var a = document.createElement("a");
-          //    a.setAttribute("download",filename);
-          //    a.click;
-          //  }
-          //  download("images/bruce-mars.jpg","bruce_mars.jpg");
+        .image {
+            width: 100%;
+            height: auto;
+        }
 
-        //
+        .overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            opacity: 0.3;
+            transition: .3s ease;
+            background-color: transparent;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
 
-              const textData ="images/bruce-mars.jpg";
-              const a = document.createElement('a');
-              const myBlob = new Blob([textData],{type: "image/jpeg"});
-              const url = window.URL.createObjectURL(myBlob);
-              a.href = url;
-              a.download = 'bruce-mars.jpeg';
-              //a.style.display = "none";
-              document.body.append(a);
-              a.click();
-              a.remove();
-              window.URL.revokeObjectURL(url);
- </script>
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+
+        .overlay:hover {
+            opacity: 0.7;
+        }
+
+        .play-icon {
+            position: absolute;
+            color: black;
+            font-size: 2rem;
+            cursor: pointer;
+            left: 90%;
+            top:90%;
+        }
+
+        .fa-heart {
+            position: absolute;
+            z-index: 2;
+            color: red;
+            position: absolute;
+        }
+  </style>  
 </body> 
 </html>

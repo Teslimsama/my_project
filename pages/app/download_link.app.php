@@ -1,5 +1,5 @@
 <?php
-    $filename = "../book_download/";
+    $filename = "../unibooks_download/";
     if (isset($_GET['file'])) {
        $filename .= $_GET['file'];
     }

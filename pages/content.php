@@ -1,8 +1,5 @@
 <?php
-if(!isset($_SESSION['id'])){
-    header('Location:Signin');
-    
-}?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 

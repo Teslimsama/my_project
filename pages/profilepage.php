@@ -1,12 +1,29 @@
+<?php
+include_once 'config/database.php';
+include 'config/alert.message.php';
 
+
+// session_start();
+if(!isset($_SESSION['id'])){
+    header('Location:Signin');
+    
+}
+
+$student_id = $_SESSION['id'];
+
+$sql = "SELECT * FROM unibooker WHERE id='$student_id';";
+$sql_result = mysqli_query($db_connect,$sql);
+$rows = mysqli_fetch_assoc($sql_result);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png"> -->
-  <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
   <title>
     Profile page || Unibooks
   </title>
@@ -158,7 +175,7 @@
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Bolaji Teslim
+              <?php echo $rows['firstname'] .' '.$rows['lastname'] ;?>
               </h5>
               <p class="mb-0 font-weight-normal text-sm">
                 CEO / Co-Founder
@@ -187,22 +204,10 @@
                   </p> -->
                   <!-- <hr class="horizontal gray-light my-4"> -->
                   <ul class="list-group">
-                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; Alec M. Thompson</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
-                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; USA</li>
-                    <li class="list-group-item border-0 ps-0 pb-0">
-                      <strong class="text-dark text-sm">Social:</strong> &nbsp;
-                      <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-facebook fa-lg"></i>
-                      </a>
-                      <a class="btn btn-twitter btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-twitter fa-lg"></i>
-                      </a>
-                      <a class="btn btn-instagram btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
-                        <i class="fab fa-instagram fa-lg"></i>
-                      </a>
-                    </li>
+                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; <?php echo $rows['firstname'] .' '.$rows['lastname'] ;?>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; <?php echo $rows['phone'] ;?></li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp;  <?php echo $rows['email'] ;?></li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">University:</strong> &nbsp;  <?php echo $rows['school'] ;?></li>
                   </ul>
                 </div>
               </div>

@@ -16,4 +16,4 @@ $db_connect = new mysqli($servername , $username , $password ,  $database);
 if ($db_connect->connect_error) {
    die("connection failed:" . $db_connect->connect_error);
 }
-header("location: ../Signin");
+// header("location: ../Signin");

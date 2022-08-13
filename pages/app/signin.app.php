@@ -1,11 +1,12 @@
 <?php
 include('../config/alert.message.php');
 require_once('../config/database.php');
+// Initialize the session
 
+session_start();
 $email = $_POST['email'];
 $password = $_POST['password'];
-// Initialize the session
-session_start();
+
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -92,11 +93,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 if(!empty($_POST["remember"])) {
-	setcookie ("username",$_POST["username"],time()+ 3600);
+	setcookie ("email",$_POST["email"],time()+ 3600);
 	setcookie ("password",$_POST["password"],time()+ 3600);
 	echo "Cookies Set Successfuly";
 } else {
-	setcookie("username","");
+	setcookie("email","");
 	setcookie("password","");
 	echo "Cookies Not Set";
 }

@@ -12,6 +12,8 @@ include('config/alert.message.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In || Unibooks</title>
+    <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/signin.css">
     <link rel="stylesheet" href="../assets/css/material-dashboard.css">
@@ -75,7 +77,7 @@ include('config/alert.message.php');
          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
      
          <div class="form-floating">
-           <input type="email" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["email"]; } ?> id="floatingInput" name="email" placeholder="Email">
+           <input type="email" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?> id="floatingInput" name="email" placeholder="Email">
            <span class="invalid-feedback"><?php echo $username_err; ?></span>
 
            <label for="floatingInput">Email address</label>

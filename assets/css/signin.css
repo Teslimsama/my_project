@@ -81,4 +81,8 @@ body {
     left: 0;
   }
   
-  
+  .eye{
+    position: absolute;
+    bottom: 30%;
+    left: 85%;
+  }

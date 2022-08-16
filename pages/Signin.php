@@ -1,5 +1,4 @@
 <?php
-include('config/alert.message.php');
 ?>
 
 
@@ -27,7 +26,7 @@ include('config/alert.message.php');
         <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4 ">
           <div class="container-fluid ps-2 pe-0">
             <a href="../Images/unibooks copy.png"> <img class="me-3 " src="../Images/unibooks copy.png" alt="" width="50"></a>
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./about_us.php" target="_blank">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./about_us" target="_blank">
              <h4> Unibooks</h4>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,19 +39,19 @@ include('config/alert.message.php');
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./content.php">
+                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                    Dashboard
+                    About Us
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./profilepage.php">
+                  <a class="nav-link me-2 title" href="./about_us">
                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                    Profile
+                    Social Media
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./Signup.php">
+                  <a class="nav-link me-2 title" href="./Signup">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Sign Up
                   </a>
@@ -85,9 +84,11 @@ include('config/alert.message.php');
          <div class="form-floating pass mt-3">
            <input type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="floatingPassword" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" placeholder="Password">
            <span class="invalid-feedback"><?php echo $password_err; ?></span>
-           <!-- <span onclick="togglePass()"><i class="fa fa-eye-slash"></i></span> -->
+           <span onclick="togglePass()"><i class="fa fa-eye-slash eye"></i></span>
            <label for="floatingPassword">Password</label>
          </div>
+         
+         
      
          <div class="checkbox mb-3">
           <div class="form-check form-switch d-flex align-items-center mb-3">
@@ -98,7 +99,7 @@ include('config/alert.message.php');
          <button class="w-100 btn btn-lg btn-primary" name="login" type="submit">Sign in</button>
          <p class="mt-4 text-sm text-center">
           Don't have an account?
-          <a href="./Signup.php" class="text-primary text-gradient font-weight-bold">Sign up</a>
+          <a href="./Signup" class="text-primary text-gradient font-weight-bold">Sign up</a>
          
           <p class="text-center text-light mt-3">&copy; 
           <script>
@@ -125,7 +126,15 @@ include('config/alert.message.php');
             </div>
       <!-- footer  -->
       </main>
-     
+      <script> function togglePass() {
+          var x = document.getElementById("floatingPassword");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+          }
+          </script>
       
     <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>

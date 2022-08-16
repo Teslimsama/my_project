@@ -37,20 +37,20 @@ include('config/alert.message.php');
             </button>
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./content.php">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                    Dashboard
+              <li class="nav-item">
+                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
+                    <i class="fa-solid fa-table-layout opacity-6 text-dark me-1 "></i>
+                    About Us
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./profilepage.php">
-                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                    Profile
+                  <a class="nav-link me-2 title" href="./about_us">
+                    <i class="fa-duotone fa-circle-envelope opacity-6 text-dark me-1"></i>
+                    Social Media
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./Signin.php">
+                  <a class="nav-link me-2 title" href="./Signin">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Login
                   </a>
@@ -67,7 +67,7 @@ include('config/alert.message.php');
         <!-- End Navbar -->
   </header>
     
-        <div class="container mt-5 col-lg-12  form-control ">
+        <div class="container mt-5 col-lg-12 w-80 form-control ">
           <div class="card mt-5 bg-light ">
               <div class="card-body">
                   <div class="card-title text-center">
@@ -89,13 +89,13 @@ include('config/alert.message.php');
 
                 <div class="user">
                 <label>Username</label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <input type="text" name="username"placeholder="username"  class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?> " >
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
                 </div>
 
                 <div class="phone">
                     <label for="">Phone number</label>
-                    <input type="tel" class="form-control" name="phone" placeholder="phone eg.08079730127"  required>
+                    <input type="tel" class="form-control" name="phone" placeholder="phone eg.080874456644"  required>
                     
                 </div>
                 <div class="level">
@@ -145,11 +145,11 @@ include('config/alert.message.php');
                 </div>
                 <div class="password">
                   <label class="mt-3" for="">Create Password</label>
-                  <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>" name="password" placeholder="create a password" required> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
+                  <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" name="password" placeholder="create a password" required> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
                 </div>
                 <div class="confirm">
                     <label for="">Confirm Your Password</label>
-                    <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>" name="conpassword" placeholder="confirm password" required>
+                    <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" name="conpassword" placeholder="confirm password" required>
                     <span class="invalid-feedback"><?php  ?></span>
 
                 </div>

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
-  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
+  
   <title>
     Dashboard ||Unibooks
   </title>
@@ -22,7 +22,7 @@
   <link href="../assets/css/brand.css" rel="stylesheet" /> 
   
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   
   
   
@@ -417,11 +417,11 @@
           <div class="container-fluid bg- mt-5 ">
             <footer class="py-3 my-4 ">
               <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
               </ul>
               <p class="text-center text-light">&copy; 
                 <script>

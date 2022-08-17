@@ -1,3 +1,8 @@
+<?php
+include('config/alert.message.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
-    `<link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
+    <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/signup.css">
     <link rel="stylesheet" href="../assets/css/material-dashboard.css">
+    <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
 </head>
 <body >
  
@@ -32,20 +38,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./content.php">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                    Dashboard
+              <li class="nav-item">
+                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
+                    <i class="fa-solid fa-table-layout opacity-6 text-dark me-1 "></i>
+                    About Us
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./profilepage.php">
-                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                    Profile
+                  <a class="nav-link me-2 title" href="./about_us">
+                    <i class="fa-duotone fa-circle-envelope opacity-6 text-dark me-1"></i>
+                    Social Media
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./Signin.php">
+                  <a class="nav-link me-2 title" href="./Signin">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Login
                   </a>
@@ -62,49 +68,58 @@
         <!-- End Navbar -->
   </header>
     
-        <div class="container mt-5 col-lg-12  form-control ">
+        <div class="container mt-5 col-lg-12 w-80 form-control ">
           <div class="card mt-5 bg-light ">
               <div class="card-body">
                   <div class="card-title text-center">
                       <h1>Create a Unibook account </h1>
                   </div>
-                <form action="" method="post">
+                  <?php echo ErrorMessage(); echo SuccessMessage();?>
+
+                <form action="app/signup.app.php " method="POST">
                   <div class="first">
-                    <label for=""></label>
-                    <input type="firstname" class="form-control" placeholder="first name">
+                    <label for="">Firstname</label>
+                    <input type="firstname" class="form-control" name="firstname" placeholder="first name">
                     <small class="text-danger ">Your names will appear on your certificate as supplied</small>
                 </div>
                 <div class="last ">
-                    <label for=""></label>
-                    <input type="lastname" class="form-control" placeholder="last name">
+                    <label for="">Lastname</label>
+                    <input type="lastname" class="form-control" name="lastname" placeholder="last name">
                     
                 </div> 
-                <div class="first">
-                    <label for=""></label>
-                    <input type="tel" class="form-control" placeholder="phone eg.08079730127">
+
+                <div class="user">
+                <label>Username</label>
+                <input type="text" name="username"placeholder="username"  class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?> " >
+                <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                </div>
+
+                <div class="phone">
+                    <label for="">Phone number</label>
+                    <input type="tel" class="form-control" name="phone" placeholder="phone eg.080874456644"  required>
                     
                 </div>
                 <div class="level">
-                    <label for=""></label>
-                    <input type="text" class="form-control" placeholder="Current Level">
+                    <label for="">Level</label>
+                    <input type="text" class="form-control" name="levell" placeholder="Current Level" required>
                     
                 </div>
                 <div class="faculty">
-                    <label for=""></label>
-                    <input type="text" class="form-control" placeholder="faculty">
+                    <label for="">Faculty</label>
+                    <input type="text" class="form-control" name="faculty" placeholder="faculty" required>
                     
                 </div>
                 <div class="Department">
-                    <label for=""></label>
-                    <input type="tel" class="form-control" placeholder="Department">
+                    <label for="">Department</label>
+                    <input type="tel" class="form-control" name="dept" placeholder="Department" required>
                     
                 </div>
                 <div class="course">
-                    <label for=""></label>
-                    <input type="tel" class="form-control" placeholder="Course of Study">
+                    <label for="">Course of Study</label>
+                    <input type="tel" class="form-control" name="course" placeholder="Course of Study" required>
 
                 <div class="School mt-3"> 
-                    <select class="form-select form-select-md" aria-label=".form-select-mg example">
+                    <select class="form-select form-select-md" name="school" aria-label=".form-select-mg example">
                     <option selected> Select Your School of Study</option>
                     <option value="1">Ahmedu Bello University</option>
                     <option value="2">FUTMINNA</option>
@@ -126,27 +141,29 @@
                   </div>
                 </div>
                 <div class="email">
-                    <label for=""></label>
-                    <input type="email" class="form-control" placeholder="valid email" required>
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="valid email" required>
                 </div>
                 <div class="password">
-                    <label class="mt-3" for="">Create Password: 8 characters minimum</label>
-                    <input type="password" class="form-control" placeholder="create a password" required>
+                  <label class="mt-3" for="">Create Password</label>
+                  <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" name="password" placeholder="create a password" required> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
                 </div>
                 <div class="confirm">
-                    <label for=""></label>
-                    <input type="password" class="form-control" placeholder="confirm password" required>
+                    <label for="">Confirm Your Password</label>
+                    <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" name="conpassword" placeholder="confirm password" required>
+                    <span class="invalid-feedback"><?php  ?></span>
+
                 </div>
                 <div class="mt-4">
                     <label for="">Date of birth</label>
-                    <input type="date" class="form-control" placeholder="">
+                    <input type="date" class="form-control" name="dob" placeholder="" required>
                 </div>
                 <div class="referral">
                     <label for=""></label>
-                    <input type="referral" class="form-control" placeholder="How did you hear about us?">
+                    <input type="referral" class="form-control" name="refer" placeholder="How did you hear about us?" required>
                 </div>
               <div class="mt-5"> 
-                 <button class="btn btn-dark w-100" type="submit"> Submit</div></button>
+                 <button class="btn btn-dark w-100" name="signup" type="submit"> Sign Up</div></button>
                 <small class="text-center">By contiuning you confirm that you agree to the terms of use and confirm that you have read the <a href="#">privacy policy</a> </small>
             </div>
                 </form>
@@ -156,21 +173,24 @@
 
 
     </div> 
-               <!-- footer -->
-
-    
-
-    <div class="container-fluid bg- ">
-      <footer class="py-3 my-4 ">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Features</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Pricing</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">FAQs</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
-        </ul>
-        <p class="text-center text-light">&copy; 2022 Testech, Ltd</p>
-      </footer>
+         <!-- footer  -->
+      <div class="container-fluid bg- mt-5 ">
+          <footer class="py-3 my-4 ">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3 ">
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+            </ul>
+            <p class="text-center text-light">&copy; 
+              <script>
+              document.write(new Date().getFullYear())
+            </script> Testech, Ltd</p>
+            
+          </footer>
+            </div>
+      <!-- footer  -->
     <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>

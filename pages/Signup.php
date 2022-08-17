@@ -11,10 +11,11 @@ include('config/alert.message.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
+    <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/signup.css">
     <link rel="stylesheet" href="../assets/css/material-dashboard.css">
+    <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
 </head>
 <body >
  
@@ -172,21 +173,24 @@ include('config/alert.message.php');
 
 
     </div> 
-               <!-- footer -->
-
-    
-
-    <div class="container-fluid bg- ">
-      <footer class="py-3 my-4 ">
-        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Features</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Pricing</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">FAQs</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
-        </ul>
-        <p class="text-center text-light">&copy; 2022 Testech, Ltd</p>
-      </footer>
+         <!-- footer  -->
+      <div class="container-fluid bg- mt-5 ">
+          <footer class="py-3 my-4 ">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3 ">
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+            </ul>
+            <p class="text-center text-light">&copy; 
+              <script>
+              document.write(new Date().getFullYear())
+            </script> Testech, Ltd</p>
+            
+          </footer>
+            </div>
+      <!-- footer  -->
     <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>

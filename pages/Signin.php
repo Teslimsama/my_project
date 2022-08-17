@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/signin.css">
     <link rel="stylesheet" href="../assets/css/material-dashboard.css">
+    <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
@@ -45,8 +46,8 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./about_us">
-                    <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                  <a class="nav-link me-2 title" href="./social">
+                    <i class="fa-solid fa-hashtag opacity-6 text-dark me-1"></i>
                     Social Media
                   </a>
                 </li>
@@ -76,7 +77,7 @@
          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
      
          <div class="form-floating">
-           <input type="email" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?> id="floatingInput" name="email" placeholder="Email">
+           <input type="email" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?> " id="floatingInput" name="email" placeholder="Email">
            <span class="invalid-feedback"><?php echo $username_err; ?></span>
 
            <label for="floatingInput">Email address</label>
@@ -111,11 +112,11 @@
       <div class="container-fluid bg- mt-5 ">
           <footer class="py-3 my-4 ">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3 ">
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Features</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Pricing</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">FAQs</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
             </ul>
             <p class="text-center text-light">&copy; 
               <script>

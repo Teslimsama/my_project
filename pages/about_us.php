@@ -16,7 +16,7 @@
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -36,35 +36,37 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./content">
+      <li class="nav-item">
+          <a class="nav-link text-white " href="./Signup">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
+              <i class="fa-solid fa-user-plus opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
+            <span class="nav-link-text ms-1">Sign Up</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
+          <a class="nav-link text-white " href="./Signin">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">download</i>
+              <i class="fa-solid fa-arrow-right-to-bracket opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Downloads</span>
+            <span class="nav-link-text ms-1">Signin</span>
           </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link text-white " href="./payments">
+          <a class="nav-link text-white " href="./social">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
+              <i class="fa-solid fa-hashtag opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Payments</span>
+            <span class="nav-link-text ms-1">Social Media</span>
           </a>
+        </li>
         </li>
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -122,11 +124,11 @@
         <div class="container-fluid bg- mt-5 ">
          <footer class="py-3 my-4 ">
            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-             <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Home</a></li>
-             <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Features</a></li>
-             <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Pricing</a></li>
-             <li class="nav-item"><a href="#" class="nav-link px-2 text-light">FAQs</a></li>
-             <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
+           <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
            </ul>
            <p class="text-center text-light">&copy; 
              <script>

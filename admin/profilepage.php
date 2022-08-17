@@ -29,7 +29,7 @@ $rows = mysqli_fetch_assoc($sql_result);
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -360,11 +360,11 @@ $rows = mysqli_fetch_assoc($sql_result);
           <div class="container-fluid mt-5 bg- ">
             <footer class="py-3 my-4 ">
               <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="content" class="nav-link px-2 text-light">Home</a></li>
-                <li class="nav-item"><a href="" class="nav-link px-2 text-light">Donate</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Pricing</a></li>
-                <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-                <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
               </ul>
               <p class="text-center text-light">&copy; 
                 <script>

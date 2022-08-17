@@ -35,6 +35,9 @@ $rows = mysqli_fetch_assoc($sql_result);
 <body>
             <div class="container mt-5 col-lg-12 w-50 form-control ">
                 <div class="card mt-5 bg-light ">
+                    <div class="card-title  text-center pt-3">
+                        <h2>Update Your Details</h2>
+                    </div>
                     <div class="card-body">
                     <form action="app/update.app.php " method="POST">
                 <div class="first">

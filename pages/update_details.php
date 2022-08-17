@@ -83,16 +83,7 @@ $rows = mysqli_fetch_assoc($sql_result);
                     <label for="">Email</label>
                     <input type="email" class="form-control" name="email" placeholder="valid email" value="<?php echo $rows['email'] ;?>">
                 </div>
-                <div class="password">
-                  <label class="mt-3" for="">Create Password</label>
-                  <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" name="password" placeholder="create a password" value="<?php echo $rows['firstname'] ;?>"> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
-                </div>
-                <div class="confirm">
-                    <label for="">Confirm Your Password</label>
-                    <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" name="conpassword" placeholder="confirm password" value="<?php echo $rows['firstname'] ;?>">
-                    <span class="invalid-feedback"><?php  ?></span>
-
-                </div>
+                
                 <div class="mt-4">
                     <label for="">Date of birth</label>
                     <input type="date" class="form-control" name="dob" placeholder="" value="<?php echo $rows['firstname'] ;?>">

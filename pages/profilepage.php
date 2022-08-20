@@ -89,10 +89,10 @@ $rows = mysqli_fetch_assoc($sql_result);
             <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
-         <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link text-white " href="./logout">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
+              <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Log Out</span>
           </a>
@@ -180,8 +180,10 @@ $rows = mysqli_fetch_assoc($sql_result);
                 <div class="card-header pb-0 p-3">
                   <div class="row">
                     <div class="col-md-8 d-flex align-items-center">
+                   
                       <h6 class="mb-0">Profile Information</h6>
                     </div>
+                    <div class="container-fluid"> <?php echo ErrorMessage(); echo SuccessMessage();?></div>
                     <div class="col-md-4 text-end">
                       <a href="update_details">
                         <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>

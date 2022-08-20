@@ -42,9 +42,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
+        $username_err =  $_SESSION['error'] =  "Please enter a username.";
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-        $username_err = "Username can only contain letters, numbers, and underscores.";
+        $username_err = $_SESSION['error'] = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
         $sql = "SELECT * FROM unibooker WHERE username = ?";
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
+                    $username_err =  $_SESSION['error'] =  "This username is already taken.";
                 } else{
                     $username = trim($_POST["username"]);
                 }
@@ -77,20 +77,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Validate password
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
+        $password_err = $_SESSION['error'] = "Please enter a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err =  $_SESSION['error'] =  "Password must have atleast 6 characters.";
     } else{
         $password = trim($_POST["password"]);
     }
     
     // Validate confirm password
     if(empty(trim($_POST["conpassword"]))){
-        $confirm_password_err = "Please confirm password.";     
+        $confirm_password_err =  $_SESSION['error'] =  "Please confirm password.";     
     } else{
         $confirm_password = trim($_POST["conpassword"]);
         if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
+            $confirm_password_err =  $_SESSION['error'] = "Password did not match.";
+            header("location: ../Signup");
         }
     }
     
@@ -111,9 +112,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
+                $_SESSION['success'] = "Your Account Have Been Created";
                 header("location: ../Signin");
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                $_SESSION['error'] ="Oops! Something went wrong. Please try again later.";
             }
 
             // Close statement

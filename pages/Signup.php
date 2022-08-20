@@ -40,19 +40,19 @@ include('config/alert.message.php');
               <ul class="navbar-nav mx-auto">
               <li class="nav-item">
                   <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
-                    <i class="fa-solid fa-table-layout opacity-6 text-dark me-1 "></i>
+                    <i class="fa-solid fa-hashtag opacity-6 text-dark me-1 "></i>
                     About Us
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-2 title" href="./about_us">
-                    <i class="fa-duotone fa-circle-envelope opacity-6 text-dark me-1"></i>
+                    <i class="fa-solid fa-table-layout opacity-6 text-dark me-1"></i>
                     Social Media
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-2 title" href="./Signin">
-                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                    <i class="fa-solid fa-arrow-right-to-bracket opacity-6 text-dark me-1"></i>
                     Login
                   </a>
                 </li>
@@ -121,9 +121,9 @@ include('config/alert.message.php');
                 <div class="School mt-3"> 
                     <select class="form-select form-select-md" name="school" aria-label=".form-select-mg example">
                     <option selected> Select Your School of Study</option>
-                    <option value="1">Ahmedu Bello University</option>
-                    <option value="2">FUTMINNA</option>
-                    <option value="3">FUTA</option>
+                    <option value="Ahmedu Bello University">Ahmedu Bello University</option>
+                    <option value="FUTMINNA">FUTMINNA</option>
+                    <option value="FUTA">FUTA</option>
                   </select>
                 </div>
                 <div class="gender mt-4">Gender

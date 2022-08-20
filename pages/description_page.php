@@ -28,8 +28,8 @@
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-        <img src="../Images/unibooks copy - Copy.png" class="navbar-brand-img h-100" alt="main_logo">
+      <a class="navbar-brand m-0" href="about_us" target="_blank">
+        <img src="../Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold text-white">UniBooks</span>
       </a>
     </div>
@@ -81,7 +81,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="./logout">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
+              <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Log Out</span>
           </a>
@@ -101,7 +101,7 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -112,9 +112,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Template</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Description</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Template</h6>
+          <h6 class="font-weight-bolder mb-0">Description</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -147,9 +147,10 @@
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div  class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+                title
               </div>
             </div>
+            <!-- image here  -->
             <div class="prewiew my-3">
               <button class="mx-3 mt-2 butt btn btn-warning">preveiw</button>
               <button class="mx-2 mt-2 butt btn btn-warning">Download</button>

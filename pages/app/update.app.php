@@ -32,11 +32,12 @@ if(isset($_POST['submit'])){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Password updated successfully. Destroy the session, and redirect to login page
-                
+                $_SESSION['success'] = 'Your Details Have Been Updated Successfuly';
                 header("location: ../profilepage");
                 exit();
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                $_SESSION['error'] = 'Failure Updating Your Details';
+                
             }
 
             // Close statement

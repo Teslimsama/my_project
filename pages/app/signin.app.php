@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Check if password is empty
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
+        $password_err =  $_SESSION['error'] =  "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
     }
@@ -70,12 +70,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             header("location: ../content");
                         } else{
                             // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
+                            $login_err =  $_SESSION['error'] =  "Invalid username or password.";
                         }
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
+                    $login_err =  $_SESSION['error'] =  "Invalid username or password.";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -99,7 +99,7 @@ if(!empty($_POST["remember"])) {
 } else {
 	setcookie("email","");
 	setcookie("password","");
-	echo "Cookies Not Set";
+	header('location:../Signin');
 }
 
 

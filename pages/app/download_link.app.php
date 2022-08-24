@@ -1,7 +1,7 @@
 <?php
 include_once 'config/database.php';
     include 'config/alert.message.php';
-  
+   
     
  
     $filename = "../unibooks_download/";
@@ -17,6 +17,7 @@ include_once 'config/database.php';
 
         readfile("../book_download/" . $filename);
     }else{
-        header("location:../content");
+        header("location:../description_page");
     }
     
+   

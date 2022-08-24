@@ -1,8 +1,26 @@
 <?php
     include_once 'config/database.php';
     include 'config/alert.message.php';
+   // session_start();
+   $download = $_POST['download'];
+   $student_id = $_SESSION['id'];
    
-   
+$now = new DateTime();
+$timestamp = $now->getTimestamp();
+$sql = "INSERT INTO downloads (customerid,book,timestamp) VALUES(?,?,?);";
+
+$stmt = mysqli_stmt_init($db_connect);
+mysqli_stmt_prepare($stmt,$sql);
+mysqli_stmt_bind_param($stmt,'isi',$student_id,$download,$timestamp);
+
+
+if(mysqli_stmt_execute($stmt)){
+ echo 'bad';
+}else{
+ $_SESSION['error'] = 'Error while registering';
+ echo 'good you fucked up';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,20 +174,38 @@
               </div>
             </div>
             <!-- image here  -->
-            <div class="prewiew my-3">
-              <a herf="#" class="mx-3 mt-2 butt btn btn-primary">preveiw</a>
-              
-              <!-- Button trigger modal -->
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="download">
+              <div class="perview ">
+                  <form action="" method="post">
+                <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
+              </form>
+                </div>
+                <div class="preview mt-2">
+                  <form action="" method="POST">
+                    <input type="hidden" name="download" value="hppay" id="download">
+                      <!-- Button trigger modal -->
+          <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Download <i class="material-icons ms-1 opacity-10">download</i>
           </button>
-            <?php include'../assets/modals/modal.php'; ?>
+            <?php include'../modals/modal.php'; ?>
+            </div> 
+             
+               
+            </form>
+              </div>
             </div>
+            <style>
+              .download{
+                  display: grid;
+                  grid-template:50px 30px / 150px 300px;
+              }
+              
+            </style>
 
 
           
             <div class="card-body px-5">
-              <h1>h1. Bootstrap heading</h1>
+              <!-- <h1>h1. Bootstrap heading</h1>
               <h2>h2. Bootstrap heading</h2>
               <h3>h3. Bootstrap heading</h3>
               <h4>h4. Bootstrap heading</h4>
@@ -190,7 +226,7 @@
                 <figcaption class="blockquote-footer ps-3">
                   Someone famous in <cite title="Source Title">Source Title</cite>
                 </figcaption>
-              </figure>
+              </figure> -->
             </div>
           </div>
         </div>

@@ -88,14 +88,15 @@ $student_id = $_SESSION['id'];
             <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
-        <<li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link text-white " href="./logout">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Log Out</span>
           </a>
-        </li><li class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="nav-link text-white " href="./logout">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
@@ -175,16 +176,16 @@ $student_id = $_SESSION['id'];
                     <?php 
                 //sql to get patient id
                 
-                $sql = "SELECT * FROM downloads WHERE doctor='$student_id'AND status IS NULL;";
+                $sql = "SELECT * FROM downloads WHERE customerid='$student_id';";
                 $sql_result = mysqli_query($db_connect,$sql);
                 while($patient_rows = mysqli_fetch_assoc($sql_result)){
-                    $patient_id = $patient_rows['customerid'];
+                    $student_id = $patient_rows['customerid'];
 
                     //sql to fetch patient full records
-                    $sql_pat_records = "SELECT * FROM downloads WHERE id='$patient_id';";
-                    $sql_pat_records_result = mysqli_query($db_connect,$sql_pat_records);
-                    $rows = mysqli_fetch_assoc($sql_pat_records_result);
-                    $date = date('d-m-Y', $rows['timestamp']);
+                    $sql_download_records = "SELECT * FROM downloads WHERE id='$student_id';";
+                    $sql_download_records_result = mysqli_query($db_connect,$sql_download_records);
+                    $rows = mysqli_fetch_assoc($sql_download_records_result);
+                    $date = date('d/m/Y', $rows['timestamp']);
                 ?>
                       <tr>
                         <td>

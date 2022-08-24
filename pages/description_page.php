@@ -1,4 +1,9 @@
-
+<?php
+    include_once 'config/database.php';
+    include 'config/alert.message.php';
+   
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -147,14 +152,22 @@
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div  class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                title
+                <input type="hidden" name="title" value="person">
               </div>
             </div>
             <!-- image here  -->
             <div class="prewiew my-3">
-              <button class="mx-3 mt-2 butt btn btn-warning">preveiw</button>
-              <button class="mx-2 mt-2 butt btn btn-warning">Download</button>
+              <a herf="#" class="mx-3 mt-2 butt btn btn-primary">preveiw</a>
+              
+              <!-- Button trigger modal -->
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               Download <i class="material-icons ms-1 opacity-10">download</i>
+          </button>
+            <?php include'../assets/modals/modal.php'; ?>
             </div>
+
+
+          
             <div class="card-body px-5">
               <h1>h1. Bootstrap heading</h1>
               <h2>h2. Bootstrap heading</h2>

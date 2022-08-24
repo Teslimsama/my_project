@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
     if(empty(trim($_POST["email"]))){
-        $username_err = "Please enter username.";
+        $username_err =  $_SESSION['error'] = "Please enter username.";
     } else{
         $username = trim($_POST["email"]);
     }

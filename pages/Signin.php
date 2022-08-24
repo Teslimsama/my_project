@@ -42,7 +42,7 @@ include('config/alert.message.php');
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                   <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
-                    <i class="fa fa-table-layout opacity-6 text-dark me-1"></i>
+                    <i class="fa-solid fa-table-layout opacity-6 text-dark me-1"></i>
                     About Us
                   </a>
                 </li>
@@ -105,10 +105,13 @@ include('config/alert.message.php');
           Don't have an account?
           <a href="./Signup" class="text-primary text-gradient font-weight-bold">Sign up</a>
          
-          <p class="text-center text-light mt-3">&copy; 
-          <script>
-          document.write(new Date().getFullYear())
-        </script> Testech, Ltd</p>
+          <p class="text-center text-light mt-3"> 
+         <p class="mt-4 text-sm text-center">
+          Forgotten your 
+          <a href="./forgotten_password" class="text-primary text-gradient font-weight-bold">Password ?</a>
+         
+          <p class="text-center text-light mt-3"> 
+         
        </form>
       </div>  
       <!-- footer  -->
@@ -140,7 +143,7 @@ include('config/alert.message.php');
           }
           </script>
       
-    <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
+    
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/material-dashboard.js"></script>
 </body>

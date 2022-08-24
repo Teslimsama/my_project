@@ -1,4 +1,13 @@
+<?php
+include_once 'config/database.php';
+include 'config/alert.message.php';
 
+
+
+
+$student_id = $_SESSION['id'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,10 +135,13 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <form action="search" method="GET">
             <div class="input-group input-group-outline">
               <label class="form-label">Type here...</label>
-              <input type="text" class="form-control">
-            </div>
+                <input type="text" name="k"  class="form-control">
+                
+              </div>
+            </form>
           </div>
           <ul class="navbar-nav  justify-content-end">
             
@@ -155,11 +167,25 @@
                   <table class="table align-items-center mb-0">
                     <thead>
                       <tr>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><i class="fa-solid fa-hashtag "></i></th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Your Book's</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                     </thead>
                     <tbody>
+                    <?php 
+                //sql to get patient id
+                
+                $sql = "SELECT * FROM downloads WHERE doctor='$student_id'AND status IS NULL;";
+                $sql_result = mysqli_query($db_connect,$sql);
+                while($patient_rows = mysqli_fetch_assoc($sql_result)){
+                    $patient_id = $patient_rows['customerid'];
+
+                    //sql to fetch patient full records
+                    $sql_pat_records = "SELECT * FROM downloads WHERE id='$patient_id';";
+                    $sql_pat_records_result = mysqli_query($db_connect,$sql_pat_records);
+                    $rows = mysqli_fetch_assoc($sql_pat_records_result);
+                    $date = date('d-m-Y', $rows['timestamp']);
+                ?>
                       <tr>
                         <td>
                           <div class="d-flex px-2 py-1">
@@ -171,114 +197,15 @@
                         <td>
                           <div class="avatar-group mt-2">
                             <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                           <h6> Lorem, ipsum.</h6>
+                           <h6> <?php echo $rows['book']; ?></h6>
                             </a>
                           </div>
                         </td>
                         <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $14,000 </span>
+                          <span class="text-xs font-weight-bold"> <?php echo  $date; ?> </span>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                            <h6>2</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid"><h6>horticulture</h6>
-                            </a>
-                         
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $3,000 </span>
-                        </td>
-                      </tr>
-                     
-                        <td>
-                      
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                             <h6>3</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <h6>civic edu.</h6>
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> Not set </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                             <h6>4</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                              <h6>Basic edu.</h6>
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $20,500 </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                             <h6>5</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                             <h6>Lorem ipsum </h6>
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $500 </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                             <h6>6</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class=" mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                                <h6>Lorem, ipsum.</h6>
-                            </a>
-                          
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $2,000 </span>
-                        </td>
-                   
-                        </td>
-                      </tr>
+                      <?php } ?>
                     </tbody>
                   </table>
                 </div>

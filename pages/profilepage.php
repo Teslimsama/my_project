@@ -60,7 +60,7 @@ $rows = mysqli_fetch_assoc($sql_result);
         <li class="nav-item">
           <a class="nav-link text-white " href="./downloads">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10">download</i>
             </div>
             <span class="nav-link-text ms-1">Downloads</span>
           </a>
@@ -129,10 +129,13 @@ $rows = mysqli_fetch_assoc($sql_result);
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            <form action="search" method="GET">
             <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-              <input type="text" class="form-control">
-            </div>
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+                
+              </div>
+                </form> 
           </div>
           <ul class="navbar-nav  justify-content-end">
             
@@ -195,9 +198,11 @@ $rows = mysqli_fetch_assoc($sql_result);
                   
                   <ul class="list-group">
                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; <?php echo $rows['firstname'] .' '.$rows['lastname'] ;?>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Username:</strong> &nbsp; <?php echo $rows['username'] ;?></li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; <?php echo $rows['phone'] ;?></li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp;  <?php echo $rows['email'] ;?></li>
                     <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">University:</strong> &nbsp;  <?php echo $rows['school'] ;?></li>
+                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Level:</strong> &nbsp;  <?php echo $rows['level'] ;?></li>
                   </ul>
                 </div>
               </div>

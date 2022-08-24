@@ -1,4 +1,9 @@
 <?php
+include_once 'config/database.php';
+    include 'config/alert.message.php';
+  
+    
+ 
     $filename = "../unibooks_download/";
     if (isset($_GET['file'])) {
        $filename .= $_GET['file'];
@@ -14,3 +19,4 @@
     }else{
         header("location:../content");
     }
+    

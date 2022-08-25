@@ -1,4 +1,34 @@
+<?php
+if (isset($_POST['upload']) &&  $_FILES['attachment'] !== 0) {
+    $firs_name = $_POST['firstname'];
+    $last_name = $_POST['lastname'];
+    $rand_num = random_int(1000,9999);
 
+
+    // echo $_POST['firstname'];
+    // print_r($_FILES['attachment']);
+    $file = $_FILES['attachment'];
+    $file_name = $file['name'];
+    $file_exploded = explode('.',$file['name']);
+    $file_ext = end($file_exploded);
+    $file_tmp_loc = $file['tmp_name'];
+    $file_size = $file['size'];
+
+
+    $appcected_ext = array('docx','pdf','txt');
+    if (!in_array($file_ext,$appcected_ext)) {
+        echo 'unaccepted file format';
+    } elseif ($file_size > 102400) {
+       echo 'file size exceeded';
+    }else { //to move to another destination
+        $perm_address = 'uploads/'. $firs_name . '_' . $last_name . '_'. $rand_num . '.' . $file_ext;
+        if (move_uploaded_file($file_tmp_loc,$perm_address)) {
+           echo 'successful';
+        }
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +38,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
   <title>
-    Downloads || Unibooks
+    Upload || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -113,9 +143,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Downloads</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Upload</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Downloads</h6>
+          <h6 class="font-weight-bolder mb-0">Upload</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -146,154 +176,49 @@
       </div>
     </nav>
     <!-- End Navbar -->
+               <style>
+                /* .card{
+                  display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+                } */
+               </style>
     
-          <div class="card">
-            <div class="card-body px-0 pb-2">
-                <div class="table-responsive">
-                  <table class="table align-items-center mb-0">
-                    <thead>
-                      <tr>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Your Book's</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column justify-content-center">
-                            <h6>1</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                           <h6> Lorem, ipsum.</h6>
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $14,000 </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                            <h6>2</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid"><h6>horticulture</h6>
-                            </a>
-                         
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $3,000 </span>
-                        </td>
-                      </tr>
-                     
-                        <td>
-                      
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                             <h6>3</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <h6>civic edu.</h6>
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> Not set </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                             <h6>4</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                              <h6>Basic edu.</h6>
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $20,500 </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                             <h6>5</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="avatar-group mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                             <h6>Lorem ipsum </h6>
-                            </a>
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $500 </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                             <h6>6</h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class=" mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                                <h6>Lorem, ipsum.</h6>
-                            </a>
-                          
-                          </div>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> $2,000 </span>
-                        </td>
-                   
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+          <div class="card mt-5  w-80 " style="margin: 50px;">
+            <div class="card-body form-control  px-4 pb-2">
+                        
+          <form action="" method="POST" enctype="multipart/form-data" >
+                 <div class="first p-2">
+                    <label for="">Name of the Book\Material</label>
+                    <input type="text" class="form-control" name="book" placeholder="Book\Material">
+                </div>
+                <div class="last p-2">
+                    <label for="">Which Faculty Is It For ?</label>
+                    <input type="text" class="form-control" name="faculty" placeholder="faculty">
+                </div> 
+                  <label for="">Upload File </label>
+              <div class="upload p-2 form-control">
+                  <input type="file" class="" name="attachment">
+              </div>
+              <div class="butt p-2">
+                <button type="submit" class="btn btn-dark text-center" name="upload">Upload book\Material</button>
+              </div>
+          </form>
                 </div>
               </div>
             </div>
-          </div>
-          </div>
+    <div  class="container-fluid py-4">
     <div  class="container-fluid py-4">
          <!-- footer  -->
          <div class="container-fluid bg- mt-5 ">
           <footer class="py-3 my-4 ">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Features</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Pricing</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Downloads</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">About</a></li>
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
             </ul>
             <p class="text-center text-light">&copy; 
               <script>

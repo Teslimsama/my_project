@@ -8,15 +8,21 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
   <title>
-    Material Dashboard 2 by Creative Tim
+    EDashboard || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" /> 
+  <link href="../assets/css/all.css" rel="stylesheet" /> 
+  <link href="../assets/css/solid.css" rel="stylesheet" /> 
+  <link href="../assets/css/brand.css" rel="stylesheet" /> 
+  <link href="../assets/css/.css" rel="stylesheet" /> 
+  
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
+  
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -27,7 +33,7 @@
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="./about_us.php " target="_blank">
+      <a class="navbar-brand m-0" href="./about_us " target="_blank">
         <img src="../Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold text-white">Unibooks</span>
       </a>
@@ -36,7 +42,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav  justify-content-center">
         <li class="nav-item">
-          <a class="nav-link text-white " href="./dashboard_admin.php">
+          <a class="nav-link text-white " href="./dashboard_admin">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -44,7 +50,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads.php">
+          <a class="nav-link text-white " href="./downloads">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -52,7 +58,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./payments.php">
+          <a class="nav-link text-white " href="./payments">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -60,7 +66,7 @@
           </a>
         </li> 
         <li class="nav-item">
-          <a class="nav-link text-white " href="./notifications.php">
+          <a class="nav-link text-white " href="./notifications">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
@@ -68,7 +74,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="./profilepage.php">
+          <a class="nav-link text-white active bg-gradient-primary" href="./profilepage">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
@@ -76,7 +82,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./Signin.php">
+          <a class="nav-link text-white " href="./Signin">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">login</i>
             </div>
@@ -84,7 +90,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./logout.php">
+          <a class="nav-link text-white " href="./logout">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
@@ -119,7 +125,7 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="pages/sign-in.php" class="nav-link text-body font-weight-bold px-0">
+              <a href="Signin" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
@@ -694,19 +700,27 @@
           </div>
         </div>
       </div>
-      <footer class="footer py-4  ">
-        <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-                made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
-              </div>
+    
+      <div  class="container-fluid py-4">
+         <!-- footer  -->
+         <div class="container-fluid bg- mt-5 ">
+          <footer class="py-3 my-4 ">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+            </ul>
+            <p class="text-center text-light">&copy; 
+              <script>
+              document.write(new Date().getFullYear())
+            </script><a href=""> Testech, Ltd</a></p>
+            
+          </footer>
             </div>
+      <!-- footer  -->
+     <!-- footer  -->
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
@@ -795,7 +809,7 @@
           <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
             <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
           </a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+          <a href="https://www.facebook.com/sharer/sharer?u=https://www.creative-tim.com/product/material-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
             <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
           </a>
         </div>

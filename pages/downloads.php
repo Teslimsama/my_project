@@ -182,10 +182,11 @@ $student_id = $_SESSION['id'];
                     $student_id = $patient_rows['customerid'];
 
                     //sql to fetch patient full records
-                    $sql_download_records = "SELECT * FROM downloads WHERE customerid='$student_id';";
+                    $sql_download_records = "SELECT * FROM downloads WHERE id='$student_id';";
                     $sql_download_records_result = mysqli_query($db_connect,$sql_download_records);
                     $rows = mysqli_fetch_assoc($sql_download_records_result);
-                    $date = date('d/m/Y',$rows['customerid']);
+                    $dowload_date =  $rows['timestamp']
+                    $date = date('d/m/Y', $dowload_date);
                 ?>
                       <tr>
                         <td>

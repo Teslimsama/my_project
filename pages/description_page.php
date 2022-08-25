@@ -2,7 +2,7 @@
     include_once 'config/database.php';
     include 'config/alert.message.php';
    // session_start();
-   $download = $_POST['download'];
+   $download = $_POST['title'];
    $student_id = $_SESSION['id'];
    
 $now = new DateTime();
@@ -169,19 +169,20 @@ if(mysqli_stmt_execute($stmt)){
         <div class="col-12">
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <form action="" method="POST">
               <div  class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <input type="hidden" name="title" value="person">
+                agriculture science
+                <input type="hidden" name="title" value="civic education">
               </div>
             </div>
             <!-- image here  -->
             <div class="download">
               <div class="perview ">
-                  <form action="" method="post">
+                  
                 <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
-              </form>
+              
                 </div>
                 <div class="preview mt-2">
-                  <form action="" method="POST">
                     <input type="hidden" name="download" value="hppay" id="download">
                       <!-- Button trigger modal -->
           <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">

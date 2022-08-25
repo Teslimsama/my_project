@@ -2,4 +2,6 @@ body{
     background-image: url(../../Images/pexels-craig-adderley-2566121.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
   }

@@ -42,7 +42,11 @@ $rows = mysqli_fetch_assoc($sql_result);
               </div>
             </div>
                     <div class="card-body">
-                    <form action="app/update.app.php " method="POST">
+                    <form action="app/update.app.php " method="POST" enctype="multipart/form-data">
+                <div class="upload p-2 form-control">
+                    <label for="">Upload Your profile_image </label>
+                    <input type="file" class="" name="attachment">
+                </div>
                 <div class="first">
                     <label for="">Firstname</label>
                     <input type="firstname" class="form-control" name="firstname" value="<?php echo $rows['firstname'] ;?>" placeholder="first name">

@@ -176,16 +176,14 @@ $student_id = $_SESSION['id'];
                     <?php 
                 //sql to get patient id
                 
-                $sql = "SELECT * FROM downloads WHERE customerid='$student_id';";
+                $sql = "SELECT * FROM download WHERE customerid='$student_id' ORDER BY id DESC;";
                 $sql_result = mysqli_query($db_connect,$sql);
                 while($patient_rows = mysqli_fetch_assoc($sql_result)){
                     $student_id = $patient_rows['customerid'];
 
                     //sql to fetch patient full records
-                    $sql_download_records = "SELECT * FROM downloads WHERE id='$student_id';";
-                    $sql_download_records_result = mysqli_query($db_connect,$sql_download_records);
-                    $rows = mysqli_fetch_assoc($sql_download_records_result);
-                    $dowload_date =  $rows['timestamp']
+                    
+                    $dowload_date =   $patient_rows['timestamp'];
                     $date = date('d/m/Y', $dowload_date);
                 ?>
                       <tr>
@@ -199,12 +197,14 @@ $student_id = $_SESSION['id'];
                         <td>
                           <div class="avatar-group mt-2">
                             <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                           <h6> <?php echo $rows['book']; ?></h6>
+                           <h6> <?php echo  $patient_rows['book'];
+                           print_r( $patient_rows); ?></h6>
+                           
                             </a>
                           </div>
                         </td>
                         <td class="align-middle text-center text-sm">
-                          <span class="text-xs font-weight-bold"> <?php echo  $date; ?> </span>
+                          <span class="text-xs font-weight-bold"> <?php echo $date ; ?> </span>
                         </td>
                       </tr>
                       <?php } ?>

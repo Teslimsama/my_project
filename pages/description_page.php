@@ -7,7 +7,7 @@
    
 $now = new DateTime();
 $timestamp = $now->getTimestamp();
-$sql = "INSERT INTO downloads (customerid,book,timestamp) VALUES(?,?,?);";
+$sql = "INSERT INTO download (customerid,book,timestamp) VALUES(?,?,?);";
 
 $stmt = mysqli_stmt_init($db_connect);
 mysqli_stmt_prepare($stmt,$sql);
@@ -15,7 +15,7 @@ mysqli_stmt_bind_param($stmt,'isi',$student_id,$download,$timestamp);
 
 
 if(mysqli_stmt_execute($stmt)){
- $_SESSION['success'] = "Your Downloadd is been Processed";
+ $_SESSION['success'] = "Your Download is been Processed";
 }else{
  $_SESSION['error'] = 'Please Try Again';
 

@@ -197,8 +197,8 @@ if (isset($_POST['upload']) &&  $_FILES['attachment'] !== 0) {
                     <label for="">Which Faculty Is It For ?</label>
                     <input type="text" class="form-control" name="faculty" placeholder="faculty">
                 </div> 
-                  <label for="">Upload File </label>
-              <div class="upload p-2 form-control">
+                <div class="upload p-2 form-control">
+                <label for="">Upload File </label>
                   <input type="file" class="" name="attachment">
               </div>
               <div class="butt p-2">

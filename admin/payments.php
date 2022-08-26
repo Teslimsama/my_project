@@ -39,7 +39,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white " href="./content">
+          <a class="nav-link text-white " href="./dashboard_admin">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -47,11 +47,11 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
+          <a class="nav-link text-white " href="./upload">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">download</i>
+              <i class="material-icons opacity-10">upload</i>
             </div>
-            <span class="nav-link-text ms-1">Download</span>
+            <span class="nav-link-text ms-1">Upload</span>
           </a>
         </li>
         <li class="nav-item">
@@ -428,7 +428,7 @@
           </div>
         </div>
         <hr class="horizontal dark my-sm-4">
-        <a class="btn bg-gradient-info w-100" href="https://www.creative-tim.com/product/material-dashboard-pro">Free Download</a>
+        <a class="btn bg-gradient-info w-100" href="https://www.creative-tim.com/product/material-dashboard-pro">Free upload</a>
         <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard">View documentation</a>
         <div class="w-100 text-center">
           <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>

@@ -166,26 +166,21 @@
     e.preventDefault();
 
     let handler = PaystackPop.setup({
-        key: 'pk_test_3d44964799de7e2a5abdbf2eef2fbe6852e60833', // Replace with your public key
+        key: 'pk_test_xxxxxxxxxx', // Replace with your public key
         email: document.getElementById("email-address").value,
         amount: document.getElementById("amount").value * 100,
-        ref: 'UB'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+        ref: 'unibook'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
         // label: "Optional string that replaces customer email"
         onClose: function(){
-          window.location = "http://localhost/my_project/admin/donate";
-        alert('transaction failed.');
+        alert('Window closed.');
         },
         callback: function(response){
         let message = 'Payment complete! Reference: ' + response.reference;
         alert(message);
-        callback: function(response) {
-        window.location = "http://localhost/my_project/admin/transact_verify.php?reference=" + response.reference;
-        };
-      // On the redirected page, you can call Paystack's verify endpoint.
         }
     });
 
-    handler.openIframe(); 
+    handler.openIframe();
     }
 </script>
     <div  class="container-fluid py-4">

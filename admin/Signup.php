@@ -99,26 +99,17 @@ include('config/alert.message.php');
                     <input type="tel" class="form-control" name="phone" placeholder="phone eg.080874456644"  required>
                     
                 </div>
-                <div class="level">
-                    <label for="">Level</label>
-                    <input type="text" class="form-control" name="levell" placeholder="Current Level" required>
-                    
+                
+                
+                <div class="location mt-3"> 
+                    <select class="form-select form-select-md" name="state" aria-label=".form-select-mg example">
+                    <option selected> Your current location</option>
+                    <option value="kaduna">kaduna</option>
+                    <option value="niger">niger</option>
+                    <option value="akure">FUTA</option>
+                  </select>
                 </div>
-                <div class="faculty">
-                    <label for="">Faculty</label>
-                    <input type="text" class="form-control" name="faculty" placeholder="faculty" required>
-                    
-                </div>
-                <div class="Department">
-                    <label for="">Department</label>
-                    <input type="tel" class="form-control" name="dept" placeholder="Department" required>
-                    
-                </div>
-                <div class="course">
-                    <label for="">Course of Study</label>
-                    <input type="tel" class="form-control" name="course" placeholder="Course of Study" required>
-
-                <div class="School mt-3"> 
+                <div class="school mt-3"> 
                     <select class="form-select form-select-md" name="school" aria-label=".form-select-mg example">
                     <option selected> Select Your School of Study</option>
                     <option value="1">Ahmedu Bello University</option>
@@ -146,13 +137,15 @@ include('config/alert.message.php');
                 </div>
                 <div class="password">
                   <label class="mt-3" for="">Create Password</label>
-                  <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" name="password" placeholder="create a password" required> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
+                  <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" name="password" id="Password" placeholder="create a password" required> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
+                  <span onclick="togglePass()"><i class="fa fa-eye-slash eye"></i></span>
                 </div>
                 <div class="confirm">
                     <label for="">Confirm Your Password</label>
-                    <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" name="conpassword" placeholder="confirm password" required>
-                    <span class="invalid-feedback"><?php  ?></span>
-
+                    <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" name="conpassword" id="Password" placeholder="confirm password" required>
+                     <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                    <!-- <span onclick="togglePass()"><i class="fa fa-eye-slash eye"></i></span> -->
+          
                 </div>
                 <div class="mt-4">
                     <label for="">Date of birth</label>
@@ -193,6 +186,15 @@ include('config/alert.message.php');
       <!-- footer  -->
     <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script> function togglePass() {
+          var x = document.getElementById("Password");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+          }
+          </script>
 </body>
   
 </html>

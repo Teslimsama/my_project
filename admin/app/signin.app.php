@@ -10,7 +10,7 @@ $password = $_POST['password'];
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: ../content");
+    header("location: ../dashboard_admin");
     exit;
 }
  
@@ -23,14 +23,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
     if(empty(trim($_POST["email"]))){
-        $username_err = "Please enter username.";
+        $username_err =  $_SESSION['error'] = "Please enter username.";
     } else{
         $username = trim($_POST["email"]);
     }
     
     // Check if password is empty
     if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
+        $password_err =  $_SESSION['error'] =  "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
     }
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, email, password FROM unibooker WHERE email = ?";
+        $sql = "SELECT id, email, password FROM workers WHERE email = ?";
         
         if($stmt = mysqli_prepare($db_connect, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -67,15 +67,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["email"] = $email;                            
                             
                             // Redirect user to welcome page
-                            header("location: ../content");
+                            header("location: ../dashboard_admin");
                         } else{
                             // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
+                            $login_err =  $_SESSION['error'] =  "Invalid username or password.";
                         }
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
+                    $login_err =  $_SESSION['error'] =  "Invalid username or password.";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -99,7 +99,7 @@ if(!empty($_POST["remember"])) {
 } else {
 	setcookie("email","");
 	setcookie("password","");
-	echo "Cookies Not Set";
+	header('location:../Signin');
 }
 
 

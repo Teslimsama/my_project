@@ -65,26 +65,7 @@ $rows = mysqli_fetch_assoc($sql_result);
                     <input type="tel" class="form-control" name="phone" value="<?php echo $rows['phone'] ;?>" placeholder="phone eg.08079730127" >
                     
                 </div>
-                <div class="level">
-                    <label for="">Level</label>
-                    <input type="text" class="form-control" name="levell" placeholder="Current Level" value="<?php echo $rows['level'] ;?>">
-                    
-                </div>
-                <div class="faculty">
-                    <label for="">Faculty</label>
-                    <input type="text" class="form-control" name="faculty" placeholder="faculty" value="<?php echo $rows['faculty'] ;?>">
-                    
-                </div>
-                <div class="Department">
-                    <label for="">Department</label>
-                    <input type="tel" class="form-control" name="dept" placeholder="Department" value="<?php echo $rows['department'] ;?>">
-                    
-                </div>
-                <div class="course">
-                    <label for="">Course of Study</label>
-                    <input type="tel" class="form-control" name="course" placeholder="Course of Study" value="<?php echo $rows['course'] ;?>">
-
-                </div>
+                
                 <div class="email">
                     <label for="">Email</label>
                     <input type="email" class="form-control" name="email" placeholder="valid email" value="<?php echo $rows['email'] ;?>">
@@ -92,10 +73,10 @@ $rows = mysqli_fetch_assoc($sql_result);
                 
                 <div class="mt-4">
                     <label for="">Date of birth</label>
-                    <input type="date" class="form-control" name="dob" placeholder="" value="<?php echo $rows['firstname'] ;?>">
+                    <input type="date" class="form-control" name="dob" placeholder="" value="<?php echo $rows['dob'] ;?>">
                 </div>
                 <div class="form-group">
-                <input type="submit" class="btn btn-primary"name="submit" value="Submit">
+                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
                 <a class="btn btn-link ml-2" href="profilepage">Cancel</a>
                 </div>
             </form>
@@ -103,25 +84,6 @@ $rows = mysqli_fetch_assoc($sql_result);
         </div>
     </div>
             
-    <!-- <div class="wrapper card">
-        <h2>Reset Password</h2>
-        <p>Please fill out this form to reset your password.</p>
-        <form action="app/update.app.php <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> 
-            <div class="form-group">
-                <label>New Password</label>
-                <input type="password" name="new_password" class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $new_password; ?>">
-                <span class="invalid-feedback"><?php echo $new_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
-                <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <a class="btn btn-link ml-2" href="profilepage">Cancel</a>
-            </div>
-        </form>
-    </div>     -->
+
 </body>
 </html>

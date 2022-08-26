@@ -7,7 +7,7 @@ include 'config/alert.message.php';
 
 $student_id = $_SESSION['id'];
 
-$sql = "SELECT * FROM unibooker WHERE id='$student_id';";
+$sql = "SELECT * FROM workers WHERE id='$student_id';";
 $sql_result = mysqli_query($db_connect,$sql);
 $rows = mysqli_fetch_assoc($sql_result);
 
@@ -50,7 +50,7 @@ $rows = mysqli_fetch_assoc($sql_result);
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav  justify-content-center">
         <li class="nav-item">
-          <a class="nav-link text-white " href="./content">
+          <a class="nav-link text-white " href="./dashboard_admin">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -58,11 +58,11 @@ $rows = mysqli_fetch_assoc($sql_result);
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
+          <a class="nav-link text-white " href="./upload">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
+              <i class="material-icons opacity-10">upload</i>
             </div>
-            <span class="nav-link-text ms-1">Downloads</span>
+            <span class="nav-link-text ms-1">uploads</span>
           </a>
         </li>
         <li class="nav-item">
@@ -169,7 +169,7 @@ $rows = mysqli_fetch_assoc($sql_result);
               <?php echo $rows['firstname'] .' '.$rows['lastname'] ;?>
               </h5>
               <p class="mb-0 font-weight-normal text-sm">
-                CEO / Co-Founder
+                Student
               </p>
             </div>
           </div>

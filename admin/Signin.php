@@ -1,4 +1,5 @@
 <?php
+include('config/alert.message.php');
 ?>
 
 
@@ -41,7 +42,7 @@
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                   <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
-                    <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
+                    <i class="fa-solid fa-table-layout opacity-6 text-dark me-1"></i>
                     About Us
                   </a>
                 </li>
@@ -53,7 +54,7 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-2 title" href="./Signup">
-                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                    <i class="fas fa-user-plus opacity-6 text-dark me-1"></i>
                     Sign Up
                   </a>
                 </li>
@@ -76,7 +77,9 @@
         <a href="../Images/unibooks copy.png"> <img class="me-3 " src="../Images/unibooks copy.png" alt="" width="200" height="150"></a>
          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
      
+         <?php echo ErrorMessage(); echo SuccessMessage();?>
          <div class="form-floating">
+         
            <input type="email" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if(isset($_COOKIE["email"])) { echo $_COOKIE["email"]; } ?> " id="floatingInput" name="email" placeholder="Email">
            <span class="invalid-feedback"><?php echo $username_err; ?></span>
 
@@ -102,10 +105,13 @@
           Don't have an account?
           <a href="./Signup" class="text-primary text-gradient font-weight-bold">Sign up</a>
          
-          <p class="text-center text-light mt-3">&copy; 
-          <script>
-          document.write(new Date().getFullYear())
-        </script> Testech, Ltd</p>
+          <p class="text-center text-light mt-3"> 
+         <p class="mt-4 text-sm text-center">
+          Forgotten your 
+          <a href="./forgotten_password" class="text-primary text-gradient font-weight-bold">Password ?</a>
+         
+          <p class="text-center text-light mt-3"> 
+         
        </form>
       </div>  
       <!-- footer  -->
@@ -114,7 +120,7 @@
             <ul class="nav justify-content-center border-bottom pb-3 mb-3 ">
             <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
             </ul>
@@ -137,7 +143,7 @@
           }
           </script>
       
-    <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
+    
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/material-dashboard.js"></script>
 </body>

@@ -171,8 +171,8 @@ if(mysqli_stmt_execute($stmt)){
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <form action="" method="POST">
               <div  class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                agriculture science
-                <input type="hidden" name="title" value="civic education">
+               <h3>civic education</h3>
+                <input type="hidden" name="title" value="adult education">
               </div>
             </div>
             <!-- image here  -->

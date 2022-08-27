@@ -1,9 +1,10 @@
 <?php
+// $customerid = $_SESSION['id'] ;
 include_once 'config/database.php';
 
-    $ref = $_GET['status'] !== "success";
-    if ($ref = "") {
-        header("location:javascript://history.go(-1)";
+    $ref = $_GET['reference'];
+    if ($ref == "") {
+        header("location:javascript://history.go(-1)");
     }
     ?>
     <?php
@@ -44,14 +45,21 @@ include_once 'config/database.php';
     date_default_timezone_set('Africa/lagos');
     $Date_time = date('m/d/Y h:i:s a',time());
 
-    $stmt = $db_connect->prepare("INSERT INTO payments (status,reference,fullname,date,email) VALUES (?,?,?,?,?)");
-    $stmt->bind_param("sssss", $status,$reference,$fullname,$Date_time,$Cus_email);
-    $stmt->execute();
-    if (!$stmt) {
-        echo 'there was a problem on your code'. mysqli_error($db_connect);
-    }else  {
-    header("location:success?status=success");
+    include_once 'config/database.php';
+    
+    $sql = "INSERT INTO payments ( status, reference, fullname, date, email) VALUES(?,?,?,?,?); ";
+    
+    $stmt = mysqli_stmt_init($db_connect);
+    mysqli_stmt_prepare($stmt,$sql);
+    mysqli_stmt_bind_param($stmt, 'sssss' ,$status,$reference,$fullname,$Date_time,$Cus_email);
+    // $stmt = $db_connect->prepare("INSERT INTO payments ( status, reference, fullname, date, email, customerid) VALUES (?,?,?,?,?,?)");
+    // $stmt->bind_param("sssssi", $status,$reference,$fullname,$Date_time,$Cus_email,$customerid);
+    // $stmt->execute();
+    if (mysqli_stmt_execute($stmt)) {
+      header("location:success?status=success");
       exit;  
+    }else {
+      echo 'there was a problem on your code'. mysqli_error($db_connect);
     }
     $stmt->close();
     $db_connect->close();

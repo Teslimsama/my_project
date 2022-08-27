@@ -131,7 +131,7 @@
             <div class="card-body">
              <h6>your donation will realy go long way in helping me pursue my carrer ,please any amount is a life changer</h6>
              <form id="paymentForm">
-                <div class="form-group">
+                <div class="form-group form-control">
                     <label for="email">Email Address</label>
                     <input type="email" id="email-address" required />
                 </div>
@@ -169,23 +169,22 @@
         key: 'pk_test_3d44964799de7e2a5abdbf2eef2fbe6852e60833', // Replace with your public key
         email: document.getElementById("email-address").value,
         amount: document.getElementById("amount").value * 100,
-        ref: 'UB'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+        ref: 'unibook'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
         // label: "Optional string that replaces customer email"
         onClose: function(){
-          window.location = "http://localhost/my_project/admin/donate";
-        alert('transaction failed.');
+          // window.location
+        alert('Window closed.');
         },
         callback: function(response){
         let message = 'Payment complete! Reference: ' + response.reference;
         alert(message);
-        callback: function(response) {
-        window.location = "http://localhost/my_project/admin/transact_verify.php?reference=" + response.reference;
-        };
-      // On the redirected page, you can call Paystack's verify endpoint.
+        
+        window.location = "http://localhost/my_project/pages/transact_verify?reference=" + response.reference;
+
         }
     });
 
-    handler.openIframe(); 
+    handler.openIframe();
     }
 </script>
     <div  class="container-fluid py-4">

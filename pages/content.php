@@ -179,234 +179,98 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-             <a href="app/download_link.app.php?file=person.jpg"> <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-
-              </div>
-            </div>
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
+              <a href="description_page"> 
               <div class="container name ">
-                <h6>Aspriping Web Developer</h6>
-                <a class="btn btn-dark" href="">NGN 4000</a>
-                
-                
-                
+                <h6>Aspriping Web Developer</h6></a>
               </div>
             </div>
+
+
+            <div class="pic card bg-gradient-light mt-3">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <div class="over">
+               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <a href="description_page"> 
+              <div class="container name ">
+                <h6>Aspriping Web Developer</h6></a>
+              </div>
+            </div>
+
+
+            <div class="pic card bg-gradient-light mt-3">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <div class="over">
+               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <a href="description_page"> 
+              <div class="container name ">
+                <h6>Aspriping Web Developer</h6></a>
+              </div>
+            </div>
+
+
+            <div class="pic card bg-gradient-light mt-3">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <div class="over">
+               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <a href="description_page"> 
+              <div class="container name ">
+                <h6>Aspriping Web Developer</h6></a>
+              </div>
+            </div>
+
+
+            <div class="pic card bg-gradient-light mt-3">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <div class="over">
+               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <a href="description_page"> 
+              <div class="container name ">
+                <h6>Aspriping Web Developer</h6></a>
+              </div>
+            </div>
+
+
+            <div class="pic card bg-gradient-light mt-3">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <div class="over">
+               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <a href="description_page"> 
+              <div class="container name ">
+                <h6>Aspriping Web Developer</h6></a>
+              </div>
+            </div>
+
+
+            <div class="pic card bg-gradient-light mt-3">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <div class="over">
+               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <a href="description_page"> 
+              <div class="container name ">
+                <h6>Aspriping Web Developer</h6></a>
+              </div>
+            </div>
+
+
+            <div class="pic card bg-gradient-light mt-3">
+              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+              <div class="over">
+               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+              </div>
+              <a href="description_page"> 
+              <div class="container name ">
+                <h6>Aspriping Web Developer</h6></a>
+              </div>
+            </div>
+
+
+
            
            
          </div>

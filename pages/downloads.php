@@ -198,7 +198,7 @@ $student_id = $_SESSION['id'];
                           <div class="avatar-group mt-2">
                             <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
                            <h6> <?php echo  $patient_rows['book'];
-                           print_r( $patient_rows); ?></h6>
+                            ?></h6>
                            
                             </a>
                           </div>

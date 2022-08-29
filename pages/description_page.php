@@ -1,27 +1,4 @@
-<?php
-    include_once 'config/database.php';
-    include 'config/alert.message.php';
-   // session_start();
-   $download = $_POST['title'];
-   $student_id = $_SESSION['id'];
-   
-$now = new DateTime();
-$timestamp = $now->getTimestamp();
-$sql = "INSERT INTO download (customerid,book,timestamp) VALUES(?,?,?);";
 
-$stmt = mysqli_stmt_init($db_connect);
-mysqli_stmt_prepare($stmt,$sql);
-mysqli_stmt_bind_param($stmt,'isi',$student_id,$download,$timestamp);
-
-
-if(mysqli_stmt_execute($stmt)){
- $_SESSION['success'] = "Your Download is been Processed";
-}else{
- $_SESSION['error'] = 'Please Try Again';
-
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,59 +42,6 @@ if(mysqli_stmt_execute($stmt)){
               <i class="material-icons opacity-10">dashboard</i>
             </div>
             <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">download</i>
-            </div>
-            <span class="nav-link-text ms-1">Downloads</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./payments">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Payments</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Notifications</span>
-          </a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./profilepage">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./logout">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Log Out</span>
-          </a>
-        </li>
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./assignment">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">assignment</span>
           </a>
         </li>
       </ul>
@@ -188,8 +112,8 @@ if(mysqli_stmt_execute($stmt)){
           <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Download <i class="material-icons ms-1 opacity-10">download</i>
           </button>
-            <?php include'../modals/modal.php'; ?>
-            <?php echo ErrorMessage(); echo SuccessMessage();?>
+            <?php include'../modals/index_modal.php'; ?>
+           
 
             </div> 
              

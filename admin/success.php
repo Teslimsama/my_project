@@ -1,40 +1,33 @@
 <?php
-
-?>
+if ($_GET['status'] !== "success") {
+include_once 'config/database.php';
+header("location:javascript://history.go(-1)");
+}?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
-  
+  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
   <title>
-    Dashboard ||Unibooks
+    Thank You || UniBooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" /> 
-  <link href="../assets/css/all.css" rel="stylesheet" /> 
-  <link href="../assets/css/solid.css" rel="stylesheet" /> 
-  <link href="../assets/css/brand.css" rel="stylesheet" /> 
-  
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
-  
-  
-  
-
-
-
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/content.css">
+  <link id="pagestyle" href="../assets/css/faq.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="../assets/css/cheatsheet.css"> -->
+  
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -49,78 +42,37 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
+        
         <li class="nav-item">
-          <a class="nav-link text-white " href="./content">
+          <a class="nav-link text-white " href="./Signup">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
+              <i class="fa-solid fa-user-plus opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
+            <span class="nav-link-text ms-1">Sign Up</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
+          <a class="nav-link text-white " href="./Signin">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">download</i>
+              <i class="fa-solid fa-arrow-right-to-bracket opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Downloads</span>
+            <span class="nav-link-text ms-1">Signin</span>
           </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link text-white " href="./payments">
+          <a class="nav-link text-white " href="./social">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
+              <i class="fa-solid fa-hashtag opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Payments</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./notifications">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Notifications</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./profilepage">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./logout">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Log Out</span>
-          </a>
-        </li>
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./assignments">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">Assignment</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./project">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-duotone fa-square-kanban opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Project</span>
+            <span class="nav-link-text ms-1">Social Media</span>
           </a>
         </li>
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Be a Unibooker</a>
       </div>
     </div>
   </aside>
@@ -131,9 +83,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Thank You</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder mb-0">Thank You</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -146,6 +98,12 @@
             </form>
           </div>
           <ul class="navbar-nav  justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+              <a href="./Signin" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+                <span class="d-sm-inline d-none">Sign In</span>
+              </a>
+            </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -155,149 +113,56 @@
                 </div>
               </a>
             </li>
-           
-              </ul>
+
+
+            
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <main>
-        <div class="doe">
-        
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row min-vh-80">
+        <div class="col-6 mx-auto">
+          <div class="card mt-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-center text-capitalize ps-3">Your donation is successful</h6>
+              
               </div>
             </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+            <div class="card-body">
+             
+              <div class="message">
+                Thank you for your contribution , you have just made my day 
               </div>
-              <a href="description_page copy"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
+                
             </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-
-           
-           
-         </div>
-    </main>
-  
-
-          <!-- footer  -->
-          <div class="container-fluid bg- mt-5 ">
-            <footer class="py-3 my-4 ">
-              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          </div>
+        </div>
+      </div>
+    <div  class="container-fluid py-4">
+         <!-- footer  -->
+         <div class="container-fluid bg- mt-5 ">
+          <footer class="py-3 my-4 ">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-              </ul>
-              <p class="text-center text-light">&copy; 
-                <script>
-                document.write(new Date().getFullYear())
-              </script> Testech, Ltd</p>
-              
-            </footer>
-              </div>
-        <!-- footer  -->  
+            </ul>
+            <p class="text-center text-light">&copy; 
+              <script>
+              document.write(new Date().getFullYear())
+            </script><a href=""> Testech, Ltd</a></p>
+            
+          </footer>
+            </div>
+      <!-- footer  -->
+    </div>
+    </div>
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -378,10 +243,7 @@
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <!-- fontawesome css -->
-  <script defer src="../assests/css/all.js"></script>
-  <script defer src="../assets/css/solid.js"></script>
-  <script defer src="../assests/css/brands.js"></script>
+  <script src="a"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

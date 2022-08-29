@@ -1,4 +1,25 @@
 <?php
+    include_once 'config/database.php';
+    include 'config/alert.message.php';
+   // session_start();
+   $download = $_POST['title'];
+   $student_id = $_SESSION['id'];
+   
+$now = new DateTime();
+$timestamp = $now->getTimestamp();
+$sql = "INSERT INTO download (customerid,book,timestamp) VALUES(?,?,?);";
+
+$stmt = mysqli_stmt_init($db_connect);
+mysqli_stmt_prepare($stmt,$sql);
+mysqli_stmt_bind_param($stmt,'isi',$student_id,$download,$timestamp);
+
+
+if(mysqli_stmt_execute($stmt)){
+ $_SESSION['success'] = "Your Download is been Processed";
+}else{
+ $_SESSION['error'] = 'Please Try Again';
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -9,32 +30,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
-  
   <title>
-    Dashboard ||Unibooks
+    More info || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" /> 
-  <link href="../assets/css/all.css" rel="stylesheet" /> 
-  <link href="../assets/css/solid.css" rel="stylesheet" /> 
-  <link href="../assets/css/brand.css" rel="stylesheet" /> 
-  
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
-  
-  
-  
-
-
-
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/content.css">
+  <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -43,7 +53,7 @@
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="about_us" target="_blank">
         <img src="../Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Unibooks</span>
+        <span class="ms-1 font-weight-bold text-white">UniBooks</span>
       </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
@@ -73,14 +83,16 @@
             <span class="nav-link-text ms-1">Payments</span>
           </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link text-white " href="./notifications">
+          <a class="nav-link text-white " href="../pages/notifications">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
           </a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link text-white " href="./profilepage">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -101,26 +113,18 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./assignments">
+          <a class="nav-link text-white " href="./assignment">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
-            <span class="nav-link-text ms-1">Assignment</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./project">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-duotone fa-square-kanban opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Project</span>
+            <span class="nav-link-text ms-1">assignment</span>
           </a>
         </li>
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -131,21 +135,19 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Description</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder mb-0">Description</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-          <form action="search" method="GET">
             <div class="input-group input-group-outline">
               <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
-              </div>
-            </form>
+              <input type="search" class="form-control">
+            </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
+            
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -155,149 +157,104 @@
                 </div>
               </a>
             </li>
-           
               </ul>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <main>
-        <div class="doe">
-        
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page copy"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row min-vh-80">
+        <div class="col-12">
+          <div class="card mt-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <form action="" method="POST">
+              <div  class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+               <h3>civic education</h3>
+                <input type="hidden" name="title" value="civic education">
               </div>
             </div>
+            <!-- image here  -->
+            <div class="download">
+              <div class="perview ">
+                  
+                <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
+              
+                </div>
+                <div class="preview mt-2">
+                    <input type="hidden" name="download" value="hppay" id="download">
+                      <!-- Button trigger modal -->
+          <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
+               Download <i class="material-icons ms-1 opacity-10">download</i>
+          </button>
+            <?php include'../modals/modal.php'; ?>
+            <?php echo ErrorMessage(); echo SuccessMessage();?>
 
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
+            </div> 
+             
+               
+            </form>
               </div>
             </div>
+            <style>
+              .download{
+                  display: grid;
+                  grid-template:50px 30px / 150px 300px;
+              }
+              
+            </style>
 
 
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
+          
+            <div class="card-body px-5">
+              <!-- <h1>h1. Bootstrap heading</h1>
+              <h2>h2. Bootstrap heading</h2>
+              <h3>h3. Bootstrap heading</h3>
+              <h4>h4. Bootstrap heading</h4>
+              <h5>h5. Bootstrap heading</h5>
+              <h6>h6. Bootstrap heading</h6>
+              <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+              <p><del>This line of text is meant to be treated as deleted text.</del></p>
+              <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+              <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+              <p><u>This line of text will render as underlined</u></p>
+              <p><small>This line of text is meant to be treated as fine print.</small></p>
+              <p><strong>This line rendered as bold text.</strong></p>
+              <p><em>This line rendered as italicized text.</em></p>
+              <figure>
+                <blockquote class="blockquote">
+                  <p class="ps-2">Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer ps-3">
+                  Someone famous in <cite title="Source Title">Source Title</cite>
+                </figcaption>
+              </figure> -->
             </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-
-           
-           
-         </div>
-    </main>
-  
-
-          <!-- footer  -->
-          <div class="container-fluid bg- mt-5 ">
-            <footer class="py-3 my-4 ">
-              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid py-4">
+         <!-- footer  -->
+         <div class="container-fluid bg- mt-5 ">
+          <footer class="py-3 my-4 ">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-              </ul>
-              <p class="text-center text-light">&copy; 
-                <script>
-                document.write(new Date().getFullYear())
-              </script> Testech, Ltd</p>
-              
-            </footer>
-              </div>
-        <!-- footer  -->  
+            </ul>
+            <p class="text-center text-muted">&copy; 
+              <script>
+              document.write(new Date().getFullYear())
+            </script> Testech, Ltd</p>
+            
+          </footer>
+            </div>
+      <!-- footer  -->
+    </div>
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -378,10 +335,6 @@
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <!-- fontawesome css -->
-  <script defer src="../assests/css/all.js"></script>
-  <script defer src="../assets/css/solid.js"></script>
-  <script defer src="../assests/css/brands.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

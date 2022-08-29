@@ -2,6 +2,13 @@ body{
     background-image: url(../../Images/pexels-craig-adderley-2566121.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
+    
   }
+  
+@media screen and (max-height: 768px)  {
+  body{
+    background-image: url(../../Images/pexels-craig-adderley-2566121.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}

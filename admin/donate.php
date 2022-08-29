@@ -131,7 +131,7 @@
             <div class="card-body">
              <h6>your donation will realy go long way in helping me pursue my carrer ,please any amount is a life changer</h6>
              <form id="paymentForm">
-                <div class="form-group">
+                <div class="form-group form-control">
                     <label for="email">Email Address</label>
                     <input type="email" id="email-address" required />
                 </div>
@@ -172,11 +172,15 @@
         ref: 'unibook'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
         // label: "Optional string that replaces customer email"
         onClose: function(){
+          // window.location
         alert('Window closed.');
         },
         callback: function(response){
         let message = 'Payment complete! Reference: ' + response.reference;
         alert(message);
+        
+        window.location = "http://localhost/my_project/pages/transact_verify?reference=" + response.reference;
+
         }
     });
 

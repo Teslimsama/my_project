@@ -27,7 +27,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3r fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="#" target="">
@@ -115,7 +115,7 @@
     </nav>
     <!-- End Navbar -->
 
-    <div class="">
+    <main class="">
     <div class="search-wrapper">
     <div class="input-holder">
       <form action="search" method="GET">
@@ -126,7 +126,26 @@
     </div>
     <span class="close" onclick="searchToggl(this, event);"></span>
 </div>
+</main>
+<div style="margin-top: 100px;;" class="container-fluid fixed mt-5 py-4">
+<!-- footer  -->
+<div style="margin-top: 1600px;" class="container-fluid bg- mt-5 ">
+    <footer class="py-3 my-4 ">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+            <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+        </ul>
+        <p class="text-center text-light">&copy; 
+            <script>
+                document.write(new Date().getFullYear())
+                </script> Testech, Ltd</p>
+       
+    </footer>
 </div>
+<!-- footer  -->
 <div class="result card w-50 p-4">
     
                 <?php
@@ -169,7 +188,7 @@
                 const element = array[index];
                 
               }
-            </script>
+              </script>
     </div>
     
 <script>
@@ -189,25 +208,6 @@
 
 
     
-    <div class="container-fluid mt-5 py-4">
-    <!-- footer  -->
-    <div class="container-fluid bg- mt-5 ">
-        <footer class="py-3 my-4 ">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
-                <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-                <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-            </ul>
-            <p class="text-center text-light">&copy; 
-                <script>
-                    document.write(new Date().getFullYear())
-                    </script> Testech, Ltd</p>
-           
-        </footer>
-    </div>
-    <!-- footer  -->
 </main>
 <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

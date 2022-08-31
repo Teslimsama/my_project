@@ -28,23 +28,25 @@
                 <div class="card mt-5 bg-light ">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
+                <h4 class="text-white text-center text-capitalize ps-3">New Password</h4>
               
               </div>
             <div class="card-body">
-              <form class="login-form" action="forgotten_password" method="post">
-                    
-                      <?php include('message.php'); ?>
-                     
+            <form class="login-form" action="new_pass" method="post">
+
+            <?php include('messages.php'); ?>
+            <div class="form-floating m-3">
+                        <input type="password" class="form-control" id="floatingInput" name="new_pass" placeholder="Email">
+                        <label for="floatingInput">New Password</label>
+                      </div>
                       <div class="form-floating m-3">
-                        <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email">
-                        <label for="floatingInput">Email address</label>
+                        <input type="password" class="form-control" id="floatingInput" name="new_pass_c" placeholder="Email">
+                        <label for="floatingInput">Confirm New Password</label>
                       </div>
-                    
-                      <div class="form-group text-center  m-3">
-                        <button type="submit" name="reset-password" class="w-80 btn btn-dark">Submit</button>
-                      </div>
-                    </form>
+            <div class="form-group">
+                <button type="submit" name="new_password" class="btn btn-dark text-center mt-3">Submit</button>
+            </div>
+        </form>
             </div>
                     
                     </div>

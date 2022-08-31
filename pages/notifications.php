@@ -145,8 +145,7 @@
     </nav>
     <!-- End Navbar -->
    
-          
-    <div  class="container-fluid py-4">
+    <div style="margin-top: 600px;" class="container-fluid py-4">
          <!-- footer  -->
          <div class="container-fluid bg- mt-5 ">
           <footer class="py-3 my-4 ">
@@ -166,7 +165,8 @@
             </div>
       <!-- footer  -->
     </div>
-    </div>
+    </div> 
+   
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

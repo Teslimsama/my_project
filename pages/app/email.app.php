@@ -1,7 +1,7 @@
 <?php
 
 
-$email_to = "bolajiteslim@gmail.com";
+$email_to = "bolajiteslim05@gmail.com";
 $subject = "your book is here";
 $message = "dear student here is your study material";
 

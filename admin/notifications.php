@@ -1,3 +1,6 @@
+ <?php
+                include_once 'config/database.php';
+                ?>  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -139,11 +142,32 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> 
     <!-- End Navbar -->
+   <div class="card mt-4 m-3 bg-dark">
+    <div class="card-body ">
+   <?php 
+          
+          if(isset($_POST['submit'])){
+              $message = $_POST['message'];
+              $query ="INSERT INTO `notifications` (`id`, `name`, `type`, `message`, `status`, `date`) VALUES (NULL, '', 'comment', '$message', 'unread', CURRENT_TIMESTAMP)";
+              if(performQuery($query)){
+                
+              }
+          }
+                
+          ?>
+        <form method="post" class="form-inline my-2 my-lg-0">
+          <input name="message"class="form-control mr-sm-2 ps-1 mb-4 bg-light" type="text" placeholder="Message" required>
+          <button name="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+        </form> 
+        
+      </div>
+   </div>
+
    
           
-    <div  class="container-fluid py-4">
+    <div style="margin-top: 600px;" class="container-fluid py-4">
          <!-- footer  -->
          <div class="container-fluid bg- mt-5 ">
           <footer class="py-3 my-4 ">

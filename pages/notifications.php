@@ -1,4 +1,7 @@
+<?php
+include_once 'config/database.php';
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,6 +72,15 @@
               <i class="material-icons opacity-10">notifications</i>
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
+            <?php
+                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+                if(count(fetchAll($query))>0){
+                ?>
+                <span class="badge badge-dark"><?php echo count(fetchAll($query)); ?></span>
+              <?php
+                }
+                    ?>
+            
           </a>
         </li>
         <li class="nav-item">
@@ -144,6 +156,52 @@
       </div>
     </nav>
     <!-- End Navbar -->
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="mt-4">
+            <div class="card-header">
+              <h5 class="mb-0">Alerts</h5>
+            </div>
+            
+            <?php
+                $query = "SELECT * from `notifications` order by `date` DESC";
+                 if(count(fetchAll($query))>0){
+                     foreach(fetchAll($query) as $i){
+                ?>
+             
+               
+                  <?php 
+                  $link= $i['id'] ;
+                  $alert =  '<div class="card-body p-3 pb-0">
+                  <div class="alert alert-secondary alert-dismissible text-white" role="alert"> <span>';
+                   $alert .=  htmlentities($i['message']);  
+                   $alert .=  '</span>
+                    <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  ';
+                if($i['type']=='comment'){
+                    echo '<a href="view?id='.$link.'">'. $alert .'</a>';
+                }
+                
+                  
+                  ?>
+                
+             
+                <?php
+                     }
+                 }else{
+                     echo "No notifications yet.";
+                 }
+                     ?>
+            
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
    
     <div style="margin-top: 600px;" class="container-fluid py-4">
          <!-- footer  -->

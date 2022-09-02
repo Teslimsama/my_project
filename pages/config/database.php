@@ -17,3 +17,24 @@ if ($db_connect->connect_error) {
    die("connection failed:" . $db_connect->connect_error);
 }
 // header("location: ../Signin");
+
+    define('DBINFO', 'mysql:host=localhost;dbname=unibooks');
+    define('DBUSER','root');
+    define('DBPASS','');
+
+    function fetchAll($query){
+        $con = new PDO(DBINFO, DBUSER, DBPASS);
+        $stmt = $con->query($query);
+        return $stmt->fetchAll();
+    }
+    function performQuery($query){
+        $con = new PDO(DBINFO, DBUSER, DBPASS);
+        $stmt = $con->prepare($query);
+        if($stmt->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+?>

@@ -215,7 +215,7 @@ $student_id = $_SESSION['id'];
             </div>
           </div>
           </div>
-    <div  class="container-fluid py-4">
+    <div  style="margin-top: 600px;"  class="container-fluid py-4">
          <!-- footer  -->
          <div class="container-fluid bg- mt-5 ">
           <footer class="py-3 my-4 ">

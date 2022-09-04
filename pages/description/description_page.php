@@ -1,6 +1,6 @@
 <?php
-    include_once 'config/database.php';
-    include 'config/alert.message.php';
+    include_once '../config/database.php';
+    include '../config/alert.message.php';
    // session_start();
    $download = $_POST['title'];
    $student_id = $_SESSION['id'];
@@ -28,23 +28,23 @@ if(mysqli_stmt_execute($stmt)){
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../Images/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="../../Images/android-chrome-512x512.png">
   <title>
     More info || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/profile.css">
+  <link id="pagestyle" href="../../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/profile.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -52,7 +52,7 @@ if(mysqli_stmt_execute($stmt)){
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="about_us" target="_blank">
-        <img src="../Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
+        <img src="../../Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold text-white">UniBooks</span>
       </a>
     </div>
@@ -85,7 +85,7 @@ if(mysqli_stmt_execute($stmt)){
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications">
+          <a class="nav-link text-white " href="../../pages/notifications">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
@@ -191,7 +191,7 @@ if(mysqli_stmt_execute($stmt)){
           <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Download <i class="material-icons ms-1 opacity-10">download</i>
           </button>
-            <?php include'../modals/modal.php'; ?>
+            <?php include'../../modals/modal.php'; ?>
             <?php echo ErrorMessage(); echo SuccessMessage();?>
 
             </div> 
@@ -334,10 +334,10 @@ if(mysqli_stmt_execute($stmt)){
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
-  <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../../assets/js/core/popper.min.js"></script>
+  <script src="../../assets/js/core/bootstrap.min.js"></script>
+  <script src="../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -350,7 +350,7 @@ if(mysqli_stmt_execute($stmt)){
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+  <script src="../../assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 
 </html>

@@ -161,7 +161,7 @@ include_once 'config/database.php';
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="mt-4">
             <div class="card-header">
-              <h5 class="mb-0">Alerts</h5>
+              <h5 class="mb-0">Notifications</h5>
             </div>
             
             <?php
@@ -173,7 +173,7 @@ include_once 'config/database.php';
                
                   <?php 
                   $link= $i['id'] ;
-                  $alert =  '<div class="card-body p-3 pb-0">
+                  $alert =  '<div class="card-body pb-0">
                   <div class="alert alert-secondary alert-dismissible text-white" role="alert"> <span>';
                    $alert .=  htmlentities($i['message']);  
                    $alert .=  '</span>
@@ -199,33 +199,30 @@ include_once 'config/database.php';
             
             </div>
           </div>
-          </div>
-          </div>
-          </div>
    
-    <div style="margin-top: 600px;" class="container-fluid py-4">
-         <!-- footer  -->
-         <div class="container-fluid bg- mt-5 ">
-          <footer class="py-3 my-4 ">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
-              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-            </ul>
-            <p class="text-center text-light">&copy; 
-              <script>
-              document.write(new Date().getFullYear())
-            </script><a href=""> Testech, Ltd</a></p>
-            
-          </footer>
-            </div>
-      <!-- footer  -->
-    </div>
-    </div> 
-   
-  </main>
+           <div style="margin-top: 100px;" class="container-fluid py-4">
+             <!-- footer  -->
+             <div class="container-fluid bg- mt-5 ">
+              <footer class="py-3 my-4 ">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+                  <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+                  <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+                  <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+                </ul>
+                <p class="text-center text-light">&copy; 
+                  <script>
+                  document.write(new Date().getFullYear())
+                </script><a href=""> Testech, Ltd</a></p>
+                
+              </footer>
+                </div>
+          <!-- footer  -->
+        </div
+          
+        </main>
+       >
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="material-icons py-2">settings</i>

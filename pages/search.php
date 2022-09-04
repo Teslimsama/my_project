@@ -331,7 +331,7 @@
         top:40%;
         left:50%;
     }
-    .search-wrapper.active {}
+    /* .search-wrapper.active {} */
     
     .search-wrapper .input-holder {    
         height: 70px;

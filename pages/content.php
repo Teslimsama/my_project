@@ -111,7 +111,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="./project">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-duotone fa-square-kanban opacity-10"></i>
+              <i class="fa-duotone fa-square-kanban opacity-10">project</i>
             </div>
             <span class="nav-link-text ms-1">Project</span>
           </a>
@@ -170,7 +170,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page"> 
+              <a href="description/description_page"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -182,7 +182,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page copy"> 
+              <a href="description/ copy"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -194,7 +194,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page"> 
+              <a href="description/"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -206,7 +206,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page"> 
+              <a href="description/"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -218,7 +218,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page"> 
+              <a href="description/"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -230,7 +230,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page"> 
+              <a href="description/"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -242,7 +242,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page"> 
+              <a href="description/"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -254,7 +254,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page"> 
+              <a href="description/"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -266,7 +266,7 @@
               <div class="over">
                <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
               </div>
-              <a href="description_page"> 
+              <a href="description/"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
@@ -286,7 +286,7 @@
               <ul class="nav justify-content-center border-bottom pb-3 mb-3">
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
               </ul>

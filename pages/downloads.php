@@ -7,6 +7,8 @@ include 'config/alert.message.php';
 
 $student_id = $_SESSION['id'];
 
+// $query = "SELECT * FROM ''"
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,14 +98,6 @@ $student_id = $_SESSION['id'];
             <span class="nav-link-text ms-1">Log Out</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./logout">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Log Out</span>
-          </a>
-        </li>
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
         </li>
@@ -113,6 +107,14 @@ $student_id = $_SESSION['id'];
               <i class="material-icons opacity-10">assignment</i>
             </div>
             <span class="nav-link-text ms-1">Assignment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="./project">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="fa-duotone fa-square-kanban opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Project</span>
           </a>
         </li>
       </ul>
@@ -222,7 +224,7 @@ $student_id = $_SESSION['id'];
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
             </ul>

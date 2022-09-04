@@ -1,31 +1,38 @@
 <?php
-if (isset($_POST['upload']) &&  $_FILES['attachment'] !== 0) {
-    $firs_name = $_POST['firstname'];
-    $last_name = $_POST['lastname'];
-    $rand_num = random_int(1000,9999);
+ include_once 'config/database.php';
+if (isset($_POST['upload'])) {
+    $title = $_POST['title'];
+    $faculty = $_POST['faculty'];
+    // $rand_num = random_int(1000,9999);
+    if ($_FILES['book']['error'] === 4)  {
+      echo
+      "<script> alert('does not exist');</script>";
+    }else {
+      $fileName = $_FILES["book"]["name"];
+      $fileSize = $_FILES["book"]["size"];
+      $tmpName = $_FILES["book"]["tmp_name"];
 
-
-    // echo $_POST['firstname'];
-    // print_r($_FILES['attachment']);
-    $file = $_FILES['attachment'];
-    $file_name = $file['name'];
-    $file_exploded = explode('.',$file['name']);
-    $file_ext = end($file_exploded);
-    $file_tmp_loc = $file['tmp_name'];
-    $file_size = $file['size'];
-
-
-    $appcected_ext = array('docx','pdf','txt');
-    if (!in_array($file_ext,$appcected_ext)) {
-        echo 'unaccepted file format';
-    } elseif ($file_size > 102400) {
-       echo 'file size exceeded';
-    }else { //to move to another destination
-        $perm_address = 'uploads/'. $firs_name . '_' . $last_name . '_'. $rand_num . '.' . $file_ext;
-        if (move_uploaded_file($file_tmp_loc,$perm_address)) {
-           echo 'successful';
-        }
+      $validExt = ['docx','pdf','txt'];
+      $Ext = explode('.', $fileName);
+      $Ext = strtolower(end($Ext));
+      if (!in_array($Ext,$validExt)) {
+        echo  "<script> alert('invalid file format');</script>";
+      }elseif($fileSize > 1000000){
+        echo
+      "<script> alert('the file is too large');</script>";
+      }
+      else {
+        $newFileName = $title;
+        $newFileName .= '.' . $Ext;
+        $location = '../pages/unibooks_download/' . $newFileName ;
+        move_uploaded_file($tmpName,$location);
+        echo
+        "<script> alert('Successfully Added');
+        </script>";
+      }
     }
+
+  
 }
 
 ?>
@@ -187,19 +194,19 @@ if (isset($_POST['upload']) &&  $_FILES['attachment'] !== 0) {
     
           <div class="card mt-5  w-80 " style="margin: 50px;">
             <div class="card-body form-control  px-4 pb-2">
-                        
-          <form action="" method="POST" enctype="multipart/form-data" >
+               
+          <form  method="POST" enctype="multipart/form-data" autocomplete="off" >
                  <div class="first p-2">
                     <label for="">Name of the Book\Material</label>
-                    <input type="text" class="form-control" name="book" placeholder="Book\Material">
+                    <input type="text" class="form-control" name="title"  required placeholder="Book\Material">
                 </div>
                 <div class="last p-2">
                     <label for="">Which Faculty Is It For ?</label>
-                    <input type="text" class="form-control" name="faculty" placeholder="faculty">
+                    <input type="text" class="form-control" name="faculty" required placeholder="faculty">
                 </div> 
                 <div class="upload p-2 form-control">
                 <label for="">Upload File </label>
-                  <input type="file" class="" name="attachment">
+                  <input type="file" class="" id="book" name="book"  >
               </div>
               <div class="butt p-2">
                 <button type="submit" class="btn btn-dark text-center" name="upload">Upload book\Material</button>

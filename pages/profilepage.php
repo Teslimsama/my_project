@@ -79,6 +79,15 @@ $rows = mysqli_fetch_assoc($sql_result);
               <i class="material-icons opacity-10">notifications</i>
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
+            <?php
+                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+                if(count(fetchAll($query))>0){
+                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+
+              <?php
+                }
+                    ?>
+            
           </a>
         </li>
         <li class="nav-item">
@@ -111,7 +120,7 @@ $rows = mysqli_fetch_assoc($sql_result);
         <li class="nav-item">
           <a class="nav-link text-white " href="./project">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-duotone fa-square-kanban opacity-10"></i>
+              <i class="material-icons opacity-10">book</i>
             </div>
             <span class="nav-link-text ms-1">Project</span>
           </a>
@@ -120,7 +129,7 @@ $rows = mysqli_fetch_assoc($sql_result);
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -171,7 +180,7 @@ $rows = mysqli_fetch_assoc($sql_result);
         <div class="row gx-4 mb-2">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="../images/pexels-joão-jesus-1080213.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="pfp/<?php echo $rows['image'] ;?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>
           <div class="col-auto my-auto">

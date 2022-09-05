@@ -95,13 +95,14 @@ if(mysqli_stmt_execute($stmt)){
                 $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
                 if(count(fetchAll($query))>0){
                 ?>
-                <span class="badge badge-dark"><?php echo count(fetchAll($query)); ?></span>
+                <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+
               <?php
                 }
                     ?>
             
           </a>
-        </li>>
+        </li>
         
         <li class="nav-item">
           <a class="nav-link text-white " href="../profilepage">
@@ -206,7 +207,7 @@ if(mysqli_stmt_execute($stmt)){
           <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Download <i class="material-icons ms-1 opacity-10">download</i>
           </button>
-            <?php include'../../modals/modal.php'; ?>
+            <?php include'../../modals/paynow.php'; ?>
             <?php echo ErrorMessage(); echo SuccessMessage();?>
 
             </div> 

@@ -8,6 +8,43 @@ $sql = "SELECT * FROM unibooker WHERE id='$update';";
 $sql_result = mysqli_query($db_connect,$sql);
 $rows = mysqli_fetch_assoc($sql_result);
 
+if (isset($_POST['upload'])) {
+  
+    if ($_FILES['book']['error'] === 4)  {
+      echo
+      "<script> alert('does not exist');</script>";
+    }else {
+      $fileName = $_FILES["book"]["name"];
+      $fileSize = $_FILES["book"]["size"];
+      $tmpName = $_FILES["book"]["tmp_name"];
+
+      $validExt = ['jpg','png','jpeg'];
+      $Ext = explode('.', $fileName);
+      $Ext = strtolower(end($Ext));
+      if (!in_array($Ext,$validExt)) {
+        echo  "<script> alert('invalid file format');</script>";
+      }elseif($fileSize > 10250){
+        echo
+      "<script> alert('the image is too large');</script>";
+      }
+      else {
+        $newFileName = 'IMG';
+        $newFileName .= uniqid();
+        $newFileName .= '.' . $Ext;
+        $location = '../pages/pfp/' . $newFileName ;
+        move_uploaded_file($tmpName,$location);
+        $query = "UPDATE `unibooker` SET `image` = '$newFileName' WHERE `unibooker`.`id` = $update;";
+        mysqli_query($db_connect,$query);
+       
+        echo
+        "<script> alert('Successfully Added');
+        </script>";
+      }
+    }
+
+  
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,12 +70,28 @@ $rows = mysqli_fetch_assoc($sql_result);
   <link id="pagestyle" href="../assets/css/profile.css" rel="stylesheet" >
 </head>
 <body>
-            <div class="container mt-5 col-lg-12 w-50 form-control ">
-                <div class="card mt-5 bg-light ">
-                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+    <div class="container-fluid">
+         <div class="container mt-5  form-control ">
+         <div class="card mt-5 imsge">
+
+<div class="card-body form-control  px-4 pb-2">
+        
+        <form  method="POST" enctype="multipart/form-data" autocomplete="off" >
+                <div class="upload p-2 form-control">
+                <label for="">Upload Image </label>
+                <input type="file" class="" id="book" name="book"  >
+            </div>
+            <div class="butt p-2">
+                <button type="submit" class="btn btn-dark text-center" name="upload">Upload Profle picture</button>
+            </div>
+        </form>
+                </div>
+</div>
+</div>
+        <div class="card mt-5  bg-light ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-center text-capitalize ps-3">Update Your Details</h6>
-              
               </div>
             </div>
                     <div class="card-body">
@@ -101,27 +154,9 @@ $rows = mysqli_fetch_assoc($sql_result);
             </form>
             </div>
         </div>
+        
     </div>
-            
-    <!-- <div class="wrapper card">
-        <h2>Reset Password</h2>
-        <p>Please fill out this form to reset your password.</p>
-        <form action="app/update.app.php <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"> 
-            <div class="form-group">
-                <label>New Password</label>
-                <input type="password" name="new_password" class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $new_password; ?>">
-                <span class="invalid-feedback"><?php echo $new_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
-                <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <a class="btn btn-link ml-2" href="profilepage">Cancel</a>
-            </div>
-        </form>
-    </div>     -->
+   
+   
 </body>
 </html>

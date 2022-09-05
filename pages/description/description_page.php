@@ -85,11 +85,20 @@ if(mysqli_stmt_execute($stmt)){
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white " href="../notifications">
+          <a class="nav-link text-white " href="./notifications">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
+            <?php
+                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+                if(count(fetchAll($query))>0){
+                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+
+              <?php
+                }
+                    ?>
+            
           </a>
         </li>
         
@@ -117,7 +126,15 @@ if(mysqli_stmt_execute($stmt)){
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
-            <span class="nav-link-text ms-1">assignment</span>
+            <span class="nav-link-text ms-1">Assignment</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="../project">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">book</i>
+            </div>
+            <span class="nav-link-text ms-1">Project</span>
           </a>
         </li>
       </ul>

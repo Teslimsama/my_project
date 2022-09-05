@@ -66,6 +66,15 @@
               <i class="material-icons opacity-10">notifications</i>
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
+            <?php
+                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+                if(count(fetchAll($query))>0){
+                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+
+              <?php
+                }
+                    ?>
+            
           </a>
         </li>
         <li class="nav-item">

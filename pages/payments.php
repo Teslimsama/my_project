@@ -71,8 +71,8 @@
             <?php
                 $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
                 if(count(fetchAll($query))>0){
-                ?>
-                <span class="badge badge-dark"><?php echo count(fetchAll($query)); ?></span>
+                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+
               <?php
                 }
                     ?>

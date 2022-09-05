@@ -2,7 +2,7 @@
     include_once '../config/database.php';
     include '../config/alert.message.php';
    // session_start();
-   $download = $_GET['title'];
+  //  $download = $_GET['title']; 
    $student_id = $_SESSION['id'];
    
 $now = new DateTime();
@@ -188,32 +188,28 @@ if(mysqli_stmt_execute($stmt)){
         <div class="col-12">
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <form action="" method="POST">
-              <div  class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+          <form action="../paynow" method="get">
+              <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                <h3>civic education</h3>
-                <input type="hidden" name="title" value="adult education">
               </div>
             </div>
             <!-- image here  -->
-            <div class="download">
+            <div class="download card-body">
               <div class="perview ">
                   
                 <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
               
-                </div>
+              </div>
                 <div class="preview mt-2">
-                    <input type="hidden" name="download" value="hppay" id="download">
+                  <input type="hidden" name="download" value="adult_education" id="download">
+                  <input type="hidden"  value="10000" name="amount" id="amount">
                       <!-- Button trigger modal -->
-          <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
-               Download <i class="material-icons ms-1 opacity-10">download</i>
-          </button>
-            <?php include'../../modals/paynow.php'; ?>
-            <?php echo ErrorMessage(); echo SuccessMessage();?>
+                  <button type="submit" class="btn btn-dark" name="download" data-bs-toggle="modal"       data-bs-target="#exampleModal">
+                  Download <i class="material-icons ms-1 opacity-10">download</i>
+                  </button>
 
             </div> 
-             
-               
-            </form>
+          </form>
               </div>
             </div>
             <style>
@@ -225,30 +221,6 @@ if(mysqli_stmt_execute($stmt)){
             </style>
 
 
-          
-            <div class="card-body px-5">
-              <!-- <h1>h1. Bootstrap heading</h1>
-              <h2>h2. Bootstrap heading</h2>
-              <h3>h3. Bootstrap heading</h3>
-              <h4>h4. Bootstrap heading</h4>
-              <h5>h5. Bootstrap heading</h5>
-              <h6>h6. Bootstrap heading</h6>
-              <p>You can use the mark tag to <mark>highlight</mark> text.</p>
-              <p><del>This line of text is meant to be treated as deleted text.</del></p>
-              <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
-              <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
-              <p><u>This line of text will render as underlined</u></p>
-              <p><small>This line of text is meant to be treated as fine print.</small></p>
-              <p><strong>This line rendered as bold text.</strong></p>
-              <p><em>This line rendered as italicized text.</em></p>
-              <figure>
-                <blockquote class="blockquote">
-                  <p class="ps-2">Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
-                </blockquote>
-                <figcaption class="blockquote-footer ps-3">
-                  Someone famous in <cite title="Source Title">Source Title</cite>
-                </figcaption>
-              </figure> -->
             </div>
           </div>
         </div>

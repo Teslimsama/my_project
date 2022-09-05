@@ -178,7 +178,7 @@ include_once 'config/database.php';
         <form action="" method="post">
         <div class="pic card bg-gradient-light mt-3">
               <img class="" src="../Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <input type="hidden" name="title" value="adult education">
+              <input type="hidden" name="amount" id="amount" value="adult education">
               <a href="description_project/adult_education"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>

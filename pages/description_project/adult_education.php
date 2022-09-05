@@ -60,7 +60,7 @@ if(mysqli_stmt_execute($stmt)){
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white " href="./content">
+          <a class="nav-link text-white " href="../content">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -68,7 +68,7 @@ if(mysqli_stmt_execute($stmt)){
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
+          <a class="nav-link text-white " href="../downloads">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">download</i>
             </div>
@@ -76,7 +76,7 @@ if(mysqli_stmt_execute($stmt)){
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./payments">
+          <a class="nav-link text-white " href="../payments">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -84,17 +84,27 @@ if(mysqli_stmt_execute($stmt)){
           </a>
         </li>
 
+       
         <li class="nav-item">
-          <a class="nav-link text-white " href="../../pages/notifications">
+          <a class="nav-link text-white " href="../notifications">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
+            <?php
+                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+                if(count(fetchAll($query))>0){
+                ?>
+                <span class="badge badge-dark"><?php echo count(fetchAll($query)); ?></span>
+              <?php
+                }
+                    ?>
+            
           </a>
-        </li>
+        </li>>
         
         <li class="nav-item">
-          <a class="nav-link text-white " href="./profilepage">
+          <a class="nav-link text-white " href="../profilepage">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
@@ -102,7 +112,7 @@ if(mysqli_stmt_execute($stmt)){
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./logout">
+          <a class="nav-link text-white " href="../logout">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
             </div>
@@ -113,7 +123,7 @@ if(mysqli_stmt_execute($stmt)){
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./assignment">
+          <a class="nav-link text-white " href="../assignment">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
@@ -121,7 +131,7 @@ if(mysqli_stmt_execute($stmt)){
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./assignment">
+          <a class="nav-link text-white " href="../assignment">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">book</i>
             </div>

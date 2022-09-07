@@ -1,5 +1,5 @@
 <?php
-// $customerid = $_SESSION['id'] ;
+ $customerid = $_SESSION['id'] ;
 include_once 'config/database.php';
 
     $ref = $_GET['reference'];

@@ -6,21 +6,21 @@
 //    die('error connecting to database'. mysqli_connect_error()); echo "sucess";
 // } else{echo "bad";}
 
-$servername = "localhost";
-$database = "unibooks";
-$username = "root";
-$password = "";
+$servername = "unibooks_unibooks";
+$database = "unibooks_unibooks";
+$username = "unibooks_unibooks";
+$password = "Olabode2085";
 
 $db_connect = new mysqli($servername , $username , $password ,  $database);
 
 if ($db_connect->connect_error) {
-   die("connection failed:" . $db_connect->connect_error);
+   die( $db_connect->connect_error);
 }
 // header("location: ../Signin");
 
-    define('DBINFO', 'mysql:host=localhost;dbname=unibooks');
-    define('DBUSER','root');
-    define('DBPASS','');
+    define('DBINFO', 'mysql:host=unibooks_unibooks;dbname=unibooks_unibooks');
+    define('DBUSER','unibooks_unibooks');
+    define('DBPASS','Olabode2085');
 
     function fetchAll($query){
         $con = new PDO(DBINFO, DBUSER, DBPASS);

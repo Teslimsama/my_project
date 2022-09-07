@@ -11,7 +11,7 @@ $database = "unibooks_unibooks";
 $username = "unibooks_unibooks";
 $password = "Olabode2085";
 
-$db_connect = new mysqli($servername , $username , $password ,  $database);
+$db_connect = new mysqli($servername , $username , $password);
 
 if ($db_connect->connect_error) {
    die( $db_connect->connect_error);

@@ -72,25 +72,93 @@ if (isset($_POST['upload'])) {
      crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-fluid">
-         <div class="container mt-5  form-control ">
-         <div class="card mt-5 imsge">
+  <style>
+    .image{
+        width: 65em;
+      }
+    .row{
+      --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+    justify-content: center;
 
-<div class="card-body form-control  px-4 pb-2">
+    }
+   
+    
+    @media screen and (max-width:400px) {
+      
+        .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+    justify-content: space-between;
+
+    }
+    body{
+    background-image: url(assets/css/pexels-artem-beliaikin-1153976.jpg);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    
+}
+    }
+    @media screen and (max-width:800px) {
+      .image{
+        width: 65em;
+      }
+      .detail{
+        width: 80em;
+      }
+        .row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+    justify-content: center;
+
+    }
+    body{
+    background-image: url(Images/pexels-pixabay-207691.jpg);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    
+}
+    }
+  </style>
+  <div class="container">
+  <div class="row">
+         <div class="container-fluid mt-5 col-lg-3 col-sm-3 image  form-control ">
+         <div class="card mt-5 ">
+
+      <div class="card-body form-control  px-4 pb-2">
         
-        <form  method="POST" enctype="multipart/form-data" autocomplete="off" >
+          <form  method="POST" enctype="multipart/form-data" autocomplete="off" >
                 <div class="upload p-2 form-control">
                 <label for="">Upload Image </label>
                 <input type="file" class="" id="book" name="book"  >
-            </div>
+                </div>
             <div class="butt p-2">
                 <button type="submit" class="btn btn-dark text-center" name="upload">Upload Profle picture</button>
             </div>
-        </form>
-                </div>
+          </form>
+        </div>
+  </div>
 </div>
-</div>
-        <div class="card mt-5  bg-light ">
+        <div class="card  mt-5 col-lg-6 detail col-sm-6 bg-light ">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-center text-capitalize ps-3">Update Your Details</h6>
@@ -159,6 +227,8 @@ if (isset($_POST['upload'])) {
         
     </div>
    
+  </div>
+    
    
 </body>
 </html>

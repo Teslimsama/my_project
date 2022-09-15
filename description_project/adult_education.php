@@ -201,7 +201,7 @@ if(mysqli_stmt_execute($stmt)){
               
               </div>
                 <div class="preview mt-2">
-                  <input type="hidden" name="download" value="adult_education" id="download">
+                  <input type="hidden" name="book" value="adult_education" id="book">
                   <input type="hidden"  value="10000" name="amount" id="amount">
                       <!-- Button trigger modal -->
                   <button type="submit" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -1,6 +1,7 @@
 <?php
-//  $customerid = $_SESSION['id'] ;
 include_once 'config/database.php';
+session_start();
+$customerid = $_SESSION['id'];
 
     $ref = $_GET['reference'];
     if ($ref == "") {
@@ -39,6 +40,8 @@ include_once 'config/database.php';
     $status = $result->data->status;
     $reference = $result->data->reference;
     $amount = $result->data->amount;
+
+    $book = $result->data->customer->phone;
     $lname = $result->data->customer->last_name;
     $fname = $result->data->customer->first_name;
     $fullname = $fname.' '.$lname;
@@ -48,11 +51,11 @@ include_once 'config/database.php';
 
     include_once 'config/database.php';
     
-    $sql = "INSERT INTO payments ( status,amount, reference, fullname, date, email) VALUES(?,?,?,?,?,?); ";
+    $sql = "INSERT INTO payments (  customerid, status,amount, reference, fullname, date, email,book) VALUES(?,?,?,?,?,?,?,?); ";
     
     $stmt = mysqli_stmt_init($db_connect);
     mysqli_stmt_prepare($stmt,$sql);
-    mysqli_stmt_bind_param($stmt, 'ssssss' ,$status,$amount,$reference,$fullname,$Date_time,$Cus_email);
+    mysqli_stmt_bind_param($stmt, 'ssssssss' ,$customerid,$status,$amount, $reference,$fullname,$Date_time,$Cus_email,$book);
     // $stmt = $db_connect->prepare("INSERT INTO payments ( status, reference, fullname, date, email, customerid) VALUES (?,?,?,?,?,?)");
     // $stmt->bind_param("sssssi", $status,$reference,$fullname,$Date_time,$Cus_email,$customerid);
     // $stmt->execute();

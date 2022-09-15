@@ -173,14 +173,33 @@ $student_id = $_SESSION['id'];
       </div>
     </nav>
     <!-- End Navbar -->
-    
-          <div class="card">
+    <style>
+      @media screen and (max-width:800px){
+          .dets{
+            width: 43em;
+            display: flex;
+            /* grid-template-rows: auto; */
+            /* justify-content: center; */
+            margin-top: 100px;
+          }
+      }
+      @media screen and (max-width:400px){
+          .dets{
+            width: 23em;
+            display: flex;
+            /* grid-template-rows: auto; */
+            /* justify-content: center; */
+            margin-top: 100px;
+          }
+      }
+    </style>
+          <div class="card dets mx-4">
             <div class="card-body px-0 pb-2">
                 <div class="table-responsive">
                   <table class="table align-items-center mb-0">
                     <thead>
                       <tr>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><i class="fa-solid fa-hashtag "></i></th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Your Book's</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                     </thead>
@@ -190,25 +209,26 @@ $student_id = $_SESSION['id'];
                 
                 $sql = "SELECT * FROM download WHERE customerid='$student_id' ORDER BY id DESC;";
                 $sql_result = mysqli_query($db_connect,$sql);
-                while($patient_rows = mysqli_fetch_assoc($sql_result)){
+                $n=1; while($patient_rows = mysqli_fetch_assoc($sql_result)){
                     $student_id = $patient_rows['customerid'];
 
                     //sql to fetch patient full records
                     
                     $dowload_date =   $patient_rows['timestamp'];
                     $date = date('d/m/Y', $dowload_date);
-                ?>
+                ?> 
                       <tr>
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                            <h6>1</h6>
+                            <h6><?php echo $n; ?> </h6>
                             </div>
                           </div>
                         </td>
                         <td>
                           <div class="avatar-group mt-2">
-                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
+                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?php echo  $patient_rows['book'];
+                            ?>">
                            <h6> <?php echo  $patient_rows['book'];
                             ?></h6>
                            
@@ -219,7 +239,7 @@ $student_id = $_SESSION['id'];
                           <span class="text-xs font-weight-bold"> <?php echo $date ; ?> </span>
                         </td>
                       </tr>
-                      <?php } ?>
+                      <?php $n++; } ?>
                     </tbody>
                   </table>
                 </div>
@@ -227,7 +247,7 @@ $student_id = $_SESSION['id'];
             </div>
           </div>
           </div>
-    <div  style="margin-top: 600px;"  class="container-fluid py-4">
+    <div  style="margin-top: 450px;"  class="container-fluid py-4">
          <!-- footer  -->
          <div class="container-fluid bg- mt-5 ">
           <footer class="py-3 my-4 ">

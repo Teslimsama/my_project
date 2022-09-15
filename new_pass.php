@@ -36,7 +36,7 @@
             <div class="card-body">
             <form class="login-form" action="new_pass" method="post">
 
-            <?php include('messages.php'); ?>
+            <?php include('message.php'); ?>
             <div class="form-floating m-3">
                         <input type="password" class="form-control" id="floatingInput" name="new_pass" placeholder="Email">
                         <label for="floatingInput">New Password</label>

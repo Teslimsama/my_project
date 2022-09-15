@@ -1,5 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
-    background-image: url(../../Images/pexels-craig-adderley-2566121.jpg);
+    background-image: url(../css/pexels-artem-beliaikin-1153976.jpg);
+
     background-size: cover;
     background-repeat: no-repeat;
+    height: 100%;
+    
 }
+/* @media () {
+    
+} */

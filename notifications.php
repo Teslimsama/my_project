@@ -185,7 +185,7 @@ include_once 'config/database.php';
                   </div>
                   ';
                 if($i['type']=='comment'){
-                    echo '<a href="view?id='.$link.'">'. $alert .'</a>';
+                    echo '<a href="view?id='.$link.'>'. $alert .'</a>';
                 }
                 
                   
@@ -202,7 +202,7 @@ include_once 'config/database.php';
             </div>
           </div>
    
-           <div style="margin-top: 100px;" class="container-fluid py-4">
+           <div  class="container-fluid py-4">
              <!-- footer  -->
              <div class="container-fluid bg- mt-5 ">
               <footer class="py-3 my-4 ">
@@ -227,7 +227,7 @@ include_once 'config/database.php';
        
         <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="material-icons py-2">Theme</i>
+      <i class="material-icons py-2">settings</i>
     </a>
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3">

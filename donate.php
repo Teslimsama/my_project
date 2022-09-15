@@ -119,7 +119,7 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-4">
+    <div class="container-fluid pay mt-3 py-4">
       <div class="row min-vh-80">
         <div class="col-6 mx-auto">
           <div class="card mt-4">
@@ -131,7 +131,7 @@
             </div>
             <div class="card-body">
              <h6>your donation will realy go long way in helping me pursue my carrer ,please any amount is a life changer</h6>
-             <form id="paymentForm">
+             <form method="" id="paymentForm">
                 <div class="form-group form-control">
                     <label for="email">Email Address</label>
                     <input type="email" id="email-address" required />
@@ -149,7 +149,7 @@
                     <input type="text" id="last-name" />
                 </div>
                 <div class="form-submit">
-                    <button type="submit" onclick="payWithPaystack()"> Pay </button>
+                    <button class="btn btn-large btn-dark mt-4" type="submit" onclick="payWithPaystack()"> Pay </button>
                 </div>
             </form>
 
@@ -159,7 +159,31 @@
           </div>
         </div>
       </div>
-
+      <style>
+       
+/*      
+       .pay{
+         display: flex;
+       justify-content: space-around;
+       align-items: center;
+       margin-top: 250px;
+       margin-left: 30em; 
+       } */
+       
+       .pay{
+               width: 50em;
+             
+             }
+              @media screen and (max-width:575.98px){
+             body{
+               background-image: url(assets/css/pexels-artem-beliaikin-1153976.jpg);
+     background-size: cover;
+     background-repeat: no-repeat;
+     height: 100% ;
+       
+             }
+          }
+       </style>
       <script>
         const paymentForm = document.getElementById('paymentForm');
     paymentForm.addEventListener("submit", payWithPaystack, false);
@@ -170,6 +194,8 @@
         key: 'pk_test_3d44964799de7e2a5abdbf2eef2fbe6852e60833', // Replace with your public key
         email: document.getElementById("email-address").value,
         amount: document.getElementById("amount").value * 100,
+        firstname: document.getElementById("first-name").value,
+        lastname: document.getElementById("last-name").value,
         ref: 'unibook'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
         // label: "Optional string that replaces customer email"
         onClose: function(){
@@ -180,7 +206,7 @@
         let message = 'Payment complete! Reference: ' + response.reference;
         alert(message);
         
-        window.location = "http://localhost/my_project/pages/transact_verify?reference=" + response.reference;
+        window.location = "http://localhost/my_project/transact_verify?reference=" + response.reference;
 
         }
     });

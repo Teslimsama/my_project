@@ -15,7 +15,6 @@
     $sql_result = mysqli_query($db_connect,$sql);
     $rows = mysqli_fetch_assoc($sql_result);
     
-    
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +41,8 @@
   <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet" >
 </head>
 <body>
-  <div class="container-fluid">
-     <div class="contianer card" >
+  <div class="container pay">
+     <div class="container-fluid card" >
       <div class=" card-body ">
 
         <form id="paymentForm">
@@ -53,7 +52,8 @@
                     </div>
                     <div class="form-group">
                         
-                        <input type="hidden" id="amount" value="<?php echo $_POST['amount'] ;?>" required />
+                        <input type="hidden" id="amount" value="<?php echo $_POST['amount'] ;?>" />
+                        <input type="hidden" name="phone" id="phone" value="<?php echo $_POST['book'];?>" required />
                     </div>
                     <div class="form-group">
                         <label for="first-name">First Name</label>
@@ -64,7 +64,7 @@
                         <input type="text" value="<?php echo $rows['lastname'] ;?>" id="last-name" />
                     </div>
                     <div class="form-submit">
-                        <button type="submit" class="btn btn-dark mt-2" onclick="payWithPaystack()"> Pay </button>
+                       <center><button type="submit" class="btn  btn-dark btn-large w-50 mt-4" onclick="payWithPaystack()"> Pay </button></center> 
                     </div>
                 </form>
     
@@ -85,17 +85,20 @@
             key: 'pk_test_3d44964799de7e2a5abdbf2eef2fbe6852e60833', // Replace with your public key
             email: document.getElementById("email-address").value,
             amount: document.getElementById("amount").value * 100,
-            ref: 'unibook'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+            firstname: document.getElementById("first-name").value,
+            lastname: document.getElementById("last-name").value,
+            phone: document.getElementById("phone").value,
+            ref: 'unibooks'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
             // label: "Optional string that replaces customer email"
             onClose: function(){
               // window.location
-            alert('Window closed.');
+            alert('Failed Transaction.');
             },
             callback: function(response){
-            let message = 'Payment complete! Reference: ' + response.reference;
+            let message = 'Payment complete! Your Reference Number: ' + response.reference + ' Thank you!';
             alert(message);
             
-            window.location = "http://localhost/my_project/transact_verify?reference=" + response.reference;
+            window.location = "http://localhost/my_project/transact_verify_pro?reference=" + response.reference;
     
             }
         });
@@ -108,11 +111,28 @@
   </div>
    
     <style>
-    .card{
-    justify-content: center;
+       
+     
+    .pay{
+      display: flex;
+    justify-content: space-around;
+    align-items: center;
     margin-top: 250px;
-    margin-left: 55px;
+    /* margin-left: 30em; */
     }
+    .pay{
+            width: 23em;
+          
+          }
+           @media screen and (max-width:575.98px){
+          body{
+            background-image: url(assets/css/pexels-artem-beliaikin-1153976.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100% ;
+    
+          }
+       }
     </style>
     
     <div class="container-fluid py-4">

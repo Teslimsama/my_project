@@ -208,7 +208,7 @@ if(mysqli_stmt_execute($stmt)){
           <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
                Download <i class="material-icons ms-1 opacity-10">download</i>
           </button>
-            <?php include'../../modals/modal.php'; ?>
+            <?php include'../modals/modal.php'; ?>
             <?php echo ErrorMessage(); echo SuccessMessage();?>
 
             </div> 

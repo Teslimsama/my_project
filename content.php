@@ -8,8 +8,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://unibooks.com.ng/Images/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="https://unibooks.com.ng/Images/android-chrome-512x512.png">
   
   <title>
     Dashboard ||Unibooks
@@ -27,7 +27,7 @@
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   
   
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010"
+  <script async src="https://page.phpad2.googlesyndication.com/page.phpad/js/adsbygoogle.js?client=ca-pub-9952650109664010"
      crossorigin="anonymous"></script>
 
 
@@ -35,16 +35,16 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
-  <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
+  <link id="page.phpstyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/content.css">
 </head>
 
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show ">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="about_us" target="_blank">
-        <img src="Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
+        <img src="https://unibooks.com.ng/Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold text-white">Unibooks</span>
       </a>
     </div>
@@ -85,7 +85,7 @@
             <?php
                 $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
                 if(count(fetchAll($query))>0){
-                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?> </span>
 
               <?php
                 }
@@ -94,7 +94,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="./profilepage">
+          <a class="nav-link text-white " href="./profilepage.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
@@ -123,7 +123,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="./project">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-duotone fa-square-kanban opacity-10">project</i>
+              <i class="fa-duotone fa-square-kanban opacity-10">book</i>
             </div>
             <span class="nav-link-text ms-1">Project</span>
           </a>
@@ -132,7 +132,7 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">Upgrade to pro</a>
       </div>
     </div>
   </aside>
@@ -143,7 +143,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page.php">Dashboard</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Dashboard</h6>
         </nav>
@@ -175,124 +175,264 @@
       </div>
     </nav>
     <main>
-        <div class="doe">
+      <form action="" method="POST">
+      <div class="doe">
         
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/description_page"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
+        <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <input type="hidden" value="adult education" name="title">
+
+           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page.php"> 
+          <div class="container name ">
+            <h6>Aspriping Web Developer</h6></a>
+          </div>
+        </div>
 
 
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/ copy"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <div class="over">
-               <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-              </div>
-              <a href="description/"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
 
 
 
-           
-           
-         </div>
-    </main>
+
+       
+       
+     </div>
+      </form>
+       
+    
   
-
-          <!-- footer  -->
+<div class="container">
+<!-- footer  -->
           <div class="container-fluid bg- mt-5 ">
             <footer class="py-3 my-4 ">
               <ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -309,11 +449,13 @@
               
             </footer>
               </div>
-        <!-- footer  -->  
+        <!-- footer  -->
+</div>
+            
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="material-icons py-2">Theme</i>
+      <i class="material-icons py-2">settings</i>
     </a>
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3">
@@ -377,9 +519,9 @@
   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
   <!-- fontawesome css -->
-  <script defer src="assests/css/all.js"></script>
+  <script defer src="assets/css/all.js"></script>
   <script defer src="assets/css/solid.js"></script>
-  <script defer src="assests/css/brands.js"></script>
+  <script defer src="assets/css/brands.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -391,7 +533,7 @@
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example page.phps etc -->
   <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 

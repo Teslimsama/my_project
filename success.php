@@ -84,7 +84,7 @@ header("location:javascript://history.go(-1)");
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row min-vh-80">
-        <div class="col-6 mx-auto">
+        <div class="col-6 vw-100 mx-auto">
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -97,7 +97,7 @@ header("location:javascript://history.go(-1)");
               <div class="message">
                 Thank you ,Your Transaction was Successful
               </div>
-                
+              <button onclick="history.back()">Go Back</button>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ header("location:javascript://history.go(-1)");
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="material-icons py-2">Theme</i>
+      <i class="material-icons py-2">settings</i>
     </a>
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3">

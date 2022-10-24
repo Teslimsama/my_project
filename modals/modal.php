@@ -10,8 +10,12 @@
       <div class="modal-body">
         <h4>click the button down below </h4>
         <hr>
-        
-         <button id="download" name="download" onclick="parent.open('../app/download_link.app.php?file=person.jpg')" vaule="" class=" butt btn btn-dark " > 
+        <script>
+          const book = <?php $_GET['book'];
+         ?>;
+        //  console.log(book);
+        </script>
+         <button id="download" name="download" onclick="parent.open('../app/download_link.app.php?file=crop_production.pdf')" vaule="" class=" butt btn btn-dark " > 
                  Download to your device<i class="material-icons ms-1 opacity-10">download</i> </button> 
       </div>
       <div class="modal-footer">

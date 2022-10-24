@@ -68,7 +68,7 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">be a unibooker</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -114,7 +114,10 @@
       </div>
     </nav>
     <!-- End Navbar -->
-    <div class="card container-fluid ">
+    <div class="container ">
+      <div class="row ">
+        <div class="col-12">
+           <div class="card mt-4 container-fluid ">
         <div class="card-body px-5">
           <h2>About Us</h2>
           <p>
@@ -123,6 +126,11 @@
             <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
           </div>
     </div>
+        </div>
+      </div>
+        
+    </div>
+ 
 
     <div class="container-fluid py-4">
         <!-- footer  -->

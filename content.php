@@ -132,7 +132,7 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -428,8 +428,34 @@
        
      </div>
       </form>
-       
+      <STyle>
+.bd-example{
+            /* margin-left: 00px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+      </STyle>
     
+      <div class="bd-example mt-4 ">
+        <nav aria-label="Standard pagination example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="content_2">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        </div>
   
 <div class="container">
 <!-- footer  -->

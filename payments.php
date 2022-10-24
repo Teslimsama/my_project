@@ -6,9 +6,7 @@ include 'config/alert.message.php';
 
 
 $student_id = $_SESSION['id'];
-echo $student_id;
 
-// $query = "SELECT * FROM ''"
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +62,7 @@ echo $student_id;
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">download</i>
             </div>
-            <span class="nav-link-text ms-1">Download</span>
+            <span class="nav-link-text ms-1">Downloads</span>
           </a>
         </li>
         <li class="nav-item">
@@ -131,7 +129,7 @@ echo $student_id;
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -172,10 +170,14 @@ echo $student_id;
       </div>
     </nav>
     <!-- End Navbar -->
-   
+   <style>
+    .you{
+      min-width: 100vw;
+    }
+   </style>
     <div class="row">
         <div class="col-12 mt-5">
-          <div class="card my-4">
+          <div class="card  you vw-100 my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3">Lists of Transactions</h6>
@@ -224,7 +226,7 @@ echo $student_id;
                         <p class="text-sm font-weight-bold mb-0">₦<?php echo $patient_rows['amount']; ?></p>
                       </td>
                       <td>
-                        <h6 class="text-xs font-weight-bold"><span class="badge text-bg-success"><?php echo $patient_rows['status']; ?></span></h6>
+                        <h6 class="text-xs font-weight-bold"><span class="badge badge-sm bg-gradient-success"><?php echo $patient_rows['status']; ?></span></h6>
                       </td>
                       <td class="align-middle text-center">
                         <h6><?php echo $patient_rows['date']; ?></h6>

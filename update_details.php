@@ -141,7 +141,7 @@ if (isset($_POST['upload'])) {
   </style>
   <div class="container">
   <div class="row">
-         <div class="container-fluid mt-5 col-lg-3 col-sm-3 image  form-control ">
+         <div class="container-fluid mt-5 col-lg-3 col-sm-3 image vw-100 form-control ">
          <div class="card mt-5 ">
 
       <div class="card-body form-control  px-4 pb-2">
@@ -158,7 +158,7 @@ if (isset($_POST['upload'])) {
         </div>
   </div>
 </div>
-        <div class="card  mt-5 col-lg-6 detail col-sm-6 bg-light ">
+        <div class="card vw-100 mt-5 col-lg-6 detail col-sm-6 bg-light ">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-center text-capitalize ps-3">Update Your Details</h6>

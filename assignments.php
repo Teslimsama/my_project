@@ -1,4 +1,15 @@
+<?php
+include_once 'config/database.php';
+include 'config/alert.message.php';
 
+
+
+
+$student_id = $_SESSION['id'];
+
+// $query = "SELECT * FROM ''"
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +19,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
   <title>
-    About Us || Unibooks
+      Assignment || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -109,7 +120,7 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="./project">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-duotone fa-square-kanban opacity-10">project</i>
+              <i class="fa-duotone fa-square-kanban opacity-10">book</i>
             </div>
             <span class="nav-link-text ms-1">Project</span>
           </a>
@@ -118,7 +129,7 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -164,11 +175,9 @@
     <!-- End Navbar -->
     <div class="card container-fluid ">
         <div class="card-body px-5">
-          <h2>About Us</h2>
-          <p>
-            Welcome to our website! Our team at Unibooks strives to provide you with the best possible online experience. Our website is designed to be easy to navigate and informative. We hope you find our website helpful and informative.  </p>
-            <p> Our website was created to provide our clients with an easy-to-use and informative resource. We have gathered information on a variety of topics to provide you with the latest books from your lecturer or other sources.</p>
-            <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
+          <h2>Coming Soon</h2>
+          <p>this is where anyone can come here to meet up with a person to do his/her assignment, but it's still under development.</p>
+          <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
           </div>
     </div>
 
@@ -179,7 +188,7 @@
            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
            </ul>
@@ -199,7 +208,7 @@
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3">
         <div class="float-start">
-          <h5 class="mt-3 mb-0">Material UI Configurator</h5>
+          <h5 class="mt-3 mb-0">Unibooks UI Configurator</h5>
           <p>See our dashboard options.</p>
         </div>
         <div class="float-end mt-4">

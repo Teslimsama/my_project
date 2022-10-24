@@ -70,7 +70,7 @@
     </div>
     <div class="footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">be a unibooker</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -117,7 +117,7 @@
     </nav>
     <!-- End Navbar -->
 
-    <main class="go">
+    <main class="">
     <div class="search-wrapper">
     <div class="input-holder">
       <form action="search" method="GET">
@@ -129,7 +129,7 @@
     <span class="close" onclick="searchToggl(this, event);"></span>
 </div>
 </main>
-<div class="result card w-50 p-4">
+<div class="result card p-4">
     
                 <?php
              include_once ('config/database.php');
@@ -354,11 +354,11 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
     <style>
-      .result{
+      /* .result{
         position: absolute;
         top:55%;
         left:25%;
-      } 
+      }  */
       /* footer{
         position: absolute;
         top: 500px;
@@ -507,18 +507,49 @@
         left: 0px;
         top: 10px;
     }
-    @media screen and (max-width:800px){
-          .go{
-            width: 43em;
-            
+    @media screen and (max-width:2088px){
+      .search-wrapper.active .input-holder {
+        width:450px;
+        border-radius: 50px;
+        background: rgba(0,0,0,0.5);
+        transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    }
+    .result{
+      width: 50vw;
+      position: absolute;
+        top:55%;
+        left:20%;
+    }
           }
-      }
-      @media screen and (max-width:400px){
-          .go{
-            width: 43em;
-          
+    @media screen and (max-width:769px){
+      .search-wrapper.active .input-holder {
+        width:450px;
+        border-radius: 50px;
+        background: rgba(0,0,0,0.5);
+        transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    }
+    .result{
+      width: 50vw;
+      position: absolute;
+        top:55%;
+        left:25%;
+    }
           }
-      }
+      
+       @media screen and (max-width:450px){
+        .search-wrapper.active .input-holder {
+        width:260px;
+        border-radius: 50px;
+        background: rgba(0,0,0,0.5);
+        transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    }
+    .result{
+      width: 80vw;
+      position: absolute;
+        top:55%;
+        left:13%;
+    }
+      }  
     </style>
 </body>
 

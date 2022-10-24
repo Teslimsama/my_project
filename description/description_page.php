@@ -2,7 +2,7 @@
     include_once '../config/database.php';
     include '../config/alert.message.php';
    // session_start();
-   $download = $_POST['title'];
+   $download = $_POST['book'];
    $student_id = $_SESSION['id'];
    
 $now = new DateTime();
@@ -141,7 +141,7 @@ if(mysqli_stmt_execute($stmt)){
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">be a unibooker</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -191,11 +191,22 @@ if(mysqli_stmt_execute($stmt)){
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <form action="" method="POST">
               <div  class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-               <h3>civic education</h3>
+              <h6 class="text-white text-capitalize ps-3">Crop Production</h6>
                 <input type="hidden" name="title" value="adult education">
               </div>
             </div>
-            <!-- image here  -->
+        
+            <style>
+              .download{
+                  display: grid;
+                  grid-template:50px 30px / 150px 300px;
+              }
+              
+            </style>
+
+
+          
+            <div class="card-body px-5">    <!-- image here  -->
             <div class="download">
               <div class="perview ">
                   
@@ -216,19 +227,7 @@ if(mysqli_stmt_execute($stmt)){
                
             </form>
               </div>
-            </div>
-            <style>
-              .download{
-                  display: grid;
-                  grid-template:50px 30px / 150px 300px;
-              }
-              
-            </style>
-
-
-          
-            <div class="card-body px-5">
-              <!-- <h1>h1. Bootstrap heading</h1>
+              <h1>h1. Bootstrap heading</h1>
               <h2>h2. Bootstrap heading</h2>
               <h3>h3. Bootstrap heading</h3>
               <h4>h4. Bootstrap heading</h4>
@@ -249,7 +248,8 @@ if(mysqli_stmt_execute($stmt)){
                 <figcaption class="blockquote-footer ps-3">
                   Someone famous in <cite title="Source Title">Source Title</cite>
                 </figcaption>
-              </figure> -->
+              </figure>
+            </div>
             </div>
           </div>
         </div>

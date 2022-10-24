@@ -143,7 +143,7 @@ if(mysqli_stmt_execute($stmt)){
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">be a unibooker</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -190,12 +190,13 @@ if(mysqli_stmt_execute($stmt)){
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
           <form action="../paynow" method="POST">
               <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-               <h3>civic education</h3>
+              <h6 class="text-white text-capitalize ps-3">ADULT EDUCATION</h6>
               </div>
             </div>
             <!-- image here  -->
-            <div class="download card-body">
-              <div class="perview ">
+            <div class="card-body px-5">
+              <div class="download">
+                <div class="perview ">
                   
                 <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
               
@@ -209,7 +210,30 @@ if(mysqli_stmt_execute($stmt)){
                   </button>
 
             </div> 
+              </div>
+              
           </form>
+          <h1>h1. Bootstrap heading</h1>
+              <h2>h2. Bootstrap heading</h2>
+              <h3>h3. Bootstrap heading</h3>
+              <h4>h4. Bootstrap heading</h4>
+              <h5>h5. Bootstrap heading</h5>
+              <h6>h6. Bootstrap heading</h6>
+              <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+              <p><del>This line of text is meant to be treated as deleted text.</del></p>
+              <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+              <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+              <p><u>This line of text will render as underlined</u></p>
+              <p><small>This line of text is meant to be treated as fine print.</small></p>
+              <p><strong>This line rendered as bold text.</strong></p>
+              <p><em>This line rendered as italicized text.</em></p>
+              <figure>
+                <blockquote class="blockquote">
+                  <p class="ps-2">Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer ps-3">
+                  Someone famous in <cite title="Source Title">Source Title</cite>
+                </figcaption>
               </div>
             </div>
             <style>
@@ -224,8 +248,8 @@ if(mysqli_stmt_execute($stmt)){
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      <!-- </div>
+    </div> -->
     <div class="container-fluid py-4">
          <!-- footer  -->
          <div class="container-fluid bg- mt-5 ">

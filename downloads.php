@@ -63,7 +63,7 @@ $student_id = $_SESSION['id'];
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">download</i>
             </div>
-            <span class="nav-link-text ms-1">Download</span>
+            <span class="nav-link-text ms-1">Downloads</span>
           </a>
         </li>
         <li class="nav-item">
@@ -131,7 +131,7 @@ $student_id = $_SESSION['id'];
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -176,8 +176,8 @@ $student_id = $_SESSION['id'];
     <style>
       @media screen and (max-width:800px){
           .dets{
-            width: 43em;
-            display: flex;
+            width: 100vw;
+           
             /* grid-template-rows: auto; */
             /* justify-content: center; */
             margin-top: 100px;
@@ -185,15 +185,17 @@ $student_id = $_SESSION['id'];
       }
       @media screen and (max-width:400px){
           .dets{
-            width: 23em;
-            display: flex;
+            width:100vw;
+           
             /* grid-template-rows: auto; */
             /* justify-content: center; */
             margin-top: 100px;
           }
       }
     </style>
-          <div class="card dets mx-4">
+    <div class="row vw-100">
+      <div class="col-12">
+                  <div class="card dets ">
             <div class="card-body px-0 pb-2">
                 <div class="table-responsive">
                   <table class="table align-items-center mb-0">
@@ -247,6 +249,9 @@ $student_id = $_SESSION['id'];
             </div>
           </div>
           </div>
+      </div>
+    </div>
+
     <div  style="margin-top: 450px;"  class="container-fluid py-4">
          <!-- footer  -->
          <div class="container-fluid bg- mt-5 ">

@@ -69,7 +69,7 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Be a Unibooker</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">Be a Unibooker</a>
       </div>
     </div>
   </aside>
@@ -122,7 +122,7 @@
     <div class="container-fluid pay mt-3 py-4">
       <div class="row min-vh-80">
         <div class="col-6 mx-auto">
-          <div class="card mt-4">
+          <div class="card vw-100 mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-center text-capitalize ps-3">you can donate here !</h6>
@@ -134,7 +134,7 @@
              <form method="" id="paymentForm">
                 <div class="form-group form-control">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email-address" required />
+                    <input class="w-100" type="email" id="email-address" required />
                 </div>
                 <div class="form-group">
                     <label for="amount">Amount</label>

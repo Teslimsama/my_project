@@ -41,14 +41,16 @@
   <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet" >
 </head>
 <body>
-  <div class="container pay">
-     <div class="container-fluid card" >
+  <div class="container vw-100 pay">
+    <div class="row">
+      <div class="col-12">
+             <div class="container-fluid card" >
       <div class=" card-body ">
 
         <form id="paymentForm">
                     <div class="form-group form-control">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email-address" value="<?php echo $rows['email'] ;?>" required />
+                        <input type="email"  class="w-100" id="email-address" value="<?php echo $rows['email'] ;?>" required />
                     </div>
                     <div class="form-group">
                         
@@ -57,11 +59,11 @@
                     </div>
                     <div class="form-group">
                         <label for="first-name">First Name</label>
-                        <input type="text" value="<?php echo $rows['firstname'] ;?>" id="first-name" />
+                        <input type="text"  class="w-100" value="<?php echo $rows['firstname'] ;?>" id="first-name" />
                     </div>
                     <div class="form-group">
                         <label for="last-name">Last Name</label>
-                        <input type="text" value="<?php echo $rows['lastname'] ;?>" id="last-name" />
+                        <input type="text"  class="w-100"value="<?php echo $rows['lastname'] ;?>" id="last-name" />
                     </div>
                     <div class="form-submit">
                        <center><button type="submit" class="btn  btn-dark btn-large w-50 mt-4" onclick="payWithPaystack()"> Pay </button></center> 
@@ -110,6 +112,9 @@
     </div>
   </div>
    
+      </div>
+    </div>
+
     <style>
        
      

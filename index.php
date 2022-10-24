@@ -54,7 +54,7 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-          <form action="search" method="GET">
+          <form action="search_index" method="GET">
             <div class="input-group input-group-outline">
               <label class="form-label">Type here...</label>
                 <input type="text" name="k"  class="form-control">

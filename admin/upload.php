@@ -1,7 +1,9 @@
 <?php
  include_once 'config/database.php';
+include 'config/alert.message.php';
+
 if (isset($_POST['upload'])) {
-    $title = $_POST['title'];
+    $book = $_POST['book'];
     $faculty = $_POST['faculty'];
     // $rand_num = random_int(1000,9999);
     if ($_FILES['book']['error'] === 4)  {
@@ -119,7 +121,7 @@ if (isset($_POST['upload'])) {
         <li class="nav-item">
           <a class="nav-link text-white " href="./logout.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
+              <i class="material-icons opacity-10">logout</i>
             </div>
             <span class="nav-link-text ms-1">Log Out</span>
           </a>
@@ -139,7 +141,7 @@ if (isset($_POST['upload'])) {
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
       <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
       </div>
     </div>
   </aside>
@@ -158,7 +160,7 @@ if (isset($_POST['upload'])) {
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group input-group-outline">
               <label class="form-label">Type here...</label>
-              <input type="text" class="form-control">
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4">
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
@@ -183,28 +185,20 @@ if (isset($_POST['upload'])) {
       </div>
     </nav>
     <!-- End Navbar -->
-               <style>
-                /* .card{
-                  display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-                } */
-               </style>
-    
+             
           <div class="card mt-5  w-80 " style="margin: 50px;">
-            <div class="card-body form-control  px-4 pb-2">
+            <div class="card-body form-control ps-4  px-4 pb-2">
                
           <form  method="POST" enctype="multipart/form-data" autocomplete="off" >
                  <div class="first p-2">
                     <label for="">Name of the Book\Material</label>
-                    <input type="text" class="form-control" name="title"  required placeholder="Book\Material">
+                    <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="book"  required placeholder="Book\Material">
                 </div>
                 <div class="last p-2">
                     <label for="">Which Faculty Is It For ?</label>
-                    <input type="text" class="form-control" name="faculty" required placeholder="faculty">
+                    <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
                 </div> 
-                <div class="upload p-2 form-control">
+                <div class="upload p-2 form-control ps-4">
                 <label for="">Upload File </label>
                   <input type="file" class="" id="book" name="book"  >
               </div>
@@ -214,8 +208,39 @@ if (isset($_POST['upload'])) {
           </form>
                 </div>
               </div>
-            </div>
-    <div  class="container-fluid py-4">
+    
+          <div class="card mt-5  w-80 " style="margin: 50px;">
+            <div class="card-body form-control ps-4  px-4 pb-2">
+              <div class="msg">
+         <?php echo ErrorMessage(); echo SuccessMessage();?>
+
+              </div>
+          <form action="app/search.app.php" method="POST"  >
+                 <div class="first p-2">
+                    <label for="">Title</label>
+                    <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="title"  required placeholder="Title">
+                </div>
+                <div class="last p-2">
+                    <label for="">Description</label>
+                    <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="desc" required placeholder="Description">
+                </div> 
+                 <div class="first p-2">
+                    <label for="">Keywords</label>
+                    <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="keywords"  required placeholder="Keywords">
+                </div>
+                <div class="last p-2">
+                    <label for="">Link</label>
+                    <input type="text" style="border: 2px solid grey ;"  class="form-control ps-4" name="link" required placeholder="Link">
+                </div> 
+             
+              <div class="butt p-2">
+                <button type="submit" class="btn btn-dark text-center" name="search">Submit</button>
+              </div>
+          </form>
+                </div>
+              </div>
+            
+    <div  class="container py-4">
     <div  class="container-fluid py-4">
          <!-- footer  -->
          <div class="container-fluid bg- mt-5 ">

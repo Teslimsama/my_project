@@ -1,6 +1,6 @@
 <?php
-    include_once 'config/database.php';
-
+include_once 'config/database.php';
+require_once('app/component.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="https://unibooks.com.ng/Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="https://unibooks.com.ng/Images/android-chrome-512x512.png">
-  
+
   <title>
     Dashboard ||Unibooks
   </title>
@@ -18,17 +18,16 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="assets/css/nucleo-svg.css" rel="stylesheet" /> 
-  <link href="assets/css/all.css" rel="stylesheet" /> 
-  <link href="assets/css/solid.css" rel="stylesheet" /> 
-  <link href="assets/css/brand.css" rel="stylesheet" /> 
-  
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="assets/css/all.css" rel="stylesheet" />
+  <link href="assets/css/solid.css" rel="stylesheet" />
+  <link href="assets/css/brand.css" rel="stylesheet" />
+
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
-  
-  
-  <script async src="https://page.phpad2.googlesyndication.com/page.phpad/js/adsbygoogle.js?client=ca-pub-9952650109664010"
-     crossorigin="anonymous"></script>
+
+
+  <script async src="https://page.phpad2.googlesyndication.com/page.phpad/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
 
 
 
@@ -75,7 +74,7 @@
             <span class="nav-link-text ms-1">Payments</span>
           </a>
         </li>
-        
+
         <li class="nav-item">
           <a class="nav-link text-white " href="./notifications">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -83,14 +82,14 @@
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
             <?php
-                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-                if(count(fetchAll($query))>0){
-                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?> </span>
+            $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+            if (count(fetchAll($query)) > 0) {
+            ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?> </span>
 
-              <?php
-                }
-                    ?>
-            
+            <?php
+            }
+            ?>
+
           </a>
         </li>
         <li class="nav-item">
@@ -149,11 +148,11 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-          <form action="search" method="GET">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
+            <form action="search" method="GET">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+
               </div>
             </form>
           </div>
@@ -167,276 +166,62 @@
                 </div>
               </a>
             </li>
-           
-              </ul>
-            </li>
+
+          </ul>
+          </li>
           </ul>
         </div>
       </div>
     </nav>
     <main>
       <form action="" method="POST">
-      <div class="doe">
-        
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
+        <div class="doe">
 
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
+          <?php
+          // $result = $database->getData();
+
+          while ($row = mysqli_fetch_assoc($result)) {
+            component($row['product_name'], $row['productlink'], $row['product_image'], $row['id'], $row['downloadlink']);
+          }
+          ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-        <div class="pic card bg-gradient-light mt-3">
-          <img class="" src="https://unibooks.com.ng/Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-          <div class="over">
-            <input type="hidden" value="adult education" name="title">
-
-           <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
-          </div>
-          <a href="description/description_page.php"> 
-          <div class="container name ">
-            <h6>Aspriping Web Developer</h6></a>
-          </div>
-        </div>
-
-
-
-
-
-
-       
-       
-     </div>
       </form>
       <STyle>
-.bd-example{
-            /* margin-left: 00px; */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
+        .bd-example {
+          /* margin-left: 00px; */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       </STyle>
-    
+
       <div class="bd-example mt-4 ">
         <nav aria-label="Standard pagination example">
           <ul class="pagination">
@@ -455,112 +240,113 @@
             </li>
           </ul>
         </nav>
-        </div>
-  
-<div class="container">
-<!-- footer  -->
-          <div class="container-fluid bg- mt-5 ">
-            <footer class="py-3 my-4 ">
-              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      </div>
+
+      <div class="container">
+        <!-- footer  -->
+        <div class="container-fluid bg- mt-5 ">
+          <footer class="py-3 my-4 ">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
               <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
               <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-              </ul>
-              <p class="text-center text-light">&copy; 
-                <script>
+            </ul>
+            <p class="text-center text-light">&copy;
+              <script>
                 document.write(new Date().getFullYear())
-              </script> Testech, Ltd</p>
-              
-            </footer>
-              </div>
+              </script> Testech, Ltd
+            </p>
+
+          </footer>
+        </div>
         <!-- footer  -->
-</div>
-            
-  </main>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="material-icons py-2">settings</i>
-    </a>
-    <div class="card shadow-lg">
-      <div class="card-header pb-0 pt-3">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">Unibook  UI Configurator</h5>
-          <p>See our dashboard options.</p>
-        </div>
-        <div class="float-end mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="material-icons">clear</i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
       </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
-        <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-start">
-            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+
+    </main>
+    <div class="fixed-plugin">
+      <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+        <i class="material-icons py-2">settings</i>
+      </a>
+      <div class="card shadow-lg">
+        <div class="card-header pb-0 pt-3">
+          <div class="float-start">
+            <h5 class="mt-3 mb-0">Unibook UI Configurator</h5>
+            <p>See our dashboard options.</p>
           </div>
-        </a>
-        <!-- Sidenav Type -->
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
+          <div class="float-end mt-4">
+            <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+              <i class="material-icons">clear</i>
+            </button>
+          </div>
+          <!-- End Toggle Button -->
         </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
-          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="mt-3 d-flex">
-          <h6 class="mb-0">Navbar Fixed</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+        <hr class="horizontal dark my-1">
+        <div class="card-body pt-sm-3 pt-0">
+          <!-- Sidebar Backgrounds -->
+          <div>
+            <h6 class="mb-0">Sidebar Colors</h6>
+          </div>
+          <a href="javascript:void(0)" class="switch-trigger background-color">
+            <div class="badge-colors my-2 text-start">
+              <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+              <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+            </div>
+          </a>
+          <!-- Sidenav Type -->
+          <div class="mt-3">
+            <h6 class="mb-0">Sidenav Type</h6>
+            <p class="text-sm">Choose between 2 different sidenav types.</p>
+          </div>
+          <div class="d-flex">
+            <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
+            <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
+            <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
+          </div>
+          <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+          <!-- Navbar Fixed -->
+          <div class="mt-3 d-flex">
+            <h6 class="mb-0">Navbar Fixed</h6>
+            <div class="form-check form-switch ps-0 ms-auto my-auto">
+              <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+            </div>
+          </div>
+          <hr class="horizontal dark my-3">
+          <div class="mt-2 d-flex">
+            <h6 class="mb-0">Light / Dark</h6>
+            <div class="form-check form-switch ps-0 ms-auto my-auto">
+              <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+            </div>
           </div>
         </div>
-        <hr class="horizontal dark my-3">
-        <div class="mt-2 d-flex">
-          <h6 class="mb-0">Light / Dark</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
-          </div>
       </div>
-    </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <!-- fontawesome css -->
-  <script defer src="assets/css/all.js"></script>
-  <script defer src="assets/css/solid.js"></script>
-  <script defer src="assets/css/brands.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example page.phps etc -->
-  <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
+      <!--   Core JS Files   -->
+      <script src="assets/js/core/popper.min.js"></script>
+      <script src="assets/js/core/bootstrap.min.js"></script>
+      <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+      <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+      <!-- fontawesome css -->
+      <script defer src="assets/css/all.js"></script>
+      <script defer src="assets/css/solid.js"></script>
+      <script defer src="assets/css/brands.js"></script>
+      <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+          var options = {
+            damping: '0.5'
+          }
+          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+      </script>
+      <!-- Github buttons -->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+      <!-- Control Center for Material Dashboard: parallax effects, scripts for the example page.phps etc -->
+      <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 
 </html>

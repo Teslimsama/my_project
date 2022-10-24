@@ -81,7 +81,17 @@
           component($row['product_name'], $row['productlink'], $row['product_image'], $row['id'], $row['downloadlink']);
         }
         ?>
-        
+        <!-- <div class="pic card bg-gradient-light mt-3">
+          <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
+          <div class="over">
+            <a id="download" class="alert " href="app/download_link.app.php?file=person.jpg"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <a href="description/description_page copy 2">
+            <div class="container name ">
+              <h6>Aspriping Web Developer</h6>
+          </a>
+        </div>
+      </div> -->
 
 
 

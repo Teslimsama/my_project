@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
   <title>
-    Sorry  || UniBooks
+    Sorry || UniBooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -23,56 +22,12 @@
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="assets/css/faq.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="assets/css/cheatsheet.css"> -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="about_us" target="_blank">
-        <img src="Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Unibooks</span>
-      </a>
-    </div>
-    <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./Signup">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-user-plus opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./Signin">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-to-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Signin</span>
-          </a>
-        </li>
+  <?php include 'assets/includes/sidebar.php' ?>
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./social">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-hashtag opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Social Media</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">Be a Unibooker</a>
-      </div>
-    </div>
-  </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -86,11 +41,11 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-          <form action="search" method="GET">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
+            <form action="search" method="GET">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+
               </div>
             </form>
           </div>
@@ -112,7 +67,7 @@
             </li>
 
 
-            
+
             </li>
           </ul>
         </div>
@@ -126,23 +81,24 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-center text-capitalize ps-3">Your transaction was not successful</h6>
-              
+
               </div>
             </div>
             <div class="card-body">
-             
+
               <div class="message">
 
-              </div><h4>
+              </div>
+              <h4>
                 Sorry Please Try Again , There's was an error in the transaction</h4>
-                
+
             </div>
           </div>
         </div>
       </div>
-    <div  class="container-fluid py-4">
-         <!-- footer  -->
-         <div class="container-fluid bg- mt-5 ">
+      <div class="container-fluid py-4">
+        <!-- footer  -->
+        <div class="container-fluid bg- mt-5 ">
           <footer class="py-3 my-4 ">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
@@ -151,15 +107,16 @@
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
             </ul>
-            <p class="text-center text-light">&copy; 
+            <p class="text-center text-light">&copy;
               <script>
-              document.write(new Date().getFullYear())
-            </script><a href=""> Testech, Ltd</a></p>
-            
+                document.write(new Date().getFullYear())
+              </script><a href=""> Testech, Ltd</a>
+            </p>
+
           </footer>
-            </div>
-      <!-- footer  -->
-    </div>
+        </div>
+        <!-- footer  -->
+      </div>
     </div>
   </main>
   <div class="fixed-plugin">

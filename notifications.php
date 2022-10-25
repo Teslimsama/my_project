@@ -26,100 +26,13 @@ include_once 'config/database.php';
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="assets/css/faq.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="assets/css/cheatsheet.css"> -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010"
-     crossorigin="anonymous"></script>
-  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="about_us" target="_blank">
-        <img src="Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Unibooks</span>
-      </a>
-    </div>
-    <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./content">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">download</i>
-            </div>
-            <span class="nav-link-text ms-1">Download</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./payments">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Payments</span>
-          </a>
-        </li>
+  <?php include 'assets/includes/sidebar.php' ?>
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./notifications">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Notifications</span>
-            <?php
-                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-                if(count(fetchAll($query))>0){
-                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
-
-              <?php
-                }
-                    ?>
-            
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./profilepage">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./logout">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Log Out</span>
-          </a>
-        </li>
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./assignments">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">Assignment</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
-      </div>
-    </div>
-  </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -134,15 +47,15 @@ include_once 'config/database.php';
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <form action="search" method="GET">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+
               </div>
             </form>
           </div>
           <ul class="navbar-nav  justify-content-end">
-           
+
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -165,74 +78,75 @@ include_once 'config/database.php';
             <div class="card-header">
               <h5 class="mb-0">Notifications</h5>
             </div>
-            
+
             <?php
-                $query = "SELECT * from `notifications` order by `date` DESC";
-                 if(count(fetchAll($query))>0){
-                     foreach(fetchAll($query) as $i){
-                ?>
-             
-               
-                  <?php 
-                  $link= $i['id'] ;
-                  $alert =  '<div class="card-body pb-0">
+            $query = "SELECT * from `notifications` order by `date` DESC";
+            if (count(fetchAll($query)) > 0) {
+              foreach (fetchAll($query) as $i) {
+            ?>
+
+
+                <?php
+                $link = $i['id'];
+                $alert =  '<div class="card-body pb-0">
                   <div class="alert alert-secondary alert-dismissible text-white" role="alert"> <span>';
-                   $alert .=  htmlentities($i['message']);  
-                   $alert .=  '</span>
+                $alert .=  htmlentities($i['message']);
+                $alert .=  '</span>
                     <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   ';
-                if($i['type']=='comment'){
-                    echo '<a href="view?id='.$link.'>'. $alert .'</a>';
+                if ($i['type'] == 'comment') {
+                  echo '<a href="view?id=' . $link . '>' . $alert . '</a>';
                 }
-                
-                  
-                  ?>
-                
-             
-                <?php
-                     }
-                 }else{
-                     echo "No notifications yet.";
-                 }
-                     ?>
-            
-            </div>
+
+
+                ?>
+
+
+            <?php
+              }
+            } else {
+              echo "No notifications yet.";
+            }
+            ?>
+
           </div>
-   
-           <div  class="container-fluid py-4">
-             <!-- footer  -->
-             <div class="container-fluid bg- mt-5 ">
-              <footer class="py-3 my-4 ">
-                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-                  <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-                  <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
-                  <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-                  <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-                </ul>
-                <p class="text-center text-light">&copy; 
-                  <script>
-                  document.write(new Date().getFullYear())
-                </script><a href=""> Testech, Ltd</a></p>
-                
-              </footer>
-                </div>
+        </div>
+
+        <div class="container-fluid py-4">
           <!-- footer  -->
-                </div>
-          
-        </main>
-       
-        <div class="fixed-plugin">
+          <div class="container-fluid bg- mt-5 ">
+            <footer class="py-3 my-4 ">
+              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+                <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+                <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+                <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+              </ul>
+              <p class="text-center text-light">&copy;
+                <script>
+                  document.write(new Date().getFullYear())
+                </script><a href=""> Testech, Ltd</a>
+              </p>
+
+            </footer>
+          </div>
+          <!-- footer  -->
+        </div>
+
+  </main>
+
+  <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
       <i class="material-icons py-2">settings</i>
     </a>
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3">
         <div class="float-start">
-          <h5 class="mt-3 mb-0">Unibook  UI Configurator</h5>
+          <h5 class="mt-3 mb-0">Unibook UI Configurator</h5>
           <p>See our dashboard options.</p>
         </div>
         <div class="float-end mt-4">
@@ -282,28 +196,28 @@ include_once 'config/database.php';
           <div class="form-check form-switch ps-0 ms-auto my-auto">
             <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
           </div>
+        </div>
       </div>
     </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="a"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="a"></script>
+    <script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
       }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 
 </html>

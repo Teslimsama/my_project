@@ -19,7 +19,7 @@ $student_id = $_SESSION['id'];
   <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
   <title>
-      Assignment || Unibooks
+    Assignment || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -33,106 +33,12 @@ $student_id = $_SESSION['id'];
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/faq.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="about_us" target="_blank">
-        <img src="Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Unibooks</span>
-      </a>
-    </div>
-    <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./content">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Downloads</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./payments">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Payments</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./notifications">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Notifications</span>
-            <?php
-                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-                if(count(fetchAll($query))>0){
-                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+  <?php include 'assets/includes/sidebar.php' ?>
 
-              <?php
-                }
-                    ?>
-            
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./profilepage">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./logout">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Log Out</span>
-          </a>
-        </li>
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./assignments">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">Assignment</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./project">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-duotone fa-square-kanban opacity-10">book</i>
-            </div>
-            <span class="nav-link-text ms-1">Project</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
-      </div>
-    </div>
-  </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -146,16 +52,16 @@ $student_id = $_SESSION['id'];
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-          <form action="search" method="GET">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
+            <form action="search" method="GET">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+
               </div>
             </form>
           </div>
           <ul class="navbar-nav  justify-content-end">
-            
+
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -165,41 +71,42 @@ $student_id = $_SESSION['id'];
                 </div>
               </a>
             </li>
-           
-              </ul>
-            </li>
+
+          </ul>
+          </li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- End Navbar -->
     <div class="card container-fluid ">
-        <div class="card-body px-5">
-          <h2>Coming Soon</h2>
-          <p>this is where anyone can come here to meet up with a person to do his/her assignment, but it's still under development.</p>
-          <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
-          </div>
+      <div class="card-body px-5">
+        <h2>Coming Soon</h2>
+        <p>this is where anyone can come here to meet up with a person to do his/her assignment, but it's still under development.</p>
+        <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
+      </div>
     </div>
 
     <div class="container-fluid py-4">
-        <!-- footer  -->
-        <div class="container-fluid bg- mt-5 ">
-         <footer class="py-3 my-4 ">
-           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-           <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
-              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-           </ul>
-           <p class="text-center text-light">&copy; 
-             <script>
-             document.write(new Date().getFullYear())
-           </script> Testech, Ltd</p>
-           
-         </footer>
-           </div>
-     <!-- footer  -->
+      <!-- footer  -->
+      <div class="container-fluid bg- mt-5 ">
+        <footer class="py-3 my-4 ">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+            <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+            <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+          </ul>
+          <p class="text-center text-light">&copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script> Testech, Ltd
+          </p>
+
+        </footer>
+      </div>
+      <!-- footer  -->
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

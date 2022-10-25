@@ -33,106 +33,12 @@ $student_id = $_SESSION['id'];
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="assets/css/faq.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="assets/css/cheatsheet.css"> -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="about_us" target="_blank">
-        <img src="Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Unibooks</span>
-      </a>
-    </div>
-    <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./content">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./downloads">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">download</i>
-            </div>
-            <span class="nav-link-text ms-1">Downloads</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./payments">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Payments</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./notifications">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Notifications</span>
-            <?php
-                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-                if(count(fetchAll($query))>0){
-                ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+  <?php include 'assets/includes/sidebar.php' ?>
 
-              <?php
-                }
-                    ?>
-            
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./profilepage">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./logout">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-from-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Log Out</span>
-          </a>
-        </li>
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Coming Soon...</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./assignments">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">Assignment</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./project">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-duotone fa-square-kanban opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Project</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
-      </div>
-    </div>
-  </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -149,10 +55,10 @@ $student_id = $_SESSION['id'];
             <form action="search" method="GET">
               <div class="input-group input-group-outline">
                 <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
+                <input type="text" name="k" class="form-control">
+
               </div>
-                </form>
+            </form>
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -170,47 +76,48 @@ $student_id = $_SESSION['id'];
       </div>
     </nav>
     <!-- End Navbar -->
-   
+
     <div class="row">
-        <div class="col-12 mt-5">
-          <div class="card  you vw-70 my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Lists of Transactions</h6>
-              </div>
+      <div class="col-12 mt-5">
+        <div class="card  you vw-70 my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">Lists of Transactions</h6>
             </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Book</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Amount</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Date</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  <?php 
-                //sql to get patient id
-                
-                $sql = "SELECT * FROM payments WHERE customerid='$student_id' ORDER BY id DESC;";
-                $sql_result = mysqli_query($db_connect,$sql);
-                $n=1; while($patient_rows = mysqli_fetch_assoc($sql_result)){
+          </div>
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center justify-content-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Book</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Amount</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Date</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  //sql to get patient id
+
+                  $sql = "SELECT * FROM payments WHERE customerid='$student_id' ORDER BY id DESC;";
+                  $sql_result = mysqli_query($db_connect, $sql);
+                  $n = 1;
+                  while ($patient_rows = mysqli_fetch_assoc($sql_result)) {
                     $student_id = $patient_rows['customerid'];
 
-                
-                ?>
+
+                  ?>
                     <tr>
-                    <td>
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column justify-content-center">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div class="d-flex flex-column justify-content-center">
                             <h6><?php echo $n; ?> </h6>
-                            </div>
                           </div>
-                        </td>
+                        </div>
+                      </td>
                       <td>
                         <div class="d-flex px-2">
                           <div class="my-auto">
@@ -226,44 +133,46 @@ $student_id = $_SESSION['id'];
                       </td>
                       <td class="align-middle text-center">
                         <h6><?php echo $patient_rows['date']; ?></h6>
-                        
-                          </div>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <button class="btn btn-link text-secondary mb-0">
-                          <i class="fa fa-ellipsis-v text-xs"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    
-                    <?php $n++; } ?>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+
             </div>
-</div>
-</div>
-          
-    <div  class="container-fluid py-4">
-         <!-- footer  -->
-         <div class="container-fluid bg- mt-5 ">
-          <footer class="py-3 my-4 ">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          </div>
+          </td>
+          <td class="align-middle">
+            <button class="btn btn-link text-secondary mb-0">
+              <i class="fa fa-ellipsis-v text-xs"></i>
+            </button>
+          </td>
+          </tr>
+
+        <?php $n++;
+                  } ?>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="container-fluid py-4">
+      <!-- footer  -->
+      <div class="container-fluid bg- mt-5 ">
+        <footer class="py-3 my-4 ">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
-              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-            </ul>
-            <p class="text-center text-light">&copy; 
-              <script>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+            <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+            <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+          </ul>
+          <p class="text-center text-light">&copy;
+            <script>
               document.write(new Date().getFullYear())
-            </script><a href=""> Testech, Ltd</a></p>
-            
-          </footer>
-            </div>
+            </script><a href=""> Testech, Ltd</a>
+          </p>
+
+        </footer>
+      </div>
       <!-- footer  -->
     </div>
     </div>

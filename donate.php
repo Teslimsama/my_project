@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,56 +22,12 @@
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="assets/css/faq.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="assets/css/cheatsheet.css"> -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="about_us" target="_blank">
-        <img src="Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Unibooks</span>
-      </a>
-    </div>
-    <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-        
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./Signup">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-user-plus opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./Signin">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-to-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Signin</span>
-          </a>
-        </li>
+  <?php include 'assets/includes/sidebar.php' ?>
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./social">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-hashtag opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Social Media</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">Be a Unibooker</a>
-      </div>
-    </div>
-  </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -86,11 +41,11 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-          <form action="search" method="GET">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
+            <form action="search" method="GET">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+
               </div>
             </form>
           </div>
@@ -112,7 +67,7 @@
             </li>
 
 
-            
+
             </li>
           </ul>
         </div>
@@ -126,42 +81,41 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-center text-capitalize ps-3">you can donate here !</h6>
-              
+
               </div>
             </div>
             <div class="card-body">
-             <h6>your donation will realy go long way in helping me pursue my carrer ,please any amount is a life changer</h6>
-             <form method="" id="paymentForm">
+              <h6>your donation will realy go long way in helping me pursue my carrer ,please any amount is a life changer</h6>
+              <form method="" id="paymentForm">
                 <div class="form-group form-control">
-                    <label for="email">Email Address</label>
-                    <input class="w-100" type="email" id="email-address" required />
+                  <label for="email">Email Address</label>
+                  <input class="w-100" type="email" id="email-address" required />
                 </div>
                 <div class="form-group">
-                    <label for="amount">Amount</label>
-                    <input type="tel" id="amount" required />
+                  <label for="amount">Amount</label>
+                  <input type="tel" id="amount" required />
                 </div>
                 <div class="form-group">
-                    <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" />
+                  <label for="first-name">First Name</label>
+                  <input type="text" id="first-name" />
                 </div>
                 <div class="form-group">
-                    <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" />
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" />
                 </div>
                 <div class="form-submit">
-                    <button class="btn btn-large btn-dark mt-4" type="submit" onclick="payWithPaystack()"> Pay </button>
+                  <button class="btn btn-large btn-dark mt-4" type="submit" onclick="payWithPaystack()"> Pay </button>
                 </div>
-            </form>
+              </form>
 
-            <script src="https://js.paystack.co/v1/inline.js"></script> 
-            </div>
+              <script src="https://js.paystack.co/v1/inline.js"></script>
             </div>
           </div>
         </div>
       </div>
-      <style>
-       
-/*      
+    </div>
+    <style>
+      /*      
        .pay{
          display: flex;
        justify-content: space-around;
@@ -169,69 +123,72 @@
        margin-top: 250px;
        margin-left: 30em; 
        } */
-       
-       .pay{
-               width: 50em;
-             
-             }
-              @media screen and (max-width:575.98px){
-             body{
-               background-image: url(assets/css/pexels-artem-beliaikin-1153976.jpg);
-     background-size: cover;
-     background-repeat: no-repeat;
-     height: 100% ;
-       
-             }
-          }
-       </style>
-      <script>
-        const paymentForm = document.getElementById('paymentForm');
-    paymentForm.addEventListener("submit", payWithPaystack, false);
-    function payWithPaystack(e) {
-    e.preventDefault();
 
-    let handler = PaystackPop.setup({
-        key: 'pk_test_3d44964799de7e2a5abdbf2eef2fbe6852e60833', // Replace with your public key
-        email: document.getElementById("email-address").value,
-        amount: document.getElementById("amount").value * 100,
-        firstname: document.getElementById("first-name").value,
-        lastname: document.getElementById("last-name").value,
-        ref: 'unibook'+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-        // label: "Optional string that replaces customer email"
-        onClose: function(){
-          // window.location
-        alert('Window closed.');
-        },
-        callback: function(response){
-        let message = 'Payment complete! Reference: ' + response.reference;
-        alert(message);
-        
-        window.location = "http://localhost/my_project/transact_verify?reference=" + response.reference;
+      .pay {
+        width: 50em;
+
+      }
+
+      @media screen and (max-width:575.98px) {
+        body {
+          background-image: url(assets/css/pexels-artem-beliaikin-1153976.jpg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          height: 100%;
 
         }
-    });
+      }
+    </style>
+    <script>
+      const paymentForm = document.getElementById('paymentForm');
+      paymentForm.addEventListener("submit", payWithPaystack, false);
 
-    handler.openIframe();
-    }
-</script>
-    <div  class="container-fluid py-4">
-         <!-- footer  -->
-         <div class="container-fluid bg- mt-5 ">
-          <footer class="py-3 my-4 ">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
-              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-            </ul>
-            <p class="text-center text-light">&copy; 
-              <script>
+      function payWithPaystack(e) {
+        e.preventDefault();
+
+        let handler = PaystackPop.setup({
+          key: 'pk_test_3d44964799de7e2a5abdbf2eef2fbe6852e60833', // Replace with your public key
+          email: document.getElementById("email-address").value,
+          amount: document.getElementById("amount").value * 100,
+          firstname: document.getElementById("first-name").value,
+          lastname: document.getElementById("last-name").value,
+          ref: 'unibook' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+          // label: "Optional string that replaces customer email"
+          onClose: function() {
+            // window.location
+            alert('Window closed.');
+          },
+          callback: function(response) {
+            let message = 'Payment complete! Reference: ' + response.reference;
+            alert(message);
+
+            window.location = "http://localhost/my_project/transact_verify?reference=" + response.reference;
+
+          }
+        });
+
+        handler.openIframe();
+      }
+    </script>
+    <div class="container-fluid py-4">
+      <!-- footer  -->
+      <div class="container-fluid bg- mt-5 ">
+        <footer class="py-3 my-4 ">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+            <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+            <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+          </ul>
+          <p class="text-center text-light">&copy;
+            <script>
               document.write(new Date().getFullYear())
-            </script><a href=""> Testech, Ltd</a></p>
-            
-          </footer>
-            </div>
+            </script><a href=""> Testech, Ltd</a>
+          </p>
+
+        </footer>
+      </div>
       <!-- footer  -->
     </div>
     </div>

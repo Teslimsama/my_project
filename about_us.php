@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,56 +21,12 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/faq.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="#" target="">
-        <img src="Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Unibooks</span>
-      </a>
-    </div>
-    <hr class="horizontal light mt-0 mb-2">
-    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
-      <li class="nav-item">
-          <a class="nav-link text-white " href="./Signup">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-user-plus opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./Signin">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-arrow-right-to-bracket opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Signin</span>
-          </a>
-        </li>
+  <?php include 'assets/includes/sidebar.php' ?>
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="./social">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="fa-solid fa-hashtag opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Social Media</span>
-          </a>
-        </li>
-        </li>
-      </ul>
-    </div>
-    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      <div class="mx-3">
-        <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
-      </div>
-    </div>
-  </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -85,11 +40,11 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-          <form action="search" method="GET">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
+            <form action="search" method="GET">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+
               </div>
             </form>
           </div>
@@ -117,40 +72,41 @@
     <div class="container ">
       <div class="row ">
         <div class="col-12">
-           <div class="card mt-4 container-fluid ">
-        <div class="card-body px-5">
-          <h2>About Us</h2>
-          <p>
-            Welcome to our website! Our team at Unibooks strives to provide you with the best possible online experience. Our website is designed to be easy to navigate and informative. We hope you find our website helpful and informative.  </p>
-            <p> Our website was created to provide our clients with an easy-to-use and informative resource. We have gathered information on a variety of topics to provide you with the latest books from your lecturer or other sources.</p>
-            <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
+          <div class="card mt-4 container-fluid ">
+            <div class="card-body px-5">
+              <h2>About Us</h2>
+              <p>
+                Welcome to our website! Our team at Unibooks strives to provide you with the best possible online experience. Our website is designed to be easy to navigate and informative. We hope you find our website helpful and informative. </p>
+              <p> Our website was created to provide our clients with an easy-to-use and informative resource. We have gathered information on a variety of topics to provide you with the latest books from your lecturer or other sources.</p>
+              <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
+            </div>
           </div>
-    </div>
         </div>
       </div>
-        
+
     </div>
- 
+
 
     <div class="container-fluid py-4">
-        <!-- footer  -->
-        <div class="container-fluid bg- mt-5 ">
-         <footer class="py-3 my-4 ">
-           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-           <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
-              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-           </ul>
-           <p class="text-center text-light">&copy; 
-             <script>
-             document.write(new Date().getFullYear())
-           </script> Testech, Ltd</p>
-           
-         </footer>
-           </div>
-     <!-- footer  -->
+      <!-- footer  -->
+      <div class="container-fluid bg- mt-5 ">
+        <footer class="py-3 my-4 ">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+            <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+            <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+          </ul>
+          <p class="text-center text-light">&copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script> Testech, Ltd
+          </p>
+
+        </footer>
+      </div>
+      <!-- footer  -->
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

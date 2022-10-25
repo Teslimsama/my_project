@@ -1,13 +1,26 @@
+<?php
+include_once 'config/database.php';
+
+if (isset($_GET['id'])) {
+  # code...
+  $id = mysqli_real_escape_string($db_connect, $_GET['id']);
+  $sql = "SELECT * FROM producttb WHERE id='$id'";
+  $result = mysqli_query($db_connect, $sql) or die('bad query');
+  $row = mysqli_fetch_assoc($result);
+} else {
+  header("location:index");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
+  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
   <title>
-    Social Media || UniBooks
+    More info || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -15,15 +28,13 @@
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
-  <link id="pagestyle" href="assets/css/faq.css" rel="stylesheet" />
-  <!-- <link rel="stylesheet" href="assets/css/cheatsheet.css"> -->
+  <link rel="stylesheet" href="assets/css/profile.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
-
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -36,24 +47,19 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Social Media</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Description</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Social Media</h6>
+          <h6 class="font-weight-bolder mb-0">Description</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group input-group-outline">
               <label class="form-label">Type here...</label>
-              <input type="text" class="form-control">
+              <input type="search" class="form-control">
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a href="./Signin" class="nav-link text-body font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
-              </a>
-            </li>
+
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -63,10 +69,8 @@
                 </div>
               </a>
             </li>
-
-
-
-            </li>
+          </ul>
+          </li>
           </ul>
         </div>
       </div>
@@ -74,59 +78,127 @@
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row min-vh-80">
-        <div class="col-6 mx-auto">
+        <div class="col-12">
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-center text-capitalize ps-3">Common Questions</h6>
-
+                <h6 class="text-white text-capitalize ps-3">Material Dashboard Heading</h6>
+                <p class="mb-0 text-white ps-3">Created using Roboto Slab Font Family
+                </p>
               </div>
             </div>
-            <div class="card-body">
+            <div class="card-body px-5">
 
-              <div>
-                <div class="bd-example">
-                  <div class="accordion" id="accordionExample">
-                    <div class="accordion-item text-dark">
-                      <h4 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          What to do if i can't find the subject or course for my school ?<i class="material-icons opacity-10"></i>
-                        </button>
-                      </h4>
-                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
 
-                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatum laboriosam sapiente? Aliquid eos saepe quod maiores sit voluptatem vel quaerat reprehenderit officia, maxime earum? Qui veritatis nisi labore minima.lo
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item text-dark">
-                      <h4 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Is Unibooks a free service ?
-                        </button>
-                      </h4>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatum laboriosam sapiente? Aliquid eos saepe quod maiores sit voluptatem vel quaerat reprehenderit officia, maxime earum? Qui veritatis nisi labore minima.lo
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion-item text-dark">
-                      <h4 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          How to confirm my account ?
-                        </button>
-                      </h4>
-                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
+              <div class="download">
+                <div class="perview ">
 
-                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatum laboriosam sapiente? Aliquid eos saepe quod maiores sit voluptatem vel quaerat reprehenderit officia, maxime earum? Qui veritatis nisi labore minima.lo
-                        </div>
-                      </div>
+                  <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
+
+                </div>
+                <div class="preview mt-2">
+                  <input type="hidden" name="download" value="hppay" id="download">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Download <i class="material-icons ms-1 opacity-10">download</i>
+                  </button>
+                  <?php include 'modals/index_modal.php'; ?>
+
+
+                </div>
+                <h1>h1. Bootstrap heading <?php echo $row['id']; ?></h1>
+                <h2>h2. Bootstrap heading</h2>
+                <h3>h3. Bootstrap heading</h3>
+                <h4>h4. Bootstrap heading</h4>
+                <h5>h5. Bootstrap heading</h5>
+                <h6>h6. Bootstrap heading</h6>
+                <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                <p><del>This line of text is meant to be treated as deleted text.</del></p>
+                <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+                <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+                <p><u>This line of text will render as underlined</u></p>
+                <p><small>This line of text is meant to be treated as fine print.</small></p>
+                <p><strong>This line rendered as bold text.</strong></p>
+                <p><em>This line rendered as italicized text.</em></p>
+                <figure>
+                  <blockquote class="blockquote">
+                    <p class="ps-2">Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer ps-3">
+                    Someone famous in <cite title="Source Title">Source Title</cite>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid py-4">
+          <div class="row min-vh-80">
+            <div class="col-12">
+              <div class="card mt-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                  <form action="" method="POST">
+                    <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                      <h3>civic education</h3>
+                      <input type="hidden" name="title" value="adult education">
                     </div>
+                </div>
+
+                <!-- <style>
+              .download{
+                  display: grid;
+                  grid-template:50px 30px / 150px 300px;
+              }
+              
+            </style> -->
+
+
+
+                <div class="card-body px-5">
+                  <!-- image here  -->
+                  <div class="download">
+                    <div class="perview ">
+
+                      <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
+
+                    </div>
+                    <div class="preview mt-2">
+                      <input type="hidden" name="download" value="hppay" id="download">
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Download <i class="material-icons ms-1 opacity-10">download</i>
+                      </button>
+                      <?php include 'modals/index_modal.php'; ?>
+
+
+                    </div>
+
+
+                    </form>
                   </div>
                 </div>
+                <h1>h1. Bootstrap heading</h1>
+                <h2>h2. Bootstrap heading</h2>
+                <h3>h3. Bootstrap heading</h3>
+                <h4>h4. Bootstrap heading</h4>
+                <h5>h5. Bootstrap heading</h5>
+                <h6>h6. Bootstrap heading</h6>
+                <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                <p><del>This line of text is meant to be treated as deleted text.</del></p>
+                <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+                <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+                <p><u>This line of text will render as underlined</u></p>
+                <p><small>This line of text is meant to be treated as fine print.</small></p>
+                <p><strong>This line rendered as bold text.</strong></p>
+                <p><em>This line rendered as italicized text.</em></p>
+                <figure>
+                  <blockquote class="blockquote">
+                    <p class="ps-2">Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer ps-3">
+                    Someone famous in <cite title="Source Title">Source Title</cite>
+                  </figcaption>
+                </figure>
               </div>
             </div>
           </div>
@@ -143,17 +215,16 @@
               <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
               <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
             </ul>
-            <p class="text-center text-light">&copy;
+            <p class="text-center text-muted">&copy;
               <script>
                 document.write(new Date().getFullYear())
-              </script><a href=""> Testech, Ltd</a>
+              </script> Testech, Ltd
             </p>
 
           </footer>
         </div>
         <!-- footer  -->
       </div>
-    </div>
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -220,7 +291,6 @@
     <script src="assets/js/core/bootstrap.min.js"></script>
     <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="a"></script>
     <script>
       var win = navigator.platform.indexOf('Win') > -1;
       if (win && document.querySelector('#sidenav-scrollbar')) {

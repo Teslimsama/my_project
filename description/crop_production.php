@@ -1,24 +1,24 @@
 <?php
-    include_once '../config/database.php';
-    include '../config/alert.message.php';
-   // session_start();
-   $download = $_POST['book']; 
-   $student_id = $_SESSION['id'];
-   
+include_once '../config/database.php';
+include '../config/alert.message.php';
+// session_start();
+//  $download = ''; 
+$download = $_POST['book'];
+$student_id = $_SESSION['id'];
+
 $now = new DateTime();
 $timestamp = $now->getTimestamp();
 $sql = "INSERT INTO download (customerid,book,timestamp) VALUES(?,?,?);";
 
 $stmt = mysqli_stmt_init($db_connect);
-mysqli_stmt_prepare($stmt,$sql);
-mysqli_stmt_bind_param($stmt,'isi',$student_id,$download,$timestamp);
+mysqli_stmt_prepare($stmt, $sql);
+mysqli_stmt_bind_param($stmt, 'isi', $student_id, $download, $timestamp);
 
 
-if(mysqli_stmt_execute($stmt)){
- $_SESSION['success'] = "Your Download is been Processed";
-}else{
- $_SESSION['error'] = 'Please Try Again';
-
+if (mysqli_stmt_execute($stmt)) {
+  $_SESSION['success'] = "Your Download is been Processed";
+} else {
+  $_SESSION['error'] = 'Please Try Again';
 }
 
 ?>
@@ -84,7 +84,7 @@ if(mysqli_stmt_execute($stmt)){
           </a>
         </li>
 
-       
+
         <li class="nav-item">
           <a class="nav-link text-white " href="notifications">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -92,18 +92,18 @@ if(mysqli_stmt_execute($stmt)){
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
             <?php
-                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-                if(count(fetchAll($query))>0){
-                ?>
-                <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
+            $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+            if (count(fetchAll($query)) > 0) {
+            ?>
+              <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?></span>
 
-              <?php
-                }
-                    ?>
-            
+            <?php
+            }
+            ?>
+
           </a>
         </li>
-        
+
         <li class="nav-item">
           <a class="nav-link text-white " href="profilepage">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -166,7 +166,7 @@ if(mysqli_stmt_execute($stmt)){
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
-            
+
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -176,8 +176,8 @@ if(mysqli_stmt_execute($stmt)){
                 </div>
               </a>
             </li>
-              </ul>
-            </li>
+          </ul>
+          </li>
           </ul>
         </div>
       </div>
@@ -188,97 +188,99 @@ if(mysqli_stmt_execute($stmt)){
         <div class="col-12">
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-          
-              <!-- image here  --><form action="" method="POST">
-              <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-              <h6 class="text-white text-capitalize ps-3">Crop Production</h6>
-              </div>
+
+              <!-- image here  -->
+              <form action="" method="POST">
+                <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                  <h6 class="text-white text-capitalize ps-3">Crop Production</h6>
+                </div>
             </div>
             <div class="card-body px-5">
-            <div class="download">
-              <div class="perview ">
-                  
-                <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
-              
+              <div class="download">
+                <div class="perview ">
+
+                  <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
+
                 </div>
                 <div class="preview mt-2">
-                    <input type="hidden" name="book" value="crop_production" id="download">
-                      <!-- Button trigger modal -->
-          <button type="submit" class="btn btn-dark" name="download" onclick="parent.open('../app/download_link.app.php?file=crop_production.pdf')"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-               Download <i class="material-icons ms-1 opacity-10">download</i>
-          </button>
-            
-           
-            </div> 
-             
-                </form>
-                 
-            </div> 
-              <div class="msg">
-
-                <?php echo ErrorMessage(); echo SuccessMessage();?>
-              </div>
-              <h3>ORIGIN AND DISTRIBUTION OF CROP</h3>
-             
-<p>Most cultivated crop have one location or the other as a place or origin.
-The origin of crops still in dispute as there are varying opinions that seems
-to contradict other. It worth nothing that the origin of most of the crops have
-Been oteneicated by notable scientist one of which is the Russian scientist known as Vavilow.</p>
-<p>
-The distribution of crops varies from one climatic condition to another
-Some of the climatic conditions support the growth and development of some crops while others don’t. it can therefore be concluded that climate conditions such as sun energy amount of rainfall, type of vegetation, soil type of humidity and the rest influences the distribution of crops in Nigeria and the whole world.
-The distribution of the cultivated crops and those as weld varies
-from one agricultural zone to another.</p>
-<p>The identification of such centers along was a valuable contribution for
-giving breeders and agronomies clues as to where the source material can be found. However, Vavilov was not satisfied by merely stating the facts but used them to elaborate an exciting theory of great importance that has passed the test of time. The theory states that the great diversity of forms, varieties and species of particular plant in definite part of the world attests to the fact that the speciation process in geographically localized.</p>
-<p>
-	Centers of origin of cultivated plants are separated from one another by mountain chains, deserts or expanses of water that is theygave rise to independent, isolated agricultural civilizations. In most cases a particular genus or species is associated with a single cente, but some crops are associated with two or more centers or centers of origin, where the plant in questions takes the most diverse forms and was domesticated for the first time and secondary  centers arising as a result of migrations of individual formstome and secondary centers arising as a result of migration of individual forms from the primary one e.g the primary centers of maize origin is in Mexico,whereas  China  serve as the secondary center of origin of tis wary varieties.</p>
-
+                  <input type="hidden" name="book" value="crop_production" id="download">
+                  <!-- Button trigger modal -->
+                  <button type="submit" class="btn btn-dark" name="download" onclick="parent.open('../app/download_link.app.php?file=<?php echo $row['productlink']; ?>')" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Download <i class="material-icons ms-1 opacity-10">download</i>
+                  </button>
 
 
                 </div>
+
+                </form>
+
               </div>
-            </div>
-            <style>
-              .download {
-                  display: grid;
-                  grid-template:40px 20px / 200px 300px;
-              }
-              @media screen and (max-width:320px) {
-                .download {
-                    display: grid;
-                    grid-template:70px 20px / 120px 300px;
-                }
-                
-              }
-          
-              
-            </style>
+              <div class="msg">
+
+                <?php echo ErrorMessage();
+                echo SuccessMessage(); ?>
+              </div>
+              <h3>ORIGIN AND DISTRIBUTION OF CROP</h3>
+
+              <p>Most cultivated crop have one location or the other as a place or origin.
+                The origin of crops still in dispute as there are varying opinions that seems
+                to contradict other. It worth nothing that the origin of most of the crops have
+                Been oteneicated by notable scientist one of which is the Russian scientist known as Vavilow.</p>
+              <p>
+                The distribution of crops varies from one climatic condition to another
+                Some of the climatic conditions support the growth and development of some crops while others don’t. it can therefore be concluded that climate conditions such as sun energy amount of rainfall, type of vegetation, soil type of humidity and the rest influences the distribution of crops in Nigeria and the whole world.
+                The distribution of the cultivated crops and those as weld varies
+                from one agricultural zone to another.</p>
+              <p>The identification of such centers along was a valuable contribution for
+                giving breeders and agronomies clues as to where the source material can be found. However, Vavilov was not satisfied by merely stating the facts but used them to elaborate an exciting theory of great importance that has passed the test of time. The theory states that the great diversity of forms, varieties and species of particular plant in definite part of the world attests to the fact that the speciation process in geographically localized.</p>
+              <p>
+                Centers of origin of cultivated plants are separated from one another by mountain chains, deserts or expanses of water that is theygave rise to independent, isolated agricultural civilizations. In most cases a particular genus or species is associated with a single cente, but some crops are associated with two or more centers or centers of origin, where the plant in questions takes the most diverse forms and was domesticated for the first time and secondary centers arising as a result of migrations of individual formstome and secondary centers arising as a result of migration of individual forms from the primary one e.g the primary centers of maize origin is in Mexico,whereas China serve as the secondary center of origin of tis wary varieties.</p>
+
 
 
             </div>
           </div>
         </div>
-      <!-- </div>
+        <style>
+          .download {
+            display: grid;
+            grid-template: 40px 20px / 200px 300px;
+          }
+
+          @media screen and (max-width:320px) {
+            .download {
+              display: grid;
+              grid-template: 70px 20px / 120px 300px;
+            }
+
+          }
+        </style>
+
+
+      </div>
+    </div>
+    </div>
+    <!-- </div>
     </div> -->
     <div class="container-fluid py-4">
-         <!-- footer  -->
-         <div class="container-fluid bg- mt-5 ">
-          <footer class="py-3 my-4 ">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <!-- footer  -->
+      <div class="container-fluid bg- mt-5 ">
+        <footer class="py-3 my-4 ">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
-              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-            </ul>
-            <p class="text-center text-muted">&copy; 
-              <script>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Donate</a></li>
+            <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+            <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+          </ul>
+          <p class="text-center text-muted">&copy;
+            <script>
               document.write(new Date().getFullYear())
-            </script> Testech, Ltd</p>
-            
-          </footer>
-            </div>
+            </script> Testech, Ltd
+          </p>
+
+        </footer>
+      </div>
       <!-- footer  -->
     </div>
   </main>

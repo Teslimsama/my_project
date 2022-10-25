@@ -1,6 +1,8 @@
 <?php
 include_once 'config/database.php';
+require_once('app/component.php');
 
+        
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +12,7 @@ include_once 'config/database.php';
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
-  
+
   <title>
     Project ||Unibooks
   </title>
@@ -18,17 +20,16 @@ include_once 'config/database.php';
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="assets/css/nucleo-svg.css" rel="stylesheet" /> 
-  <link href="assets/css/all.css" rel="stylesheet" /> 
-  <link href="assets/css/solid.css" rel="stylesheet" /> 
-  <link href="assets/css/brand.css" rel="stylesheet" /> 
-  
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="assets/css/all.css" rel="stylesheet" />
+  <link href="assets/css/solid.css" rel="stylesheet" />
+  <link href="assets/css/brand.css" rel="stylesheet" />
+
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010"
-     crossorigin="anonymous"></script>
-  
-  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
+
+
 
 
 
@@ -75,7 +76,7 @@ include_once 'config/database.php';
             <span class="nav-link-text ms-1">Payments</span>
           </a>
         </li>
-        
+
         <li class="nav-item">
           <a class="nav-link text-white " href="./notifications">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -83,14 +84,14 @@ include_once 'config/database.php';
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
             <?php
-                $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-                if(count(fetchAll($query))>0){
-                ?>
-                <span class="badge badge-dark"><?php echo count(fetchAll($query)); ?></span>
-              <?php
-                }
-                    ?>
-            
+            $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+            if (count(fetchAll($query)) > 0) {
+            ?>
+              <span class="badge badge-dark"><?php echo count(fetchAll($query)); ?></span>
+            <?php
+            }
+            ?>
+
           </a>
         </li>
         <li class="nav-item">
@@ -149,11 +150,11 @@ include_once 'config/database.php';
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-          <form action="search" method="GET">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-                <input type="text" name="k"  class="form-control">
-                
+            <form action="search" method="GET">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+
               </div>
             </form>
           </div>
@@ -167,134 +168,65 @@ include_once 'config/database.php';
                 </div>
               </a>
             </li>
-           
-              </ul>
-            </li>
+
+          </ul>
+          </li>
           </ul>
         </div>
       </div>
     </nav>
     <main>
-        <div class="doe">
-        <form action="" method="post">
-        <div class="pic card bg-gradient-light mt-3">
+      <div class="doe">
+      
+
+          <?php
+          // $result_pro = $database->getData();
+
+          
+          while ($row = mysqli_fetch_assoc($pro)) {
+            procomponent($row['product_name'], $row['product_image'], $row['id']);
+          }
+          ?>
+          <!-- <div class="pic card bg-gradient-light mt-3">
               <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
               <input type="hidden" name="amount" id="amount" value="adult education">
               <a href="description_project/adult_education"> 
               <div class="container name ">
                 <h6>Aspriping Web Developer</h6></a>
               </div>
-            </div>
-            </form>
-
-
-            <form action="description_project/agriculture" method="post">
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-              <input type="hidden" name="title" value="agriculture">
-              <a  type="button" type="button"  href="description_project/agriculture"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-            </form>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-             
-              <a href="description_project"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-             
-              <a href="description_project"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-             
-              <a href="description_project"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-             
-              <a href="description_project"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-             
-              <a href="description_project"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-             
-              <a href="description_project"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
-
-
-            <div class="pic card bg-gradient-light mt-3">
-              <img class="" src="Images/bruce-mars.jpg" height="" alt="book_pics" style="width: 100%;">
-             
-              <a href="description_project"> 
-              <div class="container name ">
-                <h6>Aspriping Web Developer</h6></a>
-              </div>
-            </div>
+            </div> -->
+        
 
 
 
-           
-           
-         </div>
+
+
+
+
+
+      </div>
     </main>
-  
 
-          <!-- footer  -->
-          <div class="container-fluid bg- mt-5 ">
-            <footer class="py-3 my-4 ">
-              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
-              <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
-              <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
-              <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
-              </ul>
-              <p class="text-center text-light">&copy; 
-                <script>
-                document.write(new Date().getFullYear())
-              </script> Testech, Ltd</p>
-              
-            </footer>
-              </div>
-        <!-- footer  -->  
+
+    <!-- footer  -->
+    <div class="container-fluid bg- mt-5 ">
+      <footer class="py-3 my-4 ">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-light">More Website</a></li>
+          <li class="nav-item"><a href="donate" class="nav-link px-2 text-light">Donate</a></li>
+          <li class="nav-item"><a href="faq" class="nav-link px-2 text-light">FAQs</a></li>
+          <li class="nav-item"><a href="about_us" class="nav-link px-2 text-light">About Us</a></li>
+        </ul>
+        <p class="text-center text-light">&copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script> Testech, Ltd
+        </p>
+
+      </footer>
+    </div>
+    <!-- footer  -->
   </main>
   <div class="fixed-plugin">
     <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -303,7 +235,7 @@ include_once 'config/database.php';
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3">
         <div class="float-start">
-          <h5 class="mt-3 mb-0">Unibook  UI Configurator</h5>
+          <h5 class="mt-3 mb-0">Unibook UI Configurator</h5>
           <p>See our dashboard options.</p>
         </div>
         <div class="float-end mt-4">
@@ -353,31 +285,31 @@ include_once 'config/database.php';
           <div class="form-check form-switch ps-0 ms-auto my-auto">
             <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
           </div>
+        </div>
       </div>
     </div>
-  </div>
-  <!--   Core JS Files   -->
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <!-- fontawesome css -->
-  <script defer src="assests/css/all.js"></script>
-  <script defer src="assets/css/solid.js"></script>
-  <script defer src="assests/css/brands.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <!-- fontawesome css -->
+    <script defer src="assests/css/all.js"></script>
+    <script defer src="assets/css/solid.js"></script>
+    <script defer src="assests/css/brands.js"></script>
+    <script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
       }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 
 </html>

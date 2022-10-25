@@ -78,7 +78,7 @@
         // $result = $database->getData();
         
         while ($row = mysqli_fetch_assoc($result)) {
-          component($row['product_name'], $row['productlink'], $row['product_image'], $row['id'], $row['downloadlink']);
+          component($row['product_name'], $row['productlink'], $row['product_image'], $row['id']);
         }
         ?>
         <!-- <div class="pic card bg-gradient-light mt-3">

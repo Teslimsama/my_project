@@ -1,22 +1,43 @@
 <?php
 
-function component($productname, $productlink, $productimg, $productid, $downloadlink){
-    $element = "
+function component($productname, $productlink, $productimg, $productid)
+{
+  $element = "
     
     <div class='pic card bg-gradient-light mt-3'>
           <img class='' src='$productimg' height='' alt='book_pics' style='width: 100%;'>
           <div class='over'>
-            <a id='download' class='alert ' href='$downloadlink'><i class='fa-solid fa-download'></i></a>
+            <a id='download' class='alert ' href='$productlink'><i class='fa-solid fa-download'></i></a>
           </div>
           <input type='hidden' name= '$productid'>
-          <a href='$productlink'>
+          <a href='description_page?id=$productid'>
             <div class='container name '>
               <h6>$productname</h6>
           </a>
         </div>
       </div>
     ";
-    echo $element;
+  echo $element;
+}
+
+function procomponent($productname,$productimg, $productid)
+{
+  $element = "
+    
+    <div class='pic card bg-gradient-light mt-3'>
+          <img class='' src='$productimg' height='' alt='book_pics' style='width: 100%;'>
+          <div class='over'>
+            <a id='download' class='alert ' href='#'><i class='fa-solid fa-download'></i></a>
+          </div>
+          <input type='hidden' name= '$productid'>
+          <a href='description_page?id=$productid'>
+            <div class='container name '>
+              <h6>$productname</h6>
+          </a>
+        </div>
+      </div>
+    ";
+  echo $element;
 }
 
 // function cartElement($productimg, $productname, $productlink, $productid){
@@ -49,20 +70,3 @@ function component($productname, $productlink, $productimg, $productid, $downloa
 //     ';
 //     echo  $element;
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

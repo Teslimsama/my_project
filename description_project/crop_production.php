@@ -2,7 +2,8 @@
     include_once '../config/database.php';
     include '../config/alert.message.php';
    // session_start();
-  //  $download = $_GET['title']; 
+   $download = ''; 
+   $download = $_GET['title']; 
    $student_id = $_SESSION['id'];
    
 $now = new DateTime();

@@ -193,7 +193,7 @@ $student_id = $_SESSION['id'];
           }
       }
     </style>
-    <div class="row vw-100">
+    <div class="row vw-70 ">
       <div class="col-12">
                   <div class="card dets ">
             <div class="card-body px-0 pb-2">

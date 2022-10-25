@@ -1,4 +1,18 @@
+<?php 
+        include_once 'config/database.php';
 
+if (isset($_GET['id'])) {
+  # code...
+  $id = mysqli_real_escape_string($db_connect,$_GET['id']);
+  $sql = "SELECT * FROM producttb WHERE id='$id'";
+  $result = mysqli_query($db_connect,$sql) or die ('bad query');
+  $row = mysqli_fetch_assoc($result);
+
+
+}else {
+  header("location:index");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -120,7 +134,7 @@
            
 
             </div> 
-              <h1>h1. Bootstrap heading</h1>
+              <h1>h1. Bootstrap heading <?php echo $row['id']; ?></h1>
               <h2>h2. Bootstrap heading</h2>
               <h3>h3. Bootstrap heading</h3>
               <h4>h4. Bootstrap heading</h4>

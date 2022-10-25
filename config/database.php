@@ -37,11 +37,11 @@ if ($db_connect->connect_error) {
         }
     }
 
-$sql = "SELECT * FROM producttb";
+$sql_pro = "SELECT * FROM project";
 
-$result = mysqli_query($db_connect, $sql);
+$pro = mysqli_query($db_connect, $sql_pro);
 
-if (mysqli_num_rows($result) > 0) {
-    return $result;
+if (mysqli_num_rows($pro) > 0) {
+    return $pro;
 }
 ?>

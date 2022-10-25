@@ -1,6 +1,8 @@
 <?php
 include_once 'config/database.php';
+include_once 's.php';
 require_once('app/component.php');
+        
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -179,35 +181,11 @@ require_once('app/component.php');
 
           <?php
           // $result = $database->getData();
-
+         
           while ($row = mysqli_fetch_assoc($result)) {
-            component($row['product_name'], $row['productlink'], $row['product_image'], $row['id'], $row['downloadlink']);
+            component($row['product_name'], $row['productlink'], $row['product_image'], $row['id']);
           }
           ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

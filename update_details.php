@@ -215,7 +215,7 @@ if (isset($_POST['upload'])) {
                 
                 <div class="mt-4">
                     <label for="">Date of birth</label>
-                    <input type="date" class="form-control" name="dob" placeholder="" value="<?php echo $rows['firstname'] ;?>">
+                    <input type="date" class="form-control" name="dob" placeholder="" value="<?php echo $rows['dob'] ;?>">
                 </div>
                 <div class="form-group">
                 <input type="submit" class="btn btn-primary"name="submit" value="Submit">

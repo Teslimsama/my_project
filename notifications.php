@@ -54,19 +54,8 @@ include_once 'config/database.php';
               </div>
             </form>
           </div>
-          <ul class="navbar-nav  justify-content-end">
+          <?php include "assets/includes/navbar.php" ?>
 
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-            </li>
-          </ul>
         </div>
       </div>
     </nav>

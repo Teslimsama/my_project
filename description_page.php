@@ -7,7 +7,9 @@ if (isset($_GET['id'])) {
   $sql = "SELECT * FROM producttb WHERE id='$id'";
   $result = mysqli_query($db_connect, $sql) or die('bad query');
   $row = mysqli_fetch_assoc($result);
-} else {
+
+
+}else {
   header("location:index");
 }
 ?>

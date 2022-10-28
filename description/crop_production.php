@@ -22,6 +22,19 @@ if (mysqli_stmt_execute($stmt)) {
 }
 
 ?>
+<?php
+include_once 'config/database.php';
+
+if (isset($_GET['id'])) {
+  # code...
+  $id = mysqli_real_escape_string($db_connect, $_GET['id']);
+  $sql = "SELECT * FROM producttb WHERE id='$id'";
+  $result = mysqli_query($db_connect, $sql) or die('bad query');
+  $row = mysqli_fetch_assoc($result);
+} else {
+  header("location:index");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

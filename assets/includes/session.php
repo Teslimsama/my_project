@@ -7,22 +7,16 @@
 	}
 
 	if(isset($_SESSION['user'])){
-	// $conn = $pdo->open();
+	$conn = $stmt->fetchAll();
 
 
 
 		try{
-			mysqli_stmt_init($db_connect);
-			$sql = "SELECT * FROM users WHERE id=:id";
-			$stmt = mysqli_prepare($db_connect, $sql);
-			if (['id'=>$_SESSION['user']]) {
-				# code...
-				mysqli_stmt_execute($stmt);
-			}
+			$stmt = $conn->prepare("SELECT * FROM unibookers WHERE id=:id");
+			$stmt->execute(['id' => $_SESSION['user']]);
+			$user = $stmt->fetch();
 			
 
-			// $stmt->execute([]);
-			// $user = $stmt->fetch();
 		}
 		catch(PDOException $e){
 			echo "There is some problem in connection: " . $e->getMessage();

@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, email, password FROM unibooker WHERE email = ?";
+        $sql = "SELECT id, email, password FROM unibooker WHERE email = ? ";
         
         if($stmt = mysqli_prepare($db_connect, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -64,10 +64,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["email"] = $email;                            
+                            $_SESSION["email"] = $email;
+                           $h = mysqli_query($db_connect, $sql);
+                            $row = mysqli_fetch_assoc($h);
+                            if ($_SESSION['acctype'] === "student") {
+                                // $_SESSION['admin'] = $row['id'];
+                               header("location: ../content");  
+                            
+                            } else {
+                                // $_SESSION['user'] = $row['id'];
+                               header("location: ../profile");  
+
+                            }                          
                             
                             // Redirect user to welcome page
-                            header("location: ../content");
+                            // header("location: ../content");
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err =  $_SESSION['error'] =  "Invalid username or password.";
@@ -92,15 +103,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 
-if(!empty($_POST["remember"])) {
-	setcookie ("email",$_POST["email"],time()+ 3600);
-	setcookie ("password",$_POST["password"],time()+ 3600);
-	echo "Cookies Set Successfuly";
-} else {
-	setcookie("email","");
-	setcookie("password","");
-	header('location:../Signin');
-}
+// if(!empty($_POST["remember"])) {
+// 	setcookie ("email",$_POST["email"],time()+ 3600);
+// 	setcookie ("password",$_POST["password"],time()+ 3600);
+// 	echo "Cookies Set Successfuly";
+// } else {
+// 	setcookie("email","");
+// 	setcookie("password","");
+// 	header('location:../Signin');
+// }
 
 
 ?>

@@ -7,6 +7,7 @@ require_once('config/database.php');
 
 
 
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

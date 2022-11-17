@@ -3,6 +3,7 @@ if ($_GET['status'] !== "success") {
 include_once 'config/database.php';
 header("location:javascript://history.go(-1)");
 }?>
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

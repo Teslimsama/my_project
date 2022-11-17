@@ -1,9 +1,12 @@
+<?php include "assets/includes/session.php" ?>
+
 <?php
 include_once 'config/database.php';
 include_once 'assets/includes/sql.php';
 require_once('app/component.php');
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +44,8 @@ require_once('app/component.php');
 </head>
 
 <body class="g-sidenav-show ">
-  <?php include 'assets/includes/sidebar.php' ?>
+  <?php
+  include 'assets/includes/sidebar.php' ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">

@@ -1,3 +1,4 @@
+<?php include "assets/includes/session.php" ?>
 <?php
 include_once 'config/database.php';
 require_once('app/component.php');

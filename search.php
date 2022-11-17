@@ -1,3 +1,4 @@
+<?php include "assets/includes/session.php" ?>
 <?php $i = ''; ?>
 <!DOCTYPE html>
 <html lang="en">

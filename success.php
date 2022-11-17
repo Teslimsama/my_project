@@ -1,3 +1,4 @@
+<?php include "assets/includes/session.php" ?>
 <?php
 if ($_GET['status'] !== "success") {
   include_once 'config/database.php';

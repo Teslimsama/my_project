@@ -1,3 +1,5 @@
+<?php include "assets/includes/session.php" ?>
+
 <?php
 include_once 'config/database.php';
 
@@ -13,6 +15,7 @@ if (isset($_GET['id'])) {
   header("location:index");
 }
 ?>
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

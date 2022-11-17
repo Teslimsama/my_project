@@ -1,7 +1,7 @@
 <?php
 include_once '../config/database.php';
 include '../config/alert.message.php';
-// session_start();
+// nclude "assets/includes/session.php";
 //  $download = ''; 
 $download = $_POST['book'];
 $student_id = $_SESSION['id'];
@@ -35,6 +35,7 @@ if (isset($_GET['id'])) {
   header("location:index");
 }
 ?>
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -6,6 +6,7 @@
         require_once('app/component.php');
 
 ?>
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -2,7 +2,7 @@
 
 require_once('../config/database.php');
 include('../config/alert.message.php');
-session_start();
+nclude "assets/includes/session.php";
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            session_start();
+                            nclude "assets/includes/session.php";
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;

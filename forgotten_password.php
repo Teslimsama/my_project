@@ -1,9 +1,9 @@
 <?php
+include "assets/includes/session.php";
 // include_once 'app/reset_app.php'; 
 include_once 'config/database.php';
 
 
-session_start();
 $error = array();
 
 // require "mail.php";
@@ -156,6 +156,7 @@ function is_code_correct($code)
 
 ?>
 
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

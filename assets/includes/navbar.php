@@ -1,9 +1,10 @@
-<?php require_once('config/database.php');
-?>
+
 <ul class="navbar-nav  justify-content-end">
     <li class="nav-item d-flex align-items-center">
         <?php
-        if ($_SESSION["loggedin"] === true) {
+        $acctype=$_SESSION['id'];
+        
+        if ($acctype) {
 
             echo "
           <a href='./profilepage' class='nav-link text-body font-weight-bold px-0'>

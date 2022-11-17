@@ -3,7 +3,7 @@
 include('config/database.php');
 
 
-session_start();
+nclude "assets/includes/session.php";
 $errors = [];
 $user_id = "";
 

@@ -38,6 +38,7 @@ if (isset($_POST['upload'])) {
 }
 
 ?>
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

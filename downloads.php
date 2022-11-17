@@ -1,3 +1,4 @@
+<?php include "assets/includes/session.php" ?>
 <?php
 include_once 'config/database.php';
 include 'config/alert.message.php';

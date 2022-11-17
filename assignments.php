@@ -1,4 +1,6 @@
+<?php include "assets/includes/session.php" ?>
 <?php
+
 include_once 'config/database.php';
 include 'config/alert.message.php';
 
@@ -10,6 +12,7 @@ $student_id = $_SESSION['id'];
 // $query = "SELECT * FROM ''"
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,7 +1,7 @@
 <?php
     include_once '../config/database.php';
     include '../config/alert.message.php';
-   // session_start();
+   // nclude "assets/includes/session.php";
    $download = $_POST['book'];
    $student_id = $_SESSION['id'];
    
@@ -22,6 +22,7 @@ if(mysqli_stmt_execute($stmt)){
 }
 
 ?>
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,4 @@
+<?php include "assets/includes/session.php" ?>
 <?php
 include_once 'config/database.php';
 include 'config/alert.message.php';
@@ -98,8 +99,8 @@ $rows = mysqli_fetch_assoc($sql_result);
 
                   <h6 class="mb-0">Profile Information</h6>
                 </div>
-                <div class="container-fluid"> <?php echo ErrorMessage();
-                                              echo SuccessMessage(); ?></div>
+                <div class="container-fluid col-md-8"> <?php echo ErrorMessage();
+                                                        echo SuccessMessage(); ?></div>
                 <div class="col-md-4 text-end">
                   <a href="update_details">
                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>

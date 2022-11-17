@@ -3,7 +3,7 @@ include('../config/alert.message.php');
 require_once('../config/database.php');
 // Initialize the session
 
-session_start();
+include "assets/includes/session.php";
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, email, password FROM unibooker WHERE email = ? ";
+        $sql = "SELECT id, email, password, acctype FROM unibooker WHERE email = ? ";
         
         if($stmt = mysqli_prepare($db_connect, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -55,25 +55,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password, $acctype);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            session_start();
+                           session_start();
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
-                           $h = mysqli_query($db_connect, $sql);
-                            $row = mysqli_fetch_assoc($h);
-                            if ($_SESSION['acctype'] === "student") {
+                          
+                            if (!($acctype === "student")) {
                                 // $_SESSION['admin'] = $row['id'];
                                header("location: ../content");  
+                            //    print_r($row);
                             
                             } else {
                                 // $_SESSION['user'] = $row['id'];
-                               header("location: ../profile");  
+                               header("location: ../profile");
+                                // print_r($row);
+
 
                             }                          
                             

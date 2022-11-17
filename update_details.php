@@ -1,6 +1,7 @@
+<?php include "assets/includes/session.php" ?>
 <?php
 include_once ('config/database.php');
-session_start();
+
 
 $update = $_SESSION['id'];
 

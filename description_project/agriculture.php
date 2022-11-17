@@ -11,7 +11,7 @@ $sql_result = mysqli_query($db_connect,$sql);
 $rows = mysqli_fetch_assoc($sql_result);
 
 
-//    // session_start();
+//    // nclude "assets/includes/session.php";
 //    $download = $_POST['title'];
 //    $student_id = $_SESSION['id'];
    
@@ -32,6 +32,7 @@ $rows = mysqli_fetch_assoc($sql_result);
 // }
 
 ?>
+<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 

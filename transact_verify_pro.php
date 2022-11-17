@@ -1,6 +1,6 @@
 <?php
+include "assets/includes/session.php";
 include_once 'config/database.php';
-session_start();
 $customerid = $_SESSION['id'];
 
     $ref = $_GET['reference'];

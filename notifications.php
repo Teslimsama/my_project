@@ -64,48 +64,99 @@ include_once 'config/database.php';
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="mt-4">
+          <div class="mt-4 card">
             <div class="card-header">
-              <h5 class="mb-0">Notifications</h5>
+              <h5 class="mb-0">Unread Notifications</h5>
             </div>
+            <div class='card-body pb-0'>
 
-            <?php
-            $query = "SELECT * from `notifications` order by `date` DESC";
-            if (count(fetchAll($query)) > 0) {
-              foreach (fetchAll($query) as $i) {
-            ?>
+              <?php
+              $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+             
+              if (count(fetchAll($query)) > 0) {
+                foreach (fetchAll($query) as $i) {
+              ?>
 
 
-                <?php
-                $link = $i['id'];
-                $alert =  '<div class="card-body pb-0">
-                  <div class="alert alert-secondary alert-dismissible text-white" role="alert"> <span>';
-                $alert .=  htmlentities($i['message']);
-                $alert .=  '</span>
-                    <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  ';
-                if ($i['type'] == 'comment') {
-                  echo '<a href="view?id=' . $link . '>' . $alert . '</a>';
+                  <?php
+                  $link = $i['id'];
+                  $alert = "
+                        <div class='alert alert-secondary alert-dismissible' role='alert'> <span>";
+                  $alert .= " <a class=' text-white' href='view?id=" . $link . "'>";
+                  $alert .= htmlentities($i['message']);
+                  $alert .= "</a></span>
+              <button type='button' class='btn-close text-lg py-3 opacity-10' data-bs-dismiss='alert' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
+              </button>
+              </div>
+     ";
+                  if ($i['type'] == 'comment') {
+                    echo $alert;
+                  //   if (count(fetchAll($sql)) > 0) {
+                  //     foreach (fetchAll($sql) as $i) {
+                  //       echo "<hr> $alert";
+                  // }}
                 }
+                  ?>
 
 
-                ?>
-
-
-            <?php
+              <?php
+                }
+              } else {
+                echo "No notifications yet.";
               }
-            } else {
-              echo "No notifications yet.";
-            }
-            ?>
+              ?>
 
+            </div>
+            </div>
+          <div class="mt-4 card">
+            <div class="card-header">
+              <h5 class="mb-0">Read Notifications</h5>
+            </div>
+            <div class='card-body pb-0'>
+
+              <?php
+              
+              $sql = "SELECT * from `notifications` where `status` = 'read' order by `date` DESC";
+              if (count(fetchAll($sql)) > 0) {
+                foreach (fetchAll($sql) as $i) {
+              ?>
+
+
+                  <?php
+                  $link = $i['id'];
+                  $alert = "
+                        <div class='alert alert-secondary alert-dismissible' role='alert'> <span>";
+                  $alert .= " <a class=' text-white' href='view?id=" . $link . "'>";
+                  $alert .= htmlentities($i['message']);
+                  $alert .= "</a></span>
+              <button type='button' class='btn-close text-lg py-3 opacity-10' data-bs-dismiss='alert' aria-label='Close'>
+                  <span aria-hidden='true'>&times;</span>
+              </button>
+              </div>
+     ";
+                  if ($i['type'] == 'comment') {
+                    echo $alert;
+                  //   if (count(fetchAll($sql)) > 0) {
+                  //     foreach (fetchAll($sql) as $i) {
+                  //       echo "<hr> $alert";
+                  // }}
+                }
+                  ?>
+
+
+              <?php
+                }
+              } else {
+                echo "No notifications yet.";
+              }
+              ?>
+
+            </div>
+            </div>
           </div>
-        </div>
 
-        <?php include "assets/includes/footer.php" ?>
+          <?php include "assets/includes/footer.php" ?>
 
 
   </main>

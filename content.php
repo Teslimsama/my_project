@@ -2,9 +2,16 @@
 
 <?php
 include_once 'config/database.php';
-include_once 'assets/includes/sql.php';
 require_once('app/component.php');
 
+    $num_pages = 5;
+    if (isset($_GET["page"])) {
+      $page = $_GET["page"];
+    } else {
+      $page = 1;
+    }
+    $startfrom = ($page - 1) * 5;
+include_once 'assets/includes/sql.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +24,7 @@ require_once('app/component.php');
   <link rel="shortcut icon" type="image/png" href="https://unibooks.com.ng/Images/android-chrome-512x512.png">
 
   <title>
-    Dashboard ||Unibooks
+    Dashboard || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -105,9 +112,20 @@ require_once('app/component.php');
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="content_2">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <?php
+            $sqll= "SELECT * FROM producttb";
+            
+            $resultt = mysqli_query($db_connect, $sqll);
+            $total_rec = mysqli_num_rows($resultt);
+            $total_pages = ceil($total_rec/$num_pages);
+            for ($i=1; $i <= $total_pages; $i++) { 
+             echo "
+             <li class='page-item'><a class='page-link' href='content?page=".$i. "'>" . $i . "</a></li>
+             " ;
+            }
+            ?>
+            
+           
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>

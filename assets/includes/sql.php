@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM producttb";
+$sql = "SELECT * FROM producttb LIMIT $startfrom,$num_pages ";
 
 $result = mysqli_query($db_connect, $sql);
 

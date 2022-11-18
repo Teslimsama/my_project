@@ -1,9 +1,8 @@
-
 <ul class="navbar-nav  justify-content-end">
     <li class="nav-item d-flex align-items-center">
         <?php
-        $acctype=$_SESSION['id'];
-        
+        $acctype = $_SESSION['id'];
+
         if ($acctype) {
 
             echo "
@@ -36,34 +35,69 @@
             <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
         </a>
     </li>
-    <li class="nav-item px-3 d-flex align-items-center">
-        <a href="logout" class="nav-link text-body p-0">
-            <i class="material-icons opacity-10">Logout</i>
-        </a>
-    </li>
     <li class="nav-item dropdown pe-2 d-flex align-items-center">
         <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php
+            $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+            if (count(fetchAll($query)) > 0) {
+            ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?> </span>
+
+            <?php
+            }
+            ?>
             <i class="fa fa-bell cursor-pointer"></i>
         </a>
         <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
-            <li class="mb-2">
-                <a class="dropdown-item border-radius-md" href="javascript:;">
-                    <div class="d-flex py-1">
-                        <div class="my-auto">
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
-                        </div>
-                        <div class="d-flex flex-column justify-content-center">
-                            <h6 class="text-sm font-weight-normal mb-1">
-                                <span class="font-weight-bold">New message</span> from Laur
-                            </h6>
-                            <p class="text-xs text-secondary mb-0">
-                                <i class="fa fa-clock me-1"></i>
-                                13 minutes ago
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </li>
+            <?php
+            $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
+
+            if (count(fetchAll($query)) > 0) {
+                foreach (fetchAll($query) as $i) {
+            ?>
+
+
+                    <?php
+                    $link = $i['id'];
+                    $alert = "
+                        <li class='mb-2'>
+    <a class='dropdown-item border-radius-md' href='view?id=" . $link . "'>
+        <div class='d-flex py-1'>
+            <div class='my-auto'>
+                <img src='../assets/img/team-2.jpg' class='avatar avatar-sm  me-3 '>
+            </div>
+            <div class='d-flex flex-column justify-content-center'>
+                <h6 class='text-sm font-weight-normal mb-1'>
+                    ";
+                    
+                    $alert .= htmlentities($i['message']);
+                    $alert .= "<span class='font-weight-bold'><from Laur</span> 
+                </h6>
+                <p class='text-xs text-secondary mb-0'>
+                    <i class='fa fa-clock me-1'></i>
+     ";
+                    $alert .= "
+                    13 minutes ago
+                </p>
+            </div>
+        </div>
+    </a>
+</li>";
+                    if ($i['type'] == 'comment') {
+                        echo $alert;
+                        //   if (count(fetchAll($sql)) > 0) {
+                        //     foreach (fetchAll($sql) as $i) {
+                        //       echo "<hr> $alert";
+                        // }}
+                    }
+                    ?>
+
+
+            <?php
+                }
+            } else {
+                echo "No notifications yet.";
+            }
+            ?>
             <li class="mb-2">
                 <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
@@ -114,4 +148,10 @@
             </li>
         </ul>
     </li>
+    <li class="nav-item px-3 d-flex align-items-center">
+        <a href="logout" class="nav-link text-body p-0">
+            <i class="material-icons opacity-10">logout</i>
+        </a>
+    </li>
+
 </ul>

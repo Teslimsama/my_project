@@ -1,5 +1,5 @@
 <?php
-nclude "assets/includes/session.php";
+
 
 function ErrorMessage(){
    if(isset($_SESSION['error'])){

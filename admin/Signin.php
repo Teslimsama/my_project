@@ -1,3 +1,4 @@
+<?php include "includes/session.php" ?>
 <?php
 include('config/alert.message.php');
 ?>
@@ -5,7 +6,6 @@ include('config/alert.message.php');
 
 
 
-<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

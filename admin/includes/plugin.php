@@ -18,7 +18,7 @@
         <hr class="horizontal dark my-1">
         <div class="card-body pt-sm-3 pt-0">
             <!-- Sidebar Backgrounds -->
-            <!-- <div>
+            <div>
                 <h6 class="mb-0">Sidebar Colors</h6>
             </div>
             <a href="javascript:void(0)" class="switch-trigger background-color">
@@ -30,7 +30,7 @@
                     <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
                     <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
                 </div>
-            </a> -->
+            </a>
             <!-- Sidenav Type -->
             <div class="mt-3">
                 <h6 class="mb-0">Sidenav Type</h6>
@@ -56,5 +56,8 @@
                     <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
                 </div>
             </div>
+           
+            </div>
         </div>
     </div>
+</div>

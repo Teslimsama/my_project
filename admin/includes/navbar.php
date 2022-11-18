@@ -1,9 +1,9 @@
 <ul class="navbar-nav  justify-content-end">
     <li class="nav-item d-flex align-items-center">
         <?php
-        // $acctype = ;
+        $acctype = $_SESSION['id'];
 
-        if ($_SESSION['id']) {
+        if ($acctype) {
 
             echo "
           <a href='./profilepage' class='nav-link text-body font-weight-bold px-0'>
@@ -70,13 +70,13 @@
                     ";
                     
                     $alert .= htmlentities($i['message']);
-                    $alert .= "<span class='font-weight-bold'> by " . $i['name'] . "</span> 
+                    $alert .= "<span class='font-weight-bold'><from Laur</span> 
                 </h6>
                 <p class='text-xs text-secondary mb-0'>
                     <i class='fa fa-clock me-1'></i>
      ";
                     $alert .= "
-                    ". $i['date'] ."
+                    13 minutes ago
                 </p>
             </div>
         </div>
@@ -84,7 +84,10 @@
 </li>";
                     if ($i['type'] == 'comment') {
                         echo $alert;
-                       
+                        //   if (count(fetchAll($sql)) > 0) {
+                        //     foreach (fetchAll($sql) as $i) {
+                        //       echo "<hr> $alert";
+                        // }}
                     }
                     ?>
 

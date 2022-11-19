@@ -1,5 +1,5 @@
-<?php include "assets/includes/session.php" ?>
 <?php
+session_start();
 include('config/alert.message.php');
 
 ?>
@@ -71,25 +71,26 @@ include('config/alert.message.php');
   <!-- End Navbar -->
   </header>
 
-  <div class="container mt-5 col-lg-12 w-80 form-control ">
+  <div class="container form-control ">
     <div class="card mt-5 bg-light ">
       <div class="card-body">
-        <div class="card-title text-center">
-          <h1>Create a Unibook account </h1>
+        <div class="text-center">
+          <h3>Create a Unibooks Account </h3>
         </div>
         <?php echo ErrorMessage();
         echo SuccessMessage(); ?>
 
         <form action="app/signup.app.php " method="POST">
-          <div class="first">
-            <label for="">Firstname</label>
-            <input type="firstname" class="form-control" name="firstname" placeholder="first name">
-            <small class="text-danger ">Your names will appear on your certificate as supplied</small>
-          </div>
-          <div class="last ">
-            <label for="">Lastname</label>
-            <input type="lastname" class="form-control" name="lastname" placeholder="last name">
+          <div class="row">
 
+            <div class="first col-6">
+              <label for="">Firstname</label>
+              <input type="text" class="form-control" name="firstname" placeholder="first name">
+            </div>
+            <div class="last col-6">
+              <label for="">Lastname</label>
+              <input type="text" class="form-control" name="lastname" placeholder="last name">
+            </div>
           </div>
 
           <div class="user">
@@ -98,39 +99,46 @@ include('config/alert.message.php');
             <span class="invalid-feedback"><?php echo $username_err; ?></span>
           </div>
 
-          <div class="phone">
-            <label for="">Phone number</label>
-            <input type="tel" class="form-control" name="phone" placeholder="phone eg.080874456644" required>
-
+          <div class="email">
+            <label for="">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter Valid email" required>
           </div>
-          <div class="level">
-            <label for="">Level</label>
-            <input type="text" class="form-control" name="levell" placeholder="Current Level" required>
 
+          <div class="row">
+            <div class="phone col-6">
+              <label for="">Phone No</label>
+              <input type="tel" class="form-control" name="phone" placeholder="phone eg.080874456644" required>
+
+            </div>
+            <div class="level col-6">
+              <label for="">Level</label>
+              <input type="number" class="form-control" name="levell" placeholder="Current Level" required>
+
+            </div>
           </div>
-          <div class="faculty">
+          <!-- <div class="faculty">
             <label for="">Faculty</label>
             <input type="text" class="form-control" name="faculty" placeholder="faculty" required>
 
           </div>
           <div class="Department">
             <label for="">Department</label>
-            <input type="tel" class="form-control" name="dept" placeholder="Department" required>
+            <input type="text" class="form-control" name="dept" placeholder="Department" required>
 
-          </div>
-          <div class="course">
+          </div> -->
+          <!-- <div class="course">
             <label for="">Course of Study</label>
-            <input type="tel" class="form-control" name="course" placeholder="Course of Study" required>
-
-            <div class="School mt-3">
-              <select class="form-select form-select-md" name="school" aria-label=".form-select-mg example">
-                <option selected> Select Your School of Study</option>
-                <option value="Ahmedu Bello University">Ahmedu Bello University</option>
-                <option value="FUTMINNA">FUTMINNA</option>
-                <option value="FUTA">FUTA</option>
-              </select>
-            </div>
-            <div class="gender mt-4">Gender
+            <input type="text" class="form-control" name="course" placeholder="Course of Study" required>
+          </div> -->
+          <div class="School mt-3">
+            <select class="form-select form-select-md" name="school" aria-label=".form-select-mg example">
+              <option> Select Your School of Study</option>
+              <option value="Ahmedu Bello University">Ahmedu Bello University</option>
+              <option value="FUTMINNA">FUTMINNA</option>
+              <option value="FUTA">FUTA</option>
+            </select>
+          </div>
+          <!-- <div class="gender mt-4">Gender
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="gender" value="male" id="gender">
                 <label class="form-check-label" for="flexRadioDefault1">
@@ -143,37 +151,38 @@ include('config/alert.message.php');
                   Female
                 </label>
               </div>
-            </div>
-            <div class="email">
-              <label for="">Email</label>
-              <input type="email" class="form-control" name="email" placeholder="valid email" required>
-            </div>
-            <div class="password">
-              <label class="mt-3" for="">Create Password</label>
-              <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" name="password" placeholder="create a password" required> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
-            </div>
-            <div class="confirm">
-              <label for="">Confirm Your Password</label>
-              <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" name="conpassword" placeholder="confirm password" required>
-              <span class="invalid-feedback"><?php  ?></span>
+            </div> -->
 
-            </div>
-            <div class="mt-4">
+          <div class="password">
+            <label class="mt-3" for="">Create Password</label>
+            <input type="password" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" name="password" placeholder="create a password" required> <span class="invalid-feedback"><?php echo $password_err; ?> 8 characters minimum</span>
+          </div>
+          <div class="confirm">
+            <label for="">Confirm Your Password</label>
+            <input type="password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" name="conpassword" placeholder="confirm password" required>
+            <span class="invalid-feedback"><?php  ?></span>
+
+          </div>
+          <div class="row">
+
+            <div class="mt-4 col-6">
               <label for="">Date of birth</label>
               <input type="date" class="form-control" name="dob" placeholder="" required>
             </div>
-            <div class="referral">
+            <div class="referral col-6">
               <label for=""></label>
-              <input type="referral" class="form-control" name="refer" placeholder="How did you hear about us?" required>
+              <input type="text" class="form-control" name="refer" placeholder="How did you hear about us?" required>
             </div>
-            <div class="mt-5">
-              <button class="btn btn-dark w-100" name="signup" type="submit"> Sign Up
-            </div></button>
-            <small class="text-center">By contiuning you confirm that you agree to the terms of use and confirm that you have read the <a href="#">privacy policy</a> </small>
           </div>
-        </form>
+          <div class="mt-5">
+            <button class="btn btn-dark w-100" name="signup" type="submit"> Sign Up
+            </button>
+          </div>
+          <small class="text-center">By contiuning you confirm that you agree to the terms of use and confirm that you have read the <a href="#">privacy policy</a> </small>
       </div>
+      </form>
     </div>
+  </div>
   </div>
 
 

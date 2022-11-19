@@ -1,4 +1,3 @@
-<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,13 +42,15 @@
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-              <input type="text" class="form-control">
-            </div>
+            <form action="search" method="GET">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" name="k" class="form-control">
+
+              </div>
+            </form>
           </div>
         </div>
-      </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">

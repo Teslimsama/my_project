@@ -185,11 +185,11 @@ function is_code_correct($code)
 <body>
   <style>
     body {
-      background-image: url(Images/pexels-pixabay-207691.jpg);
+      background-image: url(Images/mob7.jpg);
 
       background-size: cover;
       background-repeat: no-repeat;
-      height: 100%;
+      height: 100vh;
     }
 
     .msg {
@@ -202,6 +202,7 @@ function is_code_correct($code)
       padding: 10px;
     }
 
+    /* 
     @media screen and (max-width:400px) {
       .code {
         width: 355px;
@@ -251,7 +252,7 @@ function is_code_correct($code)
       display: grid;
       grid-template-columns: 40% 40% auto;
 
-    }
+    } */
   </style>
   <?php
 
@@ -259,7 +260,7 @@ function is_code_correct($code)
     case 'enter_email':
       // code...
   ?>
-      <div class="container mt-5  het form-control ">
+      <div class="container mt-5 vw-80  het form-control ">
         <div class="card mt-5 bg-light ">
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -300,7 +301,7 @@ function is_code_correct($code)
     case 'enter_code':
       // code...
     ?>
-      <div class="container code mt-5 col-lg-12 form-control ">
+      <div class="container code vw-80 mt-5 col-lg-12 form-control ">
         <div class="card mt-5 bg-light ">
           <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -323,92 +324,87 @@ function is_code_correct($code)
 
                 <div class="form-floating m-3">
                   <input style="border: solid grey 1px;" type="text" class="form-control ps-2" id="floatingInput" name="code" placeholder="123456">
-                  <label for="floatingInput">Enter your OTP sent to your Email</label>
+                  <label for="floatingInput">Enter your OTP</label>
                 </div>
 
-                <div class="form-group  codeRow text-center  m-3">
-                  <div class="col-lg-3">
+                <div class="form-group text-center row m-3">
+                  <div class="col-6">
                     <a href="forgotten_password.php">
-                      <input type="button" class="btn btn-dark btn-sm" value="Cancel">
+                      <input type="button" style="float: left;" class="btn btn-dark btn-sm" value="Cancel">
                     </a>
                   </div>
-                  <div class="col-lg-3 ">
-
-                    <input type="submit" value="Next" class="btn btn-sm btn-dark ">
+                  <div class="col-6">
+                    <input type="submit" value="Next" style="float: right;" class="btn btn-sm btn-dark ">
                   </div>
-
-
-                  <!-- <br><br> -->
-
-                  <div class="col-lg-6 mt-5 mb-0 ">
-                    <a class="btn btn-dark btn-sm " href="Signin.php">Login</a>
+                  <div class="col-6 mt-2 mb-0 ">
+                    <a class="btn btn-dark btn-sm " style="float: left;" href="Signin.php">Login</a>
                   </div>
+                </div>
               </form>
-            </div>
 
+            </div>
           </div>
         </div>
-      </div>
-    <?php
+      <?php
       break;
 
     case 'enter_password':
       // code...
-    ?>
-      <div class="container mt-5 col-lg-12 pass form-control ">
-        <div class="card mt-5 bg-light ">
-          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-              <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
+      ?>
+        <div class="container mt-5 col-lg-12 pass form-control ">
+          <div class="card mt-5 bg-light ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
+
+              </div>
+              <div style="margin: top 600px;" class="card-body">
+                <form class="login-form" action="forgotten_password.php?mode=enter_password" method="post">
+
+
+
+                  <?php if (count($error) > 0) : ?>
+                    <div class="msg">
+                      <?php foreach ($error as $error) : ?>
+                        <span><?php echo $error ?></span>
+                      <?php endforeach ?>
+                    </div>
+                  <?php endif ?>
+
+
+                  <div class="form-group text-center  m-3">
+                    <div class="form-floating m-3">
+                      <input type="text" style="border: solid grey 1px;" class="form-control" id="floatingInput" name="password" placeholder="Password">
+                      <label for="floatingInput">Password</label>
+                    </div>
+                    <div class="form-floating m-3">
+                      <input type="text" style="border: solid grey 1px;" class="form-control" id="floatingInput" name="password2" placeholder="Password">
+                      <label for="floatingInput">Confrim Password</label>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <a href="forgotten_password.php">
+                          <input type="button" value="Cancel" class="btn btn-dark ">
+                        </a>
+                      </div>
+                      <div class="col-6">
+                        <input type="submit" value="Next" class="btn btn-dark ">
+                      </div>
+                      <div class="col-12">
+                        <a class="btn btn-dark"style="float:left;" href="Signin.php">Login</a>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- <br><br> -->
+                </form>
+              </div>
 
             </div>
-            <div style="margin: top 600px;" class="card-body">
-              <form class="login-form" action="forgotten_password.php?mode=enter_password" method="post">
-
-
-
-                <?php if (count($error) > 0) : ?>
-                  <div class="msg">
-                    <?php foreach ($error as $error) : ?>
-                      <span><?php echo $error ?></span>
-                    <?php endforeach ?>
-                  </div>
-                <?php endif ?>
-
-
-                <div class="form-group text-center  m-3">
-                  <div class="form-floating m-3">
-                    <input type="text" style="border: solid grey 1px;" class="form-control" id="floatingInput" name="password" placeholder="Password">
-                    <label for="floatingInput">Password</label>
-                  </div>
-                  <div class="form-floating m-3">
-                    <input type="text" style="border: solid grey 1px;" class="form-control" id="floatingInput" name="password2" placeholder="Password">
-                    <label for="floatingInput">Confrim Password</label>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <a href="forgotten_password.php">
-                        <input type="button" value="Cancel" class="btn btn-dark ">
-                      </a>
-                    </div>
-                    <div class="col">
-                      <input type="submit" value="Next" class="btn btn-dark ">
-                    </div>
-                    <div class="col">
-                      <a class="btn btn-dark " href="Signin.php">Login</a>
-                    </div>
-                  </div>
-                </div>
-
-
-                <!-- <br><br> -->
-              </form>
-            </div>
-
           </div>
         </div>
-      </div>
-  <?php
+    <?php
       break;
 
     default:
@@ -416,8 +412,8 @@ function is_code_correct($code)
       break;
   }
 
-  ?>
-  <?php include "assets/includes/footer.php" ?>
+    ?>
+    <?php include "assets/includes/footer.php" ?>
 
 </body>
 

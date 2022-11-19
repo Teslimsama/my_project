@@ -24,12 +24,12 @@ include('config/alert.message.php');
 </head>
 
 <body>
-  <div class="container z-index-sticky top-0 mb-5  ">
+  <div class="container z-index-sticky top-0 mb-5">
     <div class="row">
       <div class=" ">
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4 ">
-          <div class="container-fluid ps-2 pe-0">
+          <div class="container ps-0 pe-0">
             <a href="Images/unibooks copy.png"> <img class="me-3 " src="Images/unibooks copy.png" alt="" width="50"></a>
             <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./about_us" target="_blank">
               <h4> Unibooks</h4>
@@ -67,9 +67,12 @@ include('config/alert.message.php');
             </div>
           </div>
         </nav>
+      </div>
+    </div>
+  </div>
         <!-- End Navbar -->
 
-        <main class="container-fluid text-center mt-5 col-lg-12">
+        <main class="container-fluid text-center mt-5 ">
 
 
 

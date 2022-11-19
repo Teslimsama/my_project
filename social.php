@@ -48,8 +48,6 @@
               <input type="text" class="form-control">
             </div>
           </div>
-          <?php include "assets/includes/navbar.php" ?>
-
         </div>
       </div>
     </nav>

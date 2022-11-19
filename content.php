@@ -4,13 +4,13 @@
 include_once 'config/database.php';
 require_once('app/component.php');
 
-    $num_pages = 5;
-    if (isset($_GET["page"])) {
-      $page = $_GET["page"];
-    } else {
-      $page = 1;
-    }
-    $startfrom = ($page - 1) * 5;
+$num_pages = 5;
+if (isset($_GET["page"])) {
+  $page = $_GET["page"];
+} else {
+  $page = 1;
+}
+$startfrom = ($page - 1) * 5;
 include_once 'assets/includes/sql.php';
 ?>
 
@@ -108,24 +108,24 @@ include_once 'assets/includes/sql.php';
         <nav aria-label="Standard pagination example">
           <ul class="pagination">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
+              <a class="page-link" href="#" onclick="history.back()" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
             <?php
-            $sqll= "SELECT * FROM producttb";
-            
+            $sqll = "SELECT * FROM producttb";
+
             $resultt = mysqli_query($db_connect, $sqll);
             $total_rec = mysqli_num_rows($resultt);
-            $total_pages = ceil($total_rec/$num_pages);
-            for ($i=1; $i <= $total_pages; $i++) { 
-             echo "
-             <li class='page-item'><a class='page-link' href='content?page=".$i. "'>" . $i . "</a></li>
-             " ;
+            $total_pages = ceil($total_rec / $num_pages);
+            for ($i = 1; $i <= $total_pages; $i++) {
+              echo "
+             <li class='page-item'><a class='page-link' href='content?page=" . $i . "'>" . $i . "</a></li>
+             ";
             }
             ?>
-            
-           
+
+
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>

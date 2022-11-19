@@ -50,7 +50,6 @@
               </div>
             </form>
           </div>
-          <?php include "assets/includes/navbar.php" ?>
 
         </div>
       </div>
@@ -59,7 +58,7 @@
     <div class="container-fluid pay mt-3 py-4">
       <div class="row min-vh-80">
         <div class="col-6 mx-auto">
-          <div class="card vw-100 mt-4">
+          <div class="card vw-80 mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-center text-capitalize ps-3">you can donate here !</h6>
@@ -85,7 +84,7 @@
                   <label for="last-name">Last Name</label>
                   <input type="text" id="last-name" />
                 </div>
-                <div class="form-submit">
+                <div class="form-submit justify-center">
                   <button class="btn btn-large btn-dark mt-4" type="submit" onclick="payWithPaystack()"> Pay </button>
                 </div>
               </form>

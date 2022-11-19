@@ -58,8 +58,6 @@ if ($_GET['status'] !== "success") {
               </div>
             </form>
           </div>
-          <?php include "assets/includes/navbar.php" ?>
-
         </div>
       </div>
     </nav>

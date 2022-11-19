@@ -105,7 +105,7 @@ include "assets/includes/s.php"
         <nav aria-label="Standard pagination example">
           <ul class="pagination">
             <li class="page-item">
-              <a class="page-link" href="javascript://history.go(-1)" aria-label="Previous">
+              <a class="page-link" href="#" onclick="history.back()" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>

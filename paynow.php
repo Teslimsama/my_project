@@ -42,7 +42,7 @@
   <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet" >
 </head>
 <body>
-  <div class="container vw-100 pay">
+  <div class="container vw-80 pay">
     <div class="row">
       <div class="col-12">
              <div class="container-fluid card" >
@@ -130,15 +130,7 @@
             width: 23em;
           
           }
-           @media screen and (max-width:575.98px){
-          body{
-            background-image: url(assets/css/pexels-artem-beliaikin-1153976.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100% ;
-    
-          }
-       }
+          
     </style>
     
     <div class="container-fluid py-4">

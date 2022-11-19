@@ -1,12 +1,29 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
-body{
-  background-image: url(../css/pexels-artem-beliaikin-1153976.jpg);
+
+
+body {
+  background-image: url(../../Images/pc1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh ;
-    
+  height: 100vh;
+}
+@media screen and (min-width: 320px) {
+	body {
+		background-image: url(../../Images/mob5.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100vh;
+	}
+}
+
+@media screen and (min-width:575px) {
+  body {
+    background-image: url(../../Images/mob5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
   }
- 
+}

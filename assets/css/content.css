@@ -1,69 +1,88 @@
+* {
+	margin: 0;
+	padding: 0;
+}
 
-/* @media screen and (max-width: 768px) {
-  body{
-    height: fit-content;
-  }
-} */
+body {
+	background-image: url(../../Images/pc1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+@media screen and (min-width: 320px) {
+	body {
+		background-image: url(../../Images/mob5.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100vh;
+	}
+}
+
+@media screen and (min-width: 575px) {
+	body {
+		background-image: url(../../Images/mob5.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 100vh;
+	}
+}
 .card {
-    transition: 0.3s;
-  }
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
-  }
-  .name {
-    padding: 2px 16px;
-  }
-  img{
-    border-radius: 5px 5px 0 0;
-  }
-  .pic {
-    width: 9.56em;
-  }
-  .doe{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }  
-    /* perview & download shadow */
+	transition: 0.3s;
+}
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
+}
+.name {
+	padding: 2px 16px;
+}
+img {
+	border-radius: 5px 5px 0 0;
+}
+.pic {
+	width: 9.56em;
+}
+.doe {
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+/* perview & download shadow */
 .butt {
-    transition: 0.3s;
-  }
-  .butt:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
-  }
- 
-.alert{
- 
-  height: 100px;
-    width: 100px;
-     border-radius: 50%;
+	transition: 0.3s;
+}
+.butt:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 2);
+}
+
+.alert {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
 }
 .over {
-    position: absolute;
-    height: 0%;
-    width: 0px;
-    opacity: 0.3;
-    transition: .3s ease;
-    background-color: transparent;
-    top: 53%;
-    bottom: 50%;
-    left: 78%;
-    right:0 ;
+	position: absolute;
+	height: 0%;
+	width: 0px;
+	opacity: 0.3;
+	transition: 0.3s ease;
+	background-color: transparent;
+	top: 53%;
+	bottom: 50%;
+	left: 78%;
+	right: 0;
 }
-
-
 
 .over:hover {
-    opacity: 0.7;
+	opacity: 0.7;
 }
 
-.play{
-    position: absolute;
-    color: black;
-    font-size: 2rem;
-    cursor: pointer;
-    left:0%;
-    top:0%;
-    border-radius: 50%;
+.play {
+	position: absolute;
+	color: black;
+	font-size: 2rem;
+	cursor: pointer;
+	left: 0%;
+	top: 0%;
+	border-radius: 50%;
 }

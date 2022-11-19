@@ -1,6 +1,5 @@
 <?php
-include "assets/includes/session.php";
-// include_once 'app/reset_app.php'; 
+session_start();
 include_once 'config/database.php';
 
 
@@ -156,7 +155,7 @@ function is_code_correct($code)
 
 ?>
 
-<?php include "assets/includes/session.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

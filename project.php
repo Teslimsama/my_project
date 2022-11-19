@@ -10,7 +10,7 @@ if (isset($_GET["page"])) {
   $page = 1;
 }
 $startfrom = ($page - 1) * 5;
-
+include "assets/includes/s.php"
 
 
 ?>

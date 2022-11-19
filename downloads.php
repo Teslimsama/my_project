@@ -66,28 +66,8 @@ include 'config/alert.message.php';
       </div>
     </nav>
     <!-- End Navbar -->
-    <style>
-      @media screen and (max-width:800px) {
-        .dets {
-          width: 100vw;
-
-          /* grid-template-rows: auto; */
-          /* justify-content: center; */
-          margin-top: 100px;
-        }
-      }
-
-      @media screen and (max-width:400px) {
-        .dets {
-          width: 100vw;
-
-          /* grid-template-rows: auto; */
-          /* justify-content: center; */
-          margin-top: 100px;
-        }
-      }
-    </style>
-    <div class="row vw-70 ">
+    
+    <div class="row">
       <div class="col-12">
         <div class="card dets ">
           <div class="card-body px-0 pb-2">

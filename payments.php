@@ -6,8 +6,6 @@ include 'config/alert.message.php';
 
 
 
-$student_id = $_SESSION['id'];
-
 
 ?>
 <!DOCTYPE html>
@@ -93,12 +91,11 @@ $student_id = $_SESSION['id'];
                   <?php
                   //sql to get patient id
 
-                  $sql = "SELECT * FROM payments WHERE customerid='$student_id' ORDER BY id DESC;";
+                  $sql = "SELECT * FROM payments WHERE customerid='$student_id' ORDER BY id DESC";
                   $sql_result = mysqli_query($db_connect, $sql);
                   $n = 1;
                   while ($patient_rows = mysqli_fetch_assoc($sql_result)) {
                     $student_id = $patient_rows['customerid'];
-
 
                   ?>
                     <tr>

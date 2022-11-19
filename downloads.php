@@ -6,8 +6,6 @@ include 'config/alert.message.php';
 
 
 
-$student_id = $_SESSION['id'];
-
 // $query = "SELECT * FROM ''"
 
 ?>

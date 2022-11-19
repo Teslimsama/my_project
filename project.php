@@ -1,5 +1,4 @@
 <?php include "assets/includes/session.php" ?>
-
 <?php
 include_once 'config/database.php';
 require_once('app/component.php');
@@ -11,7 +10,7 @@ if (isset($_GET["page"])) {
   $page = 1;
 }
 $startfrom = ($page - 1) * 5;
-include "assets/includes/s.php"
+
 
 
 ?>

@@ -1,9 +1,9 @@
 <?php
+include "assets/includes/session.php";
 include('../config/alert.message.php');
 require_once('../config/database.php');
 // Initialize the session
 
-include "assets/includes/session.php";
 $email = $_POST['email'];
 $password = $_POST['password'];
 

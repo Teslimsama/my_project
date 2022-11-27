@@ -86,3 +86,9 @@ img {
 	top: 0%;
 	border-radius: 50%;
 }
+.bd-example {
+	/* margin-left: 00px; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

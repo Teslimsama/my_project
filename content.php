@@ -4,14 +4,14 @@
 include_once 'config/database.php';
 require_once('app/component.php');
 
-$num_pages = 5;
-if (isset($_GET["page"])) {
-  $page = $_GET["page"];
-} else {
-  $page = 1;
-}
-$startfrom = ($page - 1) * 5;
-include_once 'assets/includes/sql.php';
+// $num_pages = 5;
+// if (isset($_GET["page"])) {
+//   $page = $_GET["page"];
+// } else {
+//   $page = 1;
+// }
+// $startfrom = ($page - 1) * 5;
+// include_once 'assets/includes/sql.php';
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +31,7 @@ include_once 'assets/includes/sql.php';
   <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-  <link href="assets/css/all.css" rel="stylesheet" />
-  <link href="assets/css/solid.css" rel="stylesheet" />
-  <link href="assets/css/brand.css" rel="stylesheet" />
+
 
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
@@ -67,11 +65,11 @@ include_once 'assets/includes/sql.php';
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <form action="search" method="GET">
-              <div class="input-group input-group-outline">
-                <label class="form-label">Type here...</label>
-                <input type="text" name="k" class="form-control">
+            <div class="input-group input-group-outline">
+              <label class="form-label">Type here...</label>
+              <input type="text" id="search"  name="k" class="form-control">
 
-              </div>
+            </div>
             </form>
           </div>
           <?php include "assets/includes/navbar.php" ?>
@@ -81,73 +79,73 @@ include_once 'assets/includes/sql.php';
     </nav>
     <main>
       <form action="" method="POST">
-        <div class="doe">
 
-          <?php
-          // $result = $database->getData();
+        <div class="doe" id="post_data"></div>
 
-          while ($row = mysqli_fetch_assoc($result)) {
-            component($row['product_name'], $row['productlink'], $row['product_image'], $row['id']);
-          }
-          ?>
-
-
-
-        </div>
       </form>
-      <STyle>
-        .bd-example {
-          /* margin-left: 00px; */
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      </STyle>
 
-      <div class="bd-example mt-4 ">
-        <nav aria-label="Standard pagination example">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#" onclick="history.back()" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <?php
-            $sqll = "SELECT * FROM producttb";
-
-            $resultt = mysqli_query($db_connect, $sqll);
-            $total_rec = mysqli_num_rows($resultt);
-            $total_pages = ceil($total_rec / $num_pages);
-            for ($i = 1; $i <= $total_pages; $i++) {
-              echo "
-             <li class='page-item'><a class='page-link' href='content?page=" . $i . "'>" . $i . "</a></li>
-             ";
-            }
-            ?>
-
-
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <div id="pagination_link"></div>
 
       <?php include "assets/includes/footer.php" ?>
     </main>
     <?php include "assets/includes/plugin.php" ?>
+    <script>
+      load_data();
 
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <!-- fontawesome css -->
-    <script defer src="assets/css/all.js"></script>
-    <script defer src="assets/css/solid.js"></script>
-    <script defer src="assets/css/brands.js"></script>
+      function load_data(query = "", page_number = 1) {
+        var form_data = new FormData();
+
+        form_data.append("query", query);
+
+        form_data.append("page", page_number);
+
+        var ajax_request = new XMLHttpRequest();
+
+        ajax_request.open("POST", "process_data.php");
+
+        ajax_request.send(form_data);
+
+        ajax_request.onreadystatechange = function() {
+          if (ajax_request.readyState == 4 && ajax_request.status == 200) {
+            var response = JSON.parse(ajax_request.responseText);
+
+            var html = "";
+
+            var serial_no = 1;
+
+            if (response.data.length > 0) {
+              for (var count = 0; count < response.data.length; count++) {
+                html += `
+      <div class='pic card bg-gradient-light mt-3'>
+          <img class='' src='` + response.data[count].image + `' height='' alt='book_pics' style='width: 100%;'>
+          <div class='over'>
+            <a id='download' class='alert ' href='` + response.data[count].link + `'><i class='fa-solid fa-download'></i></a>
+          </div>
+          <input type='hidden' name= '` + response.data[count].id + `'>
+          <a href='description_page?id=` + response.data[count].id + `'>
+            <div class='container name '>
+              <h6>` + response.data[count].name + `</h6>
+              <span id="total_data"></span>
+          </a>
+        </div>
+      </div> 
+        `;
+                serial_no++;
+              }
+            } else {
+              html +=
+                '<h3 class="text-center">No Data Found</h3>';
+            }
+
+            document.getElementById("post_data").innerHTML = html;
+
+            document.getElementById("total_data").innerHTML = response.total_data;
+
+            document.getElementById("pagination_link").innerHTML = response.pagination;
+          }
+        };
+      }
+    </script>
     <script>
       var win = navigator.platform.indexOf('Win') > -1;
       if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -157,6 +155,13 @@ include_once 'assets/includes/sql.php';
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
       }
     </script>
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example page.phps etc -->

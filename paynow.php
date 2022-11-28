@@ -16,10 +16,10 @@ $sql = "SELECT * FROM unibooker WHERE id='$student_id';";
 $sql_result = mysqli_query($db_connect, $sql);
 $rows = mysqli_fetch_assoc($sql_result);
 
- $id = mysqli_real_escape_string($db_connect, $_GET['id']);
-  $sql = "SELECT * FROM project WHERE id='$id'";
-  $result = mysqli_query($db_connect, $sql) or die('bad query');
-  $roe = mysqli_fetch_assoc($result);
+$id = mysqli_real_escape_string($db_connect, $_GET['id']);
+$sql = "SELECT * FROM project WHERE id='$id'";
+$result = mysqli_query($db_connect, $sql) or die('bad query');
+$roe = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +73,8 @@ $rows = mysqli_fetch_assoc($sql_result);
                 <input type="text" class="form-control w-100" value="<?php echo $rows['lastname']; ?>" id="last-name" />
               </div>
               <div class="form-submit">
-                <center><button type="submit" class="btn  btn-dark btn-large w-50 mt-4" onclick="payWithPaystack()"> Pay </button></center>
+                <button type="submit" class="btn  btn-dark btn-large  mt-4" onclick="payWithPaystack()"> Pay </button>
+                <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
               </div>
             </form>
 

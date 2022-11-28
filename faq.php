@@ -52,16 +52,25 @@
             </form>
           </div>
         </div>
+        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+          <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line"></i>
+              <i class="sidenav-toggler-line"></i>
+              <i class="sidenav-toggler-line"></i>
+            </div>
+          </a>
+        </li>
       </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
       <div class="row min-vh-80">
-        <div class="col-6 mx-auto">
+        <div class="col-12 mx-auto">
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-center text-capitalize ps-3">Common Questions</h6>
+                <h6 class="text-white text-center text-capitalize ps-3">Frequently Asked Questions</h6>
 
               </div>
             </div>
@@ -98,7 +107,72 @@
                     <div class="accordion-item text-dark">
                       <h4 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          How to confirm my account ?
+                          How do i get started with Unibooks ?
+                        </button>
+                      </h4>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatum laboriosam sapiente? Aliquid eos saepe quod maiores sit voluptatem vel quaerat reprehenderit officia, maxime earum? Qui veritatis nisi labore minima.lo
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item text-dark">
+                      <h4 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          How much do i pay for unibooks ?
+                        </button>
+                      </h4>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatum laboriosam sapiente? Aliquid eos saepe quod maiores sit voluptatem vel quaerat reprehenderit officia, maxime earum? Qui veritatis nisi labore minima.lo
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item text-dark">
+                      <h4 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Do i need to be a member to sell my books on Unibooks ?
+                        </button>
+                      </h4>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatum laboriosam sapiente? Aliquid eos saepe quod maiores sit voluptatem vel quaerat reprehenderit officia, maxime earum? Qui veritatis nisi labore minima.lo
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item text-dark">
+                      <h4 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          How do i download a free books on Unibooks
+                        </button>
+                      </h4>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatum laboriosam sapiente? Aliquid eos saepe quod maiores sit voluptatem vel quaerat reprehenderit officia, maxime earum? Qui veritatis nisi labore minima.lo
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item text-dark">
+                      <h4 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Where do i find the Unibooks App ?
+                        </button>
+                      </h4>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet voluptatum laboriosam sapiente? Aliquid eos saepe quod maiores sit voluptatem vel quaerat reprehenderit officia, maxime earum? Qui veritatis nisi labore minima.lo
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item text-dark">
+                      <h4 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          How do i find the book i'm looking for on UniBooks ?
                         </button>
                       </h4>
                       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">

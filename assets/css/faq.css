@@ -10,7 +10,7 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 325px) {
 	body {
 		background-image: url(../../Images/mob5.jpg);
 		background-size: cover;

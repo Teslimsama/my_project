@@ -50,42 +50,50 @@
               </div>
             </form>
           </div>
-
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+              </div>
+            </a>
+          </li>
         </div>
       </div>
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid pay mt-3 py-4">
       <div class="row min-vh-80">
-        <div class="col-6 mx-auto">
-          <div class="card vw-80 mt-4">
+        <div class="col-12 mx-auto">
+          <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-center text-capitalize ps-3">you can donate here !</h6>
+                <h6 class="text-white text-center text-capitalize ps-3">You can donate here !</h6>
 
               </div>
             </div>
             <div class="card-body">
-              <h6>your donation will realy go long way in helping me pursue my carrer ,please any amount is a life changer</h6>
-              <form method="" id="paymentForm">
-                <div class="form-group form-control">
+              <h6>Your donation will really go long way in helping me pursue my career, Please any amount is a life changer</h6>
+              <form id="paymentForm">
+                <div class="input-group input-group-outline my-3">
                   <label for="email">Email Address</label>
-                  <input class="w-100" type="email" id="email-address" required />
+                  <input class="form-control w-100" type="email" id="email-address" required />
                 </div>
-                <div class="form-group">
+                <div class="input-group input-group-outline my-3">
                   <label for="amount">Amount</label>
-                  <input type="tel" id="amount" required />
+                  <input type="tel" class="form-control w-100" id="amount" required />
                 </div>
-                <div class="form-group">
+                <div class="input-group input-group-outline my-3">
                   <label for="first-name">First Name</label>
-                  <input type="text" id="first-name" />
+                  <input type="text" class="form-control w-100" id="first-name" />
                 </div>
-                <div class="form-group">
+                <div class="input-group input-group-outline my-3">
                   <label for="last-name">Last Name</label>
-                  <input type="text" id="last-name" />
+                  <input type="text" class="form-control w-100" id="last-name" />
                 </div>
                 <div class="form-submit justify-center">
-                  <button class="btn btn-large btn-dark mt-4" type="submit" onclick="payWithPaystack()"> Pay </button>
+                  <button class="btn btn-large btn-dark mt-4" type="submit" onclick="payWithPaystack()"> Buy Me Card </button>
                 </div>
               </form>
 
@@ -105,7 +113,7 @@
        margin-left: 30em; 
        } */
 
-      .pay {
+      /* .pay {
         width: 50em;
 
       }
@@ -118,7 +126,7 @@
           height: 100%;
 
         }
-      }
+      } */
     </style>
     <script>
       const paymentForm = document.getElementById('paymentForm');

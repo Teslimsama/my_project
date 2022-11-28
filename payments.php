@@ -117,13 +117,22 @@ include 'config/alert.message.php';
                         <p class="text-sm font-weight-bold mb-0">₦<?php echo $patient_rows['amount']; ?></p>
                       </td>
                       <td>
-                        <h6 class="text-xs font-weight-bold"><span class="badge badge-sm bg-gradient-success"><?php echo $patient_rows['status']; ?></span></h6>
+                        <h6 class="text-xs font-weight-bold">
+                          <?php 
+                          if ($patient_rows['status'] === 'success') {
+                           echo "<span class='badge badge-sm bg-gradient-success'>".$patient_rows['status']."</span></h6>";
+                          }else {
+                            echo "<span class='badge badge-sm bg-gradient-danger'>" . $patient_rows['status'] . "</span></h6>";
+                          }
+                          
+                          
+                            ?>
                       </td>
                       <td class="align-middle text-center">
                         <h6><?php echo $patient_rows['date']; ?></h6>
 
-            </div>
-          </div>
+            <!-- </div>
+          </div> -->
           </td>
           <td class="align-middle">
             <button class="btn btn-link text-secondary mb-0">

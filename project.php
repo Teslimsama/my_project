@@ -122,10 +122,10 @@ require_once('app/component.php');
             <a id='download' class='alert ' href='` + response.data[count].link + `'><i class='fa-solid fa-download'></i></a>
           </div>
           <input type='hidden' name= '` + response.data[count].id + `'>
-          <a href='description_page?id=` + response.data[count].id + `'>
+          <a href='description_pro?id=` + response.data[count].id + `'>
             <div class='container name '>
               <h6>` + response.data[count].name + `</h6>
-              <span id="total_data"></span>
+              
           </a>
         </div>
       </div> 

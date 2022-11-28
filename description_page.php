@@ -1,7 +1,7 @@
-<?php include "assets/includes/session.php" ?>
-
 <?php
+include "assets/includes/session.php";
 include_once 'config/database.php';
+include 'config/alert.message.php';
 
 if (isset($_GET['id'])) {
   # code...
@@ -9,13 +9,34 @@ if (isset($_GET['id'])) {
   $sql = "SELECT * FROM producttb WHERE id='$id'";
   $result = mysqli_query($db_connect, $sql) or die('bad query');
   $row = mysqli_fetch_assoc($result);
-
-
-}else {
-  header("location:index");
+} else {
+  header("location:content");
 }
+
 ?>
-<?php include "assets/includes/session.php" ?>
+<?php
+include_once 'config/database.php';
+
+// $download = $_GET['book'];
+// // $student_id = $_SESSION['id'];
+
+// $now = new DateTime();
+// $timestamp = $now->getTimestamp();
+// $sql = "INSERT INTO download (customerid,book,timestamp) VALUES(?,?,?);";
+
+// $stmt = mysqli_stmt_init($db_connect);
+// mysqli_stmt_prepare($stmt, $sql);
+// mysqli_stmt_bind_param($stmt, 'isi', $student_id, $download, $timestamp);
+
+
+// if (mysqli_stmt_execute($stmt)) {
+//   $_SESSION['success'] = "Your Download is been Processed";
+// } else {
+//   $_SESSION['error'] = 'Please Try Again';
+// }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,12 +60,10 @@ if (isset($_GET['id'])) {
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/profile.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
   <?php include 'assets/includes/sidebar.php' ?>
-
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -85,134 +104,71 @@ if (isset($_GET['id'])) {
       <div class="row min-vh-80">
         <div class="col-12">
           <div class="card mt-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Material Dashboard Heading</h6>
-                <p class="mb-0 text-white ps-3">Created using Roboto Slab Font Family
-                </p>
+            <div class="card-header p-0 position-relative mt-4 mx-3 z-index-2">
+
+              <!-- image here  -->
+
+              <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3"><?php echo $row['product_name']; ?></h6>
               </div>
             </div>
-            <div class="card-body px-5">
-
-
-              <div class="download">
+            <div class="card-body row px-5">
+              <div class="download col-12">
                 <div class="perview ">
 
                   <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
 
                 </div>
-                <div class="preview mt-2">
-                  <input type="hidden" name="download" value="hppay" id="download">
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="preview mt-2 ">
+                  <!-- <a href="unibooks_download/<?php echo $row['productlink']; ?>" download class="btn btn-dark">Download <i class="material-icons ms-1 opacity-10">download</i></a> -->
+                  <button type="submit" class="btn btn-dark" name="download" onclick="parent.open('app/download_link.app.php?file=<?php echo $row['productlink']; ?>')">
+
                     Download <i class="material-icons ms-1 opacity-10">download</i>
                   </button>
-                  <?php include 'modals/index_modal.php'; ?>
 
 
                 </div>
-                <h1>h1. Bootstrap heading <?php echo $row['id']; ?></h1>
-                <h2>h2. Bootstrap heading</h2>
-                <h3>h3. Bootstrap heading</h3>
-                <h4>h4. Bootstrap heading</h4>
-                <h5>h5. Bootstrap heading</h5>
-                <h6>h6. Bootstrap heading</h6>
-                <p>You can use the mark tag to <mark>highlight</mark> text.</p>
-                <p><del>This line of text is meant to be treated as deleted text.</del></p>
-                <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
-                <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
-                <p><u>This line of text will render as underlined</u></p>
-                <p><small>This line of text is meant to be treated as fine print.</small></p>
-                <p><strong>This line rendered as bold text.</strong></p>
-                <p><em>This line rendered as italicized text.</em></p>
-                <figure>
-                  <blockquote class="blockquote">
-                    <p class="ps-2">Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
-                  </blockquote>
-                  <figcaption class="blockquote-footer ps-3">
-                    Someone famous in <cite title="Source Title">Source Title</cite>
-                  </figcaption>
-                </figure>
+
               </div>
+              <div class="msg">
+
+                <?php echo ErrorMessage();
+                echo SuccessMessage(); ?>
+              </div>
+              <div class="col-12">
+                <h3>ORIGIN AND DISTRIBUTION OF CROP</h3>
+
+                <p>Most cultivated crop have one location or the other as a place or origin.
+                  The origin of crops still in dispute as there are varying opinions that seems
+                  to contradict other. It worth nothing that the origin of most of the crops have
+                  Been oteneicated by notable scientist one of which is the Russian scientist known as Vavilow.</p>
+                <p>
+                  The distribution of crops varies from one climatic condition to another
+                  Some of the climatic conditions support the growth and development of some crops while others don’t. it can therefore be concluded that climate conditions such as sun energy amount of rainfall, type of vegetation, soil type of humidity and the rest influences the distribution of crops in Nigeria and the whole world.
+                  The distribution of the cultivated crops and those as weld varies
+                  from one agricultural zone to another.</p>
+                <p>The identification of such centers along was a valuable contribution for
+                  giving breeders and agronomies clues as to where the source material can be found. However, Vavilov was not satisfied by merely stating the facts but used them to elaborate an exciting theory of great importance that has passed the test of time. The theory states that the great diversity of forms, varieties and species of particular plant in definite part of the world attests to the fact that the speciation process in geographically localized.</p>
+                <p>
+                  Centers of origin of cultivated plants are separated from one another by mountain chains, deserts or expanses of water that is theygave rise to independent, isolated agricultural civilizations. In most cases a particular genus or species is associated with a single cente, but some crops are associated with two or more centers or centers of origin, where the plant in questions takes the most diverse forms and was domesticated for the first time and secondary centers arising as a result of migrations of individual formstome and secondary centers arising as a result of migration of individual forms from the primary one e.g the primary centers of maize origin is in Mexico,whereas China serve as the secondary center of origin of tis wary varieties.</p>
+
+              </div>
+
+
+
             </div>
           </div>
         </div>
-        <div class="container-fluid py-4">
-          <div class="row min-vh-80">
-            <div class="col-12">
-              <div class="card mt-4">
-                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                  <form action="" method="POST">
-                    <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                      <h3>civic education</h3>
-                      <input type="hidden" name="title" value="adult education">
-                    </div>
-                </div>
-
-                <!-- <style>
-              .download{
-                  display: grid;
-                  grid-template:50px 30px / 150px 300px;
-              }
-              
-            </style> -->
 
 
 
-                <div class="card-body px-5">
-                  <!-- image here  -->
-                  <div class="download">
-                    <div class="perview ">
-
-                      <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
-
-                    </div>
-                    <div class="preview mt-2">
-                      <input type="hidden" name="download" value="hppay" id="download">
-                      <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-dark" name="download" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Download <i class="material-icons ms-1 opacity-10">download</i>
-                      </button>
-                      <?php include 'modals/index_modal.php'; ?>
-
-
-                    </div>
-
-
-                    </form>
-                  </div>
-                </div>
-                <h1>h1. Bootstrap heading</h1>
-                <h2>h2. Bootstrap heading</h2>
-                <h3>h3. Bootstrap heading</h3>
-                <h4>h4. Bootstrap heading</h4>
-                <h5>h5. Bootstrap heading</h5>
-                <h6>h6. Bootstrap heading</h6>
-                <p>You can use the mark tag to <mark>highlight</mark> text.</p>
-                <p><del>This line of text is meant to be treated as deleted text.</del></p>
-                <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
-                <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
-                <p><u>This line of text will render as underlined</u></p>
-                <p><small>This line of text is meant to be treated as fine print.</small></p>
-                <p><strong>This line rendered as bold text.</strong></p>
-                <p><em>This line rendered as italicized text.</em></p>
-                <figure>
-                  <blockquote class="blockquote">
-                    <p class="ps-2">Because I’m here to follow my dreams and inspire other people to follow their dreams, too.</p>
-                  </blockquote>
-                  <figcaption class="blockquote-footer ps-3">
-                    Someone famous in <cite title="Source Title">Source Title</cite>
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <?php include "assets/includes/footer.php" ?>
-
-      <!-- footer  -->
     </div>
+    </div>
+    <!-- </div>
+    </div> -->
+    <?php include "assets/includes/footer.php" ?>
+
   </main>
   <?php include "assets/includes/plugin.php" ?>
 

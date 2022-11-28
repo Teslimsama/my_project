@@ -1,25 +1,8 @@
+<?php include "assets/includes/session.php" ?>
 <?php
-include "assets/includes/session.php";
 include_once 'config/database.php';
 include 'config/alert.message.php';
-//  $download = ''; 
-$download = $_POST['book'];
-// $student_id = $_SESSION['id'];
 
-$now = new DateTime();
-$timestamp = $now->getTimestamp();
-$sql = "INSERT INTO download (customerid,book,timestamp) VALUES(?,?,?);";
-
-$stmt = mysqli_stmt_init($db_connect);
-mysqli_stmt_prepare($stmt, $sql);
-mysqli_stmt_bind_param($stmt, 'isi', $student_id, $download, $timestamp);
-
-
-if (mysqli_stmt_execute($stmt)) {
-  $_SESSION['success'] = "Your Download is been Processed";
-} else {
-  $_SESSION['error'] = 'Please Try Again';
-}
 
 ?>
 <?php
@@ -28,14 +11,13 @@ include_once 'config/database.php';
 if (isset($_GET['id'])) {
   # code...
   $id = mysqli_real_escape_string($db_connect, $_GET['id']);
-  $sql = "SELECT * FROM producttb WHERE id='$id'";
+  $sql = "SELECT * FROM project WHERE id='$id'";
   $result = mysqli_query($db_connect, $sql) or die('bad query');
   $row = mysqli_fetch_assoc($result);
 } else {
   header("location:index");
 }
 ?>
-<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,7 +88,7 @@ if (isset($_GET['id'])) {
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
 
               <!-- image here  -->
-              <form action="" method="POST">
+              
                 <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                   <h6 class="text-white text-capitalize ps-3">Crop Production</h6>
                 </div>
@@ -121,14 +103,12 @@ if (isset($_GET['id'])) {
                 <div class="preview mt-2">
                   <input type="hidden" name="book" value="crop_production" id="download">
                   <!-- Button trigger modal -->
-                  <button type="submit" class="btn btn-dark" name="download" onclick="parent.open('app/download_link.app.php?file=<?php echo $row['productlink']; ?>')" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Download <i class="material-icons ms-1 opacity-10">download</i>
-                  </button>
+                  <a href="paynow?id=<?php echo $row['id']?>" class="btn btn-dark">Download</a>
 
 
                 </div>
 
-                </form>
+                
 
               </div>
               <div class="msg">

@@ -26,3 +26,31 @@ body {
 		height: 100vh;
 	}
 }
+
+.download {
+	display: grid;
+	grid-template: 40px 20px / 200px 300px;
+}
+
+@media screen and (max-width: 320px) {
+	.download {
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.download {
+		display: flex;
+		width: 100%;
+		flex-direction: row	;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: center;
+	}
+}
+

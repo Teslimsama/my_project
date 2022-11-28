@@ -1,6 +1,6 @@
 <?php
-include_once 'config/database.php';
-    include 'config/alert.message.php';
+include_once '../config/database.php';
+    include '../config/alert.message.php';
    
     
  
@@ -16,10 +16,12 @@ include_once 'config/database.php';
         header("Content-Disposition: attachment; filename=$filename ");
 
         readfile("../book_download/" . $filename);
-    }else{
+
+        $_SESSION['success'] = "Your Download is been Processed";
+    } else {
+        $_SESSION['error'] = 'Please Try Again';
         header("location:../description_page");
     }
+        
     
-//  }else{
-    //     header("location:../" . $_POST['book'] );
-    // }
+    

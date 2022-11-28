@@ -65,11 +65,11 @@ require_once('app/component.php');
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <form action="search" method="GET">
-            <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-              <input type="text" id="search"  name="k" class="form-control">
+              <div class="input-group input-group-outline">
+                <label class="form-label">Type here...</label>
+                <input type="text" id="search" name="k" class="form-control">
 
-            </div>
+              </div>
             </form>
           </div>
           <?php include "assets/includes/navbar.php" ?>
@@ -122,10 +122,10 @@ require_once('app/component.php');
             <a id='download' class='alert ' href='` + response.data[count].link + `'><i class='fa-solid fa-download'></i></a>
           </div>
           <input type='hidden' name= '` + response.data[count].id + `'>
-          <a href='description_page?id=` + response.data[count].id + `'>
+          <a href='description_page?id=` + response.data[count].id + `&book=` + response.data[count].link + `'>
             <div class='container name '>
               <h6>` + response.data[count].name + `</h6>
-              <span id="total_data"></span>
+              
           </a>
         </div>
       </div> 

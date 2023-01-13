@@ -139,7 +139,7 @@ require_once('app/component.php');
 
             document.getElementById("post_data").innerHTML = html;
 
-            document.getElementById("total_data").innerHTML = response.total_data;
+            // document.getElementById("total_data").innerHTML = response.total_data;
 
             document.getElementById("pagination_link").innerHTML = response.pagination;
           }

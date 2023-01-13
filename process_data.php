@@ -10,7 +10,7 @@ if(isset($_POST["query"]))
 
 	$data = array();
 
-	$limit = 5;
+	$limit = 3;
 
 	$page = 1;
 
@@ -83,7 +83,7 @@ if(isset($_POST["query"]))
 	{
 
 		$query = "
-		SELECT  id, product_image,  product_name, productlink FROM producttb
+		SELECT  id, product_image, product_name, productlink FROM producttb
 		ORDER BY id DESC
 		";
 

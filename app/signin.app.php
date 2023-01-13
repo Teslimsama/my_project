@@ -1,5 +1,4 @@
 <?php
-include "assets/includes/session.php";
 include('../config/alert.message.php');
 require_once('../config/database.php');
 // Initialize the session

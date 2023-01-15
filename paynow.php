@@ -54,7 +54,7 @@ $roe = mysqli_fetch_assoc($result);
         <div class="card">
           <div class=" card-body ">
 
-            <form id="paymentForm">
+            <form id="payForm">
               <div class="input-group input-group-outline my-3">
                 <label for="email">Email Address</label>
                 <input type="email" class="form-control w-100" id="email-address" value="<?php echo $rows['email']; ?>" required />
@@ -72,9 +72,38 @@ $roe = mysqli_fetch_assoc($result);
                 <label for="last-name">Last Name</label>
                 <input type="text" class="form-control w-100" value="<?php echo $rows['lastname']; ?>" id="last-name" />
               </div>
+              <div class="my-3">
+                <label for="payment">Form of Payment</label>
+                <div class="form-check">
+                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                  <label class="form-check-label" onclick="paystack()" for="credit">Paystack</label>
+                </div>
+                <div class="form-check">
+                  <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+                  <label class="form-check-label" onclick="flutterwave()" for="debit">Flutterwave</label>
+                </div>
+                <div class="form-check">
+                  <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                  <label class="form-check-label" onclick="bank_transfer()" for="paypal">Bank Transfer</label>
+                </div>
+              </div>
+
               <div class="form-submit">
-                <button type="submit" class="btn  btn-dark btn-large  mt-4" onclick="payWithPaystack()"> Pay </button>
-                <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
+                <div id="paystack">
+                  <button type="submit" class="btn  btn-dark btn-large  mt-4" onclick="payWithPaystack()"> Pay </button>
+                  <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
+
+                </div>
+                <div style="display: none;" id="flutterwave">
+                  <button type="submit" class="btn  btn-dark btn-large  mt-4" onclick="payNow()"> Pay</button>
+                  <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
+
+                </div>
+                <div style="display: none;" id="bank_transfer">
+                  <button type="submit" class="btn  btn-dark btn-large  mt-4"> Pay</button>
+                  <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
+
+                </div>
               </div>
             </form>
 
@@ -84,8 +113,39 @@ $roe = mysqli_fetch_assoc($result);
       </div>
     </div>
   </div>
-
   <script>
+    let div = document.getElementById('paystack');
+    let display = 0;
+    let div2 = document.getElementById('flutterwave');
+    let div3 = document.getElementById('bank_transfer');
+
+    function paystack() {
+
+      div.style.display = 'block';
+      div2.style.display = 'none';
+      div3.style.display = 'none';
+
+
+    }
+
+    function flutterwave() {
+
+      div.style.display = 'none';
+      div2.style.display = 'block';
+      div3.style.display = 'none';
+
+    }
+
+    function bank_transfer() {
+
+      div3.style.display = 'block';
+      div2.style.display = 'none';
+      div.style.display = 'none';
+
+    }
+  </script>
+  <script src="assets/js/checkout.js"></script>
+  <!-- <script>
     const paymentForm = document.getElementById('paymentForm');
     paymentForm.addEventListener("submit", payWithPaystack, false);
 
@@ -116,7 +176,7 @@ $roe = mysqli_fetch_assoc($result);
 
       handler.openIframe();
     }
-  </script>
+  </script> -->
   </div>
   </div>
   </div>

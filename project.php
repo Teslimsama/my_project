@@ -1,8 +1,8 @@
-<?php include "assets/includes/session.php" ?>
+<?php include "session.php" ?>
 
 <?php
-include_once 'config/database.php';
-require_once('app/component.php');
+include_once 'database.php';
+require_once('component.php');
 
 // $num_pages = 5;
 // if (isset($_GET["page"])) {
@@ -11,7 +11,7 @@ require_once('app/component.php');
 //   $page = 1;
 // }
 // $startfrom = ($page - 1) * 5;
-// include_once 'assets/includes/sql.php';
+// include_once 'sql.php';
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ require_once('app/component.php');
 
 <body class="g-sidenav-show ">
   <?php
-  include 'assets/includes/sidebar.php' ?>
+  include 'sidebar.php' ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -72,7 +72,7 @@ require_once('app/component.php');
             </div>
             </form>
           </div>
-          <?php include "assets/includes/navbar.php" ?>
+          <?php include "navbar.php" ?>
 
         </div>
       </div>
@@ -86,9 +86,9 @@ require_once('app/component.php');
 
       <div id="pagination_link"></div>
 
-      <?php include "assets/includes/footer.php" ?>
+      <?php include "footer.php" ?>
     </main>
-    <?php include "assets/includes/plugin.php" ?>
+    <?php include "plugin.php" ?>
     <script>
       load_data();
 

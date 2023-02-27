@@ -1,8 +1,8 @@
-<?php include "assets/includes/session.php" ?>
+<?php include "session.php" ?>
 <?php
 
-include_once 'config/database.php';
-include 'config/alert.message.php';
+include_once 'database.php';
+include 'alert.message.php';
 
 
 
@@ -40,7 +40,7 @@ $student_id = $_SESSION['id'];
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <?php include 'assets/includes/sidebar.php' ?>
+  <?php include 'sidebar.php' ?>
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
@@ -63,7 +63,7 @@ $student_id = $_SESSION['id'];
               </div>
             </form>
           </div>
-          <?php include "assets/includes/navbar.php" ?>
+          <?php include "navbar.php" ?>
 
         </div>
       </div>
@@ -76,11 +76,11 @@ $student_id = $_SESSION['id'];
         <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
       </div>
     </div>
-    <?php include "assets/includes/footer.php" ?>
+    <?php include "footer.php" ?>
 
     <!-- footer  -->
   </main>
-  <?php include "assets/includes/plugin.php" ?>
+  <?php include "plugin.php" ?>
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>

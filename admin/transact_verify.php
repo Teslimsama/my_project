@@ -1,6 +1,6 @@
 <?php
 // $customerid = $_SESSION['id'] ;
-include_once 'config/database.php';
+include_once '../database.php';
 
     $ref = $_GET['reference'];
     if ($ref == "") {

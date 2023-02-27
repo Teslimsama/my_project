@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('config/alert.message.php');
+include('alert.message.php');
 ?>
 
 
@@ -125,7 +125,7 @@ include('config/alert.message.php');
             </form>
           </div>
           <!-- footer  -->
-          <?php include "assets/includes/footer.php" ?>
+          <?php include "footer.php" ?>
 
           <!-- footer  -->
         </main>

@@ -1,6 +1,6 @@
 <?php
-include "includes/session.php";
-include_once ('config/database.php');
+include "session.php";
+include_once ('../database.php');
 
 $update = $_SESSION['id'];
 
@@ -9,7 +9,6 @@ $sql_result = mysqli_query($db_connect,$sql);
 $rows = mysqli_fetch_assoc($sql_result);
 
 ?>
-<?php include "assets/includes/session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

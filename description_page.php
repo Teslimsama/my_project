@@ -1,7 +1,7 @@
 <?php
-include "assets/includes/session.php";
-include_once 'config/database.php';
-include 'config/alert.message.php';
+include "session.php";
+include_once 'database.php';
+include 'alert.message.php';
 
 if (isset($_GET['id'])) {
   # code...
@@ -13,9 +13,7 @@ if (isset($_GET['id'])) {
   header("location:content");
 }
 
-?>
-<?php
-include_once 'config/database.php';
+
 
 // $download = $_GET['book'];
 // // $student_id = $_SESSION['id'];

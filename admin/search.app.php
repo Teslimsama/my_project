@@ -1,6 +1,6 @@
 <?php
- include_once '../config/database.php';
- include '../config/alert.message.php' ;
+ include_once '../database.php';
+ include '../alert.message.php' ;
  
 if (isset($_POST['search'])) {
     $title = $_POST['title'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'config/database.php';
+include_once 'database.php';
 
 
 $error = array();
@@ -413,7 +413,7 @@ function is_code_correct($code)
   }
 
     ?>
-    <?php include "assets/includes/footer.php" ?>
+    <?php include "footer.php" ?>
 
 </body>
 

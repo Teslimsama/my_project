@@ -1,7 +1,7 @@
-<?php include "assets/includes/session.php" ?>
+<?php include "session.php" ?>
 <?php
 
-include("config/database.php");
+include("database.php");
 
 $id = $_GET['id'];
 
@@ -60,7 +60,7 @@ performQuery($query);
     }
   </style>
 
-  <?php include "assets/includes/footer.php" ?>
+  <?php include "footer.php" ?>
 
 </body>
 

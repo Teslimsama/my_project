@@ -1,4 +1,4 @@
-<?php include "includes/session.php" ?>
+<?php include "session.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +25,7 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <?php include "includes/sidebar.php" ?>
+  <?php include "sidebar.php" ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -97,7 +97,7 @@
       </div>
       <!-- footer  -->
   </main>
-  <?php include "includes/plugin.php" ?>
+  <?php include "plugin.php" ?>
 
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>

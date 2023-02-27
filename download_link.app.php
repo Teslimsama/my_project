@@ -1,6 +1,6 @@
 <?php
-include_once '../config/database.php';
-    include '../config/alert.message.php';
+include_once 'database.php';
+    include 'alert.message.php';
    
     
  
@@ -20,7 +20,7 @@ include_once '../config/database.php';
         $_SESSION['success'] = "Your Download is been Processed";
     } else {
         $_SESSION['error'] = 'Please Try Again';
-        header("location:../description_page");
+        header("location:description_page");
     }
         
     

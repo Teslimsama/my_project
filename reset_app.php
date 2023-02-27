@@ -1,9 +1,9 @@
 <?php 
 // connect to database
-include('config/database.php');
+include('database.php');
 
 
-nclude "assets/includes/session.php";
+include "session.php";
 $errors = [];
 $user_id = "";
 
@@ -83,7 +83,7 @@ if (isset($_POST['new_password'])) {
       $new_pass = md5($new_pass);
       $sql = "UPDATE unibooker SET password='$new_pass' WHERE email='$email'";
       $results = mysqli_query($db_connect, $sql);
-      header('location: ../Signup');
+      header('location: Signup');
     }
   }
 }

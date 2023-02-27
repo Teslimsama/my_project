@@ -1,7 +1,7 @@
-<?php include "assets/includes/session.php" ?>
+<?php include "session.php" ?>
 <?php
-include_once 'config/database.php';
-include 'config/alert.message.php';
+include_once 'database.php';
+include 'alert.message.php';
 
 
 
@@ -39,7 +39,7 @@ $rows = mysqli_fetch_assoc($sql_result);
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
-  <?php include 'assets/includes/sidebar.php' ?>
+  <?php include 'sidebar.php' ?>
 
   <div class="main-content position-relative max-height-vh-100 h-100">
     <!-- Navbar -->
@@ -62,7 +62,7 @@ $rows = mysqli_fetch_assoc($sql_result);
               </div>
             </form>
           </div>
-          <?php include "assets/includes/navbar.php" ?>
+          <?php include "navbar.php" ?>
 
         </div>
       </div>
@@ -123,12 +123,12 @@ $rows = mysqli_fetch_assoc($sql_result);
         </div>
       </div>
     </div>
-    <?php include "assets/includes/footer.php" ?>
+    <?php include "footer.php" ?>
 
   </div>
   </div>
 
-  <?php include "assets/includes/plugin.php" ?>
+  <?php include "plugin.php" ?>
 
 
 

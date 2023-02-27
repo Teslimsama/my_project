@@ -1,7 +1,7 @@
-<?php include "assets/includes/session.php" ?>
+<?php include "session.php" ?>
 <?php
 if ($_GET['status'] !== "success") {
-  include_once 'config/database.php';
+  include_once 'database.php';
   header("location:javascript://history.go(-1)");
 } ?>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ if ($_GET['status'] !== "success") {
 
 <body class="g-sidenav-show  bg-gray-200">
 
-  <?php include 'assets/includes/sidebar.php' ?>
+  <?php include 'sidebar.php' ?>
 
 
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -91,11 +91,11 @@ if ($_GET['status'] !== "success") {
           </div>
         </div>
       </div>
-      <?php include "assets/includes/footer.php" ?>
+      <?php include "footer.php" ?>
 
     </div>
   </main>
-  <?php include "assets/includes/plugin.php" ?>
+  <?php include "plugin.php" ?>
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>

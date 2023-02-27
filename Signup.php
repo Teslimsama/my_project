@@ -188,7 +188,7 @@ include('config/alert.message.php');
 
   </div>
   <!-- footer  -->
-  <?php include "assets/includes/footer.php" ?>
+  <?php include "footer.php" ?>
 
   <!-- footer  -->
   <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>

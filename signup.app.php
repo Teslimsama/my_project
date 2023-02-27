@@ -1,6 +1,6 @@
 <?php
-include('../config/alert.message.php');
-require_once('../config/database.php');
+include('alert.message.php');
+require_once('database.php');
 
 
 //COLLECT DATA FROM FORM
@@ -8,11 +8,14 @@ $first_name = $_POST['firstname'];
 $last_name = $_POST['lastname'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
-;
+
+$level = $_POST['levell'];
+$dept = $_POST['dept'];
+$course = $_POST['course'];
+$faculty = $_POST['faculty'];
 $referral = $_POST['refer'];
 $gender = $_POST['gender'];
 $school = $_POST['school'];
-$state = $_POST['state'];
 $dob = $_POST['dob'];
 $acct_type = 'student';
 
@@ -22,7 +25,7 @@ $timestamp = $now->getTimestamp();
 
 
 // //INSERT RECORDS INTO DB
-// $sql = "INSERT INTO workers (firstname,lastname,phone,state,school,gender,password,dob,reference,email,timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+// $sql = "INSERT INTO unibooker (firstname,lastname,phone,level,faculty,department,course,school,gender,password,dob,reference,email,timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
 $stmt = mysqli_stmt_init($db_connect);
 
@@ -44,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = $_SESSION['error'] = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT * FROM workers WHERE username = ?";
+        $sql = "SELECT * FROM unibooker WHERE username = ?";
         
         if($stmt = mysqli_prepare($db_connect, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -96,11 +99,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO workers (firstname,lastname,phone,email,username,state,school,password,dob,reference,gender,timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
+        $sql = "INSERT INTO unibooker (firstname,lastname,phone,level,faculty,department,course,school,gender,password,dob,reference,email,username,acctype,timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
          
         if($stmt = mysqli_prepare($db_connect, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt,'sssssssssssi',$first_name,$last_name,$phone,$email,$username,$state,$school,$password,$dob,$referral,$gender,$timestamp);
+            mysqli_stmt_bind_param($stmt,'sssssssssssssssi',$first_name,$last_name,$phone,$level,$faculty,$dept,$course,$school,$gender,$password,$dob,$referral,$email,$username,$acct_type,$timestamp);
             
             // Set parameters
             $param_username = $username;

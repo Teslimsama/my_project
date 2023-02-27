@@ -1,6 +1,6 @@
 <?php
-include('../config/alert.message.php');
-require_once('../config/database.php');
+include('../alert.message.php');
+require_once('../database.php');
 
  
 
@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
     }
     
     // Close connection
-    header("location: ../profilepage");
+    header("location: profilepage");
 }
 ?>
  

@@ -1,16 +1,5 @@
-<?php include "session.php" ?>
-<?php
-
-include_once 'database.php';
+<?php include "session.php";
 include 'alert.message.php';
-
-
-
-
-$student_id = $_SESSION['id'];
-
-// $query = "SELECT * FROM ''"
-
 ?>
 
 <!DOCTYPE html>

@@ -1,8 +1,4 @@
 <?php include "session.php" ?>
-<?php
-include_once 'database.php';
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,10 +67,10 @@ include_once 'database.php';
             <div class='card-body pb-0'>
 
               <?php
-              $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-             
-              if (count(fetchAll($query)) > 0) {
-                foreach (fetchAll($query) as $i) {
+              $query = $conn->prepare("SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
+              $query->execute();
+              if ($query->rowCount() > 0) {
+                foreach ($query->fetchAll() as $i) {
               ?>
 
 
@@ -117,9 +113,10 @@ include_once 'database.php';
 
               <?php
               
-              $sql = "SELECT * from `notifications` where `status` = 'read' order by `date` DESC";
-              if (count(fetchAll($sql)) > 0) {
-                foreach (fetchAll($sql) as $i) {
+              $sql = $conn->prepare("SELECT * from `notifications` where `status` = 'read' order by `date` DESC");
+              $sql->execute();
+              if ($sql->rowCount() > 0) {
+                foreach ($sql->fetchAll() as $i) {
               ?>
 
 

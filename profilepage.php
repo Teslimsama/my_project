@@ -1,17 +1,5 @@
-<?php include "session.php" ?>
-<?php
-include_once 'database.php';
+<?php include "session.php" ;
 include 'alert.message.php';
-
-
-
-
-$student_id = $_SESSION['id'];
-
-$sql = "SELECT * FROM unibooker WHERE id='$student_id';";
-$sql_result = mysqli_query($db_connect, $sql);
-$rows = mysqli_fetch_assoc($sql_result);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,13 +64,13 @@ $rows = mysqli_fetch_assoc($sql_result);
         <div class="row gx-4 mb-2">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="pfp/<?php echo $rows['image']; ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="pfp/<?php echo $user['image']; ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                <?php echo $rows['firstname'] . ' ' . $rows['lastname']; ?>
+                <?php echo $user['firstname'] . ' ' . $user['lastname']; ?>
               </h5>
               <p class="mb-0 font-weight-normal text-sm">
                 CEO / Co-Founder
@@ -111,12 +99,12 @@ $rows = mysqli_fetch_assoc($sql_result);
             <div class="card-body p-3">
 
               <ul class="list-group">
-                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; <?php echo $rows['firstname'] . ' ' . $rows['lastname']; ?>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Username:</strong> &nbsp; <?php echo $rows['username']; ?></li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; <?php echo $rows['phone']; ?></li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; <?php echo $rows['email']; ?></li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">University:</strong> &nbsp; <?php echo $rows['school']; ?></li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Level:</strong> &nbsp; <?php echo $rows['level']; ?></li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; <?php echo $user['firstname'] . ' ' . $user['lastname']; ?>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Username:</strong> &nbsp; <?php echo $user['username']; ?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; <?php echo $user['phone']; ?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; <?php echo $user['email']; ?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">University:</strong> &nbsp; <?php echo $user['school']; ?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Level:</strong> &nbsp; <?php echo $user['level']; ?></li>
               </ul>
             </div>
           </div>

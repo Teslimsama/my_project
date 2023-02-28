@@ -1,12 +1,5 @@
-<?php include "session.php" ?>
-<?php
-include_once 'database.php';
+<?php include "session.php";
 include 'alert.message.php';
-
-
-
-
-// $query = "SELECT * FROM ''"
 
 ?>
 <!DOCTYPE html>
@@ -81,18 +74,17 @@ include 'alert.message.php';
                 </thead>
                 <tbody>
                   <?php
-                  //sql to get patient id
+                  $student_id=$user['id'];
+                 try {
+        $stmt = $conn->prepare("SELECT * FROM download WHERE customerid=? ORDER BY id DESC");
+        $stmt->execute([$student_id]);
+        $n=1;
+        while ($patient_rows = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $dowload_date = $patient_rows['timestamp'];
+            $date = date('d/m/Y', $dowload_date);
+        
+   
 
-                  $sql = "SELECT * FROM download WHERE customerid='$student_id' ORDER BY id DESC;";
-                  $sql_result = mysqli_query($db_connect, $sql);
-                  $n = 1;
-                  while ($patient_rows = mysqli_fetch_assoc($sql_result)) {
-                    $student_id = $patient_rows['customerid'];
-
-                    //sql to fetch patient full records
-
-                    $dowload_date =   $patient_rows['timestamp'];
-                    $date = date('d/m/Y', $dowload_date);
                   ?>
                     <tr>
                       <td>
@@ -117,7 +109,9 @@ include 'alert.message.php';
                       </td>
                     </tr>
                   <?php $n++;
-                  } ?>
+                  } } catch (Exception $e) {
+        echo $e->getMessage();
+    } ?>
                 </tbody>
               </table>
             </div>

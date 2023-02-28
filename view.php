@@ -1,14 +1,19 @@
-<?php include "session.php" ?>
-<?php
+<?php include "session.php";
 
-include("database.php");
 
 $id = $_GET['id'];
 
 $query = "UPDATE `notifications` SET `status` = 'read' WHERE `id` = $id;";
-performQuery($query);
 
-
+//Perform the prepared query
+try {
+  $stmt = $conn->prepare($query);
+  $stmt->execute();
+  //Row count will tell us the number of rows affected by the query
+  $rowCount = $stmt->rowCount();
+} catch (PDOException $e) {
+  throw $e;
+}
 
 ?>
 
@@ -42,15 +47,18 @@ performQuery($query);
   <div class="card w-70 text-center">
     <?php
 
-    $query = "SELECT * from `notifications` where `id` = '$id';";
-    if (count(fetchAll($query)) > 0) {
-      foreach (fetchAll($query) as $i) {
-        if ($i['type'] == 'comment') {
-          echo '<p class="pt-2 ">' . $i['message'] . '</p>';
-        }
+
+    $query = $conn->prepare("SELECT * from `notifications` where `id` = ? AND `type` = 'comment'");
+    $query->execute(array($id));
+    $result = $query->fetchAll();
+    if ($result > 0) {
+      foreach ($result as $i) {
+        echo '<p class="pt-2 ">' . $i['message'] . '</p>';
       }
     }
-    ?> <a href="notifications">Back<i class="material-icons opacity-10">arrow</i></a>
+
+    ?> 
+    <a href="notifications">Back<i class="material-icons opacity-10">arrow</i></a>
   </div>
   <style>
     .card {

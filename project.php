@@ -1,17 +1,4 @@
-<?php include "session.php" ?>
-
-<?php
-include_once 'database.php';
-require_once('component.php');
-
-// $num_pages = 5;
-// if (isset($_GET["page"])) {
-//   $page = $_GET["page"];
-// } else {
-//   $page = 1;
-// }
-// $startfrom = ($page - 1) * 5;
-// include_once 'sql.php';
+<?php include "session.php";
 ?>
 
 <!DOCTYPE html>

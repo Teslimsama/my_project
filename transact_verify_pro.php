@@ -1,7 +1,7 @@
 <?php
 include "session.php";
-include_once 'database.php';
-$customerid = $_SESSION['id'];
+
+$customerid = $user['id'];
 
 $ref = $_GET['reference'];
 if ($ref == "") {
@@ -49,21 +49,26 @@ if ($result->data->status == 'success') {
   date_default_timezone_set('Africa/lagos');
   $Date_time = date('m/d/Y h:i:s a', time());
 
-  include_once 'config/database.php';
+  
 
-  $sql = "INSERT INTO payments (  customerid, status,amount, reference, fullname, date, email,book) VALUES(?,?,?,?,?,?,?,?); ";
-
-  $stmt = mysqli_stmt_init($db_connect);
-  mysqli_stmt_prepare($stmt, $sql);
-  mysqli_stmt_bind_param($stmt, 'ssssssss', $customerid, $status, $amount, $reference, $fullname, $Date_time, $Cus_email, $book);
+  $stmt = $conn->prepare("INSERT INTO payments (customerid, status,amount, reference, fullname, date, email,book) VALUES(:customerid, :status, :amount, :reference, :fullname, :date, :email, :book)");
+  $stmt->execute(array(
+    ':customerid'=> $customerid,
+    ':status' => $status,
+    ':amount' => $amount, 
+    ':reference' => $reference,
+    ':fullname' => $fullname,
+    ':date' => $Date_time,
+    ':email' => $Cus_email,
+    ':book' => $book
+  ));
   // $stmt = $db_connect->prepare("INSERT INTO payments ( status, reference, fullname, date, email, customerid) VALUES (?,?,?,?,?,?)");
   // $stmt->bind_param("sssssi", $status,$reference,$fullname,$Date_time,$Cus_email,$customerid);
-  // $stmt->execute();
-  if (mysqli_stmt_execute($stmt)) {
-    // header("location:success?status=success");
-    $connect = new PDO("mysql:host=localhost; dbname=unibooks", "root", "");
+  // $stmt;
+  if ($stmt->execute()) {
+    // $connect = new PDO("mysql:host=localhost; dbname=unibooks", "root", "");
     $email = $Cus_email;
-    $stmt = $connect->prepare("SELECT *, COUNT(*) AS numrows FROM unibooker WHERE email=:email");
+    $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM unibooker WHERE email=:email");
     $stmt->execute(['email' => $email]);
     $row = $stmt->fetch();
 
@@ -72,7 +77,7 @@ if ($result->data->status == 'success') {
       $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
       $code = substr(str_shuffle($set), 0, 15);
       try {
-        $stmt = $connect->prepare("UPDATE uniboker SET code=:code WHERE id=$customerid");
+        $stmt = $conn->prepare("UPDATE unibooker SET code=:code WHERE id=$customerid");
         $stmt->execute(['code' => $code, $customerid => $row['id']]);
         $subject ="hi";
         $header ="hi";
@@ -105,8 +110,10 @@ if ($result->data->status == 'success') {
   } else {
     echo 'there was a problem on your code' . mysqli_error($db_connect);
   }
-  $stmt->close();
-  $db_connect->close();
+  // $stmt->close();
+  // $db_connect->close();
+  header("location:success?status=success");
+
 } else {
   header("location:error");
 }

@@ -5,37 +5,32 @@
 // if(!$db_connect){
 //    die('error connecting to database'. mysqli_connect_error()); echo "sucess";
 // } else{echo "bad";}
+class Database
+{
 
-$servername = "localhost";
-$database = "unibooks";
-$username = "root";
-$password = "";
+    private $server = "mysql:host=localhost;dbname=unibooks";
+    private $username = "root";
+    private $password = "";
+    private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
+    protected $conn;
 
-$db_connect = new mysqli($servername , $username , $password ,  $database);
-
-if ($db_connect->connect_error) {
-   die("connection failed:" . $db_connect->connect_error);
-}
-// header("location: ../Signin");
-
-    define('DBINFO', 'mysql:host=localhost;dbname=unibooks');
-    define('DBUSER','root');
-    define('DBPASS','');
-
-    function fetchAll($query){
-        $con = new PDO(DBINFO, DBUSER, DBPASS);
-        $stmt = $con->query($query);
-        return $stmt->fetchAll();
-    }
-    function performQuery($query){
-        $con = new PDO(DBINFO, DBUSER, DBPASS);
-        $stmt = $con->prepare($query);
-        if($stmt->execute()){
-            return true;
-        }else{
-            return false;
+    public function open()
+    {
+        try {
+            $this->conn = new PDO($this->server, $this->username, $this->password, $this->options);
+            return $this->conn;
+        } catch (PDOException $e) {
+            echo "There is some problem in connection: " . $e->getMessage();
         }
     }
 
+    public function close()
+    {
+        $this->conn = null;
+    }
+}
+
+$pdo = new Database();
+$conn = $pdo->open();
 
 ?>

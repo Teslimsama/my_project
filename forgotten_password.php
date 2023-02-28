@@ -1,12 +1,8 @@
 <?php
-session_start();
-include_once 'database.php';
+include 'session.php';
 
 
 $error = array();
-
-// require "mail.php";
-
 
 $mode = "enter_email";
 if (isset($_GET['mode'])) {

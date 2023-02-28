@@ -6,7 +6,7 @@ include "database.php";
 if(isset($_POST["query"]))
 {
 
-	$connect = new PDO("mysql:host=localhost; dbname=unibooks", "root", "");
+	// $conn = new PDO("mysql:host=localhost; dbname=unibooks", "root", "");
 
 	$data = array();
 
@@ -49,13 +49,13 @@ if(isset($_POST["query"]))
 
 		$filter_query = $query . ' LIMIT ' . $start . ', ' . $limit . '';
 
-		$statement = $connect->prepare($query);
+		$statement = $conn->prepare($query);
 
 		$statement->execute($sample_data);
 
 		$total_data = $statement->rowCount();
 
-		$statement = $connect->prepare($filter_query);
+		$statement = $conn->prepare($filter_query);
 
 		$statement->execute($sample_data);
 
@@ -89,13 +89,13 @@ if(isset($_POST["query"]))
 
 		$filter_query = $query . ' LIMIT ' . $start . ', ' . $limit . '';
 
-		$statement = $connect->prepare($query);
+		$statement = $conn->prepare($query);
 
 		$statement->execute();
 
 		$total_data = $statement->rowCount();
 
-		$statement = $connect->prepare($filter_query);
+		$statement = $conn->prepare($filter_query);
 
 		$statement->execute();
 

@@ -1,13 +1,4 @@
-<?php include "session.php" ?>
-<?php
-include_once ('database.php');
-
-
-$update = $_SESSION['id'];
-
-$sql = "SELECT * FROM unibooker WHERE id='$update';";
-$sql_result = mysqli_query($db_connect,$sql);
-$rows = mysqli_fetch_assoc($sql_result);
+<?php include "session.php";
 
 if (isset($_POST['upload'])) {
   
@@ -169,54 +160,54 @@ if (isset($_POST['upload'])) {
                     <form action="app/update.app.php " method="POST">
                 <div class="first">
                     <label for="">Firstname</label>
-                    <input type="firstname" class="form-control" name="firstname" value="<?php echo $rows['firstname'] ;?>" placeholder="first name">
+                    <input type="firstname" class="form-control" name="firstname" value="<?php echo $user['firstname'] ;?>" placeholder="first name">
             
                 </div>
                 <div class="last ">
                     <label for="">Lastname</label>
-                    <input type="lastname" class="form-control" name="lastname" value="<?php echo $rows['lastname'] ;?>" placeholder="last name">
+                    <input type="lastname" class="form-control" name="lastname" value="<?php echo $user['lastname'] ;?>" placeholder="last name">
                     
                 </div> 
 
                 <div class="user">
                 <label>Username</label>
-                <input type="text" name="username" value="<?php echo $rows['username'] ;?>" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" >
+                <input type="text" name="username" value="<?php echo $user['username'] ;?>" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" >
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
                 </div>
 
                 <div class="phone">
                     <label for="">Phone number</label>
-                    <input type="tel" class="form-control" name="phone" value="<?php echo $rows['phone'] ;?>" placeholder="phone eg.08079730127" >
+                    <input type="tel" class="form-control" name="phone" value="<?php echo $user['phone'] ;?>" placeholder="phone eg.08079730127" >
                     
                 </div>
                 <div class="level">
                     <label for="">Level</label>
-                    <input type="text" class="form-control" name="levell" placeholder="Current Level" value="<?php echo $rows['level'] ;?>">
+                    <input type="text" class="form-control" name="levell" placeholder="Current Level" value="<?php echo $user['level'] ;?>">
                     
                 </div>
                 <div class="faculty">
                     <label for="">Faculty</label>
-                    <input type="text" class="form-control" name="faculty" placeholder="faculty" value="<?php echo $rows['faculty'] ;?>">
+                    <input type="text" class="form-control" name="faculty" placeholder="faculty" value="<?php echo $user['faculty'] ;?>">
                     
                 </div>
                 <div class="Department">
                     <label for="">Department</label>
-                    <input type="tel" class="form-control" name="dept" placeholder="Department" value="<?php echo $rows['department'] ;?>">
+                    <input type="tel" class="form-control" name="dept" placeholder="Department" value="<?php echo $user['department'] ;?>">
                     
                 </div>
                 <div class="course">
                     <label for="">Course of Study</label>
-                    <input type="tel" class="form-control" name="course" placeholder="Course of Study" value="<?php echo $rows['course'] ;?>">
+                    <input type="tel" class="form-control" name="course" placeholder="Course of Study" value="<?php echo $user['course'] ;?>">
 
                 </div>
                 <div class="email">
                     <label for="">Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="valid email" value="<?php echo $rows['email'] ;?>">
+                    <input type="email" class="form-control" name="email" placeholder="valid email" value="<?php echo $user['email'] ;?>">
                 </div>
                 
                 <div class="mt-4">
                     <label for="">Date of birth</label>
-                    <input type="date" class="form-control" name="dob" placeholder="" value="<?php echo $rows['dob'] ;?>">
+                    <input type="date" class="form-control" name="dob" placeholder="" value="<?php echo $user['dob'] ;?>">
                 </div>
                 <div class="form-group">
                 <input type="submit" class="btn btn-primary"name="submit" value="Submit">

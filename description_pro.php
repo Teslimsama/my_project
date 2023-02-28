@@ -1,19 +1,18 @@
 <?php include "session.php";
-
-include_once 'database.php';
 include 'alert.message.php';
-?>
-<?php
+
 
 if (isset($_GET['id'])) {
-  # code...
-  $id = mysqli_real_escape_string($db_connect, $_GET['id']);
-  $sql = "SELECT * FROM project WHERE id='$id'";
-  $result = mysqli_query($db_connect, $sql) or die('bad query');
-  $row = mysqli_fetch_assoc($result);
+   // Create a connection object
+  $id = $conn->quote($_GET['id']); // Escape data to prevent SQL injection
+  $sql = "SELECT * FROM project WHERE id=:id";
+  $statement = $conn->prepare($sql);
+  $statement->execute(array(':id' => $_GET['id']));
+  $row = $statement->fetch();
 } else {
   header("location:index");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,10 +84,10 @@ if (isset($_GET['id'])) {
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
 
               <!-- image here  -->
-              
-                <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                  <h6 class="text-white text-capitalize ps-3">Crop Production</h6>
-                </div>
+
+              <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Crop Production</h6>
+              </div>
             </div>
             <div class="card-body px-5">
               <div class="download">
@@ -100,12 +99,12 @@ if (isset($_GET['id'])) {
                 <div class="preview mt-2">
                   <input type="hidden" name="book" value="crop_production" id="download">
                   <!-- Button trigger modal -->
-                  <a href="paynow?id=<?php echo $row['id']?>" class="btn btn-dark">Download</a>
+                  <a href="paynow?id=<?php echo $row['id'] ?>" class="btn btn-dark">Download</a>
 
 
                 </div>
 
-                
+
 
               </div>
               <div class="msg">

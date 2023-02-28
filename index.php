@@ -1,7 +1,4 @@
-<?php include "session.php" ?>
-
-<?php
-include_once 'database.php';
+<?php include "session.php";
 require_once('component.php');
 
 // $num_pages = 5;

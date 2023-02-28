@@ -1,25 +1,16 @@
-<?php include "assets/includes/session.php" ?>
-
-
-<?php
-
-
-include_once 'database.php';
+<?php include "session.php";
 include 'alert.message.php';
 
+if (isset($_GET['id'])) {
+  # code...
+  $id = $conn->quote($_GET['id']);
+  $sql = "SELECT * FROM project WHERE id=$id";
+  $result = $conn->query($sql) or die('bad query');
+  $row = $result->fetch(PDO::FETCH_ASSOC);
+} else {
+  header("location:project");
+}
 
-
-
-$student_id = $_SESSION['id'];
-
-$sql = "SELECT * FROM unibooker WHERE id='$student_id';";
-$sql_result = mysqli_query($db_connect, $sql);
-$rows = mysqli_fetch_assoc($sql_result);
-
-$id = mysqli_real_escape_string($db_connect, $_GET['id']);
-$sql = "SELECT * FROM project WHERE id='$id'";
-$result = mysqli_query($db_connect, $sql) or die('bad query');
-$roe = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -57,20 +48,20 @@ $roe = mysqli_fetch_assoc($result);
             <form id="payForm">
               <div class="input-group input-group-outline my-3">
                 <label for="email">Email Address</label>
-                <input type="email" class="form-control w-100" id="email-address" value="<?php echo $rows['email']; ?>" required />
+                <input type="email" class="form-control w-100" id="email-address" value="<?php echo $user['email']; ?>" required />
               </div>
               <div class="input-group input-group-outline my-3">
 
-                <input type="hidden" id="amount" value="<?php echo $roe['product_price']; ?>" />
-                <input type="hidden" name="phone" id="phone" value="<?php echo $rows['phone'] ?>" required />
+                <input type="hidden" id="amount" value="<?php echo $row['product_price']; ?>" />
+                <input type="hidden" name="phone" id="phone" value="<?php echo $user['phone'] ?>" required />
               </div>
               <div class="input-group input-group-outline my-3">
                 <label for="first-name">First Name</label>
-                <input type="text" class="form-control w-100" value="<?php echo $rows['firstname']; ?>" id="first-name" />
+                <input type="text" class="form-control w-100" value="<?php echo $user['firstname']; ?>" id="first-name" />
               </div>
               <div class="input-group input-group-outline my-3">
                 <label for="last-name">Last Name</label>
-                <input type="text" class="form-control w-100" value="<?php echo $rows['lastname']; ?>" id="last-name" />
+                <input type="text" class="form-control w-100" value="<?php echo $user['lastname']; ?>" id="last-name" />
               </div>
               <div class="my-3">
                 <label for="payment">Form of Payment</label>

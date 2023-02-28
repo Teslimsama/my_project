@@ -1,12 +1,5 @@
-<?php include "session.php" ?>
-<?php
-include_once 'database.php';
+<?php include "session.php";
 include 'alert.message.php';
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,12 +84,16 @@ include 'alert.message.php';
                   <?php
                   //sql to get patient id
 
-                  $sql = "SELECT * FROM payments WHERE customerid='$student_id' ORDER BY id DESC";
-                  $sql_result = mysqli_query($db_connect, $sql);
-                  $n = 1;
-                  while ($patient_rows = mysqli_fetch_assoc($sql_result)) {
-                    $student_id = $patient_rows['customerid'];
-
+                  $student_id = $user['id'];
+                  try {
+                    $stmt = $conn->prepare("SELECT * FROM payments WHERE customerid=? ORDER BY id DESC");
+                    $stmt->execute([$student_id]);
+                    $n = 1;
+                    while ($patient_rows = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                      $date = $patient_rows['date'];
+                      // $date = date('d/m/Y', $dowload_date);
+        
+   
                   ?>
                     <tr>
                       <td>
@@ -142,7 +139,9 @@ include 'alert.message.php';
           </tr>
 
         <?php $n++;
-                  } ?>
+                  } }  catch (Exception $e) {
+        echo $e->getMessage();
+    } ?>
         </tr>
         </tbody>
         </table>

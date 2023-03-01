@@ -3,7 +3,7 @@ include 'alert.message.php';
 
 
 if (isset($_GET['id'])) {
-   // Create a connection object
+  // Create a connection object
   $id = $conn->quote($_GET['id']); // Escape data to prevent SQL injection
   $sql = "SELECT * FROM project WHERE id=:id";
   $statement = $conn->prepare($sql);
@@ -59,18 +59,9 @@ if (isset($_GET['id'])) {
               <input type="search" class="form-control">
             </div>
           </div>
-          <ul class="navbar-nav  justify-content-end">
+          <?php include "navbar.php" ?>
 
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-          </ul>
+         
           </li>
           </ul>
         </div>

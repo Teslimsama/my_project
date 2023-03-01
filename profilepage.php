@@ -1,5 +1,8 @@
-<?php include "session.php" ;
+<?php include "session.php";
 include 'alert.message.php';
+if (!isset($_SESSION['user'])) {
+  header('location: index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,18 +86,19 @@ include 'alert.message.php';
           <div class="card card-plain h-100">
             <div class="card-header pb-0 p-3">
               <div class="row">
-                <div class="col-md-8 d-flex align-items-center">
+                <div class="col-sm-8 d-flex align-items-center">
 
                   <h6 class="mb-0">Profile Information</h6>
                 </div>
-                <div class="container-fluid col-md-8"> <?php echo ErrorMessage();
-                                                        echo SuccessMessage(); ?></div>
-                <div class="col-md-4 text-end">
+
+                <div class="col-sm-4 text-end">
                   <a href="update_details">
                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                   </a>
                 </div>
-              </div>
+                
+              </div><div class="container-fluid col-md-12"> 
+                  <?php echo ErrorMessage(); echo SuccessMessage(); ?></div>
             </div>
             <div class="card-body p-3">
 

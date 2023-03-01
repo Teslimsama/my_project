@@ -59,22 +59,12 @@ if (isset($_GET['id'])) {
             <div class="input-group input-group-outline">
               <form action="search.php">
                 <label class="form-label">Type here...</label>
-              <input type="search" name="k" class="form-control">
+                <input type="search" name="k" class="form-control">
               </form>
             </div>
           </div>
-          <ul class="navbar-nav  justify-content-end">
-
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a>
-            </li>
-          </ul>
+          <?php include "navbar.php" ?>
+          
           </li>
           </ul>
         </div>

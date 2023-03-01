@@ -114,7 +114,7 @@ require_once('component.php');
               for (var count = 0; count < response.data.length; count++) {
                 html += `
       <div class='pic card bg-gradient-light mt-3'>
-          <img class='' src='` + response.data[count].image + `' height='' alt='book_pics' style='width: 100%;'>
+          <img class='' src='Images/` + response.data[count].image + `' height='' alt='book_pics' style='width: 100%;'>
           <div class='over'>
             <a id='download' class='alert ' href='` + response.data[count].link + `'><i class='fa-solid fa-download'></i></a>
           </div>

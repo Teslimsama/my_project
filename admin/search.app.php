@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $fileSize = $_FILES["book"]["size"];
     $tmpName = $_FILES["book"]["tmp_name"];
     if (!empty($photo)) {
-      move_uploaded_file($_FILES['photo']['tmp_name'], '../images/' . $photo);
+      move_uploaded_file($_FILES['img']['tmp_name'], '../Images/' . $slug);
       $imgname = $slug;
     } else {
       $imgname = 'noimage.jpg';

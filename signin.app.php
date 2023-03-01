@@ -40,4 +40,4 @@ if (isset($_POST['login'])) {
 
 $pdo->close();
 
-header('location: Signin');
+// header('location: Signin');

@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
     $result = $stmt->fetch();
 
     if ($result > 1) {
-        
+        if ($user['id']) {
         
         $filename = $result['product_name'];
         $filebook = $result['productlink'];
@@ -54,6 +54,9 @@ if (isset($_GET['id'])) {
         header("Content-length: " . filesize($filepath));
         readfile($filepath);
         exit;
+        } else {
+            header("location:Signin");
+        }
     } else {
         echo "File not found.";
         // print_r( $result);

@@ -1,37 +1,18 @@
 <?php
 include "session.php";
-include_once 'database.php';
+
 include 'alert.message.php';
 
 if (isset($_GET['id'])) {
-  # code...
-  $id = mysqli_real_escape_string($db_connect, $_GET['id']);
-  $sql = "SELECT * FROM producttb WHERE id='$id'";
-  $result = mysqli_query($db_connect, $sql) or die('bad query');
-  $row = mysqli_fetch_assoc($result);
+  // Create a connection object
+  $id = $conn->quote($_GET['id']); // Escape data to prevent SQL injection
+  $sql = "SELECT * FROM producttb WHERE id=:id OR  productlink=:id";
+  $statement = $conn->prepare($sql);
+  $statement->execute(array(':id' => $_GET['id']));
+  $row = $statement->fetch();
 } else {
-  header("location:content");
+  header("location:index");
 }
-
-
-
-// $download = $_GET['book'];
-// // $student_id = $_SESSION['id'];
-
-// $now = new DateTime();
-// $timestamp = $now->getTimestamp();
-// $sql = "INSERT INTO download (customerid,book,timestamp) VALUES(?,?,?);";
-
-// $stmt = mysqli_stmt_init($db_connect);
-// mysqli_stmt_prepare($stmt, $sql);
-// mysqli_stmt_bind_param($stmt, 'isi', $student_id, $download, $timestamp);
-
-
-// if (mysqli_stmt_execute($stmt)) {
-//   $_SESSION['success'] = "Your Download is been Processed";
-// } else {
-//   $_SESSION['error'] = 'Please Try Again';
-// }
 
 ?>
 
@@ -61,7 +42,7 @@ if (isset($_GET['id'])) {
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-  <?php include 'assets/includes/sidebar.php' ?>
+  <?php include 'sidebar.php' ?>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -76,8 +57,10 @@ if (isset($_GET['id'])) {
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group input-group-outline">
-              <label class="form-label">Type here...</label>
-              <input type="search" class="form-control">
+              <form action="search.php">
+                <label class="form-label">Type here...</label>
+              <input type="search" name="k" class="form-control">
+              </form>
             </div>
           </div>
           <ul class="navbar-nav  justify-content-end">
@@ -119,10 +102,14 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="preview mt-2 ">
                   <!-- <a href="unibooks_download/<?php echo $row['productlink']; ?>" download class="btn btn-dark">Download <i class="material-icons ms-1 opacity-10">download</i></a> -->
-                  <button type="submit" class="btn btn-dark" name="download" onclick="parent.open('app/download_link.app.php?file=<?php echo $row['productlink']; ?>')">
+                  <a href="download_link.app.php?id=<?php echo $row['id']; ?>" class="btn btn-dark" name="download">
 
                     Download <i class="material-icons ms-1 opacity-10">download</i>
-                  </button>
+                  </a>
+                  <!-- <button type="submit" class="btn btn-dark" name="download" onclick="parent.open('app/download_link.app.php?file=<?php echo $row['productlink']; ?>')">
+
+                    Download <i class="material-icons ms-1 opacity-10">download</i>
+                  </button> -->
 
 
                 </div>
@@ -165,10 +152,10 @@ if (isset($_GET['id'])) {
     </div>
     <!-- </div>
     </div> -->
-    <?php include "assets/includes/footer.php" ?>
+    <?php include "footer.php" ?>
 
   </main>
-  <?php include "assets/includes/plugin.php" ?>
+  <?php include "plugin.php" ?>
 
   <!--   Core JS Files   -->
   <script src="assets/js/core/popper.min.js"></script>

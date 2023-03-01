@@ -1,4 +1,7 @@
 <ul class="navbar-nav  justify-content-end">
+    <li class="nav-item px-3 d-flex align-items-center">
+       
+    </li>
     <li class="nav-item d-flex align-items-center">
         <?php
         // $acctype = ;
@@ -10,6 +13,9 @@
                <i class='fa fa-user me-sm-1 '></i>
         
            </a>
+            <a href='logout' class='nav-link text-body p-0'>
+     <i class='material-icons opacity-10'>logout</i>
+ </a>
               ";
         } else {
             echo "
@@ -149,10 +155,6 @@
             </li>
         </ul>
     </li>
-    <li class="nav-item px-3 d-flex align-items-center">
-        <a href="logout" class="nav-link text-body p-0">
-            <i class="material-icons opacity-10">logout</i>
-        </a>
-    </li>
+    
 
 </ul>

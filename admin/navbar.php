@@ -38,9 +38,11 @@
     <li class="nav-item dropdown pe-2 d-flex align-items-center">
         <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <?php
-            $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-            if (count(fetchAll($query)) > 0) {
-            ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo count(fetchAll($query)); ?> </span>
+            $query = $conn->prepare("SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
+            $query->execute();
+            $res = $query->rowCount();
+            if ($res > 0) {
+            ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo $res; ?> </span>
 
             <?php
             }
@@ -49,10 +51,11 @@
         </a>
         <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
             <?php
-            $query = "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC";
-
-            if (count(fetchAll($query)) > 0) {
-                foreach (fetchAll($query) as $i) {
+            $stmt = $conn->prepare("SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
+            $stmt->execute();
+            $resu = $stmt->fetchAll();
+            if ($res > 0) {
+                foreach ($resu as $i) {
             ?>
 
 
@@ -63,20 +66,20 @@
     <a class='dropdown-item border-radius-md' href='view?id=" . $link . "'>
         <div class='d-flex py-1'>
             <div class='my-auto'>
-                <img src='../assets/img/team-2.jpg' class='avatar avatar-sm  me-3 '>
+                <img src='../assets/img/team-2.jpg' class='avatar avatar-sm  me-3 'alt='" . $i['date'] . "'>
             </div>
             <div class='d-flex flex-column justify-content-center'>
                 <h6 class='text-sm font-weight-normal mb-1'>
                     ";
-                    
+
                     $alert .= htmlentities($i['message']);
-                    $alert .= "<span class='font-weight-bold'><from Laur</span> 
+                    $alert .= "<span class='font-weight-bold'> by " . $i['name'] . "</span> 
                 </h6>
                 <p class='text-xs text-secondary mb-0'>
                     <i class='fa fa-clock me-1'></i>
      ";
                     $alert .= "
-                    13 minutes ago
+                    " . $i['date'] . "
                 </p>
             </div>
         </div>
@@ -84,10 +87,8 @@
 </li>";
                     if ($i['type'] == 'comment') {
                         echo $alert;
-                        //   if (count(fetchAll($sql)) > 0) {
-                        //     foreach (fetchAll($sql) as $i) {
-                        //       echo "<hr> $alert";
-                        // }}
+                        // print_r($resu) ;
+
                     }
                     ?>
 

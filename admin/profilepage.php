@@ -1,16 +1,5 @@
-<?php include "session.php" ?>
-<?php
-include_once '../database.php';
-include '../alert.message.php';
-
-
-
-
-$student_id = $_SESSION['id'];
-
-$sql = "SELECT * FROM workers WHERE id='$student_id';";
-$sql_result = mysqli_query($db_connect, $sql);
-$rows = mysqli_fetch_assoc($sql_result);
+<?php include "session.php";
+include '../alert.message.php'; 
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +28,7 @@ $rows = mysqli_fetch_assoc($sql_result);
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
-  <?php include "includes/sidebar.php" ?>
+  <?php include "sidebar.php" ?>
   <div class="main-content position-relative max-height-vh-100 h-100">
     <!-- Navbar -->
     <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
@@ -90,7 +79,7 @@ $rows = mysqli_fetch_assoc($sql_result);
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                <?php echo $rows['firstname'] . ' ' . $rows['lastname']; ?>
+                <?php echo $admin['firstname'] . ' ' . $admin['lastname']; ?>
               </h5>
               <p class="mb-0 font-weight-normal text-sm">
                 Student
@@ -116,10 +105,10 @@ $rows = mysqli_fetch_assoc($sql_result);
             <div class="card-body p-3">
 
               <ul class="list-group">
-                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; <?php echo $rows['firstname'] . ' ' . $rows['lastname']; ?>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; <?php echo $rows['phone']; ?></li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; <?php echo $rows['email']; ?></li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">University:</strong> &nbsp; <?php echo $rows['school']; ?></li>
+                <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; <?php echo $admin['firstname'] . ' ' . $admin['lastname']; ?>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; <?php echo $admin['phone']; ?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; <?php echo $admin['email']; ?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">University:</strong> &nbsp; <?php echo $admin['school']; ?></li>
               </ul>
             </div>
           </div>
@@ -305,7 +294,7 @@ $rows = mysqli_fetch_assoc($sql_result);
 
 
   </div>
-  <?php include "includes/plugin.php" ?>
+  <?php include "plugin.php" ?>
 
   <!--   Core JS Files   -->
   <script src=" ../assets/js/core/popper.min.js"></script>

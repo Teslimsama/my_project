@@ -1,40 +1,5 @@
-<?php include "session.php" ?>
-<?php
-include_once 'database.php';
-include 'alert.message.php';
-
-if (isset($_POST['upload'])) {
-  $book = $_POST['book'];
-  $faculty = $_POST['faculty'];
-  // $rand_num = random_int(1000,9999);
-  if ($_FILES['book']['error'] === 4) {
-    echo
-    "<script> alert('does not exist');</script>";
-  } else {
-    $fileName = $_FILES["book"]["name"];
-    $fileSize = $_FILES["book"]["size"];
-    $tmpName = $_FILES["book"]["tmp_name"];
-
-    $validExt = ['docx', 'pdf', 'txt'];
-    $Ext = explode('.', $fileName);
-    $Ext = strtolower(end($Ext));
-    if (!in_array($Ext, $validExt)) {
-      echo  "<script> alert('invalid file format');</script>";
-    } elseif ($fileSize > 1000000) {
-      echo
-      "<script> alert('the file is too large');</script>";
-    } else {
-      $newFileName = $title;
-      $newFileName .= '.' . $Ext;
-      $location = '../pages/unibooks_download/' . $newFileName;
-      move_uploaded_file($tmpName, $location);
-      echo
-      "<script> alert('Successfully Added');
-        </script>";
-    }
-  }
-}
-
+<?php include "session.php";
+include '../alert.message.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,63 +71,63 @@ if (isset($_POST['upload'])) {
     </nav>
     <!-- End Navbar -->
 
-    <div class="card mt-5  w-80 " style="margin: 50px;">
-      <div class="card-body form-control ps-4  px-4 pb-2">
-
-        <form method="POST" enctype="multipart/form-data" autocomplete="off">
-          <div class="first p-2">
-            <label for="">Name of the Book\Material</label>
-            <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="book" required placeholder="Book\Material">
-          </div>
-          <div class="last p-2">
-            <label for="">Which Faculty Is It For ?</label>
-            <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
-          </div>
-          <div class="upload p-2 form-control ps-4">
-            <label for="">Upload File </label>
-            <input type="file" class="" id="book" name="book">
-          </div>
-          <div class="butt p-2">
-            <button type="submit" class="btn btn-dark text-center" name="upload">Upload book\Material</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <div class="card mt-5  w-80 " style="margin: 50px;">
+    <div class="card mt-5 vw-80 ">
       <div class="card-header">
-        <h5>Search input</h5>
+        <h5>Upload</h5>
       </div>
-      <div class="card-body form-control ps-4  px-4 pb-2">
+      <div class="card-body form-control ">
         <div class="msg">
           <?php echo ErrorMessage();
           echo SuccessMessage(); ?>
 
         </div>
-        <form action="app/search.app.php" method="POST">
-          <div class="first p-2">
-            <label for="">Title</label>
-            <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="title" required placeholder="Title">
+        <form method="POST" enctype="multipart/form-data" action="search.app.php" autocomplete="off">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="">Name of the Book\Material</label>
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="book" required placeholder="Book\Material">
+            </div>
+            <div class="col-md-6">
+              <label for="">Which Faculty Is It For ?</label>
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
+            </div>
+            <div class="col-md-6">
+              <label for="">Which Faculty Is It For ?</label>
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Title</label>
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="title" required placeholder="Title">
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Description</label>
+              <textarea type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="desc" required placeholder="Description"></textarea>
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Keywords</label>
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="keywords" required placeholder="Keywords">
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Link</label>
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="link" required placeholder="Link">
+            </div>
+            <div class="upload p-2 col-md-6 ps-4">
+              <label for="">Upload File </label>
+              <input type="file" class="form-control ps-4" id="book" style="border: 2px solid grey ;" name="book">
+            </div>
+            <div class="upload p-2 col-md-6 ps-4">
+              <label for="">Upload File Image </label>
+              <input type="file" class="form-control ps-4" id="img" style="border: 2px solid grey ;" name="img">
+            </div>
           </div>
-          <div class="last p-2">
-            <label for="">Description</label>
-            <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="desc" required placeholder="Description">
-          </div>
-          <div class="first p-2">
-            <label for="">Keywords</label>
-            <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="keywords" required placeholder="Keywords">
-          </div>
-          <div class="last p-2">
-            <label for="">Link</label>
-            <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="link" required placeholder="Link">
-          </div>
-
           <div class="butt p-2">
             <button type="submit" class="btn btn-dark text-center" name="search">Submit</button>
           </div>
         </form>
       </div>
     </div>
+
+
 
     <div class="container py-4">
       <div class="container-fluid py-4">

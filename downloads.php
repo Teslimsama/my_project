@@ -76,7 +76,7 @@ include 'alert.message.php';
                   <?php
                   $student_id=$user['id'];
                  try {
-        $stmt = $conn->prepare("SELECT * FROM download WHERE customerid=? ORDER BY id DESC");
+        $stmt = $conn->prepare("SELECT * FROM downloads WHERE customerid=? ORDER BY id DESC");
         $stmt->execute([$student_id]);
         $n=1;
         while ($patient_rows = $stmt->fetch(PDO::FETCH_ASSOC)) {

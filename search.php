@@ -73,7 +73,7 @@
     <div class="result card p-4">
 
       <?php
-      include_once('config/database.php');
+      
 
       $k = $_GET['k'];
       $terms = explode(" ", $k);
@@ -88,10 +88,11 @@
           $sql .= " OR keywords LIKE '%$each%' ";
       }
 
-      $query_result = mysqli_query($db_connect, $sql);
-      $numrows = mysqli_num_rows($query_result);
+      $query = $conn->prepare($sql);
+      $query->execute();
+      $numrows = $query->rowCount();
       if ($numrows > 0) {
-        while ($row = mysqli_fetch_assoc($query_result)) {
+        while ($row = $query->fetch()) {
           $id = $row['id'];
           $title = $row['title'];
           $descrip = $row['description'];
@@ -99,7 +100,7 @@
           $link = $row['link'];
 
 
-          echo "<h4><a href='$link'>$title</a></h4> $descrip  <br /> <hr> ";
+          echo "<h4><a href='description_page?id=$link'>$title</a></h4> $descrip  <br /> <hr> ";
         }
       } else {
         echo "No results found for \"<b>$k</b>\" ";

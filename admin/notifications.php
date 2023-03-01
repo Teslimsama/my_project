@@ -1,5 +1,5 @@
 <?php include "session.php" ?>
-<?php include_once '../database.php'; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,9 +71,9 @@
 
         if (isset($_POST['submit'])) {
           $message = $_POST['message'];
-          $query = "INSERT INTO `notifications` (`id`, `name`, `type`, `message`, `status`, `date`) VALUES (NULL, 'Admin', 'comment', '$message', 'unread', CURRENT_TIMESTAMP)";
-          if (performQuery($query)) {
-          }
+          $query = $conn->prepare("INSERT INTO `notifications` ( `name`, `type`, `message`, `status`, `date`) VALUES ( 'Admin', 'comment', '$message', 'unread', CURRENT_TIMESTAMP)");
+          $query->execute();
+          
         }
 
         ?>

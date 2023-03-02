@@ -20,7 +20,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
-    "Authorization: Bearer sk_test_b6e69229a47fa4f88ca61ebe3c855cf9d4014ebb",
+    "Authorization: Bearer FLWSECK_TEST-763519f0845cf2092066f8f52ab9ba5b-X",
     "Cache-Control: no-cache",
   ),
 ));
@@ -62,9 +62,6 @@ if ($result->data->status == 'success') {
     ':email' => $Cus_email,
     ':book' => $book
   ));
-  // $stmt = $db_connect->prepare("INSERT INTO payments ( status, reference, fullname, date, email, customerid) VALUES (?,?,?,?,?,?)");
-  // $stmt->bind_param("sssssi", $status,$reference,$fullname,$Date_time,$Cus_email,$customerid);
-  // $stmt;
   if ($stmt->execute()) {
     // $connect = new PDO("mysql:host=localhost; dbname=unibooks", "root", "");
     $email = $Cus_email;

@@ -76,7 +76,7 @@ if (!isset($_SESSION['user'])) {
                 <?php echo $user['firstname'] . ' ' . $user['lastname']; ?>
               </h5>
               <p class="mb-0 font-weight-normal text-sm">
-                CEO / Co-Founder
+                Student
               </p>
             </div>
           </div>

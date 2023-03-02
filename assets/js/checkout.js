@@ -37,16 +37,17 @@ const form = document.getElementById("flutterwave");
 form.addEventListener("click", payNow, false);
 const firstname = document.getElementById("first-name").value;
 const lastname = document.getElementById("last-name").value;
+// var link = "<?php echo $row['id']; ?>";
 function payNow(f) {
 	f.preventDefault();
 
 	FlutterwaveCheckout({
-		public_key: "FLWPUBK_TEST-582a48314d0875a342d1cfb964b0f787-X",
-		tx_ref: "BolaKaz" + Math.floor(Math.random() * 1000000000 + 1) + "FLW",
+		public_key: "FLWPUBK_TEST-09830b168ab563542b3da3e25ab05c1d-X",
+		tx_ref: "Unibooks" + Math.floor(Math.random() * 1000000000 + 1) + "FLW",
 		amount: document.getElementById("amount").value,
 		currency: "NGN",
 		payment_options: "card, mobilemoney, ussd",
-		redirect_url: "http://localhost/bolakaz/sales",
+		redirect_url: "http://localhost/my_project/transact_verify.php?id="+link,
 
 		customer: {
 			email: document.getElementById("email-address").value,

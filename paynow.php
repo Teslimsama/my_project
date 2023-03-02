@@ -98,6 +98,7 @@ if (isset($_GET['id'])) {
               </div>
             </form>
 
+            <script src="https://checkout.flutterwave.com/v3.js"></script>
             <script src="https://js.paystack.co/v1/inline.js"></script>
           </div>
         </div>

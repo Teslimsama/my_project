@@ -1,128 +1,115 @@
 <?php
 include('alert.message.php');
-require_once('database.php');
+include('session.php');
 
 
 //COLLECT DATA FROM FORM
-$first_name = $_POST['firstname'];
-$last_name = $_POST['lastname'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-
-$level = $_POST['levell'];
-$dept = $_POST['dept'];
-$course = $_POST['course'];
-$faculty = $_POST['faculty'];
-$referral = $_POST['refer'];
-$gender = $_POST['gender'];
-$school = $_POST['school'];
-$dob = $_POST['dob'];
-$acct_type = 'student';
-
-$now = new DateTime();
-$timestamp = $now->getTimestamp();
-
-
-
-// //INSERT RECORDS INTO DB
-// $sql = "INSERT INTO unibooker (firstname,lastname,phone,level,faculty,department,course,school,gender,password,dob,reference,email,timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-
-$stmt = mysqli_stmt_init($db_connect);
 
 
 
 
- 
-// Define variables and initialize with empty values
+if (isset($_POST['submit'])) {
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
 
-$username_err = $password_err = $confirm_password_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Validate username
-    if(empty(trim($_POST["username"]))){
-        $username_err =  $_SESSION['error'] =  "Please enter a username.";
-    } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-        $username_err = $_SESSION['error'] = "Username can only contain letters, numbers, and underscores.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT * FROM unibooker WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($db_connect, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err =  $_SESSION['error'] =  "This username is already taken.";
-                } else{
-                    $username = trim($_POST["username"]);
+    $level = $_POST['levell'];
+    $referral = $_POST['refer'];
+    $gender = $_POST['gender'];
+    $school = $_POST['school'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
+    $password = $_POST['password'];
+
+    $repassword = $_POST['repassword'];
+
+
+    $_SESSION['firstname'] = $firstname;
+    $_SESSION['lastname'] = $lastname;
+    $_SESSION['email'] = $email;
+
+    // if (!isset($_SESSION['captcha'])) {
+    // 	$secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
+    // 	$response = $_POST['g-recaptcha-response'];
+    // 	$remoteip = $_SERVER['REMOTE_ADDR'];
+    // 	$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip";
+    // 	$data = file_get_contents($url);
+    // 	$row = json_decode($data, true);
+
+
+    // 	if ($row['success'] == true) {
+    // 		$_SESSION['captcha'] = time() + (10 * 60);
+    // 	} else {
+    // 		$_SESSION['error'] = 'Please answer recaptcha correctly';
+    // 		header('location: Signup');
+    // 		exit();
+    // 	}
+    // }
+
+    if ($password != $repassword) {
+        $_SESSION['error'] = 'Passwords did not match';
+        header('location: Signup');
+    } else {
+        $conn = $pdo->open();
+
+        $stmt = $conn->prepare("SELECT COUNT(*) AS numrows FROM unibooker WHERE email=:email");
+        $stmt->execute(['email' => $email]);
+        $row = $stmt->fetch();
+        if ($row['numrows'] > 0) {
+            $_SESSION['error'] = 'Email already taken';
+            header('location: Signup');
+        } else {
+            $now = date('Y-m-d');
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+            //generate code
+            $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $code = substr(str_shuffle($set), 0, 12);
+
+            try {
+                $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender,dob, phone, level, code, date, reference) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level, :code, :date, :reference)");
+                $stmt->execute(['email' => $email, 'password' => $password, 'firstname' => $firstname, 'lastname' => $lastname, 'gender' => $gender, 'dob' => $dob, 'phone' => $phone, 'level'=>$level, 'code' => $code, 'date' => $now, 'reference' => $referral]);
+                $userid = $conn->lastInsertId();
+
+                $message = "
+						<h2>Thank you for Registering.</h2>
+						<p>Your Account:</p>
+						<p>Email: " . $email . "</p>
+						<p>Password: " . $_POST['password'] . "</p>
+						<p>Please click the link below to activate your account.</p>
+						<a href='http://localhost/bolakaz/activate.php?code=" . $code . "&user=" . $userid . "'>Activate Account</a>
+					";
+
+
+
+
+                try {
+                    $to = $email; // Change this email to your //
+                    $subject = "$to";
+                    $header  = 'MIME-Version: 1.0' . "\r\n";
+                    $header .= 'Content-Type: text/html; charset=ISO-8859-1' . "\r\n";
+                    $From = "bolajiteslim05@gmail.com";
+                    mail($to, $subject, $message, $header);
+                    unset($_SESSION['firstname']);
+                    unset($_SESSION['lastname']);
+                    unset($_SESSION['email']);
+
+                    $_SESSION['success'] = 'Account created. Check your email to activate.';
+                    header('location: Signin');
+                } catch (Exception $e) {
+                    $_SESSION['error'] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+                    header('location: Signup');
                 }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
+            } catch (PDOException $e) {
+                $_SESSION['error'] = $e->getMessage();
+                header('location: Signup');
             }
 
-            // Close statement
-            mysqli_stmt_close($stmt);
+            $pdo->close();
         }
     }
-    
-    // Validate password
-    if(empty(trim($_POST["password"]))){
-        $password_err = $_SESSION['error'] = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err =  $_SESSION['error'] =  "Password must have atleast 6 characters.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Validate confirm password
-    if(empty(trim($_POST["conpassword"]))){
-        $confirm_password_err =  $_SESSION['error'] =  "Please confirm password.";     
-    } else{
-        $confirm_password = trim($_POST["conpassword"]);
-        if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err =  $_SESSION['error'] = "Password did not match.";
-            header("location: ../Signup");
-        }
-    }
-    
-    // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        
-        // Prepare an insert statement
-        $sql = "INSERT INTO unibooker (firstname,lastname,phone,level,faculty,department,course,school,gender,password,dob,reference,email,username,acctype,timestamp) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-         
-        if($stmt = mysqli_prepare($db_connect, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt,'sssssssssssssssi',$first_name,$last_name,$phone,$level,$faculty,$dept,$course,$school,$gender,$password,$dob,$referral,$email,$username,$acct_type,$timestamp);
-            
-            // Set parameters
-            $param_username = $username;
-            $password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                $_SESSION['success'] = "Your Account Have Been Created";
-                header("location: ../Signin");
-            } else{
-                $_SESSION['error'] ="Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
-    // Close connection
-    mysqli_close($db_connect);
+} else {
+    $_SESSION['error'] = 'Fill up Signup form first';
+    header('location: Signup');
 }

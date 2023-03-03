@@ -137,38 +137,7 @@ if (isset($_GET['id'])) {
     }
   </script>
   <script src="assets/js/checkout.js"></script>
-  <!-- <script>
-    const paymentForm = document.getElementById('paymentForm');
-    paymentForm.addEventListener("submit", payWithPaystack, false);
-
-    function payWithPaystack(e) {
-      e.preventDefault();
-
-      let handler = PaystackPop.setup({
-        key: 'pk_test_3d44964799de7e2a5abdbf2eef2fbe6852e60833', // Replace with your public key
-        email: document.getElementById("email-address").value,
-        amount: document.getElementById("amount").value * 100,
-        firstname: document.getElementById("first-name").value,
-        lastname: document.getElementById("last-name").value,
-        phone: document.getElementById("phone").value,
-        ref: 'unibooks' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-        // label: "Optional string that replaces customer email"
-        onClose: function() {
-          // window.location
-          alert('Failed Transaction.');
-        },
-        callback: function(response) {
-          let message = 'Payment complete! Your Reference Number: ' + response.reference + ' Thank you!';
-          alert(message);
-
-          window.location = "http://localhost/my_project/transact_verify_pro?reference=" + response.reference;
-
-        }
-      });
-
-      handler.openIframe();
-    }
-  </script> -->
+  
   </div>
   </div>
   </div>

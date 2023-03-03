@@ -1,29 +1,6 @@
 <?php
     include 'session.php';
 
-// $conn = $pdo->open();
-
-
-// $filename = "../unibooks_download/";
-// if (isset($_GET['file'])) {
-//    $filename .= $_GET['file'];
-// }
-
-// if (file_exists($filename)) {
-//     $mime_type = mime_content_type($filename);
-
-//     header("Content-type: " . $mime_type);
-//     header("Content-Disposition: attachment; filename=$filename ");
-
-//     readfile("../book_download/" . $filename);
-
-//     $_SESSION['success'] = "Your Download is been Processed";
-// } else {
-//     $_SESSION['error'] = 'Please Try Again';
-//     header("location:description_page");
-// }
-
-
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
@@ -54,8 +31,11 @@ if (isset($_GET['id'])) {
         header("Content-length: " . filesize($filepath));
         readfile($filepath);
         exit;
+        $_SESSION['success'] = 'Download Successfully';
+        header("location:javascript://history.go(-1)");
         } else {
-            header("location:Signin");
+            $_SESSION['error'] = $e->getMessage();
+            header("location:javascript://history.go(-1)");
         }
     } else {
         echo "File not found.";

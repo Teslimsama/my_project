@@ -1,18 +1,21 @@
 <?php
-include "session.php";
+// Include session.php file
+include 'session.php';
 
-$customerid = $user['id'];
+// Get user id from user array
+$user_id = $user['id'];
 
-$ref = $_GET['reference'];
-if ($ref == "") {
-  header("location:javascript://history.go(-1)");
+// Get reference value from query string and check if it's empty
+$reference = $_GET['reference'];
+if (empty($reference)) {
+  header('Location: ' . $_SERVER['HTTP_REFERER']);
+  exit;
 }
-?>
-<?php
-$curl = curl_init();
 
+// Send cURL request to Paystack API to verify payment
+$curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://api.paystack.co/transaction/verify/" . rawurlencode($ref),
+  CURLOPT_URL => "https://api.paystack.co/transaction/verify/" . rawurlencode($reference),
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
@@ -20,23 +23,24 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => array(
-    "Authorization: Bearer FLWSECK_TEST-763519f0845cf2092066f8f52ab9ba5b-X",
+    "Authorization: Bearer sk_test_b6e69229a47fa4f88ca61ebe3c855cf9d4014ebb",
     "Cache-Control: no-cache",
   ),
 ));
-
 $response = curl_exec($curl);
-$err = curl_error($curl);
-
+if (curl_errno($curl)) {
+  $error = curl_error($curl);
+  echo "cURL Error: $error";
+  exit;
+}
 curl_close($curl);
 
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  // echo $response;
-  $result = json_decode($response);
-}
+// Decode JSON response from Paystack API
+$result = json_decode($response);
+
+// If payment was successful, retrieve information from response and insert into database
 if ($result->data->status == 'success') {
+
   $status = $result->data->status;
   $reference = $result->data->reference;
   $amount = $result->data->amount;
@@ -49,70 +53,45 @@ if ($result->data->status == 'success') {
   date_default_timezone_set('Africa/lagos');
   $Date_time = date('m/d/Y h:i:s a', time());
 
-  
+
 
   $stmt = $conn->prepare("INSERT INTO payments (customerid, status,amount, reference, fullname, date, email,book) VALUES(:customerid, :status, :amount, :reference, :fullname, :date, :email, :book)");
   $stmt->execute(array(
-    ':customerid'=> $customerid,
+    ':customerid' => $user_id,
     ':status' => $status,
-    ':amount' => $amount, 
+    ':amount' => $amount,
     ':reference' => $reference,
     ':fullname' => $fullname,
     ':date' => $Date_time,
     ':email' => $Cus_email,
     ':book' => $book
   ));
-  if ($stmt->execute()) {
-    // $connect = new PDO("mysql:host=localhost; dbname=unibooks", "root", "");
-    $email = $Cus_email;
-    $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM unibooker WHERE email=:email");
-    $stmt->execute(['email' => $email]);
-    $row = $stmt->fetch();
 
-    if ($row['numrows'] > 0) {
-      //generate code
-      $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      $code = substr(str_shuffle($set), 0, 15);
-      try {
-        $stmt = $conn->prepare("UPDATE unibooker SET code=:code WHERE id=$customerid");
-        $stmt->execute(['code' => $code, $customerid => $row['id']]);
-        $subject ="hi";
-        $header ="hi";
-        $message = "
-          <h2>Password Reset</h2>
-          <p>Your Account:</p>
-          <p>Email: " . $email . "</p>
-          <p>Please click the link below to reset your password.</p>
-          <a href='http://localhost/ecommerce/password_reset.php?code=" . $code . "&user=" . $row[' id'] . "'>Reset Password</a>
-          ";
+  // Retrieve email associated with payment from unibooker table
+  $stmt = $conn->prepare('SELECT email FROM unibooker WHERE id = ?');
+  $stmt->execute([$user_id]);
+  $row = $stmt->fetch();
+  $email = $row['email'];
 
-        //Load phpmailer
-        
-        try {
-          mail($email, $subject, $message, $header);
-         
-          
-          $_SESSION['success'] = 'Password reset link sent';
-        } catch (Exception $e) {
-          $_SESSION['error'] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-        }
-      } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getMessage();
-      }
-    } else {
-      $_SESSION['error'] = 'Email not found';
-      header('location:pass');
-      exit;
+  // If email is found in unibooker table, generate unique code, update code column, and send password reset email
+  if ($email) {
+    $code = uniqid();
+    $stmt = $conn->prepare('UPDATE unibooker SET code = ? WHERE id = ?');
+    $stmt->execute([$code, $user_id]);
+
+    // Send password reset email
+    $to = $email;
+    $subject = 'Password reset link';
+    $message = "Please click on this link to reset your password: https://example.com/reset_password.php?code=$code";
+    $headers = 'From: webmaster@example.com' . "\r\n" . 'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+    if (mail($to, $subject, $message, $headers)) {
+      echo 'Email not found';
     }
   } else {
-    echo 'there was a problem on your code' . mysqli_error($db_connect);
+    // If email not found in unibooker table, set error message in session and redirect to pass page
+    $_SESSION['error'] = 'Email not found';
+    
+    header('Location: pass.php');
+    exit;
   }
-  // $stmt->close();
-  // $db_connect->close();
-  header("location:success?status=success");
-
-} else {
-  header("location:error");
 }
-?>
-

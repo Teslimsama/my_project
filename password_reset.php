@@ -1,8 +1,10 @@
+<?php include 'session.php'; ?>
 <?php
-include 'session.php';
-include 'alert.message.php';
+if (!isset($_GET['code']) or !isset($_GET['email'])) {
+  header('location: forgotten_password');
+  exit();
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,52 +33,47 @@ include 'alert.message.php';
 </head>
 
 <body>
-  <style>
-    body {
-      background-image: url(Images/mob7.jpg);
 
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100vh;
-    }
-
-    .msg {
-      margin: 5px auto;
-      border-radius: 5px;
-      border: 1px solid red;
-      background: pink;
-      text-align: left;
-      color: brown;
-      padding: 10px;
-    }
-  </style>
-
-  <div class="container mt-5  ">
-    <div class="card mt-5  ">
+  <div class="container code vw-80 mt-5 col-lg-12 form-control ">
+    <div class="card mt-5 bg-light ">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
           <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
+
         </div>
-       
-        <div class="card-body">
-          <form class=" form-control" action="reset_app.php" method="post">
-             <?php echo ErrorMessage();
-        echo SuccessMessage(); ?>
-            <div class="form-floating">
-              <input type="email" style="border: solid grey 1px;" class="form-control" id="floatingInput" name="email" placeholder="Email">
-              <label for="floatingInput">Email address</label>
+        <div style="margin: top 600px;" class="card-body">
+          <form class="login-form" action="password_new.php?code=<?php echo $_GET['code']; ?>&email=<?php echo $_GET['email']; ?>" method="post">
+            <div class="form-floating m-3">
+              <input style="border: solid grey 1px;" type="password" class="form-control ps-2" id="floatingInput" name="password" placeholder="123456">
+              <label for="floatingInput">Password</label>
+            </div>
+            <div class="form-floating m-3">
+              <input style="border: solid grey 1px;" type="password" class="form-control ps-2" id="floatingInput" name="repassword" placeholder="123456">
+              <label for="floatingInput">Confirm Password</label>
             </div>
 
-            <div class="form-group text-center  m-3">
-              <input type="submit" name="reset" class="w-80 btn btn-dark">
+            <div class="form-group text-center row m-3">
+              <div class="col-6">
+                <a href="forgotten_password.php" class="btn btn-sm btn-dark ">
+                  Cancel
+                </a>
+              </div>
+              <div class="col-6">
+                <input type="submit" value="Next" name="reset"  class="btn btn-sm btn-dark ">
+              </div>
+              <div class="col-6  ">
+                <a class="btn btn-dark btn-sm "  href="Signin.php">Login</a>
+              </div>
             </div>
           </form>
-        </div>
 
+        </div>
       </div>
     </div>
-  </div>
-  <?php include "footer.php" ?>
+
+
+
+    <?php include "footer.php" ?>
 
 </body>
 

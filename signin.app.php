@@ -24,18 +24,25 @@ if (isset($_POST['login'])) {
                     header('location: index');
                 } else {
                     $_SESSION['error'] = 'Incorrect Password';
+                    header('location: Signin');
                 }
             } else {
                 $_SESSION['error'] = 'Account not activated.';
+                header('location: Signin');
+
             }
         } else {
             $_SESSION['error'] = 'Email not found';
+            header('location: Signin');
+            
         }
     } catch (PDOException $e) {
         echo "There is some problem in connection: " . $e->getMessage();
     }
 } else {
     $_SESSION['error'] = 'Input login credentails first';
+    header('location: Signin');
+
 }
 
 $pdo->close();

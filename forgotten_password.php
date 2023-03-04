@@ -1,6 +1,34 @@
 <?php
 include 'session.php';
 include 'alert.message.php';
+// expire code
+// function is_code_correct($code)
+// {
+//   global $db_connect;
+
+//   $code = addslashes($code);
+//   $expire = time();
+//   $email = addslashes($_SESSION['forgotten_password']['email']);
+
+//   $query = "select * from code where code = '$code' && email = '$email' order by id desc limit 1";
+//   $result = mysqli_query($db_connect, $query);
+//   if ($result) {
+//     if (mysqli_num_rows($result) > 0) {
+//       $row = mysqli_fetch_assoc($result);
+//       if ($row['expire'] > $expire) {
+
+//         return "This Code was Valid";
+//       } else {
+//         return "This Code has Expired";
+//       }
+//     } else {
+//       return "This Code isn't Valid";
+//     }
+//   }
+
+//   return "This Code isn't Valid";
+// }
+
 ?>
 
 

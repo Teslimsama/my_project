@@ -20,6 +20,8 @@ include 'alert.message.php';
   <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="assets/css/content.css" rel="stylesheet" />
+  <link href="assets/css/signin.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
@@ -31,37 +33,18 @@ include 'alert.message.php';
 </head>
 
 <body>
-  <style>
-    body {
-      background-image: url(Images/mob7.jpg);
-
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100vh;
-    }
-
-    .msg {
-      margin: 5px auto;
-      border-radius: 5px;
-      border: 1px solid red;
-      background: pink;
-      text-align: left;
-      color: brown;
-      padding: 10px;
-    }
-  </style>
-
+ 
   <div class="container mt-5  ">
-    <div class="card mt-5  ">
+    <div class="card mt-5 form-signin  ">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
           <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
         </div>
-       
+
         <div class="card-body">
           <form class=" form-control" action="reset_app.php" method="post">
-             <?php echo ErrorMessage();
-        echo SuccessMessage(); ?>
+            <?php echo ErrorMessage();
+            echo SuccessMessage(); ?>
             <div class="form-floating">
               <input type="email" style="border: solid grey 1px;" class="form-control" id="floatingInput" name="email" placeholder="Email">
               <label for="floatingInput">Email address</label>

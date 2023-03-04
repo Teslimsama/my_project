@@ -80,8 +80,8 @@ include 'alert.message.php';
         $stmt->execute([$student_id]);
         $n=1;
         while ($patient_rows = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $dowload_date = $patient_rows['timestamp'];
-            $date = date('d/m/Y', $dowload_date);
+            $date = $patient_rows['date'];
+           
         
    
 
@@ -96,9 +96,9 @@ include 'alert.message.php';
                       </td>
                       <td>
                         <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?php echo  $patient_rows['book'];
+                          <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?php echo  $patient_rows['book_id'];
                                                                                                                       ?>">
-                            <h6> <?php echo  $patient_rows['book'];
+                            <h6> <?php echo  $patient_rows['book_id'];
                                   ?></h6>
 
                           </a>

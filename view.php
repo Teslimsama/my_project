@@ -44,30 +44,28 @@ try {
 </head>
 
 <body>
-  <div class="card w-70 text-center">
+  <div class="card text-center">
+    <div class="card-body">
+
+    
     <?php
 
 
     $query = $conn->prepare("SELECT * from `notifications` where `id` = ? AND `type` = 'comment'");
     $query->execute(array($id));
-    $result = $query->fetchAll();
+    $result = $query->fetch();
     if ($result > 0) {
-      foreach ($result as $i) {
-        echo '<p class="pt-2 ">' . $i['message'] . '</p>';
-      }
+      // foreach ($result as $i) {
+        // print_r($result);
+        echo '<p class="pt-2 ">' . $result['message'] . '</p>';
+      // }
     }
 
     ?> 
     <a href="notifications">Back<i class="material-icons opacity-10">arrow</i></a>
   </div>
-  <style>
-    .card {
-      justify-content: center;
-      margin-top: 250px;
-      margin-left: 55px;
-    }
-  </style>
-
+  </div>
+  
   <?php include "footer.php" ?>
 
 </body>

@@ -22,6 +22,9 @@ if (!isset($_GET['code']) or !isset($_GET['email'])) {
   <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="assets/css/content.css" rel="stylesheet" />
+  <link href="assets/css/signin.css" rel="stylesheet" />
+
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
@@ -34,14 +37,14 @@ if (!isset($_GET['code']) or !isset($_GET['email'])) {
 
 <body>
 
-  <div class="container code vw-80 mt-5 col-lg-12 form-control ">
-    <div class="card mt-5 bg-light ">
+  <div class="container  mt-5 col-lg-12 form-control ">
+    <div class="card mt-5  form-signin">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
           <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
 
         </div>
-        <div style="margin: top 600px;" class="card-body">
+        <div class="card-body  ">
           <form class="login-form" action="password_new.php?code=<?php echo $_GET['code']; ?>&email=<?php echo $_GET['email']; ?>" method="post">
             <div class="form-floating m-3">
               <input style="border: solid grey 1px;" type="password" class="form-control ps-2" id="floatingInput" name="password" placeholder="123456">
@@ -52,17 +55,12 @@ if (!isset($_GET['code']) or !isset($_GET['email'])) {
               <label for="floatingInput">Confirm Password</label>
             </div>
 
-            <div class="form-group text-center row m-3">
-              <div class="col-6">
-                <a href="forgotten_password.php" class="btn btn-sm btn-dark ">
-                  Cancel
-                </a>
+            <div class="text-center row">
+              <div class="col-12">
+                <input type="submit" value="Next" name="reset" class="btn w-80 btn-dark ">
               </div>
-              <div class="col-6">
-                <input type="submit" value="Next" name="reset"  class="btn btn-sm btn-dark ">
-              </div>
-              <div class="col-6  ">
-                <a class="btn btn-dark btn-sm "  href="Signin.php">Login</a>
+              <div class="col-12">
+                <a class="btn btn-dark w-80 " href="Signin">Cancel</a>
               </div>
             </div>
           </form>

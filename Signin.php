@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('session.php');
 include('alert.message.php');
 ?>
 
@@ -87,13 +87,13 @@ include('alert.message.php');
               echo SuccessMessage(); ?>
               <div class="form-floating">
 
-                <input type="email" class="form-control  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if (isset($_COOKIE["email"])) {echo $_COOKIE["email"];} ?> " id="floatingInput" name="email" placeholder="Email">
+                <input type="email" class="form-control  ps-2  <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if (isset($_COOKIE["email"])) {echo $_COOKIE["email"];} ?> " id="floatingInput" name="email" placeholder="Email">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
 
                 <label for="floatingInput">Email address</label>
               </div>
               <div class="form-floating pass mt-3">
-                <input type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="floatingPassword" name="password" value="<?php if (isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" placeholder="Password">
+                <input type="password" class="form-control  ps-2 <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="floatingPassword" name="password" value="<?php if (isset($_COOKIE["password"])) { echo $_COOKIE["password"]; } ?>" placeholder="Password">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
                 <span onclick="togglePass()">
                   <i id="hide1" class="fa fa-eye eye"></i>

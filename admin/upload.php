@@ -84,8 +84,11 @@ include '../alert.message.php';
         <form method="POST" enctype="multipart/form-data" action="search.app.php" autocomplete="off">
           <div class="row">
             <div class="col-md-6">
-              <label for="">Name of the Book\Material</label>
-              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="book" required placeholder="Book\Material">
+              <label for="">Type of the Book\Material</label>
+              <select style="border: 2px solid grey ;" name="type" class="form-control ps-4" aria-label=".form-select-mg example">
+                <option value="1">Books</option>
+                <option value="0">Projects</option>
+              </select>
             </div>
             <div class="col-md-6">
               <label for="">Which Faculty Is It For ?</label>

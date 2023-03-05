@@ -99,7 +99,7 @@
               <?php
                 }
               } else {
-                echo "No notifications yet.";
+                echo "<h3>No New Notifications Yet.</h3>";
               }
               ?>
 
@@ -145,7 +145,7 @@
               <?php
                 }
               } else {
-                echo "No notifications yet.";
+                echo "<h3>No Read Notifications Yet.</h3>";
               }
               ?>
 

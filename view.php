@@ -44,7 +44,10 @@ try {
 </head>
 
 <body>
-  <div class="card text-center">
+  <div class="container">
+
+  
+  <div class="card not text-center">
     <div class="card-body">
 
     
@@ -65,7 +68,7 @@ try {
     <a href="notifications">Back<i class="material-icons opacity-10">arrow</i></a>
   </div>
   </div>
-  
+  </div>
   <?php include "footer.php" ?>
 
 </body>

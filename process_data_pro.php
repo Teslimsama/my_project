@@ -6,11 +6,10 @@ include "session.php";
 if(isset($_POST["query"]))
 {
 
-	// $conn = new PDO("mysql:host=localhost; dbname=unibooks", "root", "");
-
+	
 	$data = array();
 
-	$limit = 5;
+	$limit = 3;
 
 	$page = 1;
 
@@ -42,7 +41,7 @@ if(isset($_POST["query"]))
 		);
 
 		$query = "
-		SELECT  id, product_image,  product_name, productlink FROM project WHERE product_image LIKE :product_image 
+		SELECT  id, product_image,  product_name, productlink FROM producttb WHERE product_image LIKE :product_image 
 		OR productlink LIKE :productlink 	OR product_name LIKE :product_name
 		ORDER BY id DESC
 		";
@@ -83,7 +82,7 @@ if(isset($_POST["query"]))
 	{
 
 		$query = "
-		SELECT  id, product_image,  product_name, productlink FROM project
+		SELECT  id, product_image,  product_name, productlink FROM producttb WHERE  type=0
 		ORDER BY id DESC
 		";
 

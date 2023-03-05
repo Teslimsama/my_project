@@ -109,7 +109,7 @@
                 echo "No notifications yet.";
             }
             ?>
-            <li class="mb-2">
+            <!-- <li class="mb-2">
                 <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                         <div class="my-auto">
@@ -158,7 +158,7 @@
                 </a>
             </li>
         </ul>
-    </li>
+    </li> -->
     
 
 </ul>

@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $slug =slugify($title);
     $desc = $_POST['desc'];
     $key = $_POST['keywords'];
+    $type= $_POST['type'];
     $link = slugify($title);
     $photo =$_FILES['img']['name'];
 
@@ -40,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare("INSERT INTO search (title, description, keywords, link) VALUES (?, ?, ?, ?)");
         $stmt->execute(array($title, $desc, $key, $newFileName));
         move_uploaded_file($tmpName, $location);
-        $stmt = $conn->prepare("INSERT INTO producttb (product_name, product_image, productlink) VALUES (?, ?, ?)");
-        $stmt->execute(array($title, $imgname,  $newFileName));
+        $stmt = $conn->prepare("INSERT INTO producttb (product_name, product_image, productlink, type) VALUES (?, ?, ? ,?)");
+        $stmt->execute(array($title, $imgname,  $newFileName, $type));
         $_SESSION['success'] = "Successfully added";
       } catch (PDOException $e) {
         $_SESSION['error'] = "Error: " . $e->getMessage();

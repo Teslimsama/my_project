@@ -83,7 +83,7 @@ if(isset($_POST["query"]))
 	{
 
 		$query = "
-		SELECT  id, product_image, product_name, productlink FROM producttb
+		SELECT  id, product_image, product_name, productlink FROM producttb WHERE  type=1
 		ORDER BY id DESC
 		";
 

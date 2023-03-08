@@ -48,6 +48,7 @@ if ($result->data->status == 'success') {
   $book = $result->data->customer->phone;
   $lname = $result->data->customer->last_name;
   $fname = $result->data->customer->first_name;
+  // $mata = $result->data->customer->metadata;
   $fullname = $fname . ' ' . $lname;
   $Cus_email = $result->data->customer->email;
   date_default_timezone_set('Africa/lagos');
@@ -66,32 +67,10 @@ if ($result->data->status == 'success') {
     ':email' => $Cus_email,
     ':book' => $book
   ));
-
-  // Retrieve email associated with payment from unibooker table
-  $stmt = $conn->prepare('SELECT email FROM unibooker WHERE id = ?');
-  $stmt->execute([$user_id]);
+  $stmt = $conn->prepare('SELECT id FROM producttb WHERE productlink = ?');
+  $stmt->execute([$book]);
   $row = $stmt->fetch();
-  $email = $row['email'];
-
-  // If email is found in unibooker table, generate unique code, update code column, and send password reset email
-  if ($email) {
-    $code = uniqid();
-    $stmt = $conn->prepare('UPDATE unibooker SET code = ? WHERE id = ?');
-    $stmt->execute([$code, $user_id]);
-
-    // Send password reset email
-    $to = $email;
-    $subject = 'Password reset link';
-    $message = "Please click on this link to reset your password: https://example.com/reset_password.php?code=$code";
-    $headers = 'From: webmaster@example.com' . "\r\n" . 'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-    if (mail($to, $subject, $message, $headers)) {
-      echo 'Email not found';
-    }
-  } else {
-    // If email not found in unibooker table, set error message in session and redirect to pass page
-    $_SESSION['error'] = 'Email not found';
-    
-    header('Location: pass.php');
-    exit;
-  }
+  $id = $row['id'];
+  $redirect='download_link.app.php?id='. $id;
+  header('Location: '.$redirect);
 }

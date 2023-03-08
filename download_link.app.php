@@ -30,20 +30,23 @@ if (isset($_GET['id'])) {
         header("Content-disposition: attachment; filename=" . $filebook);
         header("Content-length: " . filesize($filepath));
         readfile($filepath);
-        exit;
         $_SESSION['success'] = 'Download Successfully';
-        header("location:javascript://history.go(-1)");
+        header("location:description_pro.php?id=".$id);
+        exit;
         } else {
             $_SESSION['error'] = $e->getMessage();
-            header("location:javascript://history.go(-1)");
+            header("location:Signin");
+            
         }
     } else {
-        echo "File not found.";
-        // print_r( $result);
+        $_SESSION['error'] = "File not found.";
+        header("location:description_pro.php?id=" . $id);
     }
 } else {
-    echo "File ID not specified.";
+    $_SESSION['error'] = "File ID not specified.";
+    header("location:description_pro.php?id=" . $id);
 }
+
 
 // Close database connection
 $pdo->close();

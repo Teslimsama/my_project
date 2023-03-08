@@ -5,7 +5,7 @@ include 'alert.message.php';
 if (isset($_GET['id'])) {
   // Create a connection object
   $id = $conn->quote($_GET['id']); // Escape data to prevent SQL injection
-  $sql = "SELECT * FROM project WHERE id=:id";
+  $sql = "SELECT * FROM producttb WHERE id=:id";
   $statement = $conn->prepare($sql);
   $statement->execute(array(':id' => $_GET['id']));
   $row = $statement->fetch();

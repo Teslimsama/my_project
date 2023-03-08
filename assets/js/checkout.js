@@ -1,6 +1,8 @@
 const paymentForm = document.getElementById("paystack");
 paymentForm.addEventListener("click", payWithPaystack, false);
-
+var metadata = {
+	message: "Thank you for your payment!",
+};
 function payWithPaystack(p) {
 	p.preventDefault();
 
@@ -11,6 +13,7 @@ function payWithPaystack(p) {
 		firstname: document.getElementById("first-name").value,
 		lastname: document.getElementById("last-name").value,
 		phone: document.getElementById("phone").value,
+		metadata: metadata,
 		ref: "Unibooks" + Math.floor(Math.random() * 1000000000 + 1) + "PAY", // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
 		// label: "Optional string that replaces customer email"
 		onClose: function () {

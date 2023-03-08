@@ -2,15 +2,17 @@
 include 'alert.message.php';
 
 if (isset($_GET['id'])) {
-  # code...
   $id = $conn->quote($_GET['id']);
-  $sql = "SELECT * FROM project WHERE id=$id";
+  $sql = "SELECT * FROM producttb WHERE id=$id";
   $result = $conn->query($sql) or die('bad query');
   $row = $result->fetch(PDO::FETCH_ASSOC);
 } else {
   header("location:project");
 }
-
+if (!isset($user['id'])) {
+  $_SESSION['error'] = 'Signin First !!!';
+  header("location:Signin");
+}
 ?>
 
 <!DOCTYPE html>
@@ -85,9 +87,9 @@ if (isset($_GET['id'])) {
                   <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
 
                 </div>
-                <div style="display: none;" id="flutterwave">
+                <!-- <div style="display: none;" id="flutterwave">
                   <button type="submit" class="btn  btn-dark btn-large  mt-4" onclick="payNow()"> Pay</button>
-                  <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
+                  <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a> -->
 
                 </div>
                 <div style="display: none;" id="bank_transfer">

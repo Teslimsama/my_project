@@ -27,6 +27,10 @@ if (!isset($_SESSION['user'])) {
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet">
   <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/owl.carousel.css">
+  <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/owl.carousel.js"></script>
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
@@ -96,9 +100,11 @@ if (!isset($_SESSION['user'])) {
                     <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                   </a>
                 </div>
-                
-              </div><div class="container-fluid col-md-12"> 
-                  <?php echo ErrorMessage(); echo SuccessMessage(); ?></div>
+
+              </div>
+              <div class="container-fluid col-md-12">
+                <?php echo ErrorMessage();
+                echo SuccessMessage(); ?></div>
             </div>
             <div class="card-body p-3">
 
@@ -113,8 +119,144 @@ if (!isset($_SESSION['user'])) {
             </div>
           </div>
         </div>
+        <div class="col-12 mt-4">
+          <div class="mb-5 ps-3">
+            <h6 class="mb-1">Relevant Books For You</h6>
+            <p class="text-sm">This Books May Prove Useful</p>
+          </div>
+          <div class="row owl-carousel owl-theme owl-loaded owl-drag">
+            <!-- <div class=""> -->
+              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
+                <div class="card card-blog card-plain">
+                  <div class="card-header p-0 mt-n4 mx-3">
+                    <a class="d-block shadow-xl border-radius-xl">
+                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    </a>
+                  </div>
+                  <div class="card-body p-3">
+                    <!-- <p class="mb-0 text-sm">category</p> -->
+                    <a href="javascript:;">
+                      <h5>
+                        book namehfdhjslnhjjjjjjj
+                      </h5>
+                    </a>
+                    <p class="mb-4 text-sm">
+                      description
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
+                <div class="card card-blog card-plain">
+                  <div class="card-header p-0 mt-n4 mx-3">
+                    <a class="d-block shadow-xl border-radius-xl">
+                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    </a>
+                  </div>
+                  <div class="card-body p-3">
+                    <!-- <p class="mb-0 text-sm">category</p> -->
+                    <a href="javascript:;">
+                      <h5>
+                        book name
+                      </h5>
+                    </a>
+                    <p class="mb-4 text-sm">
+                      description
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
+                <div class="card card-blog card-plain">
+                  <div class="card-header p-0 mt-n4 mx-3">
+                    <a class="d-block shadow-xl border-radius-xl">
+                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    </a>
+                  </div>
+                  <div class="card-body p-3">
+                    <!-- <p class="mb-0 text-sm">category</p> -->
+                    <a href="javascript:;">
+                      <h5>
+                        book name
+                      </h5>
+                    </a>
+                    <p class="mb-4 text-sm">
+                      description
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
+                <div class="card card-blog card-plain">
+                  <div class="card-header p-0 mt-n4 mx-3">
+                    <a class="d-block shadow-xl border-radius-xl">
+                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    </a>
+                  </div>
+                  <div class="card-body p-3">
+                    <!-- <p class="mb-0 text-sm">category</p> -->
+                    <a href="javascript:;">
+                      <h5>
+                        book name
+                      </h5>
+                    </a>
+                    <p class="mb-4 text-sm">
+                      description
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
+                <div class="card card-blog card-plain">
+                  <div class="card-header p-0 mt-n4 mx-3">
+                    <a class="d-block shadow-xl border-radius-xl">
+                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    </a>
+                  </div>
+                  <div class="card-body p-3">
+                    <!-- <p class="mb-0 text-sm">category</p> -->
+                    <a href="javascript:;">
+                      <h5>
+                        book name
+                      </h5>
+                    </a>
+                    <p class="mb-4 text-sm">
+                      description
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+            <!-- </div> -->
+          </div>
+        </div>
       </div>
     </div>
+    <script>
+      $(document).ready(function() {
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+          margin: 10,
+          nav: true,
+          loop: true,
+          responsive: {
+            0: {
+              s: 1
+            },
+            600: {
+              s: 3
+            },
+            1000: {
+              s: 5
+            }
+          }
+        })
+      })
+    </script>
     <?php include "footer.php" ?>
 
   </div>

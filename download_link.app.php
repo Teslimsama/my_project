@@ -31,20 +31,35 @@ if (isset($_GET['id'])) {
         header("Content-length: " . filesize($filepath));
         readfile($filepath);
         $_SESSION['success'] = 'Download Successfully';
-        header("location:description_pro.php?id=".$id);
+        // if ($result['type'] == 0) {
+        //     header("location:description_pro.php?id=" . $id);
+        // }else {
+        //     header("location:description_page.php?id=" . $id);
+        // }
+        
         exit;
         } else {
-            $_SESSION['error'] = $e->getMessage();
+            $_SESSION['error'] = 'Please Signin First';
             header("location:Signin");
             
         }
     } else {
         $_SESSION['error'] = "File not found.";
-        header("location:description_pro.php?id=" . $id);
+        // if ($result['type'] == 0) {
+        //     $id = $_GET['id'];
+        //     header("location:description_pro.php?id=" . $id);
+        // } else {
+        //     header("location:description_page.php?id=" . $id);
+        // }
     }
 } else {
     $_SESSION['error'] = "File ID not specified.";
-    header("location:description_pro.php?id=" . $id);
+    if ($result['type'] == 0) {
+        $id = $_GET['id'];
+        header("location:description_pro.php?id=" . $id);
+    } else {
+        header("location:description_page.php?id=" . $id);
+    }
 }
 
 

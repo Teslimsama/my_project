@@ -16,14 +16,14 @@ if (!isset($_SESSION['user'])) {
     Profile page || Unibooks
   </title>
   <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <link rel="stylesheet" type="text/css" href="httpitems://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
+  <script src="httpitems://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link href="httpitems://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet">
   <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet">
@@ -125,113 +125,76 @@ if (!isset($_SESSION['user'])) {
             <p class="text-sm">This Books May Prove Useful</p>
           </div>
           <div class="row owl-carousel owl-theme owl-loaded owl-drag">
-            <!-- <div class=""> -->
-              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
-                <div class="card card-blog card-plain">
-                  <div class="card-header p-0 mt-n4 mx-3">
-                    <a class="d-block shadow-xl border-radius-xl">
-                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                    </a>
-                  </div>
-                  <div class="card-body p-3">
-                    <!-- <p class="mb-0 text-sm">category</p> -->
-                    <a href="javascript:;">
-                      <h5>
-                        book namehfdhjslnhjjjjjjj
-                      </h5>
-                    </a>
-                    <p class="mb-4 text-sm">
-                      description
-                    </p>
+            <?php
+            $faculty=$user['faculty'];
+            $department=$user['department'];
+            $level=$user['level'];
+            $sql = " SELECT * FROM producttb WHERE faculty LIKE '%$faculty%' OR department LIKE '%$department%' OR level LIKE '%$level%'";
+            $query = $conn->prepare($sql);
+            $query->execute();
+            $numrows = $query->rowCount();
+            // print_r($numrows);
+            if ($numrows > 0) {
+              while ($row = $query->fetch()) {
+                $id = $row['id'];
+                $title = $row['product_name'];
+                // $descrip = $row['description'];
+                $image = $row['product_image'];
+                $link = $row['productlink'];
 
-                  </div>
+
+                echo '
+                <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
+              <div class="card card-blog card-plain">
+                <div class="card-header p-0 mt-n4 mx-3">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="Images/'.$image. '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                </div>
+                <div class="card-body p-3">
+                  <!-- <p class="mb-0 text-sm">category</p> -->
+                  <a href="description_page?id='.$id.'">
+                    <h5>
+                      '.$title.'
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    description
+                  </p>
+
                 </div>
               </div>
-              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
-                <div class="card card-blog card-plain">
-                  <div class="card-header p-0 mt-n4 mx-3">
-                    <a class="d-block shadow-xl border-radius-xl">
-                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                    </a>
-                  </div>
-                  <div class="card-body p-3">
-                    <!-- <p class="mb-0 text-sm">category</p> -->
-                    <a href="javascript:;">
-                      <h5>
-                        book name
-                      </h5>
-                    </a>
-                    <p class="mb-4 text-sm">
-                      description
-                    </p>
+            </div>
+                ';
+              }
+            } else {
+              echo "No results found for ";
+            }
 
-                  </div>
+
+            ?>
+            <!-- <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
+              <div class="card card-blog card-plain">
+                <div class="card-header p-0 mt-n4 mx-3">
+                  <a class="d-block shadow-xl border-radius-xl">
+                    <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                  </a>
+                </div>
+                <div class="card-body p-3">
+                   <p class="mb-0 text-sm">category</p> 
+                  <a href="javascript:;">
+                    <h5>
+                      book name
+                    </h5>
+                  </a>
+                  <p class="mb-4 text-sm">
+                    description
+                  </p>
+
                 </div>
               </div>
-              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
-                <div class="card card-blog card-plain">
-                  <div class="card-header p-0 mt-n4 mx-3">
-                    <a class="d-block shadow-xl border-radius-xl">
-                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                    </a>
-                  </div>
-                  <div class="card-body p-3">
-                    <!-- <p class="mb-0 text-sm">category</p> -->
-                    <a href="javascript:;">
-                      <h5>
-                        book name
-                      </h5>
-                    </a>
-                    <p class="mb-4 text-sm">
-                      description
-                    </p>
+            </div> -->
 
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
-                <div class="card card-blog card-plain">
-                  <div class="card-header p-0 mt-n4 mx-3">
-                    <a class="d-block shadow-xl border-radius-xl">
-                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                    </a>
-                  </div>
-                  <div class="card-body p-3">
-                    <!-- <p class="mb-0 text-sm">category</p> -->
-                    <a href="javascript:;">
-                      <h5>
-                        book name
-                      </h5>
-                    </a>
-                    <p class="mb-4 text-sm">
-                      description
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-md-12 mb-xl-0 mb-4 ">
-                <div class="card card-blog card-plain">
-                  <div class="card-header p-0 mt-n4 mx-3">
-                    <a class="d-block shadow-xl border-radius-xl">
-                      <img src="Images/bruce-mars.jpg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
-                    </a>
-                  </div>
-                  <div class="card-body p-3">
-                    <!-- <p class="mb-0 text-sm">category</p> -->
-                    <a href="javascript:;">
-                      <h5>
-                        book name
-                      </h5>
-                    </a>
-                    <p class="mb-4 text-sm">
-                      description
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -245,13 +208,13 @@ if (!isset($_SESSION['user'])) {
           loop: true,
           responsive: {
             0: {
-              s: 1
+              items: 1
             },
             600: {
-              s: 3
+              items: 3
             },
             1000: {
-              s: 5
+              items: 5
             }
           }
         })
@@ -272,7 +235,7 @@ if (!isset($_SESSION['user'])) {
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="httpitems://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -283,7 +246,7 @@ if (!isset($_SESSION['user'])) {
     }
   </script>
   <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script async defer src="httpitems://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>

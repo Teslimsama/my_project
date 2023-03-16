@@ -110,10 +110,7 @@ include '../alert.message.php';
               <label for="">Keywords</label>
               <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="keywords" required placeholder="Keywords">
             </div>
-            <div class="col-md-6 p-2">
-              <label for="">Link</label>
-              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="link" required placeholder="Link">
-            </div>
+
             <div class="upload p-2 col-md-6 ps-4">
               <label for="">Upload File </label>
               <input type="file" class="form-control ps-4" id="book" style="border: 2px solid grey ;" name="book">
@@ -121,6 +118,31 @@ include '../alert.message.php';
             <div class="upload p-2 col-md-6 ps-4">
               <label for="">Upload File Image </label>
               <input type="file" class="form-control ps-4" id="img" style="border: 2px solid grey ;" name="img">
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Amount</label>
+              <input type="number" style="border: 2px solid grey ;" class="form-control ps-4" name="amount" required placeholder="amount">
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Faculty</label>
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Department</label>
+              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="dept" required placeholder="department">
+            </div>
+            <div class="level col-6">
+              <label for="">Level</label>
+              <select class="form-select form-select-md" name="level" style="border: 2px solid grey ;" class="form-control ps-4" aria-label=".form-select-mg example">
+                <option> Current Level</option>
+                <option value="100">100L</option>
+                <option value="200">200L</option>
+                <option value="300">300L</option>
+                <option value="400">400L</option>
+                <option value="500">500L</option>
+              </select>
+
+
             </div>
           </div>
           <div class="butt p-2">

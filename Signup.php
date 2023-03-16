@@ -112,11 +112,19 @@ include 'alert.message.php'
             </div>
             <div class="level col-6">
               <label for="">Level</label>
-              <input style="border: 2px solid grey ;" type="tel"  class="form-control" name="levell" placeholder="Current Level" required>
+              <select class="form-select form-select-md" name="levell" aria-label=".form-select-mg example">
+                <option> Current Level</option>
+                <option value="100">100L</option>
+                <option value="200">200L</option>
+                <option value="300">300L</option>
+                <option value="400">400L</option>
+                <option value="500">500L</option>
+              </select>
+
 
             </div>
           </div>
-          
+
           <div class="School mt-3">
             <select class="form-select form-select-md" name="school" aria-label=".form-select-mg example">
               <option> Select Your School of Study</option>
@@ -126,28 +134,28 @@ include 'alert.message.php'
             </select>
           </div>
           <div class="gender mt-4">Gender
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gender" value="male" id="gender">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Male
-                </label>
-              </div>
-              <div class="form-check">
-                <input  class="form-check-input" type="radio" name="gender" value="female" id="gender" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                  Female
-                </label>
-              </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" value="male" id="gender">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Male
+              </label>
             </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" value="female" id="gender" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                Female
+              </label>
+            </div>
+          </div>
 
           <div class="password">
             <label class="mt-3" for="">Create Password</label>
-            <input style="border: 2px solid grey ;" type="password" class="form-control" name="password" placeholder="create a password" required> 
+            <input style="border: 2px solid grey ;" type="password" class="form-control" name="password" placeholder="create a password" required>
           </div>
           <div class="confirm">
             <label for="">Confirm Your Password</label>
             <input style="border: 2px solid grey ;" type="password" class="form-control " name="repassword" placeholder="confirm password" required>
-            
+
 
           </div>
           <div class="row">

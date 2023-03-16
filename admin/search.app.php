@@ -2,28 +2,33 @@
 include "session.php";
 include 'slugify.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (isset($_POST['search']) && !empty($_POST['title']) && !empty($_POST['desc']) && !empty($_POST['keywords']) && !empty($_POST['link'])) {
+  if (isset($_POST['search']) && !empty($_POST['title']) && !empty($_POST['desc']) && !empty($_POST['keywords'])) {
     $title = $_POST['title'];
     $slug =slugify($title);
     $desc = $_POST['desc'];
     $key = $_POST['keywords'];
     $type= $_POST['type'];
     $link = slugify($title);
+    $faculty = $_POST['faculty'];
+    $department= $_POST['dept'];
+    $level= $_POST['level'];
+    $amount= $_POST['amount'];
     $photo =$_FILES['img']['name'];
 
     $fileName = $_FILES["book"]["name"];
     $fileSize = $_FILES["book"]["size"];
     $tmpName = $_FILES["book"]["tmp_name"];
     if (!empty($photo)) {
-      move_uploaded_file($_FILES['img']['tmp_name'], '../Images/' . $slug);
-      $imgname = $slug;
+    $ExtI = explode('.', $photo);
+    $ExtI = strtolower(end($ExtI));
+      move_uploaded_file($_FILES['img']['tmp_name'], '../Images/' . $slug . '.'.$ExtI);
+      $imgname = $slug . '.'.$ExtI;
     } else {
       $imgname = 'noimage.jpg';
     }
 
     $validExt = ['docx','jpg','png','jpeg' , 'pdf', 'txt'];
     $Ext = explode('.', $fileName);
-    // $ExtI = explode('.', $fileImg);
     $Ext = strtolower(end($Ext));
 
     if (empty($fileName)) {
@@ -41,9 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare("INSERT INTO search (title, description, keywords, link) VALUES (?, ?, ?, ?)");
         $stmt->execute(array($title, $desc, $key, $newFileName));
         move_uploaded_file($tmpName, $location);
-        $stmt = $conn->prepare("INSERT INTO producttb (product_name, product_image, productlink, type) VALUES (?, ?, ? ,?)");
-        $stmt->execute(array($title, $imgname,  $newFileName, $type));
-        $_SESSION['success'] = "Successfully added";
+        $stmt = $conn->prepare("INSERT INTO producttb (product_name, product_image, product_price, productlink, faculty, department, level, type) VALUES (?, ?, ?, ?, ?, ?, ? ,?)");
+        $stmt->execute(array($title, $imgname, $amount,$newFileName, $faculty,$department,$level, $type));
+        $_SESSION['success'] = "Successfully Added";
       } catch (PDOException $e) {
         $_SESSION['error'] = "Error: " . $e->getMessage();
       }

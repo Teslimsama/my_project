@@ -126,9 +126,9 @@ if (!isset($_SESSION['user'])) {
           </div>
           <div class="row owl-carousel owl-theme owl-loaded owl-drag">
             <?php
-            $faculty=$user['faculty'];
-            $department=$user['department'];
-            $level=$user['level'];
+            $faculty = $user['faculty'];
+            $department = $user['department'];
+            $level = $user['level'];
             $sql = " SELECT * FROM producttb WHERE faculty LIKE '%$faculty%' OR department LIKE '%$department%' OR level LIKE '%$level%'";
             $query = $conn->prepare($sql);
             $query->execute();
@@ -148,14 +148,14 @@ if (!isset($_SESSION['user'])) {
               <div class="card card-blog card-plain">
                 <div class="card-header p-0 mt-n4 mx-3">
                   <a class="d-block shadow-xl border-radius-xl">
-                    <img src="Images/'.$image. '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                    <img src="Images/' . $image . '" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                   </a>
                 </div>
                 <div class="card-body p-3">
                   <!-- <p class="mb-0 text-sm">category</p> -->
-                  <a href="description_page?id='.$id.'">
+                  <a href="description_page?id=' . $id . '">
                     <h5>
-                      '.$title.'
+                      ' . $title . '
                     </h5>
                   </a>
                   <p class="mb-4 text-sm">
@@ -235,7 +235,7 @@ if (!isset($_SESSION['user'])) {
   <script src="assets/js/core/bootstrap.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="httpitems://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -250,5 +250,50 @@ if (!isset($_SESSION['user'])) {
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
+<!-- <select name="faculty" id="faculty" class="form-control">
+  <option value="">--select--</option>
+  <option value="1">Administration</option>
+  <option value="2">Agriculture</option>
+  <option value="3">Arts</option>
+  <option value="5">Education</option>
+  <option value="6">Engineering</option>
+  <option value="7">Environmental Design</option>
+  <option value="8">Law</option>
+  <option value="9">Medicine</option>
+  <option value="10">Pharmaceutical Sciences</option>
+  <option value="11">Physical Sciences</option>
+  <option value="12">Social Sciences</option>
+  <option value="13">Veterinary Medicine</option>
+  <option value="14">Iya Abubakar Computer Centre</option>
+  <option value="15">Institute of Administration</option>
+  <option value="16">Institute of Education</option>
+  <option value="17">Bursary</option>
+  <option value="18">Centre</option>
+  <option value="20">Library</option>
+  <option value="21">Registry</option>
+  <option value="22">Schools</option>
+  <option value="23">University Health Services</option>
+  <option value="24">VC s Office</option>
+  <option value="25">Vet Teaching Hospital</option>
+  <option value="26">Centre for Energy Research and Training</option>
+  <option value="27">Centre for Biotechnology Research and Training</option>
+  <option value="28">Centre for Historical Research and Documentation (Arewa House)</option>
+  <option value="29">NAERLS</option>
+  <option value="30">NAPRI</option>
+  <option value="31">Postgraduate School</option>
+  <option value="32">Vice Chancellor's Office</option>
+  <option value="33">Institute for Development Research &amp; Training</option>
+  <option value="34">Centre for Disaster Risk Management and development Studies</option>
+  <option value="35">Iya Abubakar Institute of ICT</option>
+  <option value="36">Life Sciences</option>
+  <option value="37">Distance Learning Centre</option>
+  <option value="40">Business School</option>
+  <option value="43">Allied Health Sciences</option>
+  <option value="44">Basic Medical Sciences</option>
+  <option value="45">Clinical Sciences</option>
+  <option value="46">Division of Agricultural College</option>
+  <option value="Physical Planning and Municipal Services">Physical Planning and Municipal Services</option>
+  <option value="Internal Audit">Internal Audit</option>
+</select> -->
 
 </html>

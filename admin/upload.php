@@ -90,14 +90,14 @@ include '../alert.message.php';
                 <option value="0">Projects</option>
               </select>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <label for="">Which Faculty Is It For ?</label>
               <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
             </div>
             <div class="col-md-6">
               <label for="">Which Faculty Is It For ?</label>
               <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
-            </div>
+            </div> -->
             <div class="col-md-6 p-2">
               <label for="">Title</label>
               <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="title" required placeholder="Title">

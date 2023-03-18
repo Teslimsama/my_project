@@ -17,12 +17,12 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
+
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/faq.css" rel="stylesheet" />
-  <!-- <link rel="stylesheet" href="../assets/css/cheatsheet.css"> -->
 
 </head>
 
@@ -72,92 +72,25 @@
             </div>
           </div>
           <div class="card-body px-0 pb-2">
-            <div class="table-responsive p-0">
-              <table class="table align-items-center justify-content-center mb-0">
-                <thead>
-                  <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Book</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Amount</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Faculty</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Department</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Level</th>
-                    <th></th>
 
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
+            <table id="user_data" class="table align-items-center justify-content-center mb-0 table-responsive p-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Book</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Faculty</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Department</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Level</th>
+                  <th></th>
 
-                  try {
-                    $stmt = $conn->prepare("SELECT * FROM producttb ORDER BY id DESC");
-                    $stmt->execute([]);
-                    $n = 1;
-                    while ($patient_rows = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                </tr>
+              </thead>
 
+            </table>
 
-
-
-                  ?>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6><?php echo $n; ?> </h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="d-flex px-2">
-                            <div class="my-auto">
-                              <h6 class="mb-0 text-sm"><?php echo $patient_rows['product_name']; ?></h6>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-sm font-weight-bold mb-0">₦<?php echo $patient_rows['product_price']; ?></p>
-                        </td>
-                        <td>
-                          <h6 class="text-xs font-weight-bold">
-                            <?php
-                            if ($patient_rows['type'] === '1') {
-                              echo "Free Books</h6>";
-                            } else {
-                              echo "Project</h6>";
-                            }
-
-
-                            ?>
-                        </td>
-                        <td class="align-middle text-center">
-                          <h6><?php echo $patient_rows['faculty']; ?></h6>
-
-                        </td>
-                        <td class="align-middle text-center">
-                          <h6><?php echo $patient_rows['department']; ?></h6>
-
-                        </td>
-                        <td class="align-middle text-center">
-                          <h6><?php echo $patient_rows['level']; ?></h6>
-
-                        </td>
-                        <td class="align-middle">
-                          <button class="btn btn-link text-secondary mb-0">
-                            <i class="fa fa-ellipsis-v text-xs"></i>
-                          </button>
-                        </td>
-                      </tr>
-
-                  <?php $n++;
-                    }
-                  } catch (Exception $e) {
-                    echo $e->getMessage();
-                  } ?>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
       </div>
@@ -185,14 +118,130 @@
       </div>
     </div>
   </main>
-  <?php include "plugin.php" ?>
+  <?php
+  include "books_modal.php";
+  include "plugin.php";
+  ?>
 
   <!--   Core JS Files   -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="a"></script>
+  <script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+      $('#add_button').click(function() {
+        $('#user_form')[0].reset();
+        $('.modal-title').text("Add User");
+        $('#action').val("Add");
+        $('#operation').val("Add");
+        $('#user_uploaded_image').html('');
+      });
+
+      var dataTable = $('#user_data').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+        "ajax": {
+          url: "fetch.php",
+          type: "POST"
+        },
+        "columnDefs": [{
+          "targets": [0, 3, 4],
+          "orderable": false,
+        }, ],
+
+      });
+
+      $(document).on('submit', '#user_form', function(event) {
+        event.preventDefault();
+        var product_name = $('#product_name').val();
+        var product_price = $('#product_price').val();
+        var type = $('#type').val();
+        var faculty = $('#faculty').val();
+        var department = $('#department').val();
+        var level = $('#level').val();
+        var extension = $('#user_image').val().split('.').pop().toLowerCase();
+        if (extension != '') {
+          if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+            alert("Invalid Image File");
+            $('#user_image').val('');
+            return false;
+          }
+        }
+        if (product_price != '' && product_name != '') {
+          $.ajax({
+            url: "insert.php",
+            method: 'POST',
+            data: new FormData(this),
+            contentType: false,
+            processData: false,
+            success: function(data) {
+              alert(data);
+              $('#user_form')[0].reset();
+              $('#userModal').modal('hide');
+              dataTable.ajax.reload();
+            }
+          });
+        } else {
+          alert("Both Fields are Required");
+        }
+      });
+
+      $(document).on('click', '.update', function() {
+        var user_id = $(this).attr("id");
+        $.ajax({
+          url: "fetch_single.php",
+          method: "POST",
+          data: {
+            user_id: user_id
+          },
+          dataType: "json",
+          success: function(data) {
+            $('#userModal').modal('show');
+            $('#product_name').val(data.product_name);
+            $('#product_price').val(data.product_price);
+            $('#type').val(data.type);
+            $('#faculty').val(data.faculty);
+            $('#department').val(data.department);
+            $('#level').val(data.level);
+            $('.modal-title').text("Edit User");
+            $('#user_id').val(user_id);
+            $('#user_uploaded_image').html(data.user_image);
+            $('#action').val("Edit");
+            $('#operation').val("Edit");
+          }
+        })
+      });
+
+      $(document).on('click', '.delete', function() {
+        var user_id = $(this).attr("id");
+        if (confirm("Are you sure you want to delete this?")) {
+          $.ajax({
+            url: "delete.php",
+            method: "POST",
+            data: {
+              user_id: user_id
+            },
+            success: function(data) {
+              alert(data);
+              dataTable.ajax.reload();
+            }
+          });
+        } else {
+          return false;
+        }
+      });
+
+
+    });
+  </script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -206,6 +255,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+
 </body>
 
 </html>

@@ -29,7 +29,7 @@ $filtered_rows = $statement->rowCount();
 foreach ($result as $row) {
 	$image = '';
 	if ($row["product_image"] != '') {
-		$image = '<img src="upload/' . $row["product_image"] . '" class="img-thumbnail" width="50" height="35" />';
+		$image = '<img src="../images/' . $row["product_image"] . '" class="img-thumbnail" width="50" height="35" />';
 	} else {
 		$image = '';
 	}
@@ -37,9 +37,9 @@ foreach ($result as $row) {
 		$type="Free Book";
 	} else {
 		$type = "Project";
-	}
+	}$n=1;
 	$sub_array = array();
-	$sub_array[] = 1;
+	$sub_array[] =$row['id'];
 	$sub_array[] = $image;
 	$sub_array[] = $row["product_name"];
 	$sub_array[] = '₦'. $row["product_price"];

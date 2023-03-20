@@ -6,7 +6,7 @@ function upload_image()
 	{
 		$extension = explode('.', $_FILES['user_image']['name']);
 		$new_name = rand() . '.' . $extension[1];
-		$destination = './upload/' . $new_name;
+		$destination = '../Images/' . $new_name;
 		move_uploaded_file($_FILES['user_image']['tmp_name'], $destination);
 		return $new_name;
 	}
@@ -32,5 +32,22 @@ function get_total_all_records()
 	$result = $statement->fetchAll();
 	return $statement->rowCount();
 }
-
+ function nums(){
+$conn = new PDO('mysql:host=localhost;dbname=unibooks', 'root', '');
+	// include('session.php');
+	$statement = $conn->prepare("SELECT * FROM producttb");
+	$statement->execute();
+	$result = $statement->fetchAll();
+	$n=1;
+	// while ($row = $result) {
+	// 	# code...
+	// 	echo $n;
+	// 	$n++;
+	// 	return;
+	// }
+	foreach ($result as $key) {
+		echo $n;
+		$n++;
+	}
+ }
 ?>

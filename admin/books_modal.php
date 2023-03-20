@@ -12,6 +12,7 @@
                         <div class="col-md-6">
                             <label for="">Type of the Book\Material</label>
                             <select style="border: 2px solid grey ;" name="type" id="type" class="form-control ps-4" aria-label=".form-select-mg example">
+                            <option>Type</option>
                                 <option value="1">Books</option>
                                 <option value="0">Projects</option>
                             </select>
@@ -20,22 +21,9 @@
                             <label for="">Title</label>
                             <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="product_name" id="product_name" required placeholder="Title">
                         </div>
-                        <!-- <div class="col-md-6 p-2">
-                            <label for="">Description</label>
-                            <textarea type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="desc" id="desc" required placeholder="Description"></textarea>
-                        </div> -->
-                        <!-- <div class="col-md-6 p-2">
-                            <label for="">Keywords</label>
-                            <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="keywords" id="keywords" required placeholder="Keywords">
-                        </div> -->
-
-                        <div class="upload p-2 col-md-6 ps-4">
-                            <label for="">Upload File </label>
-                            <input type="file" class="form-control ps-4" id="book" style="border: 2px solid grey ;" name="book">
-                        </div>
                         <div class="upload p-2 col-md-6 ps-4">
                             <label for="">Upload File Image </label>
-                            <input type="file" class="form-control ps-4" id="img" style="border: 2px solid grey ;" name="product_image" id="product_image">
+                            <input type="file" class="form-control ps-4" style="border: 2px solid grey ;" name="user_image" id="user_image">
                         </div>
                         <div class="col-md-6 p-2">
                             <label for="">Amount</label>
@@ -67,7 +55,7 @@
                 <div class="modal-footer">
                     <input type="hidden" name="user_id" id="user_id" />
                     <input type="hidden" name="operation" id="operation" />
-                    <button type="submit" name="action" id="action" class="btn btn-success" >Edit</button>
+                    <button type="submit" name="action" id="action" class="btn btn-success">Edit</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>

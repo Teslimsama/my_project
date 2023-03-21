@@ -23,19 +23,19 @@ if ($_GET['status'] === 'successful') {
   $fname = $user['firstname'];
   $fullname = $fname . ' ' . $lname;
   $Cus_email = $user['email'];
-  date_default_timezone_set('Africa/lagos');
-  $Date_time = date('m/d/Y h:i:s a', time());
+  $Date_time = date('Y-m-d');
+  $qty = 1;
 
 
-
-  $stmt = $conn->prepare("INSERT INTO payments (customerid, status, reference, fullname, date, email) VALUES(:customerid, :status,  :reference, :fullname, :date, :email)");
+  $stmt = $conn->prepare("INSERT INTO payments (customerid, status, reference, fullname, date, email,quantity) VALUES(:customerid, :status,  :reference, :fullname, :date, :email,:quantity)");
   $stmt->execute(array(
     ':customerid' => $user_id,
     ':status' => $status,
     ':reference' => $reference,
     ':fullname' => $fullname,
     ':date' => $Date_time,
-    ':email' => $Cus_email
+    ':email' => $Cus_email,
+    ':quantity' => $qty
   ));
   //  ,   ':book' => $book, :book,book
   // Retrieve email associated with payment from unibooker table
@@ -65,6 +65,4 @@ if ($_GET['status'] === 'successful') {
     header('Location: pass.php');
     exit;
   }
-} 
-?>
-
+}

@@ -51,12 +51,13 @@ if ($result->data->status == 'success') {
   // $mata = $result->data->customer->metadata;
   $fullname = $fname . ' ' . $lname;
   $Cus_email = $result->data->customer->email;
-  date_default_timezone_set('Africa/lagos');
-  $Date_time = date('m/d/Y h:i:s a', time());
+  // date_default_timezone_set('Africa/lagos');
+  $Date_time = date('Y-m-d');
+  $qty= 1;
 
 
 
-  $stmt = $conn->prepare("INSERT INTO payments (customerid, status,amount, reference, fullname, date, email,book) VALUES(:customerid, :status, :amount, :reference, :fullname, :date, :email, :book)");
+  $stmt = $conn->prepare("INSERT INTO payments (customerid, status,amount, reference, fullname, date, email,book,quantity) VALUES(:customerid, :status, :amount, :reference, :fullname, :date, :email, :book,:quantity)");
   $stmt->execute(array(
     ':customerid' => $user_id,
     ':status' => $status,
@@ -65,7 +66,8 @@ if ($result->data->status == 'success') {
     ':fullname' => $fullname,
     ':date' => $Date_time,
     ':email' => $Cus_email,
-    ':book' => $book
+    ':book' => $book,
+    ':quantity' => $qty
   ));
   $stmt = $conn->prepare('SELECT id FROM producttb WHERE productlink = ?');
   $stmt->execute([$book]);

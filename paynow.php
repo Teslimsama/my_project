@@ -87,13 +87,14 @@ if (!isset($user['id'])) {
                   <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
 
                 </div>
-                <!-- <div style="display: none;" id="flutterwave">
+                <div style="display: none;" id="flutterwave">
                   <button type="submit" class="btn  btn-dark btn-large  mt-4" onclick="payNow()"> Pay</button>
-                  <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a> -->
+                  <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
 
                 </div>
                 <div style="display: none;" id="bank_transfer">
-                  <button type="submit" class="btn  btn-dark btn-large  mt-4"> Pay</button>
+                  <button type="button" class="btn  btn-dark btn-large  mt-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> mPay</button>
+
                   <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
 
                 </div>
@@ -102,11 +103,16 @@ if (!isset($user['id'])) {
 
             <script src="https://checkout.flutterwave.com/v3.js"></script>
             <script src="https://js.paystack.co/v1/inline.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> <?php
+          include "pay_modal.php"
+          ?>
   <script>
     let div = document.getElementById('paystack');
     let display = 0;
@@ -139,7 +145,7 @@ if (!isset($user['id'])) {
     }
   </script>
   <script src="assets/js/checkout.js"></script>
-  
+
   </div>
   </div>
   </div>

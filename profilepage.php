@@ -102,7 +102,7 @@ if (!isset($_SESSION['user'])) {
                 </div>
 
               </div>
-              <div class="container-fluid col-md-12">
+              <div class=" col-md-12">
                 <?php echo ErrorMessage();
                 echo SuccessMessage(); ?></div>
             </div>
@@ -114,7 +114,7 @@ if (!isset($_SESSION['user'])) {
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; <?php echo $user['phone']; ?></li>
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; <?php echo $user['email']; ?></li>
                 <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">University:</strong> &nbsp; <?php echo $user['school']; ?></li>
-                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Level:</strong> &nbsp; <?php echo $user['level']; ?></li>
+                <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Level:</strong> &nbsp; <?php echo $user['level']; ?>L</li>
               </ul>
             </div>
           </div>

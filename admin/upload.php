@@ -2,14 +2,12 @@
 include '../alert.message.php';
 ?>
 <?php
-//index.php
-// $connect = mysqli_connect("localhost", "root", "", "testing");
 $university = '';
 $query = "SELECT university FROM university_faculty_department GROUP BY university ORDER BY university ASC";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $university .= '<option value="' . $row["university"] . '">' . $row["university"] . '</option>';
+  $university .= '<option value="' . $row["university"] . '">' . $row["university"] . '</option>';
 }
 ?>
 <!DOCTYPE html>
@@ -97,7 +95,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           <div class="row">
             <div class="col-md-6">
               <label for="">Type of the Book\Material</label>
-              <select style="border: 2px solid grey ;" style="border: 2px solid grey ;" name="type" class="form-control ps-4" aria-label=".form-select-mg example">
+              <select style="border: 2px solid grey ;" name="type" class="form-control ps-4" aria-label=".form-select-mg example">
                 <option value="1">Books</option>
                 <option value="0">Projects</option>
               </select>

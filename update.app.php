@@ -52,6 +52,7 @@ if (isset($_POST['submit'])) {
     $last_name = $_POST['lastname'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $university = $_POST['university'];
 
     $password = $_POST['password'];
     // $username = $_POST['username'];
@@ -79,8 +80,8 @@ if (isset($_POST['submit'])) {
         $conn = $pdo->open();
 
         try {
-            $stmt = $conn->prepare("UPDATE unibooker SET email=:email, password=:password, firstname=:firstname, lastname=:lastname, level=:level,faculty=:faculty,department=:department,course=:course, image=:image WHERE id=:id");
-            $stmt->execute(['email' => $email, 'password' => $password, 'firstname' => $first_name, 'lastname' => $last_name, 'course'=>$course,'level'=>$level, 'faculty'=>$faculty, 'department'=>$dept, 'image' => $filename, 'id' => $user['id']]);
+            $stmt = $conn->prepare("UPDATE unibooker SET email=:email, password=:password, firstname=:firstname, lastname=:lastname, level=:level,school=:school,faculty=:faculty,department=:department,course=:course, image=:image WHERE id=:id");
+            $stmt->execute(['email' => $email, 'password' => $password, 'firstname' => $first_name, 'lastname' => $last_name,   'level'=>$level,'school'=>$university, 'faculty'=>$faculty, 'department'=>$dept, 'course'=>$course, 'image' => $filename, 'id' => $user['id']]);
 
             $_SESSION['success'] = 'Account updated successfully';
         } catch (PDOException $e) {

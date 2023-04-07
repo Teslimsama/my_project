@@ -1,6 +1,17 @@
 <?php include "session.php";
 include '../alert.message.php';
 ?>
+<?php
+//index.php
+// $connect = mysqli_connect("localhost", "root", "", "testing");
+$university = '';
+$query = "SELECT university FROM university_faculty_department GROUP BY university ORDER BY university ASC";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $university .= '<option value="' . $row["university"] . '">' . $row["university"] . '</option>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +35,8 @@ include '../alert.message.php';
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/faq.css" rel="stylesheet" />
-  <!-- <link rel="stylesheet" href="../assets/css/cheatsheet.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 
 </head>
 
@@ -85,7 +97,7 @@ include '../alert.message.php';
           <div class="row">
             <div class="col-md-6">
               <label for="">Type of the Book\Material</label>
-              <select style="border: 2px solid grey ;" name="type" class="form-control ps-4" aria-label=".form-select-mg example">
+              <select style="border: 2px solid grey ;" style="border: 2px solid grey ;" name="type" class="form-control ps-4" aria-label=".form-select-mg example">
                 <option value="1">Books</option>
                 <option value="0">Projects</option>
               </select>
@@ -93,11 +105,32 @@ include '../alert.message.php';
             <!-- <div class="col-md-6">
               <label for="">Which Faculty Is It For ?</label>
               <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
-            </div>
-            <div class="col-md-6">
-              <label for="">Which Faculty Is It For ?</label>
-              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
             </div> -->
+            <div class="col-md-6">
+              <label for="">University</label>
+              <select style="border: 2px solid grey ;" name="university" id="university" class="form-control action">
+                <option value="">Select university</option>
+                <?php echo $university; ?>
+              </select>
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Faculty</label>
+              <select style="border: 2px solid grey ;" name="faculty" id="faculty" class="form-control action">
+                <option value="">Select faculty</option>
+              </select>
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Department</label>
+              <select style="border: 2px solid grey ;" name="dept" id="department" class="form-control action">
+                <option value="">Select department</option>
+              </select>
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Department</label>
+              <select style="border: 2px solid grey ;" name="course" id="course" class="form-control">
+                <option value="">Select course</option>
+              </select>
+            </div>
             <div class="col-md-6 p-2">
               <label for="">Title</label>
               <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="title" required placeholder="Title">
@@ -123,17 +156,10 @@ include '../alert.message.php';
               <label for="">Amount</label>
               <input type="number" style="border: 2px solid grey ;" class="form-control ps-4" name="amount" required placeholder="amount">
             </div>
-            <div class="col-md-6 p-2">
-              <label for="">Faculty</label>
-              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
-            </div>
-            <div class="col-md-6 p-2">
-              <label for="">Department</label>
-              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="dept" required placeholder="department">
-            </div>
+
             <div class="level col-6">
               <label for="">Level</label>
-              <select class="form-select form-select-md" name="level" style="border: 2px solid grey ;" class="form-control ps-4" aria-label=".form-select-mg example">
+              <select style="border: 2px solid grey ;" class="form-select style=" border: 2px solid grey ;"form-select-md" name="level" style="border: 2px solid grey ;" class="form-control ps-4" aria-label=".form-select-mg example">
                 <option> Current Level</option>
                 <option value="100">100L</option>
                 <option value="200">200L</option>
@@ -179,7 +205,40 @@ include '../alert.message.php';
     </div>
   </main>
   <?php include "plugin.php" ?>
-
+  <script>
+    $(document).ready(function() {
+      $('.action').change(function() {
+        if ($(this).val() != '') {
+          var action = $(this).attr("id");
+          var query = $(this).val();
+          var result = '';
+          if (action == "university") {
+            result = 'faculty';
+          } else if (action == "faculty") {
+            result = 'department';
+          } else if (action == "department") {
+            result = 'course';
+          } else {
+            result = '';
+          }
+          $.ajax({
+            url: "uni_fetch.php",
+            method: "POST",
+            data: {
+              action: action,
+              query: query
+            },
+            success: function(data) {
+              $('#' + result).html(data);
+              if (result != 'course') {
+                $('#course').html('<option value="">Select course</option>');
+              }
+            }
+          })
+        }
+      });
+    });
+  </script>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>

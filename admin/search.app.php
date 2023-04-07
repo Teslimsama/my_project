@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $link = slugify($title);
     $faculty = $_POST['faculty'];
     $department= $_POST['dept'];
+    $course= $_POST['course'];
+    $university= $_POST['university'];
     $level= $_POST['level'];
     $amount= $_POST['amount'];
     $photo =$_FILES['img']['name'];
@@ -46,8 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare("INSERT INTO search (title, description, keywords, link) VALUES (?, ?, ?, ?)");
         $stmt->execute(array($title, $desc, $key, $newFileName));
         move_uploaded_file($tmpName, $location);
-        $stmt = $conn->prepare("INSERT INTO producttb (product_name, product_image, product_price, productlink, faculty, department, level, type) VALUES (?, ?, ?, ?, ?, ?, ? ,?)");
-        $stmt->execute(array($title, $imgname, $amount,$newFileName, $faculty,$department,$level, $type));
+        $stmt = $conn->prepare("INSERT INTO producttb (product_name, product_image, product_price, productlink, faculty, department, level, course, university, type) VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,?)");
+        $stmt->execute(array($title, $imgname, $amount,$newFileName, $faculty,$department,$level,$course,$university, $type));
         $_SESSION['success'] = "Successfully Added";
       } catch (PDOException $e) {
         $_SESSION['error'] = "Error: " . $e->getMessage();

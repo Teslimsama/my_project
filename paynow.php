@@ -143,6 +143,7 @@ if (!isset($user['id'])) {
       div.style.display = 'none';
 
     }
+    var link = <?php echo $row['id']; ?>
   </script>
   <script src="assets/js/checkout.js"></script>
 

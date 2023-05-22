@@ -13,6 +13,7 @@ function payWithPaystack(p) {
 		firstname: document.getElementById("first-name").value,
 		lastname: document.getElementById("last-name").value,
 		phone: document.getElementById("phone").value,
+		message: document.getElementById("book-id").value,
 		metadata: metadata,
 		ref: "Unibooks" + Math.floor(Math.random() * 1000000000 + 1) + "PAY", // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
 		// label: "Optional string that replaces customer email"
@@ -40,7 +41,7 @@ const form = document.getElementById("flutterwave");
 form.addEventListener("click", payNow, false);
 const firstname = document.getElementById("first-name").value;
 const lastname = document.getElementById("last-name").value;
-// var link = "<?php echo $row['id']; ?>";
+
 function payNow(f) {
 	f.preventDefault();
 
@@ -63,7 +64,10 @@ function payNow(f) {
 			//console.log(data);
 			const reference = data.tx_ref;
 			let message =
-				"Payment complete! Your Reference Number: " + reference + " Thank you!";
+				"Payment complete! Your Reference Number: " +
+				reference +
+				" Thank you!" +
+				link;
 
 			alert(message);
 

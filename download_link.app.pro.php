@@ -12,7 +12,7 @@ if ($result > 1) {
     // Get the file path and name
     $filename = $result['product_name'];
     $filebook = $result['productlink'];
-    $filepath ="unibooks_download/" . $filebook;
+    $filepath = "unibooks_download/" . $filebook;
     $id = $_GET['id'];
 
     // Check if the file exists
@@ -27,8 +27,6 @@ if ($result > 1) {
         $sql = "INSERT INTO downloads (customerid,book_id,date) VALUES (:customerid, :book , :date)";
         $stmt = $conn->prepare($sql);
         $stmt->execute(['book' => $filename, 'customerid' => $customerid, 'date' => $time]);
-
-
         // Set the headers
         header("Content-type: " . finfo_file(finfo_open(FILEINFO_MIME_TYPE), $filepath));
         header("Content-disposition: attachment; filename=" . $filename);
@@ -36,17 +34,17 @@ if ($result > 1) {
 
         // Read and output the file contents
         readfile($filepath);
+        header("location:description_page.pro.php?id=" . $id);
         exit;
-        header("location:description_page.php?id=" . $id);
     } else {
         // File not found
         $_SESSION['error'] = "File not found.";
-        header("location:description_page.php?id=" . $id);
+        header("location:description_page.pro.php?id=" . $id);
         exit;
     }
 } else {
     // Invalid ID
     $_SESSION['error'] = "File not found.";
-    header("location:description_page.php?id=" . $id);
+    header("location:description_page.pro.php?id=" . $id);
     exit;
 }

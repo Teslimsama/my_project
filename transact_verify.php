@@ -8,26 +8,30 @@ if ($ref == "") {
   header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
-// $stmt = $conn->prepare("SELECT * FROM project WHERE id=:id");
-// $stmt->execute(['id' => $_SESSION['admin']]);
-// $admin = $stmt->fetch();
-// $status = $_GET['status'];
 
-if ($_GET['status'] === 'successful') {
+
+if ($_GET['status'] === 'completed') {
+  $id=$_GET['id'];
+  $sql = "SELECT * FROM producttb WHERE id = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->execute([$id]);
+  $result = $stmt->fetch();
+  print_r($result);
   $reference = $_GET['tx_ref'];
   $status = 'success';
-  // $amount = $;
+  $amount = $result['product_price'];
 
-  // $book = $;
+  $book = $result['product_name'];
   $lname = $user['lastname'];
   $fname = $user['firstname'];
   $fullname = $fname . ' ' . $lname;
   $Cus_email = $user['email'];
   $Date_time = date('Y-m-d');
   $qty = 1;
+  $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $code = substr(str_shuffle($set), 0, 7);
 
-
-  $stmt = $conn->prepare("INSERT INTO payments (customerid, status, reference, fullname, date, email,quantity) VALUES(:customerid, :status,  :reference, :fullname, :date, :email,:quantity)");
+  $stmt = $conn->prepare("INSERT INTO payments (customerid, status, reference, fullname, date, email,quantity,code,book,amount) VALUES(:customerid, :status,  :reference, :fullname, :date, :email,:quantity,:code ,:book,:amount)");
   $stmt->execute(array(
     ':customerid' => $user_id,
     ':status' => $status,
@@ -35,34 +39,14 @@ if ($_GET['status'] === 'successful') {
     ':fullname' => $fullname,
     ':date' => $Date_time,
     ':email' => $Cus_email,
-    ':quantity' => $qty
+    ':code' => $code,
+    ':quantity' => $qty,
+    ':book' => $book,
+    ':amount' => $amount,
   ));
-  //  ,   ':book' => $book, :book,book
-  // Retrieve email associated with payment from unibooker table
-  $stmt = $conn->prepare('SELECT email FROM unibooker WHERE id = ?');
-  $stmt->execute([$user_id]);
-  $row = $stmt->fetch();
-  $email = $row['email'];
-
-  // If email is found in unibooker table, generate unique code, update code column, and send password reset email
-  if ($email) {
-    $code = uniqid();
-    $stmt = $conn->prepare('UPDATE unibooker SET code = ? WHERE id = ?');
-    $stmt->execute([$code, $user_id]);
-
-    // Send password reset email
-    $to = $email;
-    $subject = 'Password reset link';
-    $message = "Please click on this link to reset your password: https://example.com/reset_password.php?code=$code";
-    $headers = 'From: webmaster@example.com' . "\r\n" . 'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-    if (mail($to, $subject, $message, $headers)) {
-      echo 'Email not found';
-    }
-  } else {
-    // If email not found in unibooker table, set error message in session and redirect to pass page
-    $_SESSION['error'] = 'Email not found';
-
-    header('Location: pass.php');
-    exit;
-  }
+  
+  $redirect = "download_link.app.pro.php?id=" . $id."&code=".$code;
+  header("location:".$redirect);
+  
+  
 }

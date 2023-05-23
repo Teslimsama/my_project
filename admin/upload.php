@@ -124,7 +124,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               </select>
             </div>
             <div class="col-md-6 p-2">
-              <label for="">Department</label>
+              <label for="">Course</label>
               <select style="border: 2px solid grey ;" name="course" id="course" class="form-control">
                 <option value="">Select course</option>
               </select>
@@ -242,7 +242,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="a"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

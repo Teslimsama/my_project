@@ -51,7 +51,7 @@ function payNow(f) {
 		amount: document.getElementById("amount").value,
 		currency: "NGN",
 		payment_options: "card, mobilemoney, ussd",
-		redirect_url: "http://localhost/my_project/transact_verify.php?id="+link,
+		redirect_url: "http://localhost/my_project/transact_verify.php?id=" + link,
 
 		customer: {
 			email: document.getElementById("email-address").value,
@@ -66,8 +66,7 @@ function payNow(f) {
 			let message =
 				"Payment complete! Your Reference Number: " +
 				reference +
-				" Thank you!" +
-				link;
+				" Thank you!";
 
 			alert(message);
 

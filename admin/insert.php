@@ -7,7 +7,7 @@ if(isset($_POST["operation"]))
 	if($_POST["operation"] == "Add")
 	{
 		$image = '';
-		if($_FILES["user_image"]["name"] != '')
+		if($_FILES["product_image"]["name"] != '')
 		{
 			$image = upload_image();
 		}
@@ -30,17 +30,17 @@ if(isset($_POST["operation"]))
 	if($_POST["operation"] == "Edit")
 	{
 		$image = '';
-		if($_FILES["user_image"]["name"] != '')
+		if($_FILES["product_image"]["name"] != '')
 		{
 			$image = upload_image();
 		}
 		else
 		{
-			$image = $_POST["hidden_user_image"];
+			$image = $_POST["hidden_product_image"];
 		}
 		$statement = $conn->prepare(
 			"UPDATE producttb 
-			SET product_name = :product_name, product_price = :product_price, product_image = :product_image, type = :type ,faculty = :faculty ,department = :department,level = :level  
+			SET product_name = :product_name, product_price = :product_price, product_image = :product_image, type = :type ,university = :university ,faculty = :faculty ,department = :department,level = :level  
 			WHERE id = :id
 			"
 		);
@@ -50,10 +50,11 @@ if(isset($_POST["operation"]))
 				':product_price'	=>	$_POST["product_price"],
 				':product_image'		=>	$image,
 				':type'		=>	$_POST['type'],
+				':university'		=>	$_POST['university'],
 				':faculty'		=>	$_POST['faculty'],
 				':department'		=>	$_POST['department'],
 				':level'		=>	$_POST['level'],
-				':id'			=>	$_POST["user_id"]
+				':id'			=>	$_POST["product_id"]
 			)
 		);
 		if(!empty($result))

@@ -9,6 +9,7 @@ if (isset($_POST["search"]["value"])) {
 	$query .= 'WHERE product_name LIKE "%' . $_POST["search"]["value"] . '%" ';
 	$query .= 'OR product_image LIKE "%' . $_POST["search"]["value"] . '%" ';
 	$query .= 'OR product_price LIKE "%' . $_POST["search"]["value"] . '%" ';
+	$query .= 'OR university LIKE "%' . $_POST["search"]["value"] . '%" ';
 	$query .= 'OR faculty LIKE "%' . $_POST["search"]["value"] . '%" ';
 	$query .= 'OR department LIKE "%' . $_POST["search"]["value"] . '%" ';
 	$query .= 'OR level LIKE "%' . $_POST["search"]["value"] . '%" ';
@@ -29,7 +30,7 @@ $filtered_rows = $statement->rowCount();
 foreach ($result as $row) {
 	$image = '';
 	if ($row["product_image"] != '') {
-		$image = '<img src="../images/' . $row["product_image"] . '" class="img-thumbnail" width="50" height="35" />';
+		$image = '<img src="../images/' . $row["product_image"] . '" class="img-thumbnail" width="50" height="35" /> ';
 	} else {
 		$image = '';
 	}
@@ -44,6 +45,7 @@ foreach ($result as $row) {
 	$sub_array[] = $row["product_name"];
 	$sub_array[] = '₦'. $row["product_price"];
 	$sub_array[] = $type;
+	$sub_array[] = $row["university"];
 	$sub_array[] = $row["faculty"];
 	$sub_array[] = $row["department"];
 	$sub_array[] = $row["level"]. 'L';

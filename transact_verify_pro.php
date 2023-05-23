@@ -53,7 +53,7 @@ if ($result->data->status == 'success') {
   $Cus_email = $result->data->customer->email;
   // date_default_timezone_set('Africa/lagos');
   $Date_time = date('Y-m-d');
-  $qty= 1;
+  $qty = 1;
 
 
 
@@ -73,6 +73,6 @@ if ($result->data->status == 'success') {
   $stmt->execute([$book]);
   $row = $stmt->fetch();
   $id = $row['id'];
-  $redirect='download_link.app.php?id='. $id;
-  header('Location: '.$redirect);
+  $redirect = 'download_link.app.php?id=' . $id;
+  header('Location: ' . $redirect);
 }

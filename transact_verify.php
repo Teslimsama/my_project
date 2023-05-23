@@ -11,7 +11,7 @@ if ($ref == "") {
 
 
 if ($_GET['status'] === 'completed') {
-  $id=$_GET['id'];
+  $id = $_GET['id'];
   $sql = "SELECT * FROM producttb WHERE id = ?";
   $stmt = $conn->prepare($sql);
   $stmt->execute([$id]);
@@ -44,9 +44,7 @@ if ($_GET['status'] === 'completed') {
     ':book' => $book,
     ':amount' => $amount,
   ));
-  
-  $redirect = "download_link.app.pro.php?id=" . $id."&code=".$code;
-  header("location:".$redirect);
-  
-  
+
+  $redirect = "download_link.app.pro.php?id=" . $id . "&code=" . $code;
+  header("location:" . $redirect);
 }

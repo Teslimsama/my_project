@@ -12,7 +12,7 @@ if ($result > 1) {
     // Get the file path and name
     $filename = $result['product_name'];
     $filebook = $result['productlink'];
-    $filepath ="unibooks_download/" . $filebook;
+    $filepath = "unibooks_download/" . $filebook;
     $id = $_GET['id'];
 
     // Check if the file exists

@@ -1,4 +1,13 @@
 <?php include "session.php" ?>
+<?php
+$university = '';
+$query = "SELECT university FROM university_faculty_department GROUP BY university ORDER BY university ASC";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+  $university .= '<option value="' . $row["university"] . '">' . $row["university"] . '</option>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +32,8 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/faq.css" rel="stylesheet" />
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
 </head>
@@ -75,7 +85,7 @@
           </div>
           <div class="card-body px-0 pb-2">
 
-            <table id="user_data" class="table align-items-center justify-content-center mb-0 table-responsive p-0">
+            <table id="product_data" class="table align-items-center justify-content-center mb-0 table-responsive p-0">
               <thead>
                 <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
@@ -83,6 +93,7 @@
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Book</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">University</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Faculty</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Department</th>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Level</th>
@@ -139,14 +150,14 @@
   <script type="text/javascript" language="javascript">
     $(document).ready(function() {
       $('#add_button').click(function() {
-        $('#user_form')[0].reset();
+        $('#product_form')[0].reset();
         $('.modal-title').text("Add User");
         $('#action').val("Add");
         $('#operation').val("Add");
-        $('#user_uploaded_image').html('');
+        $('#product_uploaded_image').html('');
       });
 
-      var dataTable = $('#user_data').DataTable({
+      var dataTable = $('#product_data').DataTable({
         "processing": true,
         "serverSide": true,
         "order": [],
@@ -161,19 +172,22 @@
 
       });
 
-      $(document).on('submit', '#user_form', function(event) {
+      $(document).on('submit', '#product_form', function(event) {
         event.preventDefault();
         var product_name = $('#product_name').val();
         var product_price = $('#product_price').val();
         var type = $('#type').val();
+        var university = $('#university').val();
         var faculty = $('#faculty').val();
+        var desc = $('#desc').val();
+        var keywords = $('#keywords').val();
         var department = $('#department').val();
         var level = $('#level').val();
-        var extension = $('#user_image').val().split('.').pop().toLowerCase();
+        var extension = $('#product_image').val().split('.').pop().toLowerCase();
         if (extension != '') {
           if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
             alert("Invalid Image File");
-            $('#user_image').val('');
+            $('#product_image').val('');
             return false;
           }
         }
@@ -186,8 +200,8 @@
             processData: false,
             success: function(data) {
               alert(data);
-              $('#user_form')[0].reset();
-              $('#userModal').modal('hide');
+              $('#product_form')[0].reset();
+              $('#productModal').modal('hide');
               dataTable.ajax.reload();
             }
           });
@@ -197,25 +211,29 @@
       });
 
       $(document).on('click', '.update', function() {
-        var user_id = $(this).attr("id");
+        var product_id = $(this).attr("id");
         $.ajax({
           url: "fetch_single.php",
           method: "POST",
           data: {
-            user_id: user_id
+            product_id: product_id
           },
           dataType: "json",
           success: function(data) {
-            $('#userModal').modal('show');
+            $('#productModal').modal('show');
             $('#product_name').val(data.product_name);
             $('#product_price').val(data.product_price);
             $('#type').val(data.type);
+            $('#course').val(data.course);
+            $('#university').val(data.university);
+            $('#desc').val(data.description);
+            $('#keywords').val(data.keywords);
             $('#faculty').val(data.faculty);
             $('#department').val(data.department);
             $('#level').val(data.level);
-            $('.modal-title').text("Edit User");
-            $('#user_id').val(user_id);
-            $('#user_uploaded_image').html(data.user_image);
+            $('.modal-title').text("Edit Details");
+            $('#product_id').val(product_id);
+            $('#product_uploaded_image').html(data.product_image);
             $('#action').val("Edit");
             $('#operation').val("Edit");
           }
@@ -223,13 +241,13 @@
       });
 
       $(document).on('click', '.delete', function() {
-        var user_id = $(this).attr("id");
+        var product_id = $(this).attr("id");
         if (confirm("Are you sure you want to delete this?")) {
           $.ajax({
             url: "delete.php",
             method: "POST",
             data: {
-              user_id: user_id
+              product_id: product_id
             },
             success: function(data) {
               alert(data);
@@ -252,6 +270,40 @@
       }
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('.action').change(function() {
+        if ($(this).val() != '') {
+          var action = $(this).attr("id");
+          var query = $(this).val();
+          var result = '';
+          if (action == "university") {
+            result = 'faculty';
+          } else if (action == "faculty") {
+            result = 'department';
+          } else if (action == "department") {
+            result = 'course';
+          } else {
+            result = '';
+          }
+          $.ajax({
+            url: "uni_fetch.php",
+            method: "POST",
+            data: {
+              action: action,
+              query: query
+            },
+            success: function(data) {
+              $('#' + result).html(data);
+              if (result != 'course') {
+                $('#course').html('<option value="">Select course</option>');
+              }
+            }
+          })
+        }
+      });
+    });
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

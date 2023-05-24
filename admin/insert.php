@@ -39,9 +39,10 @@ if(isset($_POST["operation"]))
 			$image = $_POST["hidden_product_image"];
 		}
 		$statement = $conn->prepare(
-			"UPDATE producttb 
-			SET product_name = :product_name, product_price = :product_price, product_image = :product_image, type = :type ,university = :university ,faculty = :faculty ,department = :department,level = :level  
-			WHERE id = :id
+			"UPDATE producttb p
+            LEFT JOIN search s ON p.product_name = s.title
+			SET p.product_name = :product_name, p.product_price = :product_price, p.product_image = :product_image, p.type = :type ,p.university = :university ,p.faculty = :faculty ,p.department = :department,p.level = :level,s.keywords = :keywords,s.description = :description
+			WHERE p.product_name = :product_id
 			"
 		);
 		$result = $statement->execute(
@@ -54,7 +55,9 @@ if(isset($_POST["operation"]))
 				':faculty'		=>	$_POST['faculty'],
 				':department'		=>	$_POST['department'],
 				':level'		=>	$_POST['level'],
-				':id'			=>	$_POST["product_id"]
+				':description'		=>	$_POST['desc'],
+				':keywords'		=>	$_POST['keywords'],
+				':product_id'			=>	$_POST["product_id"]
 			)
 		);
 		if(!empty($result))

@@ -1,34 +1,45 @@
 <?php
-$conn = new PDO('mysql:host=localhost;dbname=unibooks', 'root', '');
-include('function.php');
-if(isset($_POST["product_id"]))
-{
-	$output = array();
-	$statement = $conn->prepare(
-		"SELECT * FROM `producttb` LEFT JOIN `search`ON producttb.id=search.id WHERE search.id = '".$_POST["product_id"]."'"
-	);
-	$statement->execute();
-	$result = $statement->fetchAll();
-	foreach($result as $row)
-	{
-		$output["product_name"] = $row["product_name"];
-		$output["department"] = $row["department"];
-		$output["description"] = $row["description"];
-		$output["keywords"] = $row["keywords"];
-		$output["course"] = $row["course"];
-		$output["university"] = $row["university"];
-		$output["product_price"] = $row["product_price"];
-		$output["level"] = $row["level"];
-		$output["faculty"] = $row["faculty"];
-		if($row["product_image"] != '')
-		{
-			$output['product_image'] = '<img src="../images/'.$row["product_image"].'" class="img-thumbnail" width="50" height="35" /><input type="hidden" name="hidden_product_image" value="'.$row["product_image"].'" />';
-		}
-		else
-		{
-			$output['product_image'] = '<input type="hidden" name="hidden_product_image" value="" />';
+require 'function.php'; // Use require instead of include for better error handling
+
+try {
+	$conn = new PDO('mysql:host=localhost;dbname=unibooks', 'root', '');
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	if (isset($_POST["product_id"])) {
+		$productID = $_POST["product_id"];
+
+		$query = "SELECT * FROM producttb p
+            LEFT JOIN search s ON p.product_name = s.title
+            WHERE s.title = :product_id
+            LIMIT 1";
+		$statement = $conn->prepare($query);
+		$statement->bindParam(':product_id', $productID, PDO::PARAM_STR_CHAR);
+		$statement->execute();
+
+		$result = $statement->fetch(PDO::FETCH_ASSOC);
+		if ($result) {
+			$output = [
+				"product_name" => $result["product_name"],
+				"department" => $result["department"],
+				"description" => $result["description"],
+				"keywords" => $result["keywords"],
+				"course" => $result["course"],
+				"university" => $result["university"],
+				"product_price" => $result["product_price"],
+				"level" => $result["level"],
+				"faculty" => $result["faculty"]
+			];
+
+			if ($result["product_image"]) {
+				$output["product_image"] = '<img src="../images/' . $result["product_image"] . '" class="img-thumbnail" width="50" height="35" /><input type="hidden" name="hidden_product_image" value="' . $result["product_image"] . '" />';
+			} else {
+				$output["product_image"] = '<input type="hidden" name="hidden_product_image" value="" />';
+			}
+
+			echo json_encode($output);
 		}
 	}
-	echo json_encode($output);
+} catch (PDOException $e) {
+	die("Database connection failed: " . $e->getMessage());
 }
 ?>

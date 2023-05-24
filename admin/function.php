@@ -15,7 +15,7 @@ function upload_image()
 function get_image_name($product_id)
 {
 	include('session.php');
-	$statement = $conn->prepare("SELECT product_image FROM producttb WHERE id = '$product_id'");
+	$statement = $conn->prepare("SELECT product_image FROM producttb WHERE product_name = '$product_id'");
 	$statement->execute();
 	$result = $statement->fetchAll();
 	foreach($result as $row)

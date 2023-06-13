@@ -2,7 +2,7 @@
 //fetch.php
 include "session.php";
 if (isset($_POST["action"])) {
-    $connect = mysqli_connect("localhost", "root", "", "testing");
+    // $connect = mysqli_connect("localhost", "root", "", "unibooks");
     $output = '';
     if ($_POST["action"] == "university") {
         $query = "SELECT faculty FROM university_faculty_department WHERE university = '" . $_POST["query"] . "' GROUP BY faculty";
@@ -14,7 +14,7 @@ if (isset($_POST["action"])) {
         }
     }
     if ($_POST["action"] == "faculty") {
-        $query = "SELECT department FROM university_faculty_department WHERE faculty = '" . $_POST["query"] . "'";
+        $query = "SELECT department FROM university_faculty_department WHERE faculty = '" . $_POST["query"] . "'GROUP BY department";
         $stmt = $conn->prepare($query);
         $stmt->execute();
         $output .= '<option value="">Select department</option>';
@@ -23,7 +23,7 @@ if (isset($_POST["action"])) {
         }
     }
     if ($_POST["action"] == "department") {
-        $query = "SELECT course FROM university_faculty_department WHERE department = '" . $_POST["query"] . "'";
+        $query = "SELECT course FROM university_faculty_department WHERE department = '" . $_POST["query"] . "'GROUP BY course";
         $stmt = $conn->prepare($query);
         $stmt->execute();
         $output .= '<option value="">Select course</option>';

@@ -80,17 +80,17 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       </div>
     </nav>
     <!-- End Navbar -->
+<div class="msg">
+          <?php echo ErrorMessage();
+          echo SuccessMessage(); ?>
 
+        </div>
     <div class="card mt-5 vw-80 ">
       <div class="card-header">
         <h5>Upload</h5>
       </div>
       <div class="card-body form-control ">
-        <div class="msg">
-          <?php echo ErrorMessage();
-          echo SuccessMessage(); ?>
-
-        </div>
+        
         <form method="POST" enctype="multipart/form-data" action="search.app.php" autocomplete="off">
           <div class="row">
             <div class="col-md-6">
@@ -175,6 +175,40 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         </form>
       </div>
     </div>
+    <div class="card mt-5 vw-80 search-container">
+      <div class="card-header">
+        <h5>Upload</h5>
+      </div>
+      <div class="card-body form-control ">
+        <form method="POST" enctype="multipart/form-data" action="school_input.php" autocomplete="off">
+          <div class="row">
+
+            <div class="col-md-6">
+              <label for="">University</label>
+              <input style="border: 2px solid grey ;" type="text" placeholder="University..." name="university" id="university" class="form-control action search-results">
+
+              </input>
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Faculty</label>
+              <input style="border: 2px solid grey ;" type="text" id="searchInput1" class="form-control search-results" name="faculty" id="searchResults1" placeholder="Faculty...">
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Department</label>
+              <input style="border: 2px solid grey ;" type="text" id="searchInput2" name="dept" id="searchResults2" class="form-control search-results" placeholder="Department...">
+            </div>
+            <div class="col-md-6 p-2">
+              <label for="">Course</label>
+              <input style="border: 2px solid grey ;" type="text" id="searchInput3" name="course" id="searchResults3" class="form-control search-results" placeholder="Course...">
+            </div>
+
+          </div>
+          <div class="butt p-2">
+            <button type="submit" class="btn btn-dark text-center" name="search">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
 
 
@@ -203,6 +237,51 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     </div>
   </main>
   <?php include "plugin.php" ?>
+  <script>
+    $(document).ready(function() {
+      $("#searchInput1").on("keyup", function() {
+        var searchValue = $(this).val();
+        $.ajax({
+          url: "search.php",
+          method: "POST",
+          data: {
+            search1: searchValue
+          },
+          success: function(data) {
+            $("#searchResults1").html(data);
+          }
+        });
+      });
+
+      $("#searchInput2").on("keyup", function() {
+        var searchValue = $(this).val();
+        $.ajax({
+          url: "search.php",
+          method: "POST",
+          data: {
+            search2: searchValue
+          },
+          success: function(data) {
+            $("#searchResults2").html(data);
+          }
+        });
+      });
+
+      $("#searchInput3").on("keyup", function() {
+        var searchValue = $(this).val();
+        $.ajax({
+          url: "search.php",
+          method: "POST",
+          data: {
+            search3: searchValue
+          },
+          success: function(data) {
+            $("#searchResults3").html(data);
+          }
+        });
+      });
+    });
+  </script>
   <script>
     $(document).ready(function() {
       $('.action').change(function() {

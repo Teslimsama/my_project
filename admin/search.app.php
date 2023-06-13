@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['error'] = "File does not exist";
     } elseif (!in_array($Ext, $validExt)) {
       $_SESSION['error'] = "Invalid file format";
-    } elseif ($fileSize > 1000000) {
+    } elseif ($fileSize > 160000000) {
       $_SESSION['error'] = "File is too large";
     } else {
       $newFileName = $slug . '.' . $Ext;

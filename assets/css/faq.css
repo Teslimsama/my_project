@@ -26,7 +26,12 @@ body {
 		height: 100vh;
 	}
 }
-
+div.dataTables_wrapper div.dataTables_filter input{
+	border: #e91e63 1px solid;
+}
+div.dataTables_wrapper div.dataTables_length select{
+	border: #e91e63 1px solid;
+}
 /* .result{
         position: absolute;
         top:55%;

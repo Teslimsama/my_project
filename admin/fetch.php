@@ -46,7 +46,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 // Format the data for output
 $data = [];
 foreach ($result as $row) {
-    $image = $row["product_image"] ? '<img src="../images/' . $row["product_image"] . '" class="img-thumbnail" width="50" height="35" />' : '';
+    $image = $row["product_image"] ? '<img src="../images/' . $row["product_image"] . '"id="' . $row['product_name'] . '" class="img-thumbnail update" width="50" height="35" />' : '';
     $type = $row['type'] === '1' ? 'Free Book' : 'Project';
 
     $sub_array = [

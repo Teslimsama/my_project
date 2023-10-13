@@ -37,26 +37,25 @@
                         <div class="col-md-6">
                             <label for="">University</label>
                             <select style="border: 2px solid grey ;" name="university" id="university" class="form-control action">
-                                <option value="">Select university</option>
-                                <?php echo $university; ?>
+                                <!-- <option value="">Select university</option> -->
                             </select>
                         </div>
                         <div class="col-md-6 p-2">
                             <label for="">Faculty</label>
                             <select style="border: 2px solid grey ;" name="faculty" id="faculty" class="form-control action">
-                                <option value="">Select faculty</option>
+                                <!-- <option value="">Select faculty</option> -->
                             </select>
                         </div>
                         <div class="col-md-6 p-2">
                             <label for="">Department</label>
                             <select style="border: 2px solid grey ;" name="department" id="department" class="form-control action">
-                                <option value="">Select department</option>
+                                <!-- <option value="">Select department</option> -->
                             </select>
                         </div>
                         <div class="col-md-6 p-2">
                             <label for="">Course</label>
                             <select style="border: 2px solid grey ;" name="course" id="course" class="form-control">
-                                <option value="">Select course</option>
+                                <!-- <option value="">Select course</option> -->
                             </select>
                         </div>
                         <div class="col-md-6 p-2">

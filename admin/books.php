@@ -1,13 +1,4 @@
 <?php include "session.php" ?>
-<?php
-$university = '';
-$query = "SELECT university FROM university_faculty_department GROUP BY university ORDER BY university ASC";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-  $university .= '<option value="' . $row["university"] . '">' . $row["university"] . '</option>';
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -224,12 +215,12 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $('#product_name').val(data.product_name);
             $('#product_price').val(data.product_price);
             $('#type').val(data.type);
-            $('#course').val(data.course);
-            $('#university').val(data.university);
             $('#desc').val(data.description);
             $('#keywords').val(data.keywords);
-            $('#faculty').val(data.faculty);
-            $('#department').val(data.department);
+            $('#university').html(data.universitySelect);
+            $('#faculty').html(data.facultySelect);
+            $('#department').html(data.departmentSelect);
+            $('#course').html(data.courseSelect);
             $('#level').val(data.level);
             $('.modal-title').text("Edit Details");
             $('#product_id').val(product_id);
@@ -239,7 +230,6 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
           }
         })
       });
-
       $(document).on('click', '.delete', function() {
         var product_id = $(this).attr("id");
         if (confirm("Are you sure you want to delete this?")) {
@@ -271,7 +261,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
-  <script>
+  <!-- <script>
     $(document).ready(function() {
       $('.action').change(function() {
         if ($(this).val() != '') {
@@ -304,7 +294,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         }
       });
     });
-  </script>
+  </script> -->
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->

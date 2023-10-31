@@ -12,9 +12,9 @@
                         <div class="col-md-6">
                             <label for="">Type of the Book\Material</label>
                             <select style="border: 2px solid grey ;" name="type" id="type" class="form-control ps-4" aria-label=".form-select-mg example">
-                                <option value="">Type</option>
+                                <!-- <option value="">Type</option>
                                 <option value="1">Books</option>
-                                <option value="0">Projects</option>
+                                <option value="0">Projects</option> -->
                             </select>
                         </div>
                         <div class="col-md-6 p-2">
@@ -49,7 +49,7 @@
                         <div class="col-md-6 p-2">
                             <label for="">Department</label>
                             <select style="border: 2px solid grey ;" name="department" id="department" class="form-control action">
-                                <!-- <option value="">Select department</option> -->
+                                <!-- <option value="+">Select department</option> -->
                             </select>
                         </div>
                         <div class="col-md-6 p-2">
@@ -69,12 +69,12 @@
                         <div class="level col-6">
                             <label for="">Level</label>
                             <select class="form-select form-select-md" name="level" id="level" style="border: 2px solid grey ;" class="form-control ps-4" aria-label=".form-select-mg example">
-                                <option> Current Level</option>
+                                <!-- <option> Current Level</option>
                                 <option value="100">100L</option>
                                 <option value="200">200L</option>
                                 <option value="300">300L</option>
                                 <option value="400">400L</option>
-                                <option value="500">500L</option>
+                                <option value="500">500L</option> -->
                             </select>
 
 

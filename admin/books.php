@@ -214,14 +214,14 @@
             $('#productModal').modal('show');
             $('#product_name').val(data.product_name);
             $('#product_price').val(data.product_price);
-            $('#type').val(data.type);
+            $('#type').html(data.typeSelect);
             $('#desc').val(data.description);
             $('#keywords').val(data.keywords);
             $('#university').html(data.universitySelect);
             $('#faculty').html(data.facultySelect);
             $('#department').html(data.departmentSelect);
             $('#course').html(data.courseSelect);
-            $('#level').val(data.level);
+            $('#level').html(data.levelSelect);
             $('.modal-title').text("Edit Details");
             $('#product_id').val(product_id);
             $('#product_uploaded_image').html(data.product_image);

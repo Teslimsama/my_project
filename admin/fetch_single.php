@@ -35,6 +35,33 @@ try {
 			} else {
 				$output["product_image"] = '<input type="hidden" name="hidden_product_image" value="" />';
 			}
+			
+			// Construct the "Level" select element with the available options
+			$levelSelect = '<option value="100">100L</option>
+                    <option value="200">200L</option>
+                    <option value="300">300L</option>
+                    <option value="400">400L</option>
+                    <option value="500">500L</option>';
+
+			// Set the selected option based on the database value
+			$selectedOption = $result["level"];
+
+			// Add the selected attribute to the option
+			$levelSelect = str_replace('value="' . $selectedOption . '"', 'value="' . $selectedOption . '" selected', $levelSelect);
+
+			$output["levelSelect"] = $levelSelect;
+
+			// Construct the "Type" select element
+			$typeSelect = '<option value="1">Books</option><option value="0">Projects</option>';
+			// Set the selected option based on the database value
+			$selectedOption = ($result["type"] == 1) ? '1' : '0';
+
+			// Add the selected attribute to the option
+			$typeSelect = str_replace('value="' . $selectedOption . '"', 'value="' . $selectedOption . '" selected', $typeSelect);
+
+			$output["typeSelect"] = $typeSelect;
+    
+	
 			// Query to get options for the "University" field
 			$universityQuery = "SELECT DISTINCT university FROM university_faculty_department";
 			$universityStatement = $conn->query($universityQuery);

@@ -2,13 +2,25 @@
 include '../alert.message.php';
 ?>
 <?php
-$university = '';
-$query = "SELECT university FROM university_faculty_department GROUP BY university ORDER BY university ASC";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-  $university .= '<option value="' . $row["university"] . '">' . $row["university"] . '</option>';
+// Function to fetch data from the database
+function fetchData($conn, $columnName)
+{
+    $data = array();
+    $sql = "SELECT DISTINCT $columnName FROM university_faculty_department";
+    $stmt = $conn->query($sql);
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $data[] = $row[$columnName];
+    }
+
+    return $data;
 }
+
+// Fetch data for each dropdown
+$universities = fetchData($conn, 'University');
+$faculties = fetchData($conn, 'Faculty');
+$departments = fetchData($conn, 'Department');
+$courses = fetchData($conn, 'Course');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +48,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -80,17 +93,17 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       </div>
     </nav>
     <!-- End Navbar -->
-<div class="msg">
-          <?php echo ErrorMessage();
-          echo SuccessMessage(); ?>
+    <div class="msg">
+      <?php echo ErrorMessage();
+      echo SuccessMessage(); ?>
 
-        </div>
+    </div>
     <div class="card mt-5 vw-80 ">
       <div class="card-header">
         <h5>Upload</h5>
       </div>
       <div class="card-body form-control ">
-        
+
         <form method="POST" enctype="multipart/form-data" action="search.app.php" autocomplete="off">
           <div class="row">
             <div class="col-md-6">
@@ -100,33 +113,48 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 <option value="0">Projects</option>
               </select>
             </div>
-            <!-- <div class="col-md-6">
-              <label for="">Which Faculty Is It For ?</label>
-              <input type="text" style="border: 2px solid grey ;" class="form-control ps-4" name="faculty" required placeholder="faculty">
-            </div> -->
             <div class="col-md-6">
               <label for="">University</label>
-              <select style="border: 2px solid grey ;" name="university" id="university" class="form-control action">
-                <option value="">Select university</option>
-                <?php echo $university; ?>
+              <select style=" width: 100%; border: 2px solid grey ;" class="select2 form-select" name="university">
+                <option value="">Select University</option>
+                <?php
+                foreach ($universities as $university) {
+                  echo "<option value='$university'>$university</option>";
+                }
+                ?>
               </select>
             </div>
             <div class="col-md-6 p-2">
               <label for="">Faculty</label>
-              <select style="border: 2px solid grey ;" name="faculty" id="faculty" class="form-control action">
-                <option value="">Select faculty</option>
+              <select class="select2 form-select" name="faculty" style=" width: 100%; border: 2px solid grey ;">
+                <option value="">Select Faculty</option>
+                <?php
+                foreach ($faculties as $faculty) {
+                  echo "<option value='$faculty'>$faculty</option>";
+                }
+                ?>
               </select>
             </div>
             <div class="col-md-6 p-2">
               <label for="">Department</label>
-              <select style="border: 2px solid grey ;" name="dept" id="department" class="form-control action">
-                <option value="">Select department</option>
+              <select class=" select2 form-select" name="faculty" style=" width: 100%; border: 2px solid grey ;">
+                <option value="">Select Department</option>
+                <?php
+                foreach ($departments as $department) {
+                  echo "<option value='$department'>$department</option>";
+                }
+                ?>
               </select>
             </div>
             <div class="col-md-6 p-2">
               <label for="">Course</label>
-              <select style="border: 2px solid grey ;" name="course" id="course" class="form-control">
-                <option value="">Select course</option>
+              <select class="select2 form-select" name="course" style=" width: 100%; border: 2px solid grey ;">
+                <option value="">Select Course</option>
+                <?php
+                foreach ($courses as $course) {
+                  echo "<option value='$course'>$course</option>";
+                }
+                ?>
               </select>
             </div>
             <div class="col-md-6 p-2">
@@ -157,7 +185,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
             <div class="level col-6">
               <label for="">Level</label>
-              <select style="border: 2px solid grey ;" class="form-select style=" border: 2px solid grey ;"form-select-md" name="level" style="border: 2px solid grey ;" class="form-control ps-4" aria-label=".form-select-mg example">
+              <select style="border: 2px solid grey ;" class="form-select " name="level" style="border: 2px solid grey ;" class="form-control ps-4" aria-label=".form-select-mg example">
                 <option> Current Level</option>
                 <option value="100">100L</option>
                 <option value="200">200L</option>
@@ -183,23 +211,49 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         <form method="POST" enctype="multipart/form-data" action="school_input.php" autocomplete="off">
           <div class="row">
 
-            <div class="col-md-6">
+            <div class="">
               <label for="">University</label>
-              <input style="border: 2px solid grey ;" type="text" placeholder="University..." name="university" id="university" class="form-control action search-results">
-
-              </input>
+              <select style=" width: 100%; border: 2px solid grey ;" class="select2 form-select" id="university" name="university" style="width: 100%;">
+                <option value="">Select University</option>
+                <?php
+                foreach ($universities as $university) {
+                  echo "<option value='$university'>$university</option>";
+                }
+                ?>
+              </select>
             </div>
-            <div class="col-md-6 p-2">
+            <div class="">
               <label for="">Faculty</label>
-              <input style="border: 2px solid grey ;" type="text" id="searchInput1" class="form-control search-results" name="faculty" id="searchResults1" placeholder="Faculty...">
+              <select class="select2" name="faculty" style=" width: 100%; border: 2px solid grey ;">
+                <option value="">Select Faculty</option>
+                <?php
+                foreach ($faculties as $faculty) {
+                  echo "<option value='$faculty'>$faculty</option>";
+                }
+                ?>
+              </select>
             </div>
-            <div class="col-md-6 p-2">
+            <div class="">
               <label for="">Department</label>
-              <input style="border: 2px solid grey ;" type="text" id="searchInput2" name="dept" id="searchResults2" class="form-control search-results" placeholder="Department...">
+              <select class=" select2 form-select" name="department"  style=" width: 100%; border: 2px solid grey ;">
+                <option value="">Select Department</option>
+                <?php
+                foreach ($departments as $department) {
+                  echo "<option value='$department'>$department</option>";
+                }
+                ?>
+              </select>
             </div>
-            <div class="col-md-6 p-2">
+            <div class="">
               <label for="">Course</label>
-              <input style="border: 2px solid grey ;" type="text" id="searchInput3" name="course" id="searchResults3" class="form-control search-results" placeholder="Course...">
+              <select class="select2 form-select" name="course" id="course" style=" width: 100%; border: 2px solid grey ;">
+                <option value="">Select Course</option>
+                <?php
+                foreach ($courses as $course) {
+                  echo "<option value='$course'>$course</option>";
+                }
+                ?>
+              </select>
             </div>
 
           </div>
@@ -237,6 +291,16 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     </div>
   </main>
   <?php include "plugin.php" ?>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.select2').select2({
+        tags: true, // Allow user to enter custom values
+        tokenSeparators: [',', ' '], // Define how to separate tags
+      });
+    });
+  </script>
   <script>
     $(document).ready(function() {
       $("#searchInput1").on("keyup", function() {
@@ -282,7 +346,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       });
     });
   </script>
-  <script>
+  <!-- <script>
     $(document).ready(function() {
       $('.action').change(function() {
         if ($(this).val() != '') {
@@ -315,7 +379,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         }
       });
     });
-  </script>
+  </script> -->
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>

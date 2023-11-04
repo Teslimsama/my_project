@@ -1,40 +1,26 @@
 <?php
 include "session.php";
 include '../alert.message.php';
-// Check if the form is submitted
-if (isset($_POST['search'])) {
-    // Get the form data
-    $university = $_POST['university'];
-    $faculty = $_POST['faculty'];
-    $department = $_POST['dept'];
-    $course = $_POST['course'];
 
-    // Prepare the SQL statement
-    $sql = "INSERT INTO university_faculty_department (university, faculty, department, course) VALUES (:university, :faculty, :department, :course)";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $university = ucwords($_POST['university']);
+    $faculty = ucwords($_POST['faculty']);
+    $department = ucwords($_POST['department']);
+    $course = ucwords($_POST['course']);
 
-    // ...
-    try {
-        // Prepare the statement
-        $stmt = $conn->prepare($sql);
 
-        // Bind the parameters
-        $stmt->bindParam(':university', $university);
-        $stmt->bindParam(':faculty', $faculty);
-        $stmt->bindParam(':department', $department);
-        $stmt->bindParam(':course', $course);
+    // Check if the combination exists
+    $stmt = $conn->prepare("SELECT * FROM university_faculty_department WHERE university = ? AND faculty = ? AND department = ? AND course = ?");
+    $stmt->execute([$university, $faculty, $department, $course]);
+    $existingRow = $stmt->fetch();
 
-        // Execute the statement
-        $stmt->execute();
-
-        // Redirect the user to the upload page
-        header("Location: upload.php");
-        $_SESSION['success'] = 'Done';
-        exit(); // Important: Terminate the current script
-
-    } catch (PDOException $e) {
-        die("Query failed: " . $e->getMessage());
+    if ($existingRow) {
+        // The combination already exists
+        echo "Combination already exists in the database.";
+    } else {
+        // The combination doesn't exist, insert it
+        $stmt = $conn->prepare("INSERT INTO university_faculty_department (university, faculty, department, course) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$university, $faculty, $department, $course]);
+        echo "Combination inserted into the database.";
     }
-    // ...
-    header("Location: upload.php");
-    $_SESSION['error'] = "Query failed: " . $e->getMessage();
 }

@@ -1,115 +1,93 @@
 <?php
-// Database connection using PDO
-try {
-    $pdo = new PDO('mysql:host=localhost;dbname=unibooks', 'root', '');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die('Database connection failed: ' . $e->getMessage());
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "unibooks";
+
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch data for universities, departments, faculties, and courses from the database
-try {
-    $query = "SELECT university, department, faculty, course FROM university_faculty_department";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
-    $options = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die('Query failed: ' . $e->getMessage());
+// Function to fetch data from the database
+function fetchData($conn, $columnName)
+{
+    $data = array();
+    $sql = "SELECT DISTINCT $columnName FROM university_faculty_department";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row[$columnName];
+        }
+    }
+
+    return $data;
 }
 
-// Create unique arrays for each type of option
-$uniqueUniversities = [];
-$uniqueDepartments = [];
-$uniqueFaculties = [];
-$uniqueCourses = [];
-
-foreach ($options as $option) {
-    $uniqueUniversities[$option['university']] = $option['university'];
-    $uniqueDepartments[$option['department']] = $option['department'];
-    $uniqueFaculties[$option['faculty']] = $option['faculty'];
-    $uniqueCourses[$option['course']] = $option['course'];
-}
+// Fetch data for each dropdown
+$universities = fetchData($conn, 'University');
+$faculties = fetchData($conn, 'Faculty');
+$departments = fetchData($conn, 'Department');
+$courses = fetchData($conn, 'Course');
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Select Options</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
 </head>
 
 <body>
-    <form method="post" id="dataForm">
-        <label for="selectedUniversity">University:</label>
-        <select name="selectedUniversity" id="selectedUniversity">
+    <form method="post" action="school_input.php">
+        <select class="select2" name="university" style="width: 100%;">
+            <option value="">Select University</option>
             <?php
-            foreach ($uniqueUniversities as $value) {
-                $selected = ($value == $selectedUniversity) ? 'selected' : '';
-                echo "<option value='$value' $selected>$value</option>";
+            foreach ($universities as $university) {
+                echo "<option value='$university'>$university</option>";
             }
             ?>
-        </select><br>
-
-        <label for="selectedDepartment">Department:</label>
-        <select name="selectedDepartment" id="selectedDepartment">
+        </select>
+        <select class="select2" name="faculty" style="width: 100%;">
+            <option value="">Select Faculty</option>
             <?php
-            foreach ($uniqueDepartments as $value) {
-                $selected = ($value == $selectedDepartment) ? 'selected' : '';
-                echo "<option value='$value' $selected>$value</option>";
+            foreach ($faculties as $faculty) {
+                echo "<option value='$faculty'>$faculty</option>";
             }
             ?>
-        </select><br>
-
-        <label for="selectedFaculty">Faculty:</label>
-        <select name="selectedFaculty" id="selectedFaculty">
+        </select>
+        <select class="select2" name="department" style="width: 100%;">
+            <option value="">Select Department</option>
             <?php
-            foreach ($uniqueFaculties as $value) {
-                $selected = ($value == $selectedFaculty) ? 'selected' : '';
-                echo "<option value='$value' $selected>$value</option>";
+            foreach ($departments as $department) {
+                echo "<option value='$department'>$department</option>";
             }
             ?>
-        </select><br>
-
-        <label for="selectedCourse">Course:</label>
-        <select name="selectedCourse" id="selectedCourse">
+        </select>
+        <select class="select2" name="course" style="width: 100%;">
+            <option value="">Select Course</option>
             <?php
-            foreach ($uniqueCourses as $value) {
-                $selected = ($value == $selectedCourse) ? 'selected' : '';
-                echo "<option value='$value' $selected>$value</option>";
+            foreach ($courses as $course) {
+                echo "<option value='$course'>$course</option>";
             }
             ?>
-        </select><br>
-
-        <input type="submit" value="Submit">
+        </select>
+        <button type="submit">Submit</button>
     </form>
-
-    <!-- JavaScript to handle the form submission -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#dataForm').submit(function(event) {
-                event.preventDefault();
-
-                // Get the selected values
-                var selectedUniversity = $('#selectedUniversity').val();
-                var selectedDepartment = $('#selectedDepartment').val();
-                var selectedFaculty = $('#selectedFaculty').val();
-                var selectedCourse = $('#selectedCourse').val();
-
-                // Send the selected values to the server for further processing
-                $.ajax({
-                    url: 'process_selection.php', // Create a new PHP script to handle the selection
-                    method: 'POST',
-                    data: {
-                        selectedUniversity: selectedUniversity,
-                        selectedDepartment: selectedDepartment,
-                        selectedFaculty: selectedFaculty,
-                        selectedCourse: selectedCourse
-                    },
-                    success: function(response) {
-                        // Handle the response from the server, if needed
-                    }
-                });
+            $('.select2').select2({
+                tags: true, // Allow user to enter custom values
+                tokenSeparators: [',', ' '], // Define how to separate tags
             });
         });
     </script>

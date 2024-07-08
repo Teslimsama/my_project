@@ -10,10 +10,7 @@ if (!isset($_GET['code']) or !isset($_GET['email'])) {
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <?php include "meta.php" ?>
   <title>
     Reset Password || Unibooks
   </title>

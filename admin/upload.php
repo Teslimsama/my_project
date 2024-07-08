@@ -1,7 +1,6 @@
 <?php include "session.php";
 include '../alert.message.php';
-?>
-<?php
+
 // Function to fetch data from the database
 function fetchData($conn, $columnName)
 {
@@ -45,9 +44,6 @@ $courses = fetchData($conn, 'Course');
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/faq.css" rel="stylesheet" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
@@ -301,51 +297,7 @@ $courses = fetchData($conn, 'Course');
       });
     });
   </script>
-  <script>
-    $(document).ready(function() {
-      $("#searchInput1").on("keyup", function() {
-        var searchValue = $(this).val();
-        $.ajax({
-          url: "search.php",
-          method: "POST",
-          data: {
-            search1: searchValue
-          },
-          success: function(data) {
-            $("#searchResults1").html(data);
-          }
-        });
-      });
-
-      $("#searchInput2").on("keyup", function() {
-        var searchValue = $(this).val();
-        $.ajax({
-          url: "search.php",
-          method: "POST",
-          data: {
-            search2: searchValue
-          },
-          success: function(data) {
-            $("#searchResults2").html(data);
-          }
-        });
-      });
-
-      $("#searchInput3").on("keyup", function() {
-        var searchValue = $(this).val();
-        $.ajax({
-          url: "search.php",
-          method: "POST",
-          data: {
-            search3: searchValue
-          },
-          success: function(data) {
-            $("#searchResults3").html(data);
-          }
-        });
-      });
-    });
-  </script>
+  
   <!-- <script>
     $(document).ready(function() {
       $('.action').change(function() {

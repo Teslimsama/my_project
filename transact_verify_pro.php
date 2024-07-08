@@ -1,6 +1,16 @@
 <?php
-// Include session.php file
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 include 'session.php';
+
+// Check if user is signed in
+if (!isset($user['id'])) {
+  $_SESSION['error'] = 'Signin First !!!';
+  header("Location: Signin");
+  exit();
+}
 
 // Get user id from user array
 $user_id = $user['id'];
@@ -14,7 +24,7 @@ if (empty($reference)) {
 
 // Send cURL request to Paystack API to verify payment
 $curl = curl_init();
-curl_setopt_array($curl, array(
+curl_setopt_array($curl, [
   CURLOPT_URL => "https://api.paystack.co/transaction/verify/" . rawurlencode($reference),
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
@@ -22,11 +32,12 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_HTTPHEADER => array(
-    "Authorization: Bearer sk_test_b6e69229a47fa4f88ca61ebe3c855cf9d4014ebb",
+  CURLOPT_HTTPHEADER => [
+    "Authorization: Bearer " . $_ENV['PAYSTACK_SECRET_KEY'],
     "Cache-Control: no-cache",
-  ),
-));
+  ],
+]);
+
 $response = curl_exec($curl);
 if (curl_errno($curl)) {
   $error = curl_error($curl);
@@ -36,29 +47,32 @@ if (curl_errno($curl)) {
 curl_close($curl);
 
 // Decode JSON response from Paystack API
-$result = json_decode($response);
+$result = json_decode($response, true);
 
 // If payment was successful, retrieve information from response and insert into database
-if ($result->data->status == 'success') {
+if ($result['data']['status'] == 'success') {
+  $status = $result['data']['status'];
+  $reference = $result['data']['reference'];
+  $amount = $result['data']['amount'] / 100;
+  $book_id = $result['data']['metadata']['book_id'];
 
-  $status = $result->data->status;
-  $reference = $result->data->reference;
-  $amount = $result->data->amount;
+  $sql = "SELECT * FROM producttb WHERE id = ?";
+  $stmts = $conn->prepare($sql);
+  $stmts->execute([$book_id]);
+  $result_b = $stmts->fetch(PDO::FETCH_ASSOC);
 
-  $book = $result->data->customer->phone;
-  $lname = $result->data->customer->last_name;
-  $fname = $result->data->customer->first_name;
-  // $mata = $result->data->customer->metadata;
+  $book = $result_b['product_name'];
+  $lname = $result['data']['customer']['last_name'];
+  $fname = $result['data']['customer']['first_name'];
   $fullname = $fname . ' ' . $lname;
-  $Cus_email = $result->data->customer->email;
-  // date_default_timezone_set('Africa/lagos');
+  $Cus_email = $result['data']['customer']['email'];
   $Date_time = date('Y-m-d');
   $qty = 1;
+  $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $code = substr(str_shuffle($set), 0, 7);
 
-
-
-  $stmt = $conn->prepare("INSERT INTO payments (customerid, status,amount, reference, fullname, date, email,book,quantity) VALUES(:customerid, :status, :amount, :reference, :fullname, :date, :email, :book,:quantity)");
-  $stmt->execute(array(
+  $stmt = $conn->prepare("INSERT INTO payments (customerid, status, amount, reference, fullname, date, email, book, quantity, code) VALUES(:customerid, :status, :amount, :reference, :fullname, :date, :email, :book, :quantity, :code)");
+  $stmt->execute([
     ':customerid' => $user_id,
     ':status' => $status,
     ':amount' => $amount,
@@ -67,12 +81,14 @@ if ($result->data->status == 'success') {
     ':date' => $Date_time,
     ':email' => $Cus_email,
     ':book' => $book,
-    ':quantity' => $qty
-  ));
-  $stmt = $conn->prepare('SELECT id FROM producttb WHERE productlink = ?');
-  $stmt->execute([$book]);
-  $row = $stmt->fetch();
-  $id = $row['id'];
-  $redirect = 'download_link.app.php?id=' . $id;
+    ':quantity' => $qty,
+    ':code' => $code
+  ]);
+
+  $redirect = 'download_link.app.pro.php?id=' . $book_id . '&code=' . $code;
   header('Location: ' . $redirect);
+  exit();
+  } else {
+  $_SESSION['error'] = "Payment verification failed: " . $result['data']['gateway_response'];
+  header("location:description_pro.php?id=" . $id);
 }

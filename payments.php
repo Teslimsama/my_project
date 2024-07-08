@@ -1,14 +1,10 @@
 <?php include "session.php";
-include 'alert.message.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <?php include "meta.php" ?>
   <title>
     Payments || UniBooks
   </title>
@@ -37,7 +33,7 @@ include 'alert.message.php';
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Payments</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Payments</h6>
@@ -92,65 +88,66 @@ include 'alert.message.php';
                     while ($patient_rows = $stmt->fetch(PDO::FETCH_ASSOC)) {
                       $date = $patient_rows['date'];
                       // $date = date('d/m/Y', $dowload_date);
-        
-   
+
+
                   ?>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6><?php echo $n; ?> </h6>
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6><?php echo $n; ?> </h6>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm"><?php echo $patient_rows['book']; ?></h6>
+                        </td>
+                        <td>
+                          <div class="d-flex px-2">
+                            <div class="my-auto">
+                              <h6 class="mb-0 text-sm"><?php echo $patient_rows['book']; ?></h6>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">₦<?php echo $patient_rows['amount']; ?></p>
-                      </td>
-                      <td>
-                        <h6 class="text-xs font-weight-bold">
-                          <?php 
-                          if ($patient_rows['status'] === 'success') {
-                           echo "<span class='badge badge-sm bg-gradient-success'>".$patient_rows['status']."</span></h6>";
-                          }else {
-                            echo "<span class='badge badge-sm bg-gradient-danger'>" . $patient_rows['status'] . "</span></h6>";
-                          }
-                          
-                          
+                        </td>
+                        <td>
+                          <p class="text-sm font-weight-bold mb-0">₦<?php echo $patient_rows['amount']; ?></p>
+                        </td>
+                        <td>
+                          <h6 class="text-xs font-weight-bold">
+                            <?php
+                            if ($patient_rows['status'] === 'success') {
+                              echo "<span class='badge badge-sm bg-gradient-success'>" . $patient_rows['status'] . "</span></h6>";
+                            } else {
+                              echo "<span class='badge badge-sm bg-gradient-danger'>" . $patient_rows['status'] . "</span></h6>";
+                            }
+
+
                             ?>
-                      </td>
-                      <td class="align-middle text-center">
-                        <h6><?php echo $patient_rows['date']; ?></h6>
+                        </td>
+                        <td class="align-middle text-center">
+                          <h6><?php echo $patient_rows['date']; ?></h6>
 
-            <!-- </div>
+                          <!-- </div>
           </div> -->
-          </td>
-          <td class="align-middle">
-            <button class="btn btn-link text-secondary mb-0">
-              <i class="fa fa-ellipsis-v text-xs"></i>
-            </button>
-          </td>
-          </tr>
+                        </td>
+                        <td class="align-middle">
+                          <button class="btn btn-link text-secondary mb-0">
+                            <i class="fa fa-ellipsis-v text-xs"></i>
+                          </button>
+                        </td>
+                      </tr>
 
-        <?php $n++;
-                  } }  catch (Exception $e) {
-        echo $e->getMessage();
-    } ?>
-        </tr>
-        </tbody>
-        </table>
+                  <?php $n++;
+                    }
+                  } catch (Exception $e) {
+                    echo $e->getMessage();
+                  } ?>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
 
-    <?php include "footer.php" ?>
+      <?php include "footer.php" ?>
 
     </div>
   </main>

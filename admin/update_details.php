@@ -4,83 +4,145 @@ include "session.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="../Images/android-chrome-512x512.png">
-  <title>
-    Profile page || Unibooks
-  </title>
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script> 
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-  <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" >
-  <link id="pagestyle" href="../assets/css/profile.css" rel="stylesheet" >
+  <title>Star Admin2 </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="assets/vendors/feather/feather.css">
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="assets/vendors/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="assets/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="assets/images/favicon.png" />
 </head>
+
 <body>
-            <div class="container mt-5 col-lg-12 w-50 form-control ">
-                <div class="card mt-5 bg-light ">
-                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-center text-capitalize ps-3">Update Your Details</h6>
-              
+  <div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <?php include 'navbar.php'; ?>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_sidebar.html -->
+      <?php include 'sidebar.php'; ?>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <div class="msg">
+                  <?php echo ErrorMessage();
+                  echo SuccessMessage(); ?>
+                </div>
+                <h4 class="card-title">Personal Information</h4>
+                <form class="form-sample" action="update.app.php" method="POST" enctype="multipart/form-data">
+                  <p class="card-description">Personal info</p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">First Name</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="firstname" value="<?php echo $admin['firstname']; ?>" placeholder="First name" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Last Name</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" name="lastname" value="<?php echo $admin['lastname']; ?>" placeholder="Last name" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Username</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" name="username" value="<?php echo $admin['username']; ?>" required>
+                          <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Phone Number</label>
+                        <div class="col-sm-9">
+                          <input type="tel" class="form-control" name="phone" value="<?php echo $admin['phone']; ?>" placeholder="Phone eg.08079730127" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Email</label>
+                        <div class="col-sm-9">
+                          <input type="email" class="form-control" name="email" placeholder="Valid email" value="<?php echo $admin['email']; ?>" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Date of Birth</label>
+                        <div class="col-sm-9">
+                          <input type="date" class="form-control" name="dob" value="<?php echo $admin['dob']; ?>" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Upload Your Profile Image</label>
+                    <div class="col-sm-9">
+                      <input type="file" class="form-control" name="attachment">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                    <a class="btn btn-link ml-2" href="profilepage">Cancel</a>
+                  </div>
+                </form>
               </div>
             </div>
-                    <div class="card-body">
-                    <form action="app/update.app.php " method="POST" enctype="multipart/form-data">
-                <div class="upload p-2 form-control">
-                    <label for="">Upload Your profile_image </label>
-                    <input type="file" class="" name="attachment">
-                </div>
-                <div class="first">
-                    <label for="">Firstname</label>
-                    <input type="firstname" class="form-control" name="firstname" value="<?php echo $admin['firstname'] ;?>" placeholder="first name">
-            
-                </div>
-                <div class="last ">
-                    <label for="">Lastname</label>
-                    <input type="lastname" class="form-control" name="lastname" value="<?php echo $admin['lastname'] ;?>" placeholder="last name">
-                    
-                </div> 
-
-                <div class="user">
-                <label>Username</label>
-                <input type="text" name="username" value="<?php echo $admin['username'] ;?>" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" >
-                <span class="invalid-feedback"><?php echo $username_err; ?></span>
-                </div>
-
-                <div class="phone">
-                    <label for="">Phone number</label>
-                    <input type="tel" class="form-control" name="phone" value="<?php echo $admin['phone'] ;?>" placeholder="phone eg.08079730127" >
-                    
-                </div>
-                
-                <div class="email">
-                    <label for="">Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="valid email" value="<?php echo $admin['email'] ;?>">
-                </div>
-                
-                <div class="mt-4">
-                    <label for="">Date of birth</label>
-                    <input type="date" class="form-control" name="dob" placeholder="" value="<?php echo $admin['dob'] ;?>">
-                </div>
-                <div class="form-group">
-                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-                <a class="btn btn-link ml-2" href="profilepage">Cancel</a>
-                </div>
-            </form>
-            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <?php include 'footer.php'; ?>
+          <!-- partial -->
         </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
     </div>
-            
-
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/template.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <!-- End custom js for this page-->
 </body>
+
 </html>

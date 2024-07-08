@@ -42,7 +42,8 @@ $courses = fetchData($conn, 'Course');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap.min.css" />
+
 </head>
 
 <body>
@@ -81,7 +82,28 @@ $courses = fetchData($conn, 'Course');
         </select>
         <button type="submit">Submit</button>
     </form>
+    <table id="product_data" style="width: 100%;" class="table align-items-center justify-content-center mb-0 table-responsive p-0">
+        <thead>
+            <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Image</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Book</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">University</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Faculty</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Department</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Level</th>
+                <th></th>
+
+            </tr>
+        </thead>
+
+    </table>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -89,6 +111,20 @@ $courses = fetchData($conn, 'Course');
                 tags: true, // Allow user to enter custom values
                 tokenSeparators: [',', ' '], // Define how to separate tags
             });
+        });
+        var dataTable = $('#product_data').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                url: "fetch.php",
+                type: "POST"
+            },
+            "columnDefs": [{
+                "targets": [0, 3, 4],
+                "orderable": true,
+            }, ],
+
         });
     </script>
 </body>

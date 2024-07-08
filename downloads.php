@@ -1,15 +1,10 @@
 <?php include "session.php";
-include 'alert.message.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <?php include "meta.php" ?>
   <title>
     Downloads || Unibooks
   </title>
@@ -38,7 +33,7 @@ include 'alert.message.php';
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Downloads</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Downloads</h6>
@@ -59,7 +54,7 @@ include 'alert.message.php';
       </div>
     </nav>
     <!-- End Navbar -->
-    
+
     <div class="row">
       <div class="col-12">
         <div class="card dets ">
@@ -74,44 +69,45 @@ include 'alert.message.php';
                 </thead>
                 <tbody>
                   <?php
-                  $student_id=$user['id'];
-                 try {
-        $stmt = $conn->prepare("SELECT * FROM downloads WHERE customerid=? ORDER BY id DESC");
-        $stmt->execute([$student_id]);
-        $n=1;
-        while ($patient_rows = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $date = $patient_rows['date'];
-           
-        
-   
+                  $student_id = $user['id'];
+                  try {
+                    $stmt = $conn->prepare("SELECT * FROM downloads WHERE customerid=? ORDER BY id DESC");
+                    $stmt->execute([$student_id]);
+                    $n = 1;
+                    while ($patient_rows = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                      $date = $patient_rows['date'];
+
+
+
 
                   ?>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6><?php echo $n; ?> </h6>
+                      <tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6><?php echo $n; ?> </h6>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?php echo  $patient_rows['book_id'];
-                                                                                                                      ?>">
-                            <h6> <?php echo  $patient_rows['book_id'];
-                                  ?></h6>
+                        </td>
+                        <td>
+                          <div class="avatar-group mt-2">
+                            <a href="javascript:;" class="" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<?php echo  $patient_rows['book_id'];
+                                                                                                                        ?>">
+                              <h6> <?php echo  $patient_rows['book_id'];
+                                    ?></h6>
 
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold"> <?php echo $date; ?> </span>
-                      </td>
-                    </tr>
+                            </a>
+                          </div>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <span class="text-xs font-weight-bold"> <?php echo $date; ?> </span>
+                        </td>
+                      </tr>
                   <?php $n++;
-                  } } catch (Exception $e) {
-        echo $e->getMessage();
-    } ?>
+                    }
+                  } catch (Exception $e) {
+                    echo $e->getMessage();
+                  } ?>
                 </tbody>
               </table>
             </div>

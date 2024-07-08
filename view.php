@@ -21,10 +21,7 @@ try {
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <?php include "meta.php" ?>
   <title>
     Notifications || Unibooks
   </title>
@@ -46,28 +43,28 @@ try {
 <body>
   <div class="container">
 
-  
-  <div class="card not text-center">
-    <div class="card-body">
 
-    
-    <?php
+    <div class="card not text-center">
+      <div class="card-body">
 
 
-    $query = $conn->prepare("SELECT * from `notifications` where `id` = ? AND `type` = 'comment'");
-    $query->execute(array($id));
-    $result = $query->fetch();
-    if ($result > 0) {
-      // foreach ($result as $i) {
-        // print_r($result);
-        echo '<p class="pt-2 ">' . $result['message'] . '</p>';
-      // }
-    }
+        <?php
 
-    ?> 
-    <a href="notifications">Back<i class="material-icons opacity-10">arrow</i></a>
-  </div>
-  </div>
+
+        $query = $conn->prepare("SELECT * from `notifications` where `id` = ? AND `type` = 'comment'");
+        $query->execute(array($id));
+        $result = $query->fetch();
+        if ($result > 0) {
+          // foreach ($result as $i) {
+          // print_r($result);
+          echo '<p class="pt-2 ">' . $result['message'] . '</p>';
+          // }
+        }
+
+        ?>
+        <a href="notifications">Back<i class="material-icons opacity-10">arrow</i></a>
+      </div>
+    </div>
   </div>
   <?php include "footer.php" ?>
 

@@ -6,51 +6,15 @@ $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   $university .= '<option value="' . $row["university"] . '">' . $row["university"] . '</option>';
 }
-// if (isset($_POST['upload'])) {
-
-//   if ($_FILES['photo']['error'] === 4) {
-//     echo
-//     "<script> alert('does not exist');</script>";
-//   } else {
-//     $fileName = $_FILES["photo"]["name"];
-//     $fileSize = $_FILES["photo"]["size"];
-//     $tmpName = $_FILES["photo"]["tmp_name"];
-
-//     $validExt = ['jpg', 'png', 'jpeg'];
-//     $Ext = explode('.', $fileName);
-//     $Ext = strtolower(end($Ext));
-//     if (!in_array($Ext, $validExt)) {
-//       echo  "<script> alert('invalid file format');</script>";
-//     } elseif ($fileSize > 100250) {
-//       echo
-//       "<script> alert('the image is too large');</script>";
-//     } else {
-//       $newFileName = 'IMG';
-//       $newFileName .= uniqid();
-//       $newFileName .= '.' . $Ext;
-//       $location = 'pfp/' . $newFileName;
-//       move_uploaded_file($tmpName, $location);
-//       $query = "UPDATE `uniphotoer` SET `image` = '$newFileName' WHERE `uniphotoer`.`id` = $update;";
-//       mysqli_query($db_connect, $query);
-
-//       echo
-//       "<script> alert('Successfully Added');
-//         </script>";
-//     }
-//   }
-// }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta style="border: 2px solid grey ;" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <?php include "meta.php" ?>
   <title>
-    Profile page || Uniphotos
+    Profile page || Unibooks
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -64,85 +28,12 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet">
   <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
   <script src="assets/js/jquery.min.js"></script>
 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- <style>
-    .image {
-      width: 65em;
-    }
-
-    .row {
-      --bs-gutter-x: 1.5rem;
-      --bs-gutter-y: 0;
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: calc(-1 * var(--bs-gutter-y));
-      margin-right: calc(-.5 * var(--bs-gutter-x));
-      margin-left: calc(-.5 * var(--bs-gutter-x));
-      justify-content: center;
-
-    }
-
-
-    @media screen and (max-width:400px) {
-
-      .row {
-        --bs-gutter-x: 1.5rem;
-        --bs-gutter-y: 0;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: calc(-1 * var(--bs-gutter-y));
-        margin-right: calc(-.5 * var(--bs-gutter-x));
-        margin-left: calc(-.5 * var(--bs-gutter-x));
-        justify-content: space-between;
-
-      }
-
-      body {
-        background-image: url(assets/css/pexels-artem-beliaikin-1153976.jpg);
-
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100%;
-
-      }
-    }
-
-    @media screen and (max-width:800px) {
-      .image {
-        width: 65em;
-      }
-
-      .detail {
-        width: 80em;
-      }
-
-      .row {
-        --bs-gutter-x: 1.5rem;
-        --bs-gutter-y: 0;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: calc(-1 * var(--bs-gutter-y));
-        margin-right: calc(-.5 * var(--bs-gutter-x));
-        margin-left: calc(-.5 * var(--bs-gutter-x));
-        justify-content: center;
-
-      }
-
-      body {
-        background-image: url(Images/pexels-pixabay-207691.jpg);
-
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100%;
-
-      }
-    }
-  </style> -->
   <div class="container">
     <div class="row">
 
@@ -237,10 +128,10 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         </div>
       </div>
 
+
     </div>
 
   </div>
-
   <script>
     $(document).ready(function() {
       $('.action').change(function() {
@@ -275,6 +166,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       });
     });
   </script>
+
 </body>
 
 </html>

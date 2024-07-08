@@ -5,10 +5,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+
+  <?php include "meta.php" ?>
   <title>
     About Us || Unibooks
   </title>
@@ -36,7 +34,7 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">About Us</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">About Us</h6>
@@ -70,10 +68,40 @@
           <div class="card mt-4 container-fluid ">
             <div class="card-body px-5">
               <h2>About Us</h2>
+
+
               <p>
-                Welcome to our website! Our team at Unibooks strives to provide you with the best possible online experience. Our website is designed to be easy to navigate and informative. We hope you find our website helpful and informative. </p>
-              <p> Our website was created to provide our clients with an easy-to-use and informative resource. We have gathered information on a variety of topics to provide you with the latest books from your lecturer or other sources.</p>
-              <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
+
+                Welcome to our website! We are a dedicated platform designed exclusively for university students, providing a range of services to support their academic journey. Our mission is to empower students by offering convenient access to educational resources, opportunities to buy and sell books and projects, and connections with individuals who can assist with assignments.
+              </p>
+              <p>
+
+                At our core, we believe that every student should have equal access to educational materials. That's why we offer a vast collection of digital books available for free download. Our comprehensive library covers a wide range of subjects, ensuring that students can find the resources they need to excel in their studies. We aim to make learning accessible, affordable, and convenient for all.
+              </p>
+              <p>
+
+                In addition to free book downloads, we provide a platform for students to buy and sell books and projects. We understand the financial challenges faced by students and aim to create a marketplace that facilitates fair transactions. Whether you're looking to sell your used books or find affordable textbooks for your upcoming semester, our platform connects buyers and sellers, making the process efficient and cost-effective.
+              </p>
+              <p>
+
+                We also recognize that students may occasionally require assistance with their assignments. Our website serves as a meeting place for students seeking help and knowledgeable individuals willing to offer their expertise. Through our platform, you can post assignment requests and receive proposals from experienced individuals who can lend their support. We encourage open communication and collaboration to ensure that students receive the assistance they need while fostering a culture of academic integrity.
+              </p>
+              <p>
+
+                At the heart of our service is a commitment to quality and reliability. We strive to provide a seamless and secure user experience, ensuring that transactions and interactions on our platform are conducted safely. We have implemented robust systems to protect your personal information and maintain a high standard of content quality.
+              </p>
+              <p>
+
+                We are passionate about supporting students throughout their academic journey and helping them achieve their goals. Whether you're looking for educational resources, buying or selling books, or seeking assistance with assignments, our website is here to simplify the process and connect you with a vibrant community of students and academic professionals.
+              </p>
+              <p>
+
+                Join our community today and unlock the resources and support you need to succeed in your studies. We are excited to have you on board and look forward to being a valuable partner in your educational pursuits.
+              </p>
+              <p>
+
+                If you have any questions or need further assistance, please don't hesitate to contact our friendly customer support team. Thank you for choosing our website, and we wish you all the best in your academic endeavors!
+              </p>
             </div>
           </div>
         </div>

@@ -1,5 +1,4 @@
 <?php include "session.php";
-include 'alert.message.php';
 
 if (isset($_GET['id'])) {
   $id = $conn->quote($_GET['id']);
@@ -19,10 +18,7 @@ if (!isset($user['id'])) {
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <?php include "meta.php" ?>
   <title>
     PayNow || Unibooks
   </title>
@@ -38,6 +34,8 @@ if (!isset($user['id'])) {
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet">
   <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet">
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
 </head>
 
 <body>
@@ -56,6 +54,7 @@ if (!isset($user['id'])) {
 
                 <input type="hidden" id="amount" value="<?php echo $row['product_price']; ?>" />
                 <input type="hidden" name="phone" id="phone" value="<?php echo $user['phone'] ?>" required />
+                <input type="hidden" name="book" id="book-id" value="<?php echo $row['id'] ?>" required />
               </div>
               <div class="input-group input-group-outline my-3">
                 <label for="first-name">First Name</label>
@@ -93,27 +92,22 @@ if (!isset($user['id'])) {
 
                 </div>
                 <div style="display: none;" id="bank_transfer">
-                  <button type="button" class="btn  btn-dark btn-large  mt-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> mPay</button>
-
+                  <button type="submit" class="btn  btn-dark btn-large  mt-4"> Pay</button>
                   <a href="#" class="btn  btn-dark btn-large  mt-4" onclick="history.back()">Cancel</a>
 
                 </div>
               </div>
             </form>
 
-            <script src="https://checkout.flutterwave.com/v3.js"></script>
-            <script src="https://js.paystack.co/v1/inline.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
 
           </div>
         </div>
       </div>
     </div>
-  </div> <?php
-          include "pay_modal.php"
-          ?>
+  </div>
   <script>
+    var link = <?php echo $row['id']; ?>
+
     let div = document.getElementById('paystack');
     let display = 0;
     let div2 = document.getElementById('flutterwave');
@@ -143,7 +137,6 @@ if (!isset($user['id'])) {
       div.style.display = 'none';
 
     }
-    var link = <?php echo $row['id']; ?>
   </script>
   <script src="assets/js/checkout.js"></script>
 

@@ -1,7 +1,25 @@
 <?php
-include('session.php');
-include 'alert.message.php'
+include 'session.php';
 
+// Function to fetch data from the database
+function fetchData($conn, $columnName)
+{
+  $data = array();
+  $sql = "SELECT DISTINCT $columnName FROM university_faculty_department";
+  $stmt = $conn->query($sql);
+
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $data[] = $row[$columnName];
+  }
+
+  return $data;
+}
+
+// Fetch data for each dropdown
+$universities = fetchData($conn, 'University');
+$faculties = fetchData($conn, 'Faculty');
+$departments = fetchData($conn, 'Department');
+$courses = fetchData($conn, 'Course');
 ?>
 
 <!DOCTYPE html>
@@ -18,23 +36,24 @@ include 'alert.message.php'
   <link rel="stylesheet" href="assets/css/signup.css">
   <link rel="stylesheet" href="assets/css/material-dashboard.css">
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body>
-
-  <div class="container z-index-sticky top-0 mb-5  ">
+  <div class="container z-index-sticky top-0 mb-5">
     <div class="row">
-      <div class="col-12  ">
+      <div class="col-12">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 bg-dark shadow position-absolute my-3 py-2 start-0 end-0 mx-4 ">
+        <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 bg-dark shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid ps-2 pe-0">
-            <a href="Images/unibooks copy.png"> <img class="me-3 " src="Images/unibooks copy.png" alt="" width="50"></a>
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="./about_us.php" target="_blank">
-              <h4> Unibooks</h4>
+            <a href="Images/unibooks copy.png"><img class="me-3" src="Images/unibooks copy.png" alt="" width="50"></a>
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="./about_us.php" target="_blank">
+              <h4>Unibooks</h4>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon mt-2 ">
-                <span class="navbar-toggler-bar bar1 "></span>
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
                 <span class="navbar-toggler-bar bar3"></span>
               </span>
@@ -43,7 +62,7 @@ include 'alert.message.php'
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                   <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
-                    <i class="fa-solid fa-hashtag opacity-6 text-dark me-1 "></i>
+                    <i class="fa-solid fa-hashtag opacity-6 text-dark me-1"></i>
                     About Us
                   </a>
                 </li>
@@ -59,9 +78,7 @@ include 'alert.message.php'
                     Login
                   </a>
                 </li>
-
               </ul>
-
             </div>
           </div>
       </div>
@@ -69,70 +86,93 @@ include 'alert.message.php'
   </div>
   </nav>
   <!-- End Navbar -->
-  </header>
 
-  <div class="container form-control ">
-    <div class="card mt-5 bg-light ">
+  <div class="container form-control ps-4">
+    <div class="card mt-5 bg-light">
       <div class="card-body">
         <div class="text-center">
-          <h3>Create a Unibooks Account </h3>
+          <h3>Create a Unibooks Account</h3>
         </div>
         <?php echo ErrorMessage();
         echo SuccessMessage(); ?>
 
-        <form action="signup.app.php " method="POST">
+        <form action="signup.app.php" method="POST">
           <div class="row">
-
             <div class="first col-6">
               <label for="">Firstname</label>
-              <input style="border: 2px solid grey ;" type="text" class="form-control" name="firstname" placeholder="first name">
+              <input style="border: 2px solid grey;" type="text" class="form-control ps-4" name="firstname" placeholder="First name">
             </div>
             <div class="last col-6">
               <label for="">Lastname</label>
-              <input style="border: 2px solid grey ;" type="text" class="form-control" name="lastname" placeholder="last name">
+              <input style="border: 2px solid grey;" type="text" class="form-control ps-4" name="lastname" placeholder="Last name">
             </div>
           </div>
 
           <div class="user">
             <label>Username</label>
-            <input style="border: 2px solid grey ;" type="text" name="username" placeholder="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?> ">
+            <input style="border: 2px solid grey;" type="text" name="username" placeholder="Username" class="form-control ps-4">
             <span class="invalid-feedback"><?php echo $username_err; ?></span>
           </div>
 
           <div class="email">
             <label for="">Email</label>
-            <input style="border: 2px solid grey ;" type="email" class="form-control" name="email" placeholder="Enter Valid email" required>
+            <input style="border: 2px solid grey;" type="email" class="form-control ps-4" name="email" placeholder="Enter Valid email" required>
           </div>
 
           <div class="row">
             <div class="phone col-6">
               <label for="">Phone No</label>
-              <input style="border: 2px solid grey ;" type="tel" class="form-control" name="phone" placeholder="phone eg.080874456644" required>
-
+              <input style="border: 2px solid grey;" type="tel" class="form-control ps-4" name="phone" placeholder="Phone e.g., 080874456644" required>
             </div>
             <div class="level col-6">
               <label for="">Level</label>
               <select class="form-select form-select-md" name="levell" aria-label=".form-select-mg example">
-                <option> Current Level</option>
+                <option>Current Level</option>
                 <option value="100">100L</option>
                 <option value="200">200L</option>
                 <option value="300">300L</option>
                 <option value="400">400L</option>
                 <option value="500">500L</option>
               </select>
-
-
             </div>
           </div>
 
           <div class="School mt-3">
-            <select class="form-select form-select-md" name="school" aria-label=".form-select-mg example">
-              <option> Select Your School of Study</option>
-              <option value="Ahmedu Bello University">Ahmedu Bello University</option>
-              <option value="FUTMINNA">FUTMINNA</option>
-              <option value="FUTA">FUTA</option>
+            <select class="select2 typeahead form-select form-select-md" name="university" style="width: 100%;" data-typeahead-source='<?php echo json_encode($universities); ?>'>
+              <option value="">Select University</option>
+              <?php foreach ($universities as $university) {
+                echo "<option value='$university'>$university</option>";
+              } ?>
             </select>
           </div>
+
+          <div class="mt-3">
+            <select class="select2 typeahead form-select form-select-md" name="faculty" style="width: 100%;" data-typeahead-source='<?php echo json_encode($faculties); ?>'>
+              <option value="">Select Faculty</option>
+              <?php foreach ($faculties as $faculty) {
+                echo "<option value='$faculty'>$faculty</option>";
+              } ?>
+            </select>
+          </div>
+
+          <div class="mt-3">
+            <select class="select2 typeahead form-select form-select-md" name="department" style="width: 100%;" data-typeahead-source='<?php echo json_encode($departments); ?>'>
+              <option value="">Select Department</option>
+              <?php foreach ($departments as $department) {
+                echo "<option value='$department'>$department</option>";
+              } ?>
+            </select>
+          </div>
+
+          <div class="mt-3">
+            <select class="select2 typeahead form-select form-select-md" name="course" style="width: 100%;" data-typeahead-source='<?php echo json_encode($courses); ?>'>
+              <option value="">Select Course</option>
+              <?php foreach ($courses as $course) {
+                echo "<option value='$course'>$course</option>";
+              } ?>
+            </select>
+          </div>
+
           <div class="gender mt-4">Gender
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gender" value="male" id="gender">
@@ -150,44 +190,63 @@ include 'alert.message.php'
 
           <div class="password">
             <label class="mt-3" for="">Create Password</label>
-            <input style="border: 2px solid grey ;" type="password" class="form-control" name="password" placeholder="create a password" required>
+            <input style="border: 2px solid grey;" type="password" class="form-control ps-4" name="password" placeholder="Create a password" required>
           </div>
           <div class="confirm">
             <label for="">Confirm Your Password</label>
-            <input style="border: 2px solid grey ;" type="password" class="form-control " name="repassword" placeholder="confirm password" required>
-
-
+            <input style="border: 2px solid grey;" type="password" class="form-control ps-4" name="repassword" placeholder="Confirm password" required>
           </div>
           <div class="row">
-
-            <div class="mt-4 col-6">
+            <div class="col-6">
               <label for="">Date of birth</label>
-              <input style="border: 2px solid grey ;" type="date" class="form-control" name="dob" placeholder="" required>
+              <input style="border: 2px solid grey;" type="date" class="form-control ps-4" name="dob" required>
             </div>
             <div class="referral col-6">
               <label for=""></label>
-              <input style="border: 2px solid grey ;" type="text" class="form-control" name="refer" placeholder="How did you hear about us?" required>
+              <input style="border: 2px solid grey;" type="text" class="form-control ps-4" name="refer" placeholder="How did you hear about us?" required>
             </div>
           </div>
           <div class="mt-5">
-            <button class="btn btn-dark w-100" name="submit" type="submit"> Sign Up
-            </button>
+            <button class="btn btn-dark w-100" name="submit" type="submit">Sign Up</button>
           </div>
-          <small class="text-center">By contiuning you confirm that you agree to the terms of use and confirm that you have read the <a href="#">privacy policy</a> </small>
+          <small class="text-center">By continuing you confirm that you agree to the terms of use and confirm that you have read the <a href="#">privacy policy</a></small>
+        </form>
       </div>
-      </form>
     </div>
   </div>
-  </div>
 
-
-  </div>
-  <!-- footer  -->
+  <!-- footer -->
   <?php include "footer.php" ?>
+  <!-- footer -->
 
-  <!-- footer  -->
   <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.select2').select2({
+        tags: true, // Allow user to enter custom values
+        tokenSeparators: [',', ' '], // Define how to separate tags
+      });
+
+      $('select.typeahead').each(function() {
+        var $this = $(this);
+        var source = $this.data('typeahead-source');
+        $this.select2({
+          tags: true,
+          tokenSeparators: [',', ' '],
+          data: source.map(function(item) {
+            return {
+              id: item,
+              text: item
+            };
+          })
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -4,34 +4,35 @@
 }
 
 body {
-	background-image: url(../../Images/pc1.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
+	/*background-image: url(../../Images/pc1.jpg);*/
+	/*background-size: cover;*/
+	/*background-repeat: no-repeat;*/
 	height: 100vh;
 }
-@media screen and (min-width: 325px) {
-	body {
-		background-image: url(../../Images/mob5.jpg);
-		background-size: cover;
-		background-repeat: no-repeat;
-		height: 100vh;
-	}
-}
+/*@media screen and (min-width: 325px) {*/
+/*	body {*/
+/*		background-image: url(../../Images/mob5.jpg);*/
+/*		background-size: cover;*/
+/*		background-repeat: no-repeat;*/
+/*		height: 100vh;*/
+/*	}*/
+/*}*/
 
-@media screen and (min-width: 575px) {
-	body {
-		background-image: url(../../Images/mob5.jpg);
-		background-size: cover;
-		background-repeat: no-repeat;
-		height: 100vh;
-	}
-}
+/*@media screen and (min-width: 575px) {*/
+/*	body {*/
+/*		background-image: url(../../Images/mob5.jpg);*/
+/*		background-size: cover;*/
+/*		background-repeat: no-repeat;*/
+/*		height: 100vh;*/
+/*	}*/
+/*}*/
 div.dataTables_wrapper div.dataTables_filter input{
 	border: #e91e63 1px solid;
 }
 div.dataTables_wrapper div.dataTables_length select{
 	border: #e91e63 1px solid;
 }
+
 /* .result{
         position: absolute;
         top:55%;

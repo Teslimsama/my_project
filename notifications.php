@@ -3,10 +3,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <?php include "meta.php" ?>
   <title>
     Notifications || Unibooks
   </title>
@@ -36,7 +33,7 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Notifications</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Notifications</h6>
@@ -88,11 +85,11 @@
      ";
                   if ($i['type'] == 'comment') {
                     echo $alert;
-                  //   if (count(fetchAll($sql)) > 0) {
-                  //     foreach (fetchAll($sql) as $i) {
-                  //       echo "<hr> $alert";
-                  // }}
-                }
+                    //   if (count(fetchAll($sql)) > 0) {
+                    //     foreach (fetchAll($sql) as $i) {
+                    //       echo "<hr> $alert";
+                    // }}
+                  }
                   ?>
 
 
@@ -104,7 +101,7 @@
               ?>
 
             </div>
-            </div>
+          </div>
           <div class="mt-4 card">
             <div class="card-header">
               <h5 class="mb-0">Read Notifications</h5>
@@ -112,7 +109,7 @@
             <div class='card-body pb-0'>
 
               <?php
-              
+
               $sql = $conn->prepare("SELECT * from `notifications` where `status` = 'read' order by `date` DESC");
               $sql->execute();
               if ($sql->rowCount() > 0) {
@@ -134,11 +131,11 @@
      ";
                   if ($i['type'] == 'comment') {
                     echo $alert;
-                  //   if (count(fetchAll($sql)) > 0) {
-                  //     foreach (fetchAll($sql) as $i) {
-                  //       echo "<hr> $alert";
-                  // }}
-                }
+                    //   if (count(fetchAll($sql)) > 0) {
+                    //     foreach (fetchAll($sql) as $i) {
+                    //       echo "<hr> $alert";
+                    // }}
+                  }
                   ?>
 
 
@@ -150,10 +147,10 @@
               ?>
 
             </div>
-            </div>
           </div>
+        </div>
 
-          <?php include "footer.php" ?>
+        <?php include "footer.php" ?>
 
 
   </main>

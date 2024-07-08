@@ -1,25 +1,12 @@
-<?php include "session.php";
-require_once('component.php');
-
-// $num_pages = 5;
-// if (isset($_GET["page"])) {
-//   $page = $_GET["page"];
-// } else {
-//   $page = 1;
-// }
-// $startfrom = ($page - 1) * 5;
-// include_once 'sql.php';
+<?php
+include "session.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://unibooks.com.ng/Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="https://unibooks.com.ng/Images/android-chrome-512x512.png">
-
+  <?php include "meta.php" ?>
   <title>
     Library || Unibooks
   </title>
@@ -54,7 +41,7 @@ require_once('component.php');
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="index">Library</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Library</h6>
@@ -114,10 +101,8 @@ require_once('component.php');
               for (var count = 0; count < response.data.length; count++) {
                 html += `
       <div class='pic card bg-gradient-light mt-3'>
-          <img class='' src='Images/` + response.data[count].image + `' height='' alt='book_pics' style='width: 100%;'>
-          <div class='over'>
-            <a id='download' class='alert ' href='` + response.data[count].link + `'><i class='fa-solid fa-download'></i></a>
-          </div>
+          <img class='' src='assets/Images/` + response.data[count].image + `' height='' alt='` + response.data[count].name + `' style='width: 100%;'>
+          
           <input type='hidden' name= '` + response.data[count].id + `'>
           <a href='description_page?id=` + response.data[count].id + `&book=` + response.data[count].link + `'>
             <div class='container name '>

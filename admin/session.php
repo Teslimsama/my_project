@@ -1,5 +1,6 @@
 <?php
 include '../database.php';
+include '../alert.message.php';
 session_start();
 
 if (!isset($_SESSION['admin']) || trim($_SESSION['admin']) == '') {

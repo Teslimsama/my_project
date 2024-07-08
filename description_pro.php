@@ -1,5 +1,5 @@
 <?php include "session.php";
-include 'alert.message.php';
+// include 'alert.message.php';
 
 
 if (isset($_GET['id'])) {
@@ -9,6 +9,16 @@ if (isset($_GET['id'])) {
   $statement = $conn->prepare($sql);
   $statement->execute(array(':id' => $_GET['id']));
   $row = $statement->fetch();
+  $productID = $row['product_name'];
+  $query = "SELECT * FROM producttb p
+            LEFT JOIN search s ON p.product_name = s.title
+            WHERE s.title = :product_name
+            LIMIT 1";
+  $statement = $conn->prepare($query);
+  $statement->bindParam(':product_name', $productID, PDO::PARAM_STR_CHAR);
+  $statement->execute();
+
+  $result = $statement->fetch(PDO::FETCH_ASSOC);
 } else {
   header("location:index");
 }
@@ -47,7 +57,7 @@ if (isset($_GET['id'])) {
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Description</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Description</h6>
@@ -61,7 +71,7 @@ if (isset($_GET['id'])) {
           </div>
           <?php include "navbar.php" ?>
 
-         
+
           </li>
           </ul>
         </div>
@@ -77,50 +87,29 @@ if (isset($_GET['id'])) {
               <!-- image here  -->
 
               <div class="pic bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Crop Production</h6>
+                <h6 class="text-white text-capitalize ps-3"><?php echo $row['product_name']; ?></h6>
               </div>
             </div>
-            <div class="card-body px-5">
-              <div class="download">
-                <div class="perview ">
-
-                  <a herf="#" class="mx-3 mt-2 butt btn btn-dark">preveiw</a>
-
-                </div>
-                <div class="preview mt-2">
-                  <input type="hidden" name="book" value="crop_production" id="download">
-                  <!-- Button trigger modal -->
-                  <a href="paynow?id=<?php echo $row['id'] ?>" class="btn btn-dark">Download</a>
-
-
-                </div>
-
-
-
-              </div>
+            <div class="card-body row px-5">
               <div class="msg">
-
                 <?php echo ErrorMessage();
                 echo SuccessMessage(); ?>
               </div>
-              <h3>ORIGIN AND DISTRIBUTION OF CROP</h3>
+              <div class=" row col-12">
+                <div class="col-lg-3 col-sm-6">
+                  <a href="transact_initialize_pro?id=<?php echo $row['id'] ?>" name="download"><button class="btn btn-dark">Download <i class="material-icons ms-1 opacity-10">download</i></button>
 
-              <p>Most cultivated crop have one location or the other as a place or origin.
-                The origin of crops still in dispute as there are varying opinions that seems
-                to contradict other. It worth nothing that the origin of most of the crops have
-                Been oteneicated by notable scientist one of which is the Russian scientist known as Vavilow.</p>
-              <p>
-                The distribution of crops varies from one climatic condition to another
-                Some of the climatic conditions support the growth and development of some crops while others don’t. it can therefore be concluded that climate conditions such as sun energy amount of rainfall, type of vegetation, soil type of humidity and the rest influences the distribution of crops in Nigeria and the whole world.
-                The distribution of the cultivated crops and those as weld varies
-                from one agricultural zone to another.</p>
-              <p>The identification of such centers along was a valuable contribution for
-                giving breeders and agronomies clues as to where the source material can be found. However, Vavilov was not satisfied by merely stating the facts but used them to elaborate an exciting theory of great importance that has passed the test of time. The theory states that the great diversity of forms, varieties and species of particular plant in definite part of the world attests to the fact that the speciation process in geographically localized.</p>
-              <p>
-                Centers of origin of cultivated plants are separated from one another by mountain chains, deserts or expanses of water that is theygave rise to independent, isolated agricultural civilizations. In most cases a particular genus or species is associated with a single cente, but some crops are associated with two or more centers or centers of origin, where the plant in questions takes the most diverse forms and was domesticated for the first time and secondary centers arising as a result of migrations of individual formstome and secondary centers arising as a result of migration of individual forms from the primary one e.g the primary centers of maize origin is in Mexico,whereas China serve as the secondary center of origin of tis wary varieties.</p>
-
-
-
+                  </a>
+                </div>
+                <div class=" col-lg-3 col-sm-6">
+                  <a href="pdf_preview.php?id=<?php echo htmlspecialchars($row['id']); ?>" class="btn btn-info" name="preview">
+                    Preview PDF <i class="material-icons ms-1 opacity-10">picture_as_pdf</i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12">
+                <?php echo htmlspecialchars($result['description']); ?>
+              </div>
             </div>
           </div>
         </div>

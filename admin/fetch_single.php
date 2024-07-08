@@ -1,12 +1,24 @@
 <?php
-require 'function.php'; // Use require instead of include for better error handling
+require_once 'function.php'; // Use require instead of include for better error handling
+require_once __DIR__ . '/../vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$dbHost = $_ENV['DB_HOST'];
+$dbName = $_ENV['DB_NAME']; // Add this line to get the database name
+$dbUser = $_ENV['DB_USER'];
+$dbPass = $_ENV['DB_PASS'];
+
+// Create a PDO instance and set error mode to exceptions
 try {
-	$conn = new PDO('mysql:host=localhost;dbname=unibooks', 'root', '');
+	// Correct the DSN format
+	$conn = new PDO($dbHost . ';dbname=' . $dbName, $dbUser, $dbPass);
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	if (isset($_POST["product_id"])) {
-		$productID = $_POST["product_id"];
+
+	if (isset($_GET["id"])) {
+		$productID = $_GET["id"];
 
 		$query = "SELECT * FROM producttb p
             LEFT JOIN search s ON p.product_name = s.title
@@ -26,16 +38,28 @@ try {
 				// "course" => $result["course"],
 				// "university" => $result["university"],
 				"product_price" => $result["product_price"],
-				"level" => $result["level"],
+				// "level" => $result["level"],
 				// "faculty" => $result["faculty"]
 			];
 
 			if ($result["product_image"]) {
-				$output["product_image"] = '<img src="../images/' . $result["product_image"] . '" class="img-thumbnail" width="50" height="35" /><input type="hidden" name="hidden_product_image" value="' . $result["product_image"] . '" />';
+				$output["product_image"] = '<img src="../assets/Images/' . $result["product_image"] . '" class="img-thumbnail" width="50" height="35" /><input type="hidden" name="hidden_product_image" value="' . $result["product_image"] . '" />';
 			} else {
 				$output["product_image"] = '<input type="hidden" name="hidden_product_image" value="" />';
 			}
-			
+			// Query to get options for the "University" field
+			$universityQuery = "SELECT DISTINCT university FROM university_faculty_department";
+			$universityStatement = $conn->query($universityQuery);
+			$universities = $universityStatement->fetchAll(PDO::FETCH_COLUMN);
+
+			// Construct the "University" select element with the preselected option
+			$universitySelect = '<option value="">Select university</option>';
+			foreach ($universities as $university) {
+				$selected = ($university == $result["university"]) ? 'selected' : '';
+				$universitySelect .= '<option value="' . $university . '" ' . $selected . '>' . $university . '</option>';
+			}
+			$output["universitySelect"] = $universitySelect;
+
 			// Construct the "Level" select element with the available options
 			$levelSelect = '<option value="100">100L</option>
                     <option value="200">200L</option>
@@ -60,20 +84,6 @@ try {
 			$typeSelect = str_replace('value="' . $selectedOption . '"', 'value="' . $selectedOption . '" selected', $typeSelect);
 
 			$output["typeSelect"] = $typeSelect;
-    
-	
-			// Query to get options for the "University" field
-			$universityQuery = "SELECT DISTINCT university FROM university_faculty_department";
-			$universityStatement = $conn->query($universityQuery);
-			$universities = $universityStatement->fetchAll(PDO::FETCH_COLUMN);
-
-			// Construct the "University" select element with the preselected option
-			$universitySelect = '<option value="">Select university</option>';
-			foreach ($universities as $university) {
-				$selected = ($university == $result["university"]) ? 'selected' : '';
-				$universitySelect .= '<option value="' . $university . '" ' . $selected . '>' . $university . '</option>';
-			}
-			$output["universitySelect"] = $universitySelect;
 
 			// Query to get options for the "faculty" field
 			$facultyQuery = "SELECT DISTINCT faculty FROM university_faculty_department";

@@ -1,7 +1,7 @@
 const paymentForm = document.getElementById("paystack");
 paymentForm.addEventListener("click", payWithPaystack, false);
 var metadata = {
-	message: "Thank you for your payment!",
+	message:  document.getElementById("book-id").value,
 };
 function payWithPaystack(p) {
 	p.preventDefault();
@@ -29,7 +29,7 @@ function payWithPaystack(p) {
 			alert(message);
 
 			window.location =
-				"http://localhost/my_project/transact_verify_pro?reference=" +
+				"https://unibooks.com.ng/transact_verify_pro?reference=" +
 				response.reference;
 		},
 	});
@@ -41,7 +41,7 @@ const form = document.getElementById("flutterwave");
 form.addEventListener("click", payNow, false);
 const firstname = document.getElementById("first-name").value;
 const lastname = document.getElementById("last-name").value;
-
+// var link = "<?php echo $row['id']; ?>";
 function payNow(f) {
 	f.preventDefault();
 
@@ -51,7 +51,7 @@ function payNow(f) {
 		amount: document.getElementById("amount").value,
 		currency: "NGN",
 		payment_options: "card, mobilemoney, ussd",
-		redirect_url: "http://localhost/my_project/transact_verify.php?id=" + link,
+		redirect_url: "https://unibooks.com.ng/transact_verify.php?id="+link,
 
 		customer: {
 			email: document.getElementById("email-address").value,
@@ -64,9 +64,7 @@ function payNow(f) {
 			//console.log(data);
 			const reference = data.tx_ref;
 			let message =
-				"Payment complete! Your Reference Number: " +
-				reference +
-				" Thank you!";
+				"Payment complete! Your Reference Number: " + reference + " Thank you!";
 
 			alert(message);
 

@@ -1,14 +1,19 @@
 <?php
-// include('session.php');
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 require 'function.php'; // Use require instead of include for better error handling
-$dbHost = 'localhost';
-$dbName = 'unibooks';
-$dbUser = 'root';
-$dbPass = '';
+$dbHost = $_ENV['DB_HOST'];
+$dbName = $_ENV['DB_NAME']; // Add this line to get the database name
+$dbUser = $_ENV['DB_USER'];
+$dbPass = $_ENV['DB_PASS'];
 
 // Create a PDO instance and set error mode to exceptions
 try {
-    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+    // Correct the DSN format
+    $conn = new PDO($dbHost . ';dbname=' . $dbName, $dbUser, $dbPass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // Handle database connection error
@@ -46,8 +51,8 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 // Format the data for output
 $data = [];
 foreach ($result as $row) {
-    $image = $row["product_image"] ? '<img src="../images/' . $row["product_image"] . '"id="' . $row['product_name'] . '" class="img-thumbnail update" width="50" height="35" />' : '';
-    $type = $row['type'] === '1' ? 'Free Book' : 'Project';
+    $image = $row["product_image"] ? '<img src="../assets/Images/' . $row["product_image"] . '"id="' . $row['product_name'] . '" class="img-thumbnail update" width="50" height="35" />' : '';
+    $type = $row['type'] === 1 ? 'Free Book' : 'Project';
 
     $sub_array = [
         $row['id'],
@@ -60,11 +65,11 @@ foreach ($result as $row) {
         $row['department'],
         $row['level'] . 'L',
         '<a href="javascript:;" class="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <i class="fa fa-ellipsis-v"></i>
         </a>
         <ul class="dropdown-menu">
             <li>
-                <button type="button" name="update" id="' . $row['product_name'] . '" class="dropdown-item update">Edit</button>
+                <a class="dropdown-item edit" href="books_edit.php?id=' . $row['product_name'] . '">Edit</a>
             </li>
             <li>
                 <button type="button" name="delete" id="' . $row['product_name'] . '" class="dropdown-item delete">Delete</button>
@@ -85,4 +90,4 @@ $output = [
 
 // Send the JSON response
 echo json_encode($output);
-?>
+

@@ -23,18 +23,16 @@ if (isset($_POST['login'])) {
                     // $_SESSION['success'] = 'You are logged in';
                     header('location: index');
                 } else {
-                    $_SESSION['error'] = 'Incorrect Password';
+                    $_SESSION['error'] = 'Incorrect Password/Email';
                     header('location: Signin');
                 }
             } else {
                 $_SESSION['error'] = 'Account not activated.';
                 header('location: Signin');
-
             }
         } else {
             $_SESSION['error'] = 'Email not found';
             header('location: Signin');
-            
         }
     } catch (PDOException $e) {
         echo "There is some problem in connection: " . $e->getMessage();
@@ -42,7 +40,6 @@ if (isset($_POST['login'])) {
 } else {
     $_SESSION['error'] = 'Input login credentails first';
     header('location: Signin');
-
 }
 
 $pdo->close();

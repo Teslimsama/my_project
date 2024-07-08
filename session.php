@@ -1,10 +1,11 @@
 <?php
-	include ('database.php');
+	include 'database.php';
+	include 'alert.message.php';
 	session_start();
 
 
 	if(isset($_SESSION['admin'])){
-		header('location: admin/dashboard_admin');
+		header('location: admin/index');
 	}
 
 	if(isset($_SESSION['user'])){
@@ -21,4 +22,3 @@
 
 		$pdo->close();
 	}
-?>

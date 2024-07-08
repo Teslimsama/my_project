@@ -1,6 +1,6 @@
 <?php
-include('../alert.message.php');
-require_once('../database.php');
+include "session.php";
+
 
  
 

@@ -1,76 +1,103 @@
- <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-     <div class="sidenav-header">
-         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-         <a class="navbar-brand m-0" href="./about_us " target="_blank">
-             <img src="../Images/unibooks copy.png" class="navbar-brand-img h-100" alt="main_logo">
-             <span class="ms-1 font-weight-bold text-white">Unibooks</span>
-         </a>
-     </div>
-     <hr class="horizontal light mt-0 mb-2">
-     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
-         <ul class="navbar-nav  justify-content-center">
-             <li class="nav-item">
-                 <a class="nav-link text-white " href="./dashboard_admin">
-                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">dashboard</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Dashboard</span>
-                 </a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link text-white " href="./upload">
-                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">upload</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Upload</span>
-                 </a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link text-white " href="./books">
-                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">book</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Books</span>
-                 </a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link text-white " href="./payments">
-                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">receipt_long</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Payments</span>
-                 </a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link text-white " href="./notifications">
-                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">notifications</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Notifications</span>
-                 </a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link text-white active bg-gradient-primary" href="./profilepage">
-                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">person</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Profile</span>
-                 </a>
-             </li>
-
-             <li class="nav-item">
-                 <a class="nav-link text-white " href="./logout">
-                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                         <i class="material-icons opacity-10">logout</i>
-                     </div>
-                     <span class="nav-link-text ms-1">Log Out</span>
-                 </a>
-             </li>
-         </ul>
-     </div>
-     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-         <div class="mx-3">
-             <a class="btn bg-gradient-primary mt-4 w-100" href="#" type="button">be a unibooker</a>
-         </div>
-     </div>
- </aside>
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="index">
+                <i class="mdi mdi-grid-large menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item nav-category">Books</li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#books-menu" aria-expanded="false" aria-controls="books-menu">
+                <i class="menu-icon mdi mdi-book-open-page-variant"></i>
+                <span class="menu-title">Books</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="books-menu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="books">View Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="books_add">Upload Books</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item nav-category">Schools</li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#schools-menu" aria-expanded="false" aria-controls="schools-menu">
+                <i class="menu-icon mdi mdi-school"></i>
+                <span class="menu-title">School Management</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="schools-menu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_university">Add University details</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="pages/forms/add-faculty.html">Add Faculty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/forms/add-department.html">Add Department</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/forms/add-course.html">Add Course</a>
+                    </li> -->
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item nav-category">Transactions</li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#transactions-menu" aria-expanded="false" aria-controls="transactions-menu">
+                <i class="menu-icon mdi mdi-currency-usd"></i>
+                <span class="menu-title">Transactions</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="transactions-menu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="payments">Payments</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item nav-category">Settings</li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#settings-menu" aria-expanded="false" aria-controls="settings-menu">
+                <i class="menu-icon mdi mdi-settings"></i>
+                <span class="menu-title">Settings</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="settings-menu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="web_details">Web Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="notification">Notifications</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#users-menu" aria-expanded="false" aria-controls="users-menu">
+                <i class="menu-icon mdi mdi-users"></i>
+                <span class="menu-title">Users</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="users-menu">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="users">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="users_add">Add Users</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </li>
+    </ul>
+</nav>

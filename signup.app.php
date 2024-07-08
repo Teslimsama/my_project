@@ -1,209 +1,86 @@
 <?php
-// include('alert.message.php');
-// include('session.php');
+include 'session.php';
 
-
-// //COLLECT DATA FROM FORM
-
-
-
-
-// if (isset($_POST['submit'])) {
-//     $firstname = $_POST['firstname'];
-//     $lastname = $_POST['lastname'];
-//     $phone = $_POST['phone'];
-//     $email = $_POST['email'];
-
-//     $level = $_POST['levell'];
-//     $referral = $_POST['refer'];
-//     $gender = $_POST['gender'];
-//     $school = $_POST['school'];
-//     $dob = $_POST['dob'];
-//     $gender = $_POST['gender'];
-//     $password = $_POST['password'];
-
-//     $repassword = $_POST['repassword'];
-
-
-//     $_SESSION['firstname'] = $firstname;
-//     $_SESSION['lastname'] = $lastname;
-//     $_SESSION['email'] = $email;
-
-//     // if (!isset($_SESSION['captcha'])) {
-//     // 	$secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
-//     // 	$response = $_POST['g-recaptcha-response'];
-//     // 	$remoteip = $_SERVER['REMOTE_ADDR'];
-//     // 	$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip";
-//     // 	$data = file_get_contents($url);
-//     // 	$row = json_decode($data, true);
-
-
-//     // 	if ($row['success'] == true) {
-//     // 		$_SESSION['captcha'] = time() + (10 * 60);
-//     // 	} else {
-//     // 		$_SESSION['error'] = 'Please answer recaptcha correctly';
-//     // 		header('location: Signup');
-//     // 		exit();
-//     // 	}
-//     // }
-
-//     if ($password != $repassword) {
-//         $_SESSION['error'] = 'Passwords did not match';
-//         header('location: Signup');
-//     } else {
-//         $conn = $pdo->open();
-
-//         $stmt = $conn->prepare("SELECT COUNT(*) AS numrows FROM unibooker WHERE email=:email");
-//         $stmt->execute(['email' => $email]);
-//         $row = $stmt->fetch();
-//         if ($row['numrows'] > 0) {
-//             $_SESSION['error'] = 'Email already taken';
-//             header('location: Signup');
-//         } else {
-//             $now = date('Y-m-d');
-//             $password = password_hash($password, PASSWORD_DEFAULT);
-
-//             //generate code
-//             $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-//             $code = substr(str_shuffle($set), 0, 12);
-
-//             try {
-//                 $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender,dob, phone, level, code, date, reference) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level, :code, :date, :reference)");
-//                 $stmt->execute(['email' => $email, 'password' => $password, 'firstname' => $firstname, 'lastname' => $lastname, 'gender' => $gender, 'dob' => $dob, 'phone' => $phone, 'level'=>$level, 'code' => $code, 'date' => $now, 'reference' => $referral]);
-//                 $userid = $conn->lastInsertId();
-
-//                 $message = "
-// 						<h2>Thank you for Registering.</h2>
-// 						<p>Your Account:</p>
-// 						<p>Email: " . $email . "</p>
-// 						<p>Password: " . $_POST['password'] . "</p>
-// 						<p>Please click the link below to activate your account.</p>
-// 						<a href='http://localhost/bolakaz/activate.php?code=" . $code . "&user=" . $userid . "'>Activate Account</a>
-// 					";
-
-
-
-
-//                 try {
-//                     $to = $email; // Change this email to your //
-//                     $subject = "$to";
-//                     $header  = 'MIME-Version: 1.0' . "\r\n";
-//                     $header .= 'Content-Type: text/html; charset=ISO-8859-1' . "\r\n";
-//                     $From = "bolajiteslim05@gmail.com";
-//                     mail($to, $subject, $message, $header);
-//                     unset($_SESSION['firstname']);
-//                     unset($_SESSION['lastname']);
-//                     unset($_SESSION['email']);
-
-//                     $_SESSION['success'] = 'Account created. Check your email to activate.';
-//                     header('location: Signin');
-//                 } catch (Exception $e) {
-//                     $_SESSION['error'] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-//                     header('location: Signup');
-//                 }
-//             } catch (PDOException $e) {
-//                 $_SESSION['error'] = $e->getMessage();
-//                 header('location: Signup');
-//             }
-
-//             $pdo->close();
-//         }
-//     }
-// } else {
-//     $_SESSION['error'] = 'Fill up Signup form first';
-//     header('location: Signup');
-// }
-?>
-<?php
-include('alert.message.php');
-include('session.php');
-
-// COLLECT DATA FROM FORM
-
+// Collect data from form
 if (isset($_POST['submit'])) {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-
-    $level = $_POST['levell'];
-    $referral = $_POST['refer'];
-    $gender = $_POST['gender'];
-    $school = $_POST['school'];
-    $dob = $_POST['dob'];
-    $gender = $_POST['gender'];
+    // Sanitize and assign form data to variables
+    $firstname = htmlspecialchars($_POST['firstname']);
+    $lastname = htmlspecialchars($_POST['lastname']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $email = htmlspecialchars($_POST['email']);
+    $level = htmlspecialchars($_POST['levell']);
+    $referral = htmlspecialchars($_POST['refer']);
+    $gender = htmlspecialchars($_POST['gender']);
+    $dob = htmlspecialchars($_POST['dob']);
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];
+    $university = ucwords(htmlspecialchars($_POST['university']));
+    $faculty = ucwords(htmlspecialchars($_POST['faculty']));
+    $department = ucwords(htmlspecialchars($_POST['department']));
+    $course = ucwords(htmlspecialchars($_POST['course']));
 
+    // Store some data in session variables
     $_SESSION['firstname'] = $firstname;
     $_SESSION['lastname'] = $lastname;
     $_SESSION['email'] = $email;
 
-    // ... (code for captcha validation if needed)
-     // if (!isset($_SESSION['captcha'])) {
-    // 	$secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
-    // 	$response = $_POST['g-recaptcha-response'];
-    // 	$remoteip = $_SERVER['REMOTE_ADDR'];
-    // 	$url = "https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip";
-    // 	$data = file_get_contents($url);
-    // 	$row = json_decode($data, true);
-
-
-    // 	if ($row['success'] == true) {
-    // 		$_SESSION['captcha'] = time() + (10 * 60);
-    // 	} else {
-    // 		$_SESSION['error'] = 'Please answer recaptcha correctly';
-    // 		header('location: Signup');
-    // 		exit();
-    // 	}
-    // }
-
+    // Validate password match
     if ($password != $repassword) {
         $_SESSION['error'] = 'Passwords did not match';
         header('location: Signup');
+        exit();
+    }
+
+    // Check if email already exists
+    $stmt = $conn->prepare("SELECT COUNT(*) AS numrows FROM unibooker WHERE email = :email");
+    $stmt->execute(['email' => $email]);
+    $row = $stmt->fetch();
+    if ($row['numrows'] > 0) {
+        $_SESSION['error'] = 'Email already taken';
+        header('location: Signup');
+        exit();
     } else {
-        $conn = $pdo->open();
+        // Check if university, faculty, department, and course combination exists
+        $stmt = $conn->prepare("SELECT * FROM university_faculty_department WHERE university = ? AND faculty = ? AND department = ? AND course = ?");
+        $stmt->execute([$university, $faculty, $department, $course]);
+        $existingRow = $stmt->fetch();
 
-        // Collect University, Faculty, Department, and Course data from the form
-        $university = $_POST['university'];
-        $faculty = $_POST['faculty'];
-        $department = $_POST['department'];
-        $course = $_POST['course'];
-
-        // Check if the combination of University, Faculty, Department, and Course already exists
-        $stmt = $conn->prepare("SELECT COUNT(*) AS numrows FROM courses WHERE university=:university AND faculty=:faculty AND department=:department AND course=:course");
-        $stmt->execute([
-            'university' => $university,
-            'faculty' => $faculty,
-            'department' => $department,
-            'course' => $course
-        ]);
-        $row = $stmt->fetch();
-
-        if ($row['numrows'] === 0) {
-            // The combination doesn't exist, so insert it into the 'courses' table
-            $insertStmt = $conn->prepare("INSERT INTO courses (university, faculty, department, course) VALUES (:university, :faculty, :department, :course)");
-            $insertStmt->execute([
-                'university' => $university,
-                'faculty' => $faculty,
-                'department' => $department,
-                'course' => $course
-            ]);
+        if (!$existingRow) {
+            // Insert new combination if it doesn't exist
+            $stmt = $conn->prepare("INSERT INTO university_faculty_department (university, faculty, department, course) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$university, $faculty, $department, $course]);
         }
 
-        // Continue with user registration
         $now = date('Y-m-d');
-        $password = password_hash($password, PASSWORD_DEFAULT);
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        //generate code
+        // Generate a unique code
         $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $code = substr(str_shuffle($set), 0, 12);
 
         try {
-            $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender,dob, phone, level, code, date, reference) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level, :code, :date, :reference)");
-            $stmt->execute(['email' => $email, 'password' => $password, 'firstname' => $firstname, 'lastname' => $lastname, 'gender' => $gender, 'dob' => $dob, 'phone' => $phone, 'level'=>$level, 'code' => $code, 'date' => $now, 'reference' => $referral]);
+            // Insert new user into the database
+            $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender, dob, phone, level, code, date, reference, school, faculty, department, course) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level, :code, :date, :reference, :school, :faculty, :department, :course)");
+            $stmt->execute([
+                'email' => $email,
+                'password' => $hashedPassword,
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'gender' => $gender,
+                'dob' => $dob,
+                'phone' => $phone,
+                'level' => $level,
+                'code' => $code,
+                'date' => $now,
+                'reference' => $referral,
+                'school' => $university,
+                'faculty' => $faculty,
+                'department' => $department,
+                'course' => $course
+            ]);
             $userid = $conn->lastInsertId();
 
+            // Send activation email
             $message = "
                 <h2>Thank you for Registering.</h2>
                 <p>Your Account:</p>
@@ -213,16 +90,35 @@ if (isset($_POST['submit'])) {
                 <a href='http://localhost/bolakaz/activate.php?code=" . $code . "&user=" . $userid . "'>Activate Account</a>
             ";
 
-            // ... (code for sending activation email)
+            $to = $email;
+            $subject = "Account Activation";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-Type: text/html; charset=ISO-8859-1" . "\r\n";
+            $headers .= "From: bolajiteslim05@gmail.com";
 
+            if (mail($to, $subject, $message, $headers)) {
+                unset($_SESSION['firstname']);
+                unset($_SESSION['lastname']);
+                unset($_SESSION['email']);
+
+                $_SESSION['success'] = 'Account created. Check your email to activate.';
+                header('location: Signin');
+                exit();
+            } else {
+                $_SESSION['error'] = 'Message could not be sent. Please try again.';
+                header('location: Signup');
+                exit();
+            }
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
             header('location: Signup');
+            exit();
         }
 
-        $pdo->close();
+        $conn = null; // Close the database connection
     }
 } else {
     $_SESSION['error'] = 'Fill up Signup form first';
     header('location: Signup');
+    exit();
 }

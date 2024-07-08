@@ -1,0 +1,36 @@
+<?php
+
+function upload_image()
+{
+	if(isset($_FILES["product_image"]))
+	{
+		$extension = explode('.', $_FILES['product_image']['name']);
+		$new_name = rand() . '.' . $extension[1];
+		$destination = 'assets/Images/' . $new_name;
+		move_uploaded_file($_FILES['product_image']['tmp_name'], $destination);
+		return $new_name;
+	}
+}
+
+function get_image_name($product_id)
+{
+	include('session.php');
+	$statement = $conn->prepare("SELECT product_image FROM producttb WHERE product_name = '$product_id'");
+	$statement->execute();
+	$result = $statement->fetchAll();
+	foreach($result as $row)
+	{
+		return $row["product_image"];
+	}
+}
+
+function get_total_all_records($conn, $user_id)
+{
+    $statement = $conn->prepare("SELECT * FROM producttb WHERE user_id = :user_id");
+    $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->execute();
+    return $statement->rowCount();
+}
+
+
+?>

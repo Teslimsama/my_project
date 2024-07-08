@@ -3,12 +3,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/imgages/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/imgages/favicon.png">
+
+  <?php include "meta.php" ?>
   <title>
-    Donate || UniBooks
+    Donate || UniBooks Nigeria
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -35,7 +33,7 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Donate</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Donate</h6>
@@ -65,7 +63,7 @@
     <!-- End Navbar -->
     <div class="container-fluid pay mt-3 py-4">
       <div class="row min-vh-80">
-        <div class="col-12 mx-auto">
+        <div class="col-6 mx-auto">
           <div class="card mt-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
@@ -74,91 +72,42 @@
               </div>
             </div>
             <div class="card-body">
+              <div class="msg">
+                <?php echo ErrorMessage();
+                echo SuccessMessage(); ?>
+              </div>
               <h6>Your donation will really go long way in helping me pursue my career, Please any amount is a life changer</h6>
-              <form id="paymentForm">
+              <form action="transact_initialize.php" method="POST">
                 <div class="input-group input-group-outline my-3">
                   <label for="email">Email Address</label>
-                  <input class="form-control w-100" type="email" id="email-address" required />
+                  <input class="form-control w-100" type="email" id="email" name="email" required />
                 </div>
                 <div class="input-group input-group-outline my-3">
                   <label for="amount">Amount</label>
-                  <input type="tel" class="form-control w-100" id="amount" required />
+                  <input type="number" class="form-control w-100" id="amount" name="amount" required />
                 </div>
                 <div class="input-group input-group-outline my-3">
                   <label for="first-name">First Name</label>
-                  <input type="text" class="form-control w-100" id="first-name" />
+                  <input type="text" class="form-control w-100" id="firstname" name="firstname" />
                 </div>
-                <div class="input-group input-group-outline my-3">
+                <div class=" input-group input-group-outline my-3">
                   <label for="last-name">Last Name</label>
-                  <input type="text" class="form-control w-100" id="last-name" />
+                  <input type="text" class="form-control w-100" id="lastname" name="lastname" />
+                </div>
+                <div class=" input-group input-group-outline my-3">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" class="form-control w-100" id="phone" name="phone" />
                 </div>
                 <div class="form-submit justify-center">
-                  <button class="btn btn-large btn-dark mt-4" type="submit" onclick="payWithPaystack()"> Buy Me Card </button>
+                  <button class="btn btn-large btn-dark mt-4" type="submit"> Buy Me Card </button>
+                  <!-- <button class="btn btn-large btn-dark mt-4" type="submit" onclick="payWithPaystack()"> Buy Me Card </button> -->
                 </div>
               </form>
-
-              <script src="https://js.paystack.co/v1/inline.js"></script>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <style>
-      /*      
-       .pay{
-         display: flex;
-       justify-content: space-around;
-       align-items: center;
-       margin-top: 250px;
-       margin-left: 30em; 
-       } */
-
-      /* .pay {
-        width: 50em;
-
-      }
-
-      @media screen and (max-width:575.98px) {
-        body {
-          background-image: url(assets/css/pexels-artem-beliaikin-1153976.jpg);
-          background-size: cover;
-          background-repeat: no-repeat;
-          height: 100%;
-
-        }
-      } */
-    </style>
-    <script>
-      const paymentForm = document.getElementById('paymentForm');
-      paymentForm.addEventListener("submit", payWithPaystack, false);
-
-      function payWithPaystack(e) {
-        e.preventDefault();
-
-        let handler = PaystackPop.setup({
-          key: 'pk_test_3d44964799de7e2a5abdbf2eef2fbe6852e60833', // Replace with your public key
-          email: document.getElementById("email-address").value,
-          amount: document.getElementById("amount").value * 100,
-          firstname: document.getElementById("first-name").value,
-          lastname: document.getElementById("last-name").value,
-          ref: 'unibook' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-          // label: "Optional string that replaces customer email"
-          onClose: function() {
-            // window.location
-            alert('Window closed.');
-          },
-          callback: function(response) {
-            let message = 'Payment complete! Reference: ' + response.reference;
-            alert(message);
-
-            window.location = "http://localhost/my_project/transact_verify?reference=" + response.reference;
-
-          }
-        });
-
-        handler.openIframe();
-      }
-    </script>
     <?php include "footer.php" ?>
 
     </div>

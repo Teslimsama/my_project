@@ -2,7 +2,7 @@
 //fetch.php
 include "session.php";
 if (isset($_POST["action"])) {
-    $connect = mysqli_connect("localhost", "root", "", "testing");
+    $connect = mysqli_connect("sdb-c.hosting.stackcp.net", "main_user", "Work@1234567890", "unibooks_unibooks-31373122b0");
     $output = '';
     if ($_POST["action"] == "university") {
         $query = "SELECT faculty FROM university_faculty_department WHERE university = '" . $_POST["query"] . "' GROUP BY faculty";

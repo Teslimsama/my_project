@@ -9,23 +9,23 @@ body {
 	background-repeat: no-repeat;
 	height: 100%;
 }
-@media screen and (min-width: 320px) {
-	body {
-		background-image: url(../../Images/mob5.jpg);
-		background-size: cover;
-		background-repeat: no-repeat;
-		height: 100%;
-	}
-}
+/*@media screen and (min-width: 320px) {*/
+/*	body {*/
+/*		background-image: url(../../Images/mob5.jpg);*/
+/*		background-size: cover;*/
+/*		background-repeat: no-repeat;*/
+/*		height: 100%;*/
+/*	}*/
+/*}*/
 
-@media screen and (min-width: 575px) {
-	body {
-		background-image: url(../../Images/mob5.jpg);
-		background-size: cover;
-		background-repeat: no-repeat;
-		height: 100%;
-	}
-}
+/*@media screen and (min-width: 575px) {*/
+/*	body {*/
+/*		background-image: url(../../Images/mob5.jpg);*/
+/*		background-size: cover;*/
+/*		background-repeat: no-repeat;*/
+/*		height: 100%;*/
+/*	}*/
+/*}*/
 
 .bi {
 	vertical-align: -0.125em;

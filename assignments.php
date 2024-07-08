@@ -1,15 +1,11 @@
 <?php include "session.php";
-include 'alert.message.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <?php include "meta.php" ?>
   <title>
     Assignment || Unibooks
   </title>
@@ -37,7 +33,7 @@ include 'alert.message.php';
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Assignment</li>
           </ol>
           <h6 class="font-weight-bolder mb-0">Assignment</h6>
@@ -60,9 +56,48 @@ include 'alert.message.php';
     <!-- End Navbar -->
     <div class="card container-fluid ">
       <div class="card-body px-5">
-        <h2>Coming Soon</h2>
-        <p>this is where anyone can come here to meet up with a person to do his/her assignment, but it's still under development.</p>
-        <p> We hope you enjoy our website and feel free to contact us with any questions or comments. Thank you for visiting Unibooks. </p>
+        <h2>Assignment Features - Coming Soon</h2>
+
+
+        <p>
+
+          We are excited to announce that we will soon be launching a new feature on our platform to support students with their assignments. At our core, we strive to provide comprehensive resources and services that cater to the diverse needs of university students.
+        </p>
+        <p>
+
+          Our upcoming assignment feature aims to connect students with experienced individuals who can provide assistance and guidance on their assignments. Whether you need help with research, writing, proofreading, or formatting, our platform will facilitate the process of finding the right expert for your specific requirements.
+        </p>
+
+        <p>
+
+          Key features of our upcoming assignment service will include:
+        </p>
+
+        <p>
+
+          <strong>1. Expert Assistance:</strong> Gain access to a pool of qualified individuals with expertise in various academic fields. Our platform will enable you to connect with professionals who can provide valuable insights and support to enhance the quality of your assignments.
+        </p>
+        <p>
+
+          <strong>2. Customized Support:</strong> We understand that each assignment is unique, and our platform will allow you to find the right person who can tailor their assistance to match your specific needs. From topic selection to comprehensive guidance, our experts will work closely with you to ensure your assignments meet the highest standards.
+        </p>
+        <p>
+
+          <strong>3. Secure Communication: </strong>Our platform will provide a secure and convenient communication channel between students and assignment experts. You can discuss project details, share files, and collaborate effectively to achieve the desired outcomes.
+        </p>
+        <p>
+          <strong>
+            4. Transparent Pricing:</strong> We believe in fairness and transparency. The assignment feature will include a clear pricing structure, enabling you to choose the assistance that fits your budget. You will have the freedom to compare offers from different experts and select the one that suits your requirements.
+        </p>
+        <p>
+
+          We are diligently working on finalizing the development of our assignment feature and ensuring it meets the highest quality standards. While we cannot provide an exact launch date at this time, we assure you that it will be available soon.
+        </p>
+
+        <p>Stay tuned for further updates and announcements regarding the launch of our assignment feature. We are committed to supporting you in your academic journey and providing the tools you need to succeed.
+        </p>
+        <p>
+          If you have any questions or suggestions regarding our upcoming assignment feature, please feel free to reach out to our customer support team. We value your feedback and are excited to bring this new feature to our platform to further enhance your experience with us.</p>
       </div>
     </div>
     <?php include "footer.php" ?>

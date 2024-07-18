@@ -66,7 +66,7 @@
                     <img class="img-xs rounded-circle" src="../assets/Images/<?php echo $admin['image']; ?>" alt="Profile image"> </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                     <div class="dropdown-header text-center">
-                        <img class="img-md rounded-circle" src="../assets/Images/<?php echo $admin['image']; ?>" alt="Profile image">
+                        <img class="img-md rounded-circle" src="<?php echo !empty($admin['image']) ? $admin['image'] : $placeholder_url; ?>" style="height: 51px; width: 50px;" alt="Profile image">
                         <p class="mb-1 mt-3 fw-semibold"><?php echo $admin['firstname'] . ' ' . $admin['lastname']; ?></p>
                         <p class="fw-light text-muted mb-0"><?php echo $admin['email']  ?></p>
                     </div>

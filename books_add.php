@@ -26,7 +26,7 @@ $courses = fetchData($conn, 'Course');
   <title>
     Downloads || Unibooks
   </title>
-  <!--     Fonts and icons     -->
+  <!-- Fonts and icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -38,7 +38,6 @@ $courses = fetchData($conn, 'Course');
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link id="pagestyle" href="assets/css/faq.css" rel="stylesheet" />
-  <!-- <link rel="stylesheet" href="assets/css/cheatsheet.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.3.0/typeaheadjs.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
@@ -118,8 +117,8 @@ $courses = fetchData($conn, 'Course');
                         <label class="col-sm-3 col-form-label">Type</label>
                         <div class="col-sm-9">
                           <select class="form-select select" id="option-select-type" name="type">
-                            <option value="1">Books</option>
-                            <option value="0">Projects</option>
+                            <option value="Books">Books</option>
+                            <option value="Projects">Projects</option>
                           </select>
                         </div>
                       </div>
@@ -184,8 +183,7 @@ $courses = fetchData($conn, 'Course');
                         <label class="col-sm-3 col-form-label">Level</label>
                         <div class="col-sm-9">
                           <select class="form-select select2" name="level">
-                            <option>Current
-                              Level</option>
+                            <option value="Current Level">Current Level</option>
                             <option value="100">100L</option>
                             <option value="200">200L</option>
                             <option value="300">300L</option>
@@ -196,10 +194,10 @@ $courses = fetchData($conn, 'Course');
                       </div>
                     </div>
                     <div class="col-md-6">
-                      <div class="input-group input-group-outline row" id="amount-input-container">
+                      <div class="input-group input-group-outline row" id="amount-input-container" style="display: none;">
                         <label class="col-sm-3 col-form-label">Amount</label>
                         <div class="col-sm-9">
-                          <input type="number" class="form-control" name="amount" required />
+                          <input type="number" class="form-control" name="amount" />
                         </div>
                       </div>
                     </div>
@@ -236,8 +234,6 @@ $courses = fetchData($conn, 'Course');
       </div>
     </div>
 
-    php
-    Copy code
     <?php include "footer.php" ?>
 
     <!-- footer  -->
@@ -309,10 +305,10 @@ $courses = fetchData($conn, 'Course');
   <script>
     document.getElementById('option-select-type').addEventListener('change', function() {
       var amountInputContainer = document.getElementById('amount-input-container');
-      if (this.value === '1') {
-        amountInputContainer.style.display = 'none';
-      } else {
+      if (this.value === 'Projects') {
         amountInputContainer.style.display = 'block';
+      } else {
+        amountInputContainer.style.display = 'none';
       }
     });
 

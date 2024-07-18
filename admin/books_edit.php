@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin2 </title>
+  <title>Unibooks Nigeria</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/feather/feather.css">
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -46,14 +46,14 @@
                   echo SuccessMessage(); ?>
                 </div>
                 <h4 class="card-title">Horizontal Two Column</h4>
-                <form class="form-sample" method="post" id="product_form" enctype="multipart/form-data">
+                <form class="form-sample" method="post" action="insert.php" id="product_form" enctype="multipart/form-data">
                   <p class="card-description">Product Info</p>
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Product Name</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="product_name" name="product_name" readonly />
+                          <input type="text" class="form-control" id="product_name" name="title" />
                         </div>
                       </div>
                     </div>
@@ -61,7 +61,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Description</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="description" name="description" />
+                          <input type="text" class="form-control" id="description" name="desc" />
                         </div>
                       </div>
                     </div>
@@ -79,7 +79,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Product Price</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" id="product_price" name="product_price" />
+                          <input type="text" class="form-control" id="product_price" name="amount" />
                         </div>
                       </div>
                     </div>
@@ -133,7 +133,7 @@
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Department</label>
                         <div class="col-sm-9">
-                          <select class="form-select" id="department" name="department">
+                          <select class="form-select" id="department" name="dept">
                             <!-- Options will be populated by JavaScript -->
                           </select>
                         </div>
@@ -154,16 +154,25 @@
                     <div class="col-md-6">
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Product Image</label>
-                        <!-- <input type="file" class="form-control " name="product_image" id="product_image"> -->
-                        <div class="col-sm-9" id="product_image">
-                          <!-- Image will be populated by JavaScript -->
+                        <div class="col-sm-9">
+                          <div id="product_image">
+                            <!-- Image will be populated by JavaScript -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Upload Book</label>
+                        <div class="col-sm-9">
+                          <input type="file" class="form-control" name="book" />
                         </div>
                       </div>
                     </div>
                   </div>
-                  <input type="hidden" name="product_id" id="product_id" />
-                  <input type="hidden" name="operation" id="operation" />
-                  <button type="submit" name="action" id="action" class="btn btn-primary">Submit</button>
+                  <input type="hidden" name="edit_id" id="edit_id" value="">
+
+                  <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
               </div>
             </div>
@@ -180,9 +189,6 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-  <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <!-- endinject -->
   <script src="assets/vendors/js/vendor.bundle.base.js"></script>
   <script src="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
   <!-- endinject -->
@@ -229,38 +235,35 @@
             $('#action').val("Edit");
             $('#operation').val("Edit");
             $('#product_id').val(productID);
+            $('#edit_id').val(productID);
           }
         });
       }
 
-      $('#product_form').on('submit', function(event) {
-        event.preventDefault();
-        // Add your form submission logic here
-      });
-    });
-    $(document).on('submit', '#product_form', function(event) {
-      event.preventDefault();
-      var formData = new FormData(this);
+      // $('#product_form').on('submit', function(event) {
+      //   event.preventDefault();
+      //   var formData = new FormData(this);
 
-      $.ajax({
-        url: "insert.php",
-        method: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(response) {
-          var data = JSON.parse(response);
-          if (data.status === 'success') {
-            alert(data.message);
-            window.location.href = 'books.php'; // Redirect to books.php
-          } else {
-            alert(data.message);
-          }
-        },
-        error: function(xhr, status, error) {
-          console.error(error);
-        }
-      });
+      //   $.ajax({
+      //     url: "insert.php",
+      //     method: 'POST',
+      //     data: formData,
+      //     contentType: false,
+      //     processData: false,
+      //     success: function(response) {
+      //       var data = JSON.parse(response);
+      //       if (data.status === 'success') {
+      //         alert(data.message);
+      //         window.location.href = 'books.php'; // Redirect to books.php
+      //       } else {
+      //         alert(data.message);
+      //       }
+      //     },
+      //     error: function(xhr, status, error) {
+      //       console.error(error);
+      //     }
+      //   });
+      // });
     });
   </script>
   <!-- End custom js for this page-->

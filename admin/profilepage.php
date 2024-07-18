@@ -45,7 +45,7 @@
                 <div class="row gx-4 mb-2">
                   <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                      <img src="../images/pexels-joão-jesus-1080213.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                      <img src="<?php echo !empty($admin['image']) ? $admin['image'] : $placeholder_url; ?>" class="w-100 border-radius-lg img-lg shadow-sm">
                     </div>
                   </div>
                   <div class="col-auto my-auto">

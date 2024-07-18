@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $university = ucwords($_POST['university']);
     $level = $_POST['level'];
     $amount = $_POST['amount'];
-    $photo = $_FILES['img']['name'];
+    // $photo = $_FILES['img']['name'];
 
     // File validations
     $fileName = $_FILES["book"]["name"];
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Generate the image using the function
     $imgname = $slug . '.png';
-    $outputPath = __DIR__ . '/assets/Images/' . $imgname;
+    $outputPath = __DIR__ . '/../assets/Images/' . $imgname;
     createImage($outputPath, $title);
 
     $validExt = ['docx', 'jpg', 'png', 'jpeg', 'pdf', 'txt'];
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       throw new Exception("File is too large");
     } else {
       $newFileName = $slug . '.' . $Ext;
-      $location = '../unibooks_download/' . $newFileName;
+      $location = 'unibooks_download/' . $newFileName;
 
       // Database operations
       $conn->beginTransaction();

@@ -7,9 +7,7 @@ include 'session.php';
 
 <head>
   <?php include "meta.php"; ?>
-  <title>Sign In || Unibooks</title>
-  <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
-  <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
+  <title>Log In || Unibooks</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/signin.css">
   <link rel="stylesheet" href="assets/css/material-dashboard.css">
@@ -23,8 +21,8 @@ include 'session.php';
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4 ">
           <div class="container ps-0 pe-0">
-            <a href="index"> <img class="me-3" src="assets/Images/unibooks copy.png" alt="" width="50"></a>
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="./about_us" target="_blank">
+            <a href="index"> <img class="me-3" src="assets/Images/unibooks copy.png" alt="unibooks" width="50"></a>
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="index" target="_blank">
               <h4> Unibooks</h4>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,8 +35,14 @@ include 'session.php';
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
+                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="index">
+                    <i class="fa-solid fa-house text-dark me-1"></i>
+                    Home
+                  </a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
-                    <i class="fa-solid fa-table-layout opacity-6 text-dark me-1"></i>
+                    <i class="fa-solid fa-users text-dark me-1"></i>
                     About Us
                   </a>
                 </li>

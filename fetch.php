@@ -5,35 +5,26 @@ include "session.php";
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-require 'function.php'; // Use require instead of include for better error handling
+require 'function.php';
 $dbHost = $_ENV['DB_HOST'];
 $dbName = $_ENV['DB_NAME'];
 $dbUser = $_ENV['DB_USER'];
 $dbPass = $_ENV['DB_PASS'];
 
-// Create a PDO instance and set error mode to exceptions
 try {
-    // Correct the DSN format
     $conn = new PDO($dbHost . ';dbname=' . $dbName, $dbUser, $dbPass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    // Handle database connection error
     die("Database connection failed: " . $e->getMessage());
 }
 
-// Get the logged-in user's ID from the session
-
 $user_id = $user['id'];
-
-// Get total number of records in the table for the current user
 $totalRecords = get_total_all_records($conn, $user_id);
 
-// Initialize variables for the search term and ordering
 $searchValue = isset($_POST['search']['value']) ? $_POST['search']['value'] : '';
 $orderColumn = isset($_POST['order'][0]['column']) ? $_POST['order'][0]['column'] : 'id';
 $orderDir = isset($_POST['order'][0]['dir']) ? $_POST['order'][0]['dir'] : 'DESC';
 
-// Prepare the SELECT query
 $query = "
     SELECT * 
     FROM producttb 
@@ -50,12 +41,10 @@ $query = "
     ORDER BY $orderColumn $orderDir
 ";
 
-// Apply pagination if length is specified
 if ($_POST['length'] != -1) {
     $query .= " LIMIT :start, :length";
 }
 
-// Prepare and execute the query
 $statement = $conn->prepare($query);
 $statement->bindValue(':user_id', $user_id, PDO::PARAM_INT);
 $statement->bindValue(':search', "%$searchValue%");
@@ -65,17 +54,16 @@ if ($_POST['length'] != -1) {
 }
 $statement->execute();
 
-// Fetch the results
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-// Format the data for output
 $data = [];
+$start = $_POST['start'] + 1;
 foreach ($result as $row) {
     $image = $row["product_image"] ? '<img src="assets/Images/' . $row["product_image"] . '"id="' . $row['product_name'] . '" class="img-thumbnail update" width="50" height="35" />' : '';
     $type = $row['type'] === 1 ? 'Free Book' : 'Project';
 
     $sub_array = [
-        $row['id'],
+        $start++, // Row number
         $image,
         $row['product_name'],
         '₦' . $row['product_price'],
@@ -100,15 +88,10 @@ foreach ($result as $row) {
     $data[] = $sub_array;
 }
 
-// Prepare the output array
 $output = [
     'draw' => intval($_POST['draw']),
     'recordsTotal' => $totalRecords,
     'recordsFiltered' => count($result),
     'data' => $data
 ];
-// Send the JSON response
 echo json_encode($output);
-
-
-?>

@@ -15,3 +15,5 @@ $stmt->execute(['id' => $_SESSION['admin']]);
 $admin = $stmt->fetch();
 
 $pdo->close();
+// Generate the placeholder URL
+$placeholder_url = "https://placehold.co/600x400?text=" . urlencode($first_name . " " . $last_name);

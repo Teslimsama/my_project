@@ -1,13 +1,16 @@
 <ul class="navbar-nav  justify-content-end">
-    <li class="nav-item px-3 d-flex align-items-center">
-       
+
+    <li class='nav-item d-flex ps-3 align-items-center'>
+        <a href='books_add' class='nav-link text-body font-weight-bold px-0'>
+            <i class='fa-solid fa-plus '></i>
+        </a>
     </li>
-        <?php
-        // $acctype = ;
+    <?php
+    // $acctype = ;
 
-        if (isset($_SESSION['user'])) {
+    if (isset($_SESSION['user'])) {
 
-            echo "
+        echo "
     <li class='nav-item d-flex ps-3 align-items-center'>
           <a href='./profilepage' class='nav-link text-body font-weight-bold px-0'>
                <i class='fa-solid fa-user '></i>
@@ -19,19 +22,18 @@
         </a>
  </li>
               ";
-        } else {
-            echo "
+    } else {
+        echo "
             <li class='nav-item d-flex  ps-3 align-items-center'>
                <a href='./Signin' class='nav-link text-body font-weight-bold px-0'>
-               
-               <span class='d-sm-inline d-none'>Sign In</span>
+               <i class='fa-solid fa-right-to-bracket'></i>
            </a>
            </li>
               ";
-        }
-        ?>
-    
-    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+    }
+    ?>
+
+    <li class="nav-item d-xl-none pe-3 d-flex align-items-center">
         <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
             <div class="sidenav-toggler-inner">
                 <i class="sidenav-toggler-line"></i>
@@ -40,19 +42,19 @@
             </div>
         </a>
     </li>
-    <li class="nav-item px-3 d-flex align-items-center">
-        <a href="javascript:;" class="nav-link text-body p-0">
-            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-        </a>
-    </li>
-    <li class="nav-item dropdown pe-2 d-flex align-items-center">
+    <!--<li class="nav-item px-3 d-flex align-items-center">-->
+    <!--    <a href="javascript:;" class="nav-link text-body p-0">-->
+    <!--        <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>-->
+    <!--    </a>-->
+    <!--</li>-->
+    <li class="nav-item dropdown px-3 d-flex align-items-center">
         <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             <?php
             $query = $conn->prepare("SELECT * FROM notifications where status = 'unread' order by `date` DESC");
             $query->execute();
-            $res= $query->rowCount();
+            $res = $query->rowCount();
             if ($res > 0) {
-            ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo $res ;?> </span>
+            ?> <span class="position-absolute top-45 start-80 translate-middle badge rounded-pill bg-dark"><?php echo $res; ?> </span>
 
             <?php
             }
@@ -63,8 +65,8 @@
             <?php
             $stmt = $conn->prepare("SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
             $stmt->execute();
-            $resu= $stmt->fetchAll();
-            if ( $res > 0) {
+            $resu = $stmt->fetchAll();
+            if ($res > 0) {
                 foreach ($resu as $i) {
             ?>
 
@@ -76,12 +78,12 @@
     <a class='dropdown-item border-radius-md' href='view?id=" . $link . "'>
         <div class='d-flex py-1'>
             <div class='my-auto'>
-                <img src='../assets/img/team-2.jpg' class='avatar avatar-sm  me-3 'alt='". $i['date'] ."'>
+                <img src='../assets/img/team-2.jpg' class='avatar avatar-sm  me-3 'alt='" . $i['date'] . "'>
             </div>
             <div class='d-flex flex-column justify-content-center'>
                 <h6 class='text-sm font-weight-normal mb-1'>
                     ";
-                    
+
                     $alert .= htmlentities($i['message']);
                     $alert .= "<span class='font-weight-bold'> by " . $i['name'] . "</span> 
                 </h6>
@@ -89,7 +91,7 @@
                     <i class='fa fa-clock me-1'></i>
      ";
                     $alert .= "
-                    ". $i['date'] ."
+                    " . $i['date'] . "
                 </p>
             </div>
         </div>
@@ -98,7 +100,7 @@
                     if ($i['type'] == 'comment') {
                         echo $alert;
                         // print_r($resu) ;
-                       
+
                     }
                     ?>
 
@@ -159,6 +161,6 @@
             </li>
         </ul>
     </li> -->
-    
 
-</ul>
+
+        </ul>

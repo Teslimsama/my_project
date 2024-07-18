@@ -29,7 +29,7 @@ $courses = fetchData($conn, 'Course');
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
+  <title>Sign Up || Unibooks, Nigeria</title>
   <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -47,8 +47,8 @@ $courses = fetchData($conn, 'Course');
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 bg-dark shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid ps-2 pe-0">
-            <a href="Images/unibooks copy.png"><img class="me-3" src="Images/unibooks copy.png" alt="" width="50"></a>
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="./about_us.php" target="_blank">
+            <a href="index"><img class="me-3" src="Images/unibooks copy.png" alt="" width="50"></a>
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="index" target="_blank">
               <h4>Unibooks</h4>
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,15 +61,15 @@ $courses = fetchData($conn, 'Course');
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
-                    <i class="fa-solid fa-hashtag opacity-6 text-dark me-1"></i>
-                    About Us
+                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="index">
+                    <i class="fa-solid fa-house text-dark me-1"></i>
+                    Home
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./about_us">
-                    <i class="fa-solid fa-table-layout opacity-6 text-dark me-1"></i>
-                    Social Media
+                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
+                    <i class="fa-solid fa-users text-dark me-1"></i>
+                    About Us
                   </a>
                 </li>
                 <li class="nav-item">
@@ -87,7 +87,7 @@ $courses = fetchData($conn, 'Course');
   </nav>
   <!-- End Navbar -->
 
-  <div class="container form-control ps-4">
+  <div class="container form-control px-2">
     <div class="card mt-5 bg-light">
       <div class="card-body">
         <div class="text-center">

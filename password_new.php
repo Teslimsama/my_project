@@ -30,7 +30,7 @@ if (isset($_POST['reset'])) {
 				$stmt->execute(['password' => $password, 'id' => $row['id']]);
 
 				$_SESSION['success'] = 'Password successfully reset';
-				header('location: signin');
+				header('location: Signin');
 			} catch (PDOException $e) {
 				$_SESSION['error'] = $e->getMessage();
 				header('location: ' . $path);

@@ -87,14 +87,14 @@ if (isset($_POST['submit'])) {
                 <p>Email: " . $email . "</p>
                 <p>Password: " . $_POST['password'] . "</p>
                 <p>Please click the link below to activate your account.</p>
-                <a href='http://localhost/bolakaz/activate.php?code=" . $code . "&user=" . $userid . "'>Activate Account</a>
+                <a href='https://unibooks.com.ng/activate.php?code=" . $code . "&user=" . $userid . "'>Activate Account</a>
             ";
 
             $to = $email;
             $subject = "Account Activation";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-Type: text/html; charset=ISO-8859-1" . "\r\n";
-            $headers .= "From: bolajiteslim05@gmail.com";
+            $headers .= "From: 	Unibooks <noreply@unibooks.com.ng>";
 
             if (mail($to, $subject, $message, $headers)) {
                 unset($_SESSION['firstname']);
@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) {
                 unset($_SESSION['email']);
 
                 $_SESSION['success'] = 'Account created. Check your email to activate.';
-                header('location: Signin');
+                header('location: users');
                 exit();
             } else {
                 $_SESSION['error'] = 'Message could not be sent. Please try again.';

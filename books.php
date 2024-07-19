@@ -14,7 +14,7 @@
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -132,57 +132,58 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
-          $('#add_button').click(function() {
-            $('#product_form')[0].reset();
-            $('.modal-title').text("Add Product");
-            $('#action').val("Add");
-            $('#operation').val("Add");
-            $('#product_uploaded_image').html('');
+      $('#add_button').click(function() {
+        $('#product_form')[0].reset();
+        $('.modal-title').text("Add Product");
+        $('#action').val("Add");
+        $('#operation').val("Add");
+        $('#product_uploaded_image').html('');
+      });
+
+      var dataTable = $('#striped_data').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "order": [],
+        "ajax": {
+          url: "fetch.php",
+          type: "POST"
+        },
+        "columnDefs": [{
+          "targets": [0, 3, 4],
+          "orderable": false,
+        }, ],
+        "language": {
+          "paginate": {
+            "previous": "<span aria-hidden='true'>«</span>",
+            "next": "<span aria-hidden='true'>»</span>"
+          }
+        }
+
+      });
+
+
+
+      $(document).on('click', '.delete', function() {
+        var product_id = $(this).attr("id");
+        if (confirm("Are you sure you want to delete this?")) {
+          $.ajax({
+            url: "delete.php",
+            method: "POST",
+            data: {
+              product_id: product_id
+            },
+            success: function(data) {
+              alert(data);
+              dataTable.ajax.reload();
+            }
           });
-
-          var dataTable = $('#striped_data').DataTable({
-              "processing": true,
-              "serverSide": true,
-              "order": [],
-              "ajax": {
-                url: "fetch.php",
-                type: "POST"
-              },
-              "columnDefs": [{
-                "targets": [0, 3, 4],
-                "orderable": false,
-              }, ],
-              "language": {
-                "paginate": {
-                  "previous": "<span aria-hidden='true'>«</span>",
-                  "next": "<span aria-hidden='true'>»</span>"
-                }}
-
-              });
+        } else {
+          return false;
+        }
+      });
 
 
-
-            $(document).on('click', '.delete', function() {
-              var product_id = $(this).attr("id");
-              if (confirm("Are you sure you want to delete this?")) {
-                $.ajax({
-                  url: "delete.php",
-                  method: "POST",
-                  data: {
-                    product_id: product_id
-                  },
-                  success: function(data) {
-                    alert(data);
-                    dataTable.ajax.reload();
-                  }
-                });
-              } else {
-                return false;
-              }
-            });
-
-
-          });
+    });
   </script>
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

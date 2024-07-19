@@ -226,7 +226,8 @@ $courses = fetchData($conn, 'Course');
                     </div>
                   </div>
                   <button type="submit" name="submit" class="btn btn-primary me-2">Update</button>
-                  <button type="reset" class="btn btn-light">Cancel</button>
+                  <!-- <button type="reset" class="btn btn-light">Cancel</button> -->
+                  <a class="btn btn-link ml-2" href="profilepage">Cancel</a>
                 </form>
               </div>
             </div>

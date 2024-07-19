@@ -60,25 +60,31 @@ include 'session.php';
 </head>
 
 <body>
- 
+
   <div class="container mt-5  ">
-  <div class="row">
+    <!-- <div class="row">
       <div class="col-12">
           
-  <?php echo ErrorMessage();
-            echo SuccessMessage(); ?>
+  <?php
+  //  echo ErrorMessage();
+  //           echo SuccessMessage(); 
+  ?>
       </div>
-  </div>
+  </div> -->
     <div class="card mt-5 form-signin  ">
       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
           <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
         </div>
+        <div class="msg">
 
-           
+          <?php echo ErrorMessage();
+          echo SuccessMessage(); ?>
+        </div>
+
         <div class="card-body">
           <form class=" form-control" action="reset_app.php" method="post">
-            
+
             <div class="form-floating">
               <input type="email" style="border: solid grey 1px;" class="form-control" id="floatingInput" name="email" placeholder="Email">
               <label for="floatingInput">Email address</label>

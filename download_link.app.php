@@ -39,8 +39,11 @@ if ($id) {
                 // Clear output buffer
                 ob_clean();
                 flush();
+                if (empty($user['id'])) {
+                    # code...
+                    $customerid = 0;
+                }
                 $customerid = $user['id'];
-
                 $time = date('Y-m-d');
                 // Record file download in database
                 $sql = "INSERT INTO downloads (customerid,book_id,date) VALUES (:customerid, :book , :date)";

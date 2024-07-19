@@ -4,15 +4,15 @@ include '../alert.message.php';
 // Function to fetch data from the database
 function fetchData($conn, $columnName)
 {
-    $data = array();
-    $sql = "SELECT DISTINCT $columnName FROM university_faculty_department";
-    $stmt = $conn->query($sql);
+  $data = array();
+  $sql = "SELECT DISTINCT $columnName FROM university_faculty_department";
+  $stmt = $conn->query($sql);
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $data[] = $row[$columnName];
-    }
+  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $data[] = $row[$columnName];
+  }
 
-    return $data;
+  return $data;
 }
 
 // Fetch data for each dropdown
@@ -38,7 +38,7 @@ $courses = fetchData($conn, 'Course');
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
@@ -231,7 +231,7 @@ $courses = fetchData($conn, 'Course');
             </div>
             <div class="">
               <label for="">Department</label>
-              <select class=" select2 form-select" name="department"  style=" width: 100%; border: 2px solid grey ;">
+              <select class=" select2 form-select" name="department" style=" width: 100%; border: 2px solid grey ;">
                 <option value="">Select Department</option>
                 <?php
                 foreach ($departments as $department) {
@@ -297,7 +297,7 @@ $courses = fetchData($conn, 'Course');
       });
     });
   </script>
-  
+
   <!-- <script>
     $(document).ready(function() {
       $('.action').change(function() {

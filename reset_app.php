@@ -1,61 +1,84 @@
 <?php
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\Exception;
 
-$currDir = dirname(__FILE__);
-// require $currDir . '/PHPMailer/src/Exception.php';
-// require $currDir . '/PHPMailer/src/PHPMailer.php';
-// require $currDir . '/PHPMailer/src/SMTP.php';
-// require $currDir . '/PHPMailer/src/POP3.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
+// Include session handling
 include 'session.php';
 
 if (isset($_POST['reset'])) {
   $email = $_POST['email'];
 
+  // Database connection
   $conn = $pdo->open();
 
+  // Check if the email exists in the database
   $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM unibooker WHERE email=:email");
   $stmt->execute(['email' => $email]);
   $row = $stmt->fetch();
 
   if ($row['numrows'] > 0) {
-    //generate code
+    // Generate code
     $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $code = substr(str_shuffle($set), 0, 15);
     try {
+      // Update code in the database
       $stmt = $conn->prepare("UPDATE unibooker SET code=:code WHERE id=:id");
       $stmt->execute(['code' => $code, 'id' => $row['id']]);
 
-      // email message
-      $to = $email;
-      $subject = 'Password Reset Link';
-      $message = "Dear ".$row['firstname'].' '.$row['lastname'].",<br><br>Please click the link below to reset your password:<br><br>";
-      $message .= "<a href='https://unibooks.com.ng/password_reset.php?email=".$email."&code=".$code."'>Reset Password</a><br><br>";
-      $message .= "Thank you.<br>";
-      $message .= "Unibooks Team<br>";
+      // Prepare the email
+      $mail = new PHPMailer(true);
+      try {
+        // Server settings
+        // $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+        $mail->isSMTP();                                            // Set mailer to use SMTP
+        $mail->Host       = 'smtp.unibooks.com.ng';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+        $mail->Username   = 'info@unibooks.com.ng';                     // SMTP username
+        $mail->Password   = 'xxxxxxx';                               // SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;                                  // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
+        $mail->Port       = 465;
 
-      $headers  = 'MIME-Version: 1.0' . "\r\n";
-      $headers .= 'Content-Type: text/html; charset=ISO-8859-1' . "\r\n";
-      $headers .= 'From: Unibooks <noreply@unibooks.com.ng>' . "\r\n";
-      
-      $move= header('location: forgotten_password.php');
+        // Recipients
+        $mail->setFrom('noreply@unibooks.com.ng', 'Unibooks.com.ng');
+        $mail->addAddress($email);
 
-      include $currDir .'/email.app.php';
-      $move;
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Password Reset Link';
+        $mail->Body    = "Dear " . $row['firstname'] . ' ' . $row['lastname'] . ",<br><br>Please click the link below to reset your password:<br><br>";
+        $mail->Body   .= "<a href='https://unibooks.com.ng/password_reset.php?email=" . $email . "&code=" . $code . "'>Reset Password</a><br><br>";
+        $mail->Body   .= "Thank you.<br>";
+        $mail->Body   .= "Unibooks Team<br>";
+
+        // Send the email
+        $mail->send();
+        $_SESSION['success'] = 'Password reset link has been sent to your email.';
+        header('Location: forgotten_password.php');
+        exit();
+      } catch (Exception $e) {
+        $_SESSION['error'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        header('Location: forgotten_password.php');
+        exit();
+      }
     } catch (PDOException $e) {
-      $_SESSION['error'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-       $move;
-    
+      $_SESSION['error'] = 'Database error: ' . $e->getMessage();
+      header('Location: forgotten_password.php');
+      exit();
     }
   } else {
     $_SESSION['error'] = 'Email not found';
-     $move;
-     header('location: forgotten_password.php');
+    header('Location: forgotten_password.php');
+    exit();
   }
 
   $pdo->close();
 } else {
   $_SESSION['error'] = 'Input email associated with account';
-//   $move;
-header('location: forgotten_password.php');
+  header('Location: forgotten_password.php');
+  exit();
 }

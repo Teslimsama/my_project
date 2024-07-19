@@ -2,11 +2,11 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;	
-$currDir=dirname(__FILE__);
-require $currDir.'/PHPMailer/src/Exception.php';
-require $currDir.'/PHPMailer/src/PHPMailer.php';
-require $currDir.'/PHPMailer/src/SMTP.php';
-require $currDir.'/PHPMailer/src/POP3.php';
+// dirname(__FILE__);   
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/POP3.php';
  
 // Instantiation and passing [ICODE]true[/ICODE] enables exceptions
 $mail = new PHPMailer(true);
@@ -18,7 +18,7 @@ try {
     $mail->Host       = 'smtp.unibooks.com.ng';  // Specify main and backup SMTP servers
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'info@unibooks.com.ng';                     // SMTP username
-    $mail->Password   = 'Work@1234567890';                               // SMTP password
+    $mail->Password   = 'info@2010';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;                                  // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
     $mail->Port       = 465;                                    // TCP port to connect to
  
@@ -31,8 +31,8 @@ try {
     // $mail->addBCC('info@unibooks.com.ng');
  
     // Attachments
-    $mail->addAttachment($currDir.'/faq.php');         // Add attachments
-    $mail->addAttachment($currDir.'/Images/bruce-mars.jpg');    // Optional name
+    $mail->addAttachment('./faq.php');         // Add attachments
+    $mail->addAttachment('./Images/bruce-mars.jpg');    // Optional name
  
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML

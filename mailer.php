@@ -18,7 +18,7 @@ try {
     $mail->Host       = 'smtp.unibooks.com.ng';  // Specify main and backup SMTP servers
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'info@unibooks.com.ng';                     // SMTP username
-    $mail->Password   = 'info@2010';                               // SMTP password
+    $mail->Password   = 'xxxxxxx';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;                                  // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
     $mail->Port       = 465;                                    // TCP port to connect to
  

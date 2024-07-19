@@ -56,11 +56,12 @@ if (isset($_POST['submit'])) {
 
         // Generate a unique code
         $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $code = substr(str_shuffle($set), 0, 12);
+        // $code = substr(str_shuffle($set), 0, 12);
+        $activate_code = substr(str_shuffle($set), 0, 12);
 
         try {
             // Insert new user into the database
-            $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender, dob, phone, level, code, date, reference, school, faculty, department, course) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level, :code, :date, :reference, :school, :faculty, :department, :course)");
+            $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender, dob, phone, level, activate_code, date, reference, school, faculty, department, course) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level,  :activate_code, :date, :reference, :school, :faculty, :department, :course)");
             $stmt->execute([
                 'email' => $email,
                 'password' => $hashedPassword,
@@ -70,7 +71,7 @@ if (isset($_POST['submit'])) {
                 'dob' => $dob,
                 'phone' => $phone,
                 'level' => $level,
-                'code' => $code,
+                'activate_code' => $activate_code,
                 'date' => $now,
                 'reference' => $referral,
                 'school' => $university,
@@ -87,14 +88,14 @@ if (isset($_POST['submit'])) {
                 <p>Email: " . $email . "</p>
                 <p>Password: " . $_POST['password'] . "</p>
                 <p>Please click the link below to activate your account.</p>
-                <a href='http://localhost/bolakaz/activate.php?code=" . $code . "&user=" . $userid . "'>Activate Account</a>
+                <a href='http://localhost/my_project/activate.php?code=" . $activate_code . "&user=" . $userid . "'>Activate Account</a>
             ";
 
             $to = $email;
             $subject = "Account Activation";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-Type: text/html; charset=ISO-8859-1" . "\r\n";
-            $headers .= "From: bolajiteslim05@gmail.com";
+            $headers .= "From: Unibooks.com.ng";
 
             if (mail($to, $subject, $message, $headers)) {
                 unset($_SESSION['firstname']);

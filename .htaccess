@@ -1,41 +1,14 @@
+# Enable the rewriting engine
 RewriteEngine On
+
+# Rewrite URLs without file extensions to .php files
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 
-<FilesMatch "\.(css|flv|gif|htm|html|php|ico|jpe|jpeg|jpg|js|mp3|mp4|png|pdf|swf|txt)$">
-    <IfModule mod_expires.c>
-        ExpiresActive Off
-    </IfModule>
-    <IfModule mod_headers.c>
-        FileETag None
-        Header unset ETag
-        Header unset Pragma
-        Header unset Cache-Control
-        Header unset Last-Modified
-        Header set Pragma "no-cache"
-        Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
-        Header set Expires "Thu, 1 Jan 1970 00:00:00 GMT"
-    </IfModule>
+
+# Allow access to image files from all sources
+<FilesMatch "\.(jpg|jpeg|png|gif)$">
+    Order Allow,Deny
+    Allow from all
 </FilesMatch>
-
-
-# END cPanel-generated php ini directives, do not edit
-
-RewriteCond %{HTTP_REFERER} !^http://support.unibooks.com.ng/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://support.unibooks.com.ng$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://unibooks.com.ng/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://unibooks.com.ng$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.support.unibooks.com.ng/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.support.unibooks.com.ng$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.unibooks.com.ng/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^http://www.unibooks.com.ng$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://support.unibooks.com.ng/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://support.unibooks.com.ng$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://unibooks.com.ng/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://unibooks.com.ng$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.support.unibooks.com.ng/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.support.unibooks.com.ng$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.unibooks.com.ng/.*$      [NC]
-RewriteCond %{HTTP_REFERER} !^https://www.unibooks.com.ng$      [NC]
-RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]

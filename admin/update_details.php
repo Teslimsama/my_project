@@ -9,7 +9,7 @@ include "session.php";
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin2 </title>
+  <title>Update Details</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/feather/feather.css">
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -72,8 +72,7 @@ include "session.php";
                       <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" name="username" value="<?php echo $admin['username']; ?>" required>
-                          <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                          <input type="text" class="form-control " name="username" value="<?php echo $admin['username']; ?>" required>
                         </div>
                       </div>
                     </div>
@@ -107,7 +106,7 @@ include "session.php";
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Upload Your Profile Image</label>
                     <div class="col-sm-9">
-                      <input type="file" class="form-control" name="attachment">
+                      <input type="file" class="form-control" name="pfp">
                     </div>
                   </div>
                   <div class="form-group">

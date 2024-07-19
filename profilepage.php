@@ -71,14 +71,14 @@ if (!isset($_SESSION['user'])) {
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid px-2 px-md-4">
-      <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('Images/pexels-engin-akyurt-2943603_24685434.jpg');">
+      <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('assets/Images/pexels-engin-akyurt-2943603_24685434.jpg');">
         <span class="mask bg-gradient-primary opacity-6"></span>
       </div>
       <div class="card card-body mx-3 mx-md-4 mt-n6">
         <div class="row gx-4 mb-2">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="pfp/<?php echo (!empty($user['image'])) ? $user['image'] : 'noimage.jpg'; ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="<?php echo (!empty($user['image'])) ? $user['image'] : 'noimage.jpg'; ?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>
           <div class="col-auto my-auto">

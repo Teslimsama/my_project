@@ -29,37 +29,19 @@
   <!-- CSS Files -->
   <link id="page.phpstyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/content.css">
+  <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
-<body class="g-sidenav-show ">
-  <?php
-  include 'sidebar.php' ?>
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="project">Projects</li>
-          </ol>
-          <h6 class="font-weight-bolder mb-0">Projects</h6>
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <form action="search" method="GET">
-              <div class="input-group input-group-outline">
-                <label class="form-label">Type here...</label>
-                <input type="text" id="search" name="k" class="form-control">
+<body class="bg-light">
+  <?php include "header_app.php"; ?>
 
-              </div>
-            </form>
-          </div>
-          <?php include "navbar.php" ?>
-
-        </div>
+  <main class="container-fluid pb-5">
+    <div class="d-md-none p-3">
+      <div class="search-container m-0">
+        <i class="fa fa-search search-icon"></i>
+        <input type="text" id="search_box_mobile" class="search-input" placeholder="Search projects...">
       </div>
-    </nav>
+    </div>
     <main>
       <form action="" method="POST">
 
@@ -71,6 +53,9 @@
 
       <?php include "footer.php" ?>
     </main>
+
+    <?php include "bottom_nav_app.php"; ?>
+
     <?php include "plugin.php" ?>
     <script>
       load_data();
@@ -99,18 +84,15 @@
             if (response.data.length > 0) {
               for (var count = 0; count < response.data.length; count++) {
                 html += `
-      <div class='pic card bg-gradient-light mt-3'>
-          <img class='' src='assets/Images/` + response.data[count].image + `' height='' alt='` + response.data[count].name + `' style='width: 100%;'>
-          
-          <input type='hidden' name= '` + response.data[count].id + `'>
-          <a href='description_pro?id=` + response.data[count].id + `'>
-            <div class='container name '>
-              <h6>` + response.data[count].name + `</h6>
-              
-          </a>
-        </div>
-      </div> 
-        `;
+                        <div class='book-card'>
+                            <div class="book-image-wrapper">
+                                <img class='book-image' src='assets/Images/${response.data[count].image}' alt='${response.data[count].name}'>
+                            </div>
+                            <div class='book-info'>
+                                <h6 class='book-title'>${response.data[count].name}</h6>
+                                <a href='description_pro?id=${response.data[count].id}' class="btn btn-primary btn-sm w-100 rounded-pill mt-2">View Project</a>
+                            </div>
+                        </div>`;
                 serial_no++;
               }
             } else {
@@ -119,13 +101,17 @@
             }
 
             document.getElementById("post_data").innerHTML = html;
-
-            // document.getElementById("total_data").innerHTML = response.total_data;
-
             document.getElementById("pagination_link").innerHTML = response.pagination;
           }
         };
       }
+
+      document.getElementById('search_box_desktop').addEventListener('keyup', function() {
+        load_data(this.value);
+      });
+      document.getElementById('search_box_mobile').addEventListener('keyup', function() {
+        load_data(this.value);
+      });
     </script>
     <script>
       var win = navigator.platform.indexOf('Win') > -1;

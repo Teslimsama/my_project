@@ -59,7 +59,7 @@ if (isset($_POST["query"])) {
 		$replace_array_1 = explode('%', $condition);
 
 		foreach ($replace_array_1 as $row_data) {
-			$replace_array_2[] = '<span style="background-color:#' . rand(100000, 999999) . '; color:#fff">' . $row_data . '</span>';
+			$replace_array_2[] = '<span class="search-highlight">' . $row_data . '</span>';
 		}
 
 		foreach ($result as $row) {

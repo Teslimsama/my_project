@@ -1,0 +1,21 @@
+# Environment variables
+.env
+
+# Dependencies
+/vendor
+/node_modules
+
+# Generated files & Cache
+/temp
+*.log
+*.cache
+
+# IDE & OS Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# User Uploads (Optional - verify if these should be tracked)
+/unibooks_download/*
+!/unibooks_download/.gitignore

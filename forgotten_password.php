@@ -39,68 +39,49 @@ include 'session.php';
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
-  <title>
-    Reset Password || Unibooks
-  </title>
-  <!--     Fonts and icons     -->
+  <title>Reset Password || Unibooks</title>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-  <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-  <link href="assets/css/content.css" rel="stylesheet" />
-  <link href="assets/css/signin.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet">
-  <!-- <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet" > -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="bg-light">
+  <?php include "header_app.php"; ?>
 
-  <div class="container mt-5  ">
-    <!-- <div class="row">
-      <div class="col-12">
-          
-  <?php
-  //  echo ErrorMessage();
-  //           echo SuccessMessage(); 
-  ?>
+  <main class="container py-5">
+    <div class="auth-card" style="max-width: 500px; margin: 0 auto;">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-dark">Reset Password</h2>
+        <p class="text-muted">Enter your email to receive a reset link</p>
       </div>
-  </div> -->
-    <div class="card mt-5 form-signin  ">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-          <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
-        </div>
-        <div class="msg">
 
-          <?php echo ErrorMessage();
-          echo SuccessMessage(); ?>
+      <?php echo ErrorMessage();
+      echo SuccessMessage(); ?>
+
+      <form action="reset_app.php" method="post">
+        <div class="mb-4">
+          <label class="form-label text-sm fw-bold">Email Address</label>
+          <input type="email" class="form-control" name="email" placeholder="john@university.edu" required>
         </div>
 
-        <div class="card-body">
-          <form class=" form-control" action="reset_app.php" method="post">
-
-            <div class="form-floating">
-              <input type="email" style="border: solid grey 1px;" class="form-control" id="floatingInput" name="email" placeholder="Email">
-              <label for="floatingInput">Email address</label>
-            </div>
-
-            <div class="form-group text-center  m-3">
-              <input type="submit" name="reset" class="w-80 btn btn-dark">
-            </div>
-          </form>
+        <div class="d-grid gap-2">
+          <button type="submit" name="reset" class="btn btn-primary py-3 rounded-pill shadow-primary fw-bold">Send Reset Link</button>
+          <a href="Signin" class="btn btn-light py-3 rounded-pill fw-bold">Back to Login</a>
         </div>
-
-      </div>
+      </form>
     </div>
-  </div>
-  <?php include "footer.php" ?>
 
+    <?php include "footer.php" ?>
+  </main>
+
+  <?php include "bottom_nav_app.php"; ?>
+
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
 </body>
 
 </html>

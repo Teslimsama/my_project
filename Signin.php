@@ -8,128 +8,89 @@ include 'session.php';
 <head>
   <?php include "meta.php"; ?>
   <title>Log In || Unibooks</title>
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/signin.css">
-  <link rel="stylesheet" href="assets/css/material-dashboard.css">
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
-<body>
-  <div class="container z-index-sticky top-0 mb-5">
-    <div class="row">
-      <div class="">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4 ">
-          <div class="container ps-0 pe-0">
-            <a href="index"> <img class="me-3" src="assets/Images/unibooks copy.png" alt="unibooks" width="50"></a>
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="index" target="_blank">
-              <h4> Unibooks</h4>
-            </a>
-            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon mt-2 ">
-                <span class="navbar-toggler-bar bar1 "></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navigation">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="index">
-                    <i class="fa-solid fa-house text-dark me-1"></i>
-                    Home
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
-                    <i class="fa-solid fa-users text-dark me-1"></i>
-                    About Us
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./Signup">
-                    <i class="fas fa-user-plus opacity-6 text-dark me-1"></i>
-                    Sign Up
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </div>
-  <!-- End Navbar -->
+<body class="bg-light">
+  <?php include "header_app.php"; ?>
 
-  <main class="container-fluid text-center mt-5">
-    <div class="form-signin bg-light rounded">
+  <main class="container py-5">
+    <div class="auth-card">
       <form action="signin.app.php" method="POST">
-        <a href="index"> <img class="me-3" src="assets/Images/unibooks copy.png" alt="" width="200" height="150"></a>
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <img class="auth-logo" src="assets/Images/unibooks copy.png" alt="Unibooks Logo">
+        <h2 class="h3 mb-4 fw-bold text-center">Welcome Back</h2>
 
         <?php echo ErrorMessage();
         echo SuccessMessage(); ?>
 
-        <div class="form-floating">
-          <input type="email" class="form-control ps-2 <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php if (isset($_COOKIE["email"])) {
-                                                                                                                            echo $_COOKIE["email"];
-                                                                                                                          } ?>" id="floatingInput" name="email" placeholder="Email">
-          <span class="invalid-feedback"><?php echo $username_err; ?></span>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
+            value="<?php echo $_COOKIE["email"] ?? ''; ?>"
+            id="floatingInput" name="email" placeholder="Email">
           <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating pass mt-3">
-          <input type="password" class="form-control ps-2 <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="floatingPassword" name="password" value="<?php if (isset($_COOKIE["password"])) {
-                                                                                                                                                                      echo $_COOKIE["password"];
-                                                                                                                                                                    } ?>" placeholder="Password">
-          <span class="invalid-feedback"><?php echo $password_err; ?></span>
-          <span onclick="togglePass()">
-            <i id="hide1" class="fa fa-eye eye"></i>
-            <i id="hide2" class="fa fa-eye-slash eye"></i>
-          </span>
-          <label for="floatingPassword">Password</label>
+          <span class="invalid-feedback"><?php echo $username_err ?? ''; ?></span>
         </div>
 
-        <div class="checkbox mb-3">
-          <div class="form-check form-switch d-flex align-items-center mb-3">
-            <input class="form-check-input" type="checkbox" id="rememberMe" name="remember" checked>
-            <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
+        <div class="form-floating mb-3 position-relative">
+          <input type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
+            id="floatingPassword" name="password"
+            value="<?php echo $_COOKIE["password"] ?? ''; ?>" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+          <span class="invalid-feedback"><?php echo $password_err ?? ''; ?></span>
+          <div class="position-absolute end-0 top-50 translate-middle-y me-3" style="z-index: 10; cursor: pointer;" onclick="togglePass()">
+            <i id="eye-icon" class="fa fa-eye text-muted"></i>
           </div>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" name="login" type="submit">Sign in</button>
-        <p class="mt-4 text-sm text-center">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="rememberMe" name="remember" checked>
+            <label class="form-check-label mb-0 ms-2 text-sm" for="rememberMe">Remember me</label>
+          </div>
+          <a href="./forgotten_password" class="text-primary text-sm fw-bold text-decoration-none">Forgot?</a>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary py-3 rounded-pill shadow-primary" name="login" type="submit">Sign in</button>
+
+        <p class="mt-4 text-center text-muted text-sm">
           Don't have an account?
-          <a href="./Signup" class="text-primary text-gradient font-weight-bold">Sign up</a>
-        </p>
-        <p class="mt-4 text-sm text-center">
-          Forgotten your
-          <a href="./forgotten_password" class="text-primary text-gradient font-weight-bold">Password?</a>
+          <a href="./Signup" class="text-primary fw-bold text-decoration-none">Sign up</a>
         </p>
       </form>
     </div>
-    <!-- footer  -->
     <?php include "footer.php"; ?>
-    <!-- footer  -->
   </main>
+
+  <?php include "bottom_nav_app.php"; ?>
 
   <script>
     function togglePass() {
-      var x = document.getElementById("floatingPassword");
-      var y = document.getElementById("hide1");
-      var z = document.getElementById("hide2");
-      if (x.type === "password") {
-        x.type = "text";
-        y.style.display = "none";
-        z.style.display = "block";
+      const passInput = document.getElementById("floatingPassword");
+      const eyeIcon = document.getElementById("eye-icon");
+      if (passInput.type === "password") {
+        passInput.type = "text";
+        eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
       } else {
-        x.type = "password";
-        y.style.display = "block";
-        z.style.display = "none";
+        passInput.type = "password";
+        eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
       }
     }
   </script>
+</body>
 
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/material-dashboard.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/material-dashboard.js"></script>
 </body>
 
 </html>

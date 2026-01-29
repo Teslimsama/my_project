@@ -30,52 +30,32 @@ include "session.php";
   <!-- CSS Files -->
   <link id="page.phpstyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/content.css">
+  <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
-<body class="g-sidenav-show ">
-  <?php
-  include 'sidebar.php' ?>
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="index">Home</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="index">Library</li>
-          </ol>
-          <h6 class="font-weight-bolder mb-0">Library</h6>
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <form action="search" method="GET">
-              <div class="input-group input-group-outline">
-                <label class="form-label">Type here...</label>
-                <input type="text" id="search" name="k" class="form-control">
+<body class="bg-light">
+  <?php include "header_app.php"; ?>
 
-              </div>
-            </form>
-          </div>
-          <?php include "navbar.php" ?>
-
-        </div>
+  <main class="container-fluid pb-5">
+    <div class="d-md-none p-3">
+      <div class="search-container m-0">
+        <i class="fa fa-search search-icon"></i>
+        <input type="text" id="search_box_mobile" class="search-input" placeholder="Search...">
       </div>
-    </nav>
-    <main>
-      <input type="text" id="search_box" onkeyup="load_data(this.value)" placeholder="Search...">
+    </div>
 
-      <form action="" method="POST">
+    <div class="library-grid" id="post_data">
+      <!-- AJAX data will be loaded here -->
+    </div>
 
-        <div class="doe" id="post_data"></div>
+    <div id="pagination_link" class="d-flex justify-content-center py-4"></div>
 
-      </form>
+    <?php include "footer.php" ?>
+  </main>
 
-      <div id="pagination_link"></div>
-
-      <?php include "footer.php" ?>
-    </main>
-    <?php include "plugin.php" ?>
-    <!-- <script>
+  <?php include "bottom_nav_app.php"; ?>
+  <?php include "plugin.php" ?>
+  <!-- <script>
       load_data();
 
       function load_data(query = "", page_number = 1) {
@@ -131,75 +111,78 @@ include "session.php";
       }
     </script> -->
 
-    <script>
-      load_data();
+  <script>
+    load_data();
 
-      function load_data(query = "", page_number = 1) {
-        var form_data = new FormData();
-        form_data.append("query", query);
-        form_data.append("page", page_number);
+    function load_data(query = "", page_number = 1) {
+      var form_data = new FormData();
+      form_data.append("query", query);
+      form_data.append("page", page_number);
 
-        var ajax_request = new XMLHttpRequest();
-        ajax_request.open("POST", "process_data.php");
-        ajax_request.send(form_data);
+      var ajax_request = new XMLHttpRequest();
+      ajax_request.open("POST", "process_data.php");
+      ajax_request.send(form_data);
 
-        ajax_request.onreadystatechange = function() {
-          if (ajax_request.readyState == 4 && ajax_request.status == 200) {
-            var response = JSON.parse(ajax_request.responseText);
+      ajax_request.onreadystatechange = function() {
+        if (ajax_request.readyState == 4 && ajax_request.status == 200) {
+          var response = JSON.parse(ajax_request.responseText);
 
-            var html = "";
-            var serial_no = 1;
+          var html = "";
+          var serial_no = 1;
 
-            if (response.data.length > 0) {
-              for (var count = 0; count < response.data.length; count++) {
-                html += `
-                        <div class='pic card bg-gradient-light mt-3'>
-                            <img class='' src='assets/Images/` + response.data[count].image + `' height='' alt='` + response.data[count].name + `' style='width: 100%;'>
-                            <input type='hidden' name= '` + response.data[count].id + `'>
-                            <a href='description_page?id=` + response.data[count].id + `&book=` + response.data[count].link + `'>
-                                <div class='container name '>
-                                    <h6>` + response.data[count].name + `</h6>
-                                </div>
-                            </a>
+          if (response.data.length > 0) {
+            for (var count = 0; count < response.data.length; count++) {
+              html += `
+                        <div class='book-card'>
+                            <div class="book-image-wrapper">
+                                <img class='book-image' src='assets/Images/${response.data[count].image}' alt='${response.data[count].name}'>
+                            </div>
+                            <div class='book-info'>
+                                <h6 class='book-title'>${response.data[count].name}</h6>
+                                <a href='description_page?id=${response.data[count].id}&book=${response.data[count].link}' class="btn btn-primary btn-sm w-100 rounded-pill mt-2">View Details</a>
+                            </div>
                         </div>`;
-                serial_no++;
-              }
-            } else {
-              html += '<h3 class="text-center">No Data Found</h3>';
+              serial_no++;
             }
-
-            document.getElementById("post_data").innerHTML = html;
-            document.getElementById("pagination_link").innerHTML = response.pagination;
+          } else {
+            html += '<h3 class="text-center">No Data Found</h3>';
           }
+
+          document.getElementById("post_data").innerHTML = html;
+          document.getElementById("pagination_link").innerHTML = response.pagination;
         }
       }
+    }
 
-      // Attach the keyup event listener to the search box
-      document.getElementById('search_box').addEventListener('keyup', function() {
-        load_data(this.value);
-      });
-    </script>
+    // Attach the keyup event listener to the search box
+    document.getElementById('search_box_desktop').addEventListener('keyup', function() {
+      load_data(this.value);
+    });
+    document.getElementById('search_box_mobile').addEventListener('keyup', function() {
+      load_data(this.value);
+    });
+  </script>
 
-    <script>
-      var win = navigator.platform.indexOf('Win') > -1;
-      if (win && document.querySelector('#sidenav-scrollbar')) {
-        var options = {
-          damping: '0.5'
-        }
-        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
       }
-    </script>
-    <!--   Core JS Files   -->
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!--   Core JS Files   -->
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
 
 
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Material Library: parallax effects, scripts for the example page.phps etc -->
-    <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Library: parallax effects, scripts for the example page.phps etc -->
+  <script src="assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 
 </html>

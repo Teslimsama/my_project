@@ -32,102 +32,86 @@ $courses = fetchData($conn, 'Course');
   <title>Sign Up || Unibooks, Nigeria</title>
   <link rel="apple-touch-icon" sizes="76x76" href="Images/apple-touch-icon.png">
   <link rel="shortcut icon" type="image/png" href="Images/android-chrome-512x512.png">
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/signup.css">
-  <link rel="stylesheet" href="assets/css/material-dashboard.css">
+  <link id="pagestyle" href="assets/css/material-dashboard.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/app.css">
   <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
   <script src="assets/js/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
-<body>
-  <div class="container z-index-sticky top-0 mb-5">
-    <div class="row">
-      <div class="col-12">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 bg-dark shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
-          <div class="container-fluid ps-2 pe-0">
-            <a href="index"><img class="me-3" src="Images/unibooks copy.png" alt="" width="50"></a>
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3" href="index" target="_blank">
-              <h4>Unibooks</h4>
-            </a>
-            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon mt-2">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navigation">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="index">
-                    <i class="fa-solid fa-house text-dark me-1"></i>
-                    Home
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link title d-flex align-items-center me-2 active" aria-current="page" href="./about_us">
-                    <i class="fa-solid fa-users text-dark me-1"></i>
-                    About Us
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-2 title" href="./Signin">
-                    <i class="fa-solid fa-arrow-right-to-bracket opacity-6 text-dark me-1"></i>
-                    Login
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+<body class="bg-light">
+  <?php include "header_app.php"; ?>
+
+  <main class="container py-5">
+    <div class="auth-card" style="max-width: 700px;">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-dark">Join Unibooks</h2>
+        <p class="text-muted">Access thousands of academic resources</p>
       </div>
-    </div>
-  </div>
-  </nav>
-  <!-- End Navbar -->
 
-  <div class="container form-control px-2">
-    <div class="card mt-5 bg-light">
-      <div class="card-body">
-        <div class="text-center">
-          <h3>Create a Unibooks Account</h3>
+      <?php echo ErrorMessage();
+      echo SuccessMessage(); ?>
+
+      <form action="signup.app.php" method="POST">
+        <!-- Step 1: Personal Information -->
+        <div id="step1">
+          <h5 class="fw-bold mb-4">Personal Details</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label text-sm fw-bold">First Name</label>
+              <input type="text" class="form-control" name="firstname" placeholder="John" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label text-sm fw-bold">Last Name</label>
+              <input type="text" class="form-control" name="lastname" placeholder="Doe" required>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label text-sm fw-bold">Username</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light border-end-0 rounded-start-12" style="border: 2px solid #f1f5f9;">@</span>
+                <input type="text" name="username" class="form-control" placeholder="johndoe" required>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label class="form-label text-sm fw-bold">Email Address</label>
+              <input type="email" class="form-control" name="email" placeholder="john@university.edu" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label text-sm fw-bold">Phone Number</label>
+              <input type="tel" class="form-control" name="phone" placeholder="08012345678" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label text-sm fw-bold">Date of Birth</label>
+              <input type="date" class="form-control" name="dob" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label text-sm fw-bold">Gender</label>
+              <select class="form-select" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+
+            <div class="col-12 mt-4">
+              <button type="button" class="btn btn-primary w-100 py-3 rounded-pill shadow-primary fw-bold" onclick="nextStep()">Next: Academic Details</button>
+            </div>
+          </div>
         </div>
-        <?php echo ErrorMessage();
-        echo SuccessMessage(); ?>
 
-        <form action="signup.app.php" method="POST">
-          <div class="row">
-            <div class="first col-6">
-              <label for="">Firstname</label>
-              <input style="border: 2px solid grey;" type="text" class="form-control ps-4" name="firstname" placeholder="First name">
-            </div>
-            <div class="last col-6">
-              <label for="">Lastname</label>
-              <input style="border: 2px solid grey;" type="text" class="form-control ps-4" name="lastname" placeholder="Last name">
-            </div>
-          </div>
-
-          <div class="user">
-            <label>Username</label>
-            <input style="border: 2px solid grey;" type="text" name="username" placeholder="Username" class="form-control ps-4">
-            <span class="invalid-feedback"><?php echo $username_err; ?></span>
-          </div>
-
-          <div class="email">
-            <label for="">Email</label>
-            <input style="border: 2px solid grey;" type="email" class="form-control ps-4" name="email" placeholder="Enter Valid email" required>
-          </div>
-
-          <div class="row">
-            <div class="phone col-6">
-              <label for="">Phone No</label>
-              <input style="border: 2px solid grey;" type="tel" class="form-control ps-4" name="phone" placeholder="Phone e.g., 080874456644" required>
-            </div>
-            <div class="level col-6">
-              <label for="">Level</label>
-              <select class="form-select form-select-md" name="levell" aria-label=".form-select-mg example">
-                <option>Current Level</option>
+        <!-- Step 2: Academic & Security -->
+        <div id="step2" style="display: none;">
+          <h5 class="fw-bold mb-4">Academic & Security</h5>
+          <div class="row g-3">
+            <div class="col-md-12">
+              <label class="form-label text-sm fw-bold">Current Level</label>
+              <select class="form-select" name="levell" required>
+                <option value="">Select Level</option>
                 <option value="100">100L</option>
                 <option value="200">200L</option>
                 <option value="300">300L</option>
@@ -135,89 +119,134 @@ $courses = fetchData($conn, 'Course');
                 <option value="500">500L</option>
               </select>
             </div>
-          </div>
 
-          <div class="School mt-3">
-            <select class="select2 typeahead form-select form-select-md" name="university" style="width: 100%;" data-typeahead-source='<?php echo json_encode($universities); ?>'>
-              <option value="">Select University</option>
-              <?php foreach ($universities as $university) {
-                echo "<option value='$university'>$university</option>";
-              } ?>
-            </select>
-          </div>
-
-          <div class="mt-3">
-            <select class="select2 typeahead form-select form-select-md" name="faculty" style="width: 100%;" data-typeahead-source='<?php echo json_encode($faculties); ?>'>
-              <option value="">Select Faculty</option>
-              <?php foreach ($faculties as $faculty) {
-                echo "<option value='$faculty'>$faculty</option>";
-              } ?>
-            </select>
-          </div>
-
-          <div class="mt-3">
-            <select class="select2 typeahead form-select form-select-md" name="department" style="width: 100%;" data-typeahead-source='<?php echo json_encode($departments); ?>'>
-              <option value="">Select Department</option>
-              <?php foreach ($departments as $department) {
-                echo "<option value='$department'>$department</option>";
-              } ?>
-            </select>
-          </div>
-
-          <div class="mt-3">
-            <select class="select2 typeahead form-select form-select-md" name="course" style="width: 100%;" data-typeahead-source='<?php echo json_encode($courses); ?>'>
-              <option value="">Select Course</option>
-              <?php foreach ($courses as $course) {
-                echo "<option value='$course'>$course</option>";
-              } ?>
-            </select>
-          </div>
-
-          <div class="gender mt-4">Gender
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" value="male" id="gender">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Male
-              </label>
+            <div class="col-12">
+              <div class="mb-3">
+                <select class="select2 typeahead form-select w-100" name="university" data-typeahead-source='<?php echo json_encode($universities); ?>' required>
+                  <option value="">Select University</option>
+                  <?php foreach ($universities as $university): ?>
+                    <option value="<?php echo htmlspecialchars($university); ?>"><?php echo htmlspecialchars($university); ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="mb-3">
+                <select class="select2 typeahead form-select w-100" name="faculty" data-typeahead-source='<?php echo json_encode($faculties); ?>' required>
+                  <option value="">Select Faculty</option>
+                  <?php foreach ($faculties as $faculty): ?>
+                    <option value="<?php echo htmlspecialchars($faculty); ?>"><?php echo htmlspecialchars($faculty); ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="mb-3">
+                <select class="select2 typeahead form-select w-100" name="department" data-typeahead-source='<?php echo json_encode($departments); ?>' required>
+                  <option value="">Select Department</option>
+                  <?php foreach ($departments as $department): ?>
+                    <option value="<?php echo htmlspecialchars($department); ?>"><?php echo htmlspecialchars($department); ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
+              <div class="mb-3">
+                <select class="select2 typeahead form-select w-100" name="course" data-typeahead-source='<?php echo json_encode($courses); ?>' required>
+                  <option value="">Select Course</option>
+                  <?php foreach ($courses as $course): ?>
+                    <option value="<?php echo htmlspecialchars($course); ?>"><?php echo htmlspecialchars($course); ?></option>
+                  <?php endforeach; ?>
+                </select>
+              </div>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gender" value="female" id="gender" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
-                Female
-              </label>
-            </div>
-          </div>
 
-          <div class="password">
-            <label class="mt-3" for="">Create Password</label>
-            <input style="border: 2px solid grey;" type="password" class="form-control ps-4" name="password" placeholder="Create a password" required>
-          </div>
-          <div class="confirm">
-            <label for="">Confirm Your Password</label>
-            <input style="border: 2px solid grey;" type="password" class="form-control ps-4" name="repassword" placeholder="Confirm password" required>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <label for="">Date of birth</label>
-              <input style="border: 2px solid grey;" type="date" class="form-control ps-4" name="dob" required>
+            <div class="col-12">
+              <h6 class="fw-bold mb-3">Security</h6>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label text-sm fw-bold">Password</label>
+                  <input type="password" class="form-control" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-sm fw-bold">Confirm Password</label>
+                  <input type="password" class="form-control" name="repassword" placeholder="••••••••" required>
+                </div>
+              </div>
             </div>
-            <div class="referral col-6">
-              <label for=""></label>
-              <input style="border: 2px solid grey;" type="text" class="form-control ps-4" name="refer" placeholder="How did you hear about us?" required>
+
+            <div class="col-12">
+              <label class="form-label text-sm fw-bold">How did you hear about us?</label>
+              <input type="text" class="form-control" name="refer" placeholder="Social Media, Friend, etc.">
+            </div>
+
+            <div class="col-12 mt-4 d-flex gap-2">
+              <button type="button" class="btn btn-light flex-fill py-3 rounded-pill fw-bold" onclick="prevStep()">Back</button>
+              <button class="btn btn-primary flex-fill py-3 rounded-pill shadow-primary fw-bold" name="submit" type="submit">Complete Registration</button>
+            </div>
+
+            <div class="col-12 text-center">
+              <p class="text-xs text-muted">
+                By continuing, you agree to our <a href="terms_and_conditions" class="text-primary text-decoration-none fw-bold">Terms</a> and
+                <a href="privacy_policy" class="text-primary text-decoration-none fw-bold">Privacy Policy</a>.
+              </p>
             </div>
           </div>
-          <div class="mt-5">
-            <button class="btn btn-dark w-100" name="submit" type="submit">Sign Up</button>
-          </div>
-          <small class="text-center">By continuing you confirm that you agree to the <a href="terms_and_conditions"> terms and conditions</a> and confirm that you have read the <a href="#">privacy policy</a></small>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
-  </div>
 
-  <!-- footer -->
-  <?php include "footer.php" ?>
-  <!-- footer -->
+    <?php include "footer.php"; ?>
+  </main>
+
+  <?php include "bottom_nav_app.php"; ?>
+
+  <style>
+    .rounded-start-12 {
+      border-top-left-radius: 12px !important;
+      border-bottom-left-radius: 12px !important;
+    }
+
+    /* Fix Select2 Width */
+    .select2-container {
+      width: 100% !important;
+      display: block;
+    }
+
+    /* Style the main selection box to match form-control */
+    .select2-container--default .select2-selection--single {
+      background-color: #f8fafc;
+      border: 1px solid #ced4da;
+      /* standard bootstrap border color or match theme */
+      border-radius: 12px;
+      height: 48px;
+      /* Match form-control height */
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    /* Focus state */
+    .select2-container--default.select2-container--focus .select2-selection--single {
+      border-color: #86b7fe;
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    /* Arrow/Chevron alignment */
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+      height: 46px;
+      top: 1px;
+      right: 10px;
+    }
+
+    /* Render rendered text formatting */
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+      line-height: 46px;
+      color: #344767;
+      /* Match text color */
+      padding-left: 0;
+    }
+
+    /* If search field exists inside dropdown */
+    .select2-search--dropdown .select2-search__field {
+      border-radius: 8px;
+    }
+  </style>
 
   <script src="https://kit.fontawesome.com/3252b22438.js" crossorigin="anonymous"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -246,6 +275,29 @@ $courses = fetchData($conn, 'Course');
         });
       });
     });
+
+    function nextStep() {
+      // Simple client-side validation for step 1
+      var step1Inputs = document.querySelectorAll('#step1 input[required], #step1 select[required]');
+      var isValid = true;
+
+      step1Inputs.forEach(function(input) {
+        if (!input.checkValidity()) {
+          isValid = false;
+          input.reportValidity();
+        }
+      });
+
+      if (isValid) {
+        document.getElementById('step1').style.display = 'none';
+        document.getElementById('step2').style.display = 'block';
+      }
+    }
+
+    function prevStep() {
+      document.getElementById('step2').style.display = 'none';
+      document.getElementById('step1').style.display = 'block';
+    }
   </script>
 </body>
 

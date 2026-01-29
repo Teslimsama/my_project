@@ -11,65 +11,51 @@ if (!isset($_GET['code']) or !isset($_GET['email'])) {
 
 <head>
   <?php include "meta.php" ?>
-  <title>
-    Reset Password || Unibooks
-  </title>
-  <!--     Fonts and icons     -->
+  <title>Reset Password || Unibooks</title>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-  <!-- Nucleo Icons -->
   <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-  <link href="assets/css/content.css" rel="stylesheet" />
-  <link href="assets/css/signin.css" rel="stylesheet" />
-
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet">
-  <!-- <link id="pagestyle" href="assets/css/profile.css" rel="stylesheet" > -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9952650109664010" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="https://kit.fontawesome.com/e9de02addb.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="bg-light">
+  <?php include "header_app.php"; ?>
 
-  <div class="container  mt-5 col-lg-12 form-control ">
-    <div class="card mt-5  form-signin">
-      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-          <h4 class="text-white text-center text-capitalize ps-3">Reset Password</h4>
-
-        </div>
-        <div class="card-body  ">
-          <form class="login-form" action="password_new.php?code=<?php echo $_GET['code']; ?>&email=<?php echo $_GET['email']; ?>" method="post">
-            <div class="form-floating m-3">
-              <input style="border: solid grey 1px;" type="password" class="form-control ps-2" id="floatingInput" name="password" placeholder="123456">
-              <label for="floatingInput">Password</label>
-            </div>
-            <div class="form-floating m-3">
-              <input style="border: solid grey 1px;" type="password" class="form-control ps-2" id="floatingInput" name="repassword" placeholder="123456">
-              <label for="floatingInput">Confirm Password</label>
-            </div>
-
-            <div class="text-center row">
-              <div class="col-12">
-                <input type="submit" value="Next" name="reset" class="btn w-80 btn-dark ">
-              </div>
-              <div class="col-12">
-                <a class="btn btn-dark w-80 " href="Signin">Cancel</a>
-              </div>
-            </div>
-          </form>
-
-        </div>
+  <main class="container py-5">
+    <div class="auth-card" style="max-width: 500px; margin: 0 auto;">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold text-dark">Create New Password</h2>
+        <p class="text-muted">Enter your new password below</p>
       </div>
+
+      <form action="password_new.php?code=<?php echo htmlspecialchars($_GET['code']); ?>&email=<?php echo htmlspecialchars($_GET['email']); ?>" method="post">
+        <div class="mb-4">
+          <label class="form-label text-sm fw-bold">New Password</label>
+          <input type="password" class="form-control" name="password" placeholder="••••••••" required>
+        </div>
+        <div class="mb-4">
+          <label class="form-label text-sm fw-bold">Confirm New Password</label>
+          <input type="password" class="form-control" name="repassword" placeholder="••••••••" required>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" value="Next" name="reset" class="btn btn-primary py-3 rounded-pill shadow-primary fw-bold">Reset Password</button>
+          <a href="Signin" class="btn btn-light py-3 rounded-pill fw-bold">Cancel</a>
+        </div>
+      </form>
     </div>
 
-
-
     <?php include "footer.php" ?>
+  </main>
 
+  <?php include "bottom_nav_app.php"; ?>
+  <?php include "plugin.php" ?>
+
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
 </body>
 
 </html>

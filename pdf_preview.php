@@ -11,19 +11,41 @@ if (isset($_GET['id'])) {
     $row = $statement->fetch(PDO::FETCH_ASSOC);
 
     if ($row) {
-        $pdfPath =
-        __DIR__ . '/unibooks_download/' .$row['productlink']; // Make sure this field contains the correct path to the PDF file
-        $pdf = new Pdf($pdfPath);
+        $pdfFile = trim($row['productlink']);
+        $pdfPath = __DIR__ . DIRECTORY_SEPARATOR . 'unibooks_download' . DIRECTORY_SEPARATOR . $pdfFile;
 
-        $totalPages = $pdf->getNumberOfPages();
-        $images = [];
+        // Create temp directory if it doesn't exist
+        if (!file_exists('temp')) {
+            mkdir('temp', 0777, true);
+        }
 
-        for ($i = 1; $i <= $totalPages; $i++) {
-            $image = $pdf->setPage($i)->saveImage("temp/{$row['id']}_page_{$i}.jpg");
-            $images[] = "temp/{$row['id']}_page_{$i}.jpg";
+        if (file_exists($pdfPath) && !empty($pdfFile)) {
+            try {
+                $pdf = new Pdf($pdfPath);
+                $totalPages = $pdf->getNumberOfPages();
+                $images = [];
+
+                // Limit preview to first few pages for performance and security
+                $previewLimit = min($totalPages, 5);
+
+                for ($i = 1; $i <= $previewLimit; $i++) {
+                    $tempImagePath = "temp/{$row['id']}_page_{$i}.jpg";
+                    $pdf->setPage($i)->saveImage($tempImagePath);
+                    $images[] = $tempImagePath;
+                }
+            } catch (Exception $e) {
+                $error_msg = "Error processing PDF: " . $e->getMessage();
+            }
+        } else {
+            $error_msg = "PDF file not found at: " . $pdfPath;
         }
     } else {
-        echo "PDF not found.";
+        $error_msg = "Book record not found in database.";
+    }
+
+    if (isset($error_msg)) {
+        echo "<div class='alert alert-danger'>$error_msg</div>";
+        echo "<a href='description_page.php?id=" . htmlspecialchars($_GET['id']) . "' class='btn btn-primary'>Back</a>";
         exit;
     }
 } else {

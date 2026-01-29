@@ -56,12 +56,12 @@ if (isset($_POST['submit'])) {
 
         // Generate a unique code
         $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        // $code = substr(str_shuffle($set), 0, 12);
+        $code = substr(str_shuffle($set), 0, 12);
         $activate_code = substr(str_shuffle($set), 0, 12);
 
         try {
             // Insert new user into the database
-            $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender, dob, phone, level, activate_code, date, reference, school, faculty, department, course) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level,  :activate_code, :date, :reference, :school, :faculty, :department, :course)");
+            $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender, dob, phone, level, activate_code, date, reference, school, faculty, department, course, type, code) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level,  :activate_code, :date, :reference, :school, :faculty, :department, :course, :type, :code)");
             $stmt->execute([
                 'email' => $email,
                 'password' => $hashedPassword,
@@ -77,7 +77,9 @@ if (isset($_POST['submit'])) {
                 'school' => $university,
                 'faculty' => $faculty,
                 'department' => $department,
-                'course' => $course
+                'course' => $course,
+                'type' => 0, // Default user type
+                'code' => $code
             ]);
             $userid = $conn->lastInsertId();
 

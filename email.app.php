@@ -1,48 +1,41 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
-$currDir = dirname(__FILE__);
-require $currDir . '/PHPMailer/src/Exception.php';
-require $currDir . '/PHPMailer/src/PHPMailer.php';
-require $currDir . '/PHPMailer/src/SMTP.php';
-require $currDir . '/PHPMailer/src/POP3.php';
-$mail = new PHPMailer(true);
-  try {
-        //Server settings
-        $mail->SMTPDebug = 2;                                       // Enable verbose debug output
-        $mail->isSMTP();                                            // Set mailer to use SMTP
-        $mail->Host       = 'mail.unibooks.com.ng';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'noreply@unibooks.com.ng';                     // SMTP username
-        $mail->Password   = 'UcLLZH7My3v&';                               // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;                                  // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
-        $mail->Port       = 465;                                    // TCP port to connect to
+/**
+ * Password Reset Email Sender
+ * This file sends password reset emails using the centralized email helper
+ * 
+ * Required variables before including this file:
+ * - $email: Recipient email address
+ * - $row: Array containing user data (firstname, lastname, id)
+ * - $code: Password reset code
+ */
 
-        //Recipients
-        $mail->setFrom('noreply@unibooks.com.ng', 'Unibooks');
-        $mail->addAddress($email, $row['firstname'] .' '.$row['lastname']);     // Add a recipient
-        $mail->addAddress($email,$row['firstname'] .' '.$row['lastname']);               // Name is optional
-        $mail->addReplyTo('support@unibooks.com.ng');
-        // $mail->addCC('noreply@unibooks.com.ng');
-        // $mail->addBCC('noreply@unibooks.com.ng');
+// Include session and email helper
+require_once __DIR__ . '/session.php';
+require_once __DIR__ . '/email_helper.php';
 
-        // Attachments
-        // $mail->addAttachment($currDir . '/faq.php');         // Add attachments
-        // $mail->addAttachment($currDir . '/Images/bruce-mars.jpg');    // Optional name
+// Validate required variables
+if (!isset($email) || !isset($row) || !isset($code)) {
+  $_SESSION['error'] = 'Missing required data for sending email';
+  exit();
+}
 
-        // Content
-        $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Reset Password Link';
-        $mail->Body    = $message;
-        // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+// Check if email is configured
+if (!isEmailConfigured()) {
+  $_SESSION['error'] = 'Email service is not configured. Please contact the administrator.';
+  exit();
+}
 
-        $mail->send();
-          $_SESSION['success'] = 'Password reset link sent';
-    
-      } catch (Exception $e) {
-        $_SESSION['error'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+// Send password reset email using helper function
+$result = sendPasswordResetEmail(
+  $email,
+  $row['firstname'] ?? '',
+  $row['lastname'] ?? '',
+  $code
+);
 
-        
-      }
-    
+if ($result['success']) {
+  $_SESSION['success'] = 'Password reset link has been sent to your email.';
+} else {
+  $_SESSION['error'] = $result['message'];
+}

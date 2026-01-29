@@ -31,6 +31,14 @@ if (!isset($_GET['code']) or !isset($_GET['email'])) {
         <p class="text-muted">Enter your new password below</p>
       </div>
 
+      <!-- Display error and success messages -->
+      <div class="mb-3">
+        <?php
+        echo ErrorMessage();
+        echo SuccessMessage();
+        ?>
+      </div>
+
       <form action="password_new.php?code=<?php echo htmlspecialchars($_GET['code']); ?>&email=<?php echo htmlspecialchars($_GET['email']); ?>" method="post">
         <div class="mb-4">
           <label class="form-label text-sm fw-bold">New Password</label>

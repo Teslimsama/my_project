@@ -15,6 +15,7 @@ if (isset($_POST['reset'])) {
 	if ($password != $repassword) {
 		$_SESSION['error'] = 'Passwords did not match';
 		header('location: ' . $path);
+		exit();
 	} else {
 		$conn = $pdo->open();
 
@@ -31,13 +32,16 @@ if (isset($_POST['reset'])) {
 
 				$_SESSION['success'] = 'Password successfully reset';
 				header('location: Signin');
+				exit();
 			} catch (PDOException $e) {
 				$_SESSION['error'] = $e->getMessage();
 				header('location: ' . $path);
+				exit();
 			}
 		} else {
-			$_SESSION['error'] = 'Code did not match with user';
+			$_SESSION['error'] = 'Invalid or expired reset link';
 			header('location: ' . $path);
+			exit();
 		}
 
 		$pdo->close();
@@ -45,4 +49,5 @@ if (isset($_POST['reset'])) {
 } else {
 	$_SESSION['error'] = 'Input new password first';
 	header('location: ' . $path);
+	exit();
 }

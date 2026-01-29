@@ -1,48 +1,51 @@
-<?php if (!defined('PREPEND_PATH')) define('PREPEND_PATH', '../'); ?>
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;	
-// dirname(__FILE__);   
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
-require 'PHPMailer/src/POP3.php';
- 
-// Instantiation and passing [ICODE]true[/ICODE] enables exceptions
-$mail = new PHPMailer(true);
- 
-try {
-    //Server settings
-    $mail->SMTPDebug = 2;                                       // Enable verbose debug output
-    $mail->isSMTP();                                            // Set mailer to use SMTP
-    $mail->Host       = 'smtp.unibooks.com.ng';  // Specify main and backup SMTP servers
-    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'info@unibooks.com.ng';                     // SMTP username
-    $mail->Password   = 'xxxxxxx';                               // SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;                                  // Enable TLS encryption, [ICODE]ssl[/ICODE] also accepted
-    $mail->Port       = 465;                                    // TCP port to connect to
- 
-    //Recipients
-    $mail->setFrom('info@unibooks.com.ng', 'Mailer');
-    $mail->addAddress('bolajiteslim07@gmail.com', 'Joe User');     // Add a recipient
-    $mail->addAddress('bolajiteslim07@gmail.com');               // Name is optional
-    $mail->addReplyTo('info@unibooks.com.ng', 'Information');
-    // $mail->addCC('info@unibooks.com.ng');
-    // $mail->addBCC('info@unibooks.com.ng');
- 
-    // Attachments
-    $mail->addAttachment('./faq.php');         // Add attachments
-    $mail->addAttachment('./Images/bruce-mars.jpg');    // Optional name
- 
-    // Content
-    $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
- 
-    $mail->send();
-    echo 'Message has been sent';
- 
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+
+/**
+ * EMAIL TEST FILE - FOR DEVELOPMENT ONLY
+ * 
+ * This file is used to test email functionality.
+ * It should NOT be used in production.
+ * 
+ * To test emails, use the centralized email_helper.php instead.
+ * 
+ * Example usage:
+ * 
+ * require_once 'email_helper.php';
+ * 
+ * $result = sendEmail(
+ *     'test@example.com',
+ *     'Test Subject',
+ *     '<h1>Test Email</h1><p>This is a test email.</p>',
+ *     'Test User'
+ * );
+ * 
+ * if ($result['success']) {
+ *     echo 'Email sent successfully!';
+ * } else {
+ *     echo 'Error: ' . $result['message'];
+ * }
+ */
+
+require_once __DIR__ . '/email_helper.php';
+
+// Check if email is configured
+if (!isEmailConfigured()) {
+    die('Email is not configured. Please update your .env file with SMTP credentials.');
+}
+
+// Test email sending
+$result = sendEmail(
+    'bolajiteslim07@gmail.com', // Change this to your test email
+    'Test Email from Unibooks',
+    '<h2>Email Test</h2><p>This is a test email from the Unibooks application.</p><p>If you received this, your email configuration is working correctly!</p>',
+    'Test User'
+);
+
+if ($result['success']) {
+    echo '<h1 style="color: green;">✓ Email sent successfully!</h1>';
+    echo '<p>Check your inbox at bolajiteslim07@gmail.com</p>';
+} else {
+    echo '<h1 style="color: red;">✗ Email failed to send</h1>';
+    echo '<p>Error: ' . htmlspecialchars($result['message']) . '</p>';
+    echo '<p>Please check your .env file configuration.</p>';
 }

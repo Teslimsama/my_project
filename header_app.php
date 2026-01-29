@@ -17,6 +17,10 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
     <div class="d-flex align-items-center">
         <?php if (isset($_SESSION['user'])): ?>
+            <!-- Dark Mode Toggle -->
+            <div class="form-check form-switch me-3 mb-0">
+                <input class="form-check-input" type="checkbox" id="dark-mode-toggle" onchange="darkMode(this)" title="Toggle Dark Mode">
+            </div>
             <!-- Navigation Menu Dropdown -->
             <div class="dropdown me-3 d-none d-md-block">
                 <a href="#" class="text-dark" id="navMenuDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Menu">

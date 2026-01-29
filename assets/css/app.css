@@ -286,3 +286,21 @@ body {
 	border-color: var(--primary);
 	box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
+
+/* Dark Mode Toggle */
+#dark-mode-toggle {
+	cursor: pointer;
+	width: 48px;
+	height: 24px;
+	background-color: #e2e8f0;
+	border: none;
+	transition: background-color 0.3s ease;
+}
+
+#dark-mode-toggle:checked {
+	background-color: var(--primary);
+}
+
+#dark-mode-toggle:focus {
+	box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}

@@ -1,4 +1,12 @@
-<?php include "session.php";
+<?php
+include "session.php";
+
+// Redirect to login if not authenticated
+if (!isset($_SESSION['user'])) {
+  header('location: Signin');
+  exit();
+}
+
 // Function to fetch data from the database
 function fetchData($conn, $columnName)
 {

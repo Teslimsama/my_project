@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
 
         try {
             // Insert new user into the database
-            $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender, dob, phone, level, activate_code, date, reference, school, faculty, department, course, type, code) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level,  :activate_code, :date, :reference, :school, :faculty, :department, :course, :type, :code)");
+            $stmt = $conn->prepare("INSERT INTO unibooker (email, password, firstname, lastname, gender, dob, phone, level, activate_code, date, reference, school, faculty, department, course, type, code, status) VALUES (:email, :password, :firstname, :lastname, :gender, :dob, :phone, :level,  :activate_code, :date, :reference, :school, :faculty, :department, :course, :type, :code, :status)");
             $stmt->execute([
                 'email' => $email,
                 'password' => $hashedPassword,
@@ -79,7 +79,8 @@ if (isset($_POST['submit'])) {
                 'department' => $department,
                 'course' => $course,
                 'type' => 0, // Default user type
-                'code' => $code
+                'code' => $code,
+                'status' => 0 // Default inactive status
             ]);
             $userid = $conn->lastInsertId();
 

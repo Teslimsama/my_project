@@ -86,19 +86,60 @@ if (isset($_POST['submit'])) {
 
             // Send activation email
             $message = "
-                <h2>Thank you for Registering.</h2>
-                <p>Your Account:</p>
-                <p>Email: " . $email . "</p>
-                <p>Password: " . $_POST['password'] . "</p>
-                <p>Please click the link below to activate your account.</p>
-                <a href='http://localhost/my_project/activate.php?code=" . $activate_code . "&user=" . $userid . "'>Activate Account</a>
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <style>
+                    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+                    .container { max-width: 600px; margin: 30px auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+                    .header { background-color: #6366f1; padding: 20px; text-align: center; }
+                    .header img { max-height: 50px; }
+                    .content { padding: 30px; color: #333333; line-height: 1.6; }
+                    .h1 { color: #1e293b; font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+                    .info-box { background-color: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0; margin: 20px 0; }
+                    .btn-container { text-align: center; margin: 30px 0; }
+                    .btn { background-color: #6366f1; color: #ffffff !important; text-decoration: none; padding: 12px 30px; border-radius: 50px; font-weight: bold; display: inline-block; font-size: 16px; }
+                    .footer { background-color: #1e293b; color: #94a3b8; text-align: center; padding: 20px; font-size: 12px; }
+                </style>
+            </head>
+            <body>
+                <div class='container'>
+                    <div class='header'>
+                        <!-- Replace with actual hosted logo URL if available, otherwise alt text shows -->
+                        <h2 style='color: white; margin: 0;'>Unibooks</h2>
+                    </div>
+                    <div class='content'>
+                        <div class='h1'>Welcome, " . $firstname . "!</div>
+                        <p>Thank you for joining Unibooks. We are excited to have you on board.</p>
+                        
+                        <div class='info-box'>
+                            <strong>Your Account Details:</strong><br>
+                            Email: " . $email . "<br>
+                            Password: " . $_POST['password'] . "
+                        </div>
+
+                        <p>Please confirm your email address to activate your account and start exploring.</p>
+
+                        <div class='btn-container'>
+                            <a href='http://localhost/my_project/activate.php?code=" . $activate_code . "&user=" . $userid . "' class='btn'>Activate My Account</a>
+                        </div>
+                        
+                        <p style='font-size: 13px; color: #666;'>If the button above does not work, paste this link into your browser:<br>
+                        http://localhost/my_project/activate.php?code=" . $activate_code . "&user=" . $userid . "</p>
+                    </div>
+                    <div class='footer'>
+                        &copy; " . date('Y') . " Unibooks. All rights reserved.
+                    </div>
+                </div>
+            </body>
+            </html>
             ";
 
             $to = $email;
-            $subject = "Account Activation";
+            $subject = "Action Required: Activate your Unibooks Account";
             $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-Type: text/html; charset=ISO-8859-1" . "\r\n";
-            $headers .= "From: Unibooks.com.ng";
+            $headers .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
+            $headers .= "From: Unibooks <no-reply@unibooks.com.ng>" . "\r\n";
 
             if (mail($to, $subject, $message, $headers)) {
                 unset($_SESSION['firstname']);

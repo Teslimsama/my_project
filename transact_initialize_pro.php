@@ -36,7 +36,7 @@ $first_name = $user['firstname'] ;
 $last_name=$user['lastname'];
 $phone = $user['phone'];
 $amount = $row['product_price'] * 100; // Convert to kobo
-$callback_url = "http://localhost/Online/fm-selection-2025585_07-30-15\public_html/transact_verify_pro.php"; // Replace with your callback URL
+$callback_url = "http://localhost/my_project\public_html/transact_verify_pro.php"; // Replace with your callback URL
 // $callback_url = "https://unibooks.com.ng/transact_verify_pro.php"; // Replace with your callback URL
 
 $curl = curl_init();

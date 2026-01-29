@@ -209,7 +209,7 @@ $courses = fetchData($conn, 'Course');
           <div class="mt-5">
             <button class="btn btn-dark w-100" name="submit" type="submit">Sign Up</button>
           </div>
-          <small class="text-center">By continuing you confirm that you agree to the terms of use and confirm that you have read the <a href="#">privacy policy</a></small>
+          <small class="text-center">By continuing you confirm that you agree to the <a href="terms_and_conditions"> terms and conditions</a> and confirm that you have read the <a href="#">privacy policy</a></small>
         </form>
       </div>
     </div>

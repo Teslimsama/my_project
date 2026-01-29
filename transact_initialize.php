@@ -35,7 +35,7 @@ $first_name = $_POST['firstname'] ;
 $last_name=$_POST['lastname'];
 $phone = $_POST['phone'];
 $amount = $_POST['amount'] * 100; // Convert to kobo
-$callback_url = "http://localhost/Online/fm-selection-2025585_07-30-15\public_html/transact_verify.php"; // Replace with your callback URL
+$callback_url = "http://localhost/my_project\public_html/transact_verify.php"; // Replace with your callback URL
 // $callback_url = "https://unibooks.com.ng/transact_verify_pro.php"; // Replace with your callback URL
 
 $curl = curl_init();

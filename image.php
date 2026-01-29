@@ -20,7 +20,7 @@ function createImage($outputPath, $width = 233, $height = 181)
     $font = __DIR__ . '/Elegante Classica.ttf'; // Ensure this path is correct and the font file exists
 
     // Define text and positions
-    $texts = ["VTAN303", "DAIRY AND", "PRODUCT", "PROCESSING"];
+    $texts = ["VTAN303tes", "DAIRY AND", "PRODUCT", "PROCESSING"];
     $fontSize = 16; // Adjust font size as necessary
 
     // Calculate positions dynamically based on the dimensions of the image

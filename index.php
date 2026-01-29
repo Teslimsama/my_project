@@ -62,6 +62,8 @@ include "session.php";
       </div>
     </nav>
     <main>
+      <input type="text" id="search_box" onkeyup="load_data(this.value)" placeholder="Search...">
+
       <form action="" method="POST">
 
         <div class="doe" id="post_data"></div>
@@ -73,7 +75,7 @@ include "session.php";
       <?php include "footer.php" ?>
     </main>
     <?php include "plugin.php" ?>
-    <script>
+    <!-- <script>
       load_data();
 
       function load_data(query = "", page_number = 1) {
@@ -127,7 +129,57 @@ include "session.php";
           }
         };
       }
+    </script> -->
+
+    <script>
+      load_data();
+
+      function load_data(query = "", page_number = 1) {
+        var form_data = new FormData();
+        form_data.append("query", query);
+        form_data.append("page", page_number);
+
+        var ajax_request = new XMLHttpRequest();
+        ajax_request.open("POST", "process_data.php");
+        ajax_request.send(form_data);
+
+        ajax_request.onreadystatechange = function() {
+          if (ajax_request.readyState == 4 && ajax_request.status == 200) {
+            var response = JSON.parse(ajax_request.responseText);
+
+            var html = "";
+            var serial_no = 1;
+
+            if (response.data.length > 0) {
+              for (var count = 0; count < response.data.length; count++) {
+                html += `
+                        <div class='pic card bg-gradient-light mt-3'>
+                            <img class='' src='assets/Images/` + response.data[count].image + `' height='' alt='` + response.data[count].name + `' style='width: 100%;'>
+                            <input type='hidden' name= '` + response.data[count].id + `'>
+                            <a href='description_page?id=` + response.data[count].id + `&book=` + response.data[count].link + `'>
+                                <div class='container name '>
+                                    <h6>` + response.data[count].name + `</h6>
+                                </div>
+                            </a>
+                        </div>`;
+                serial_no++;
+              }
+            } else {
+              html += '<h3 class="text-center">No Data Found</h3>';
+            }
+
+            document.getElementById("post_data").innerHTML = html;
+            document.getElementById("pagination_link").innerHTML = response.pagination;
+          }
+        }
+      }
+
+      // Attach the keyup event listener to the search box
+      document.getElementById('search_box').addEventListener('keyup', function() {
+        load_data(this.value);
+      });
     </script>
+
     <script>
       var win = navigator.platform.indexOf('Win') > -1;
       if (win && document.querySelector('#sidenav-scrollbar')) {

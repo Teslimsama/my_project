@@ -49,11 +49,11 @@
                   <?php
                   $student_id = $user['id'];
                   try {
-                    // Join with products table to get book title
+                    // Join with producttb table to get book title
                     $stmt = $conn->prepare("
-                      SELECT d.*, p.title as book_title, p.id as product_id 
+                      SELECT d.*, p.product_name as book_title, p.id as product_id 
                       FROM downloads d 
-                      LEFT JOIN products p ON d.book_id = p.id 
+                      LEFT JOIN producttb p ON d.book_id = p.id 
                       WHERE d.customerid=? 
                       ORDER BY d.id DESC
                     ");

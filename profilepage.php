@@ -50,6 +50,9 @@ if (!isset($_SESSION['user'])) {
           </div>
           <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
             <div class="nav-wrapper position-relative end-0 text-end">
+              <a href="books_add" class="btn btn-primary btn-sm mb-0 rounded-pill me-2">
+                <i class="fas fa-plus me-2"></i>Add Books
+              </a>
               <a href="update_details" class="btn btn-outline-primary btn-sm mb-0 rounded-pill">
                 <i class="fas fa-user-edit me-2"></i>Edit Profile
               </a>

@@ -17,6 +17,19 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
     <div class="d-flex align-items-center">
         <?php if (isset($_SESSION['user'])): ?>
+            <!-- Navigation Menu Dropdown -->
+            <div class="dropdown me-3 d-none d-md-block">
+                <a href="#" class="text-dark" id="navMenuDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Menu">
+                    <i class="fa-solid fa-bars fs-5"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navMenuDropdown">
+                    <li><a class="dropdown-item" href="index"><i class="fa fa-home me-2"></i>Library</a></li>
+                    <li><a class="dropdown-item" href="project"><i class="fa fa-book-open me-2"></i>Project</a></li>
+                    <li><a class="dropdown-item" href="downloads"><i class="fa fa-download me-2"></i>Downloads</a></li>
+                    <li><a class="dropdown-item" href="payments"><i class="fa fa-receipt me-2"></i>Payments</a></li>
+                    <li><a class="dropdown-item" href="books"><i class="fa fa-book me-2"></i>My Books</a></li>
+                </ul>
+            </div>
             <a href="profilepage" class="text-dark me-3" title="Profile"><i class="fa-regular fa-user fs-5"></i></a>
             <a href="logout" class="text-danger me-3" title="Logout"><i class="fa-solid fa-arrow-right-from-bracket fs-5"></i></a>
         <?php else: ?>

@@ -15,6 +15,10 @@ $current_page = basename($_SERVER['PHP_SELF'], ".php");
         <i class="fa-solid fa-download"></i>
         <span>Downloads</span>
     </a>
+    <a href="payments" class="nav-item <?php echo ($current_page == 'payments') ? 'active' : ''; ?>">
+        <i class="fa-solid fa-receipt"></i>
+        <span>Payments</span>
+    </a>
     <a href="profilepage" class="nav-item <?php echo ($current_page == 'profilepage') ? 'active' : ''; ?>">
         <i class="fa-solid fa-user"></i>
         <span>Profile</span>
